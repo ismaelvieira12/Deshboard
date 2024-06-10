@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&family=Inconsolata:wght@200..900&family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&family=Sarala:wght@400;700&display=swap');
+
+ *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+   
+    :root{
+        --cor1: #8ecae6;
+        --cor2: #219ebc;
+        --cor3: #023047;
+        --cor4: #ffb703;
+        --cor5: #fb8500;
+
+        /* Cores de letras */
+        --FontesTitles: #211018;
+        --FontesTiW:#fff;
+        /* Cores de HOVER */
+        --corHover: #7aacc4;
+
+        /* Gradient */
+        --gradiBlue: #88e7ff;
+        --gradiBlueB: #0b80bb;
+        --gradiYellow: #fdd570;
+        --gradiOrange: #fcbc74;
+    }
+
+    body{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: #d2d2d2;
+    }
+
+    header{
+        background-color: var(--FontesTiW);
+        padding: 10px 2%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+    .logo{
+        cursor: pointer;
+        font-family: "Open Sans", sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+    }
+    .logo:hover{
+        opacity: 0.7;
+    }
+    .infor-header{
+        display: flex;
+        color: var(--FontesTitles);
+        align-items: center;
+        justify-content: space-between;
+        width: 100px;
+    }
+
+    .infor-header .icons:hover{
+        opacity: 0.7;
+    }
+
+    .infor-header img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid var(--cor3);
+    }
+
+    .infor-header svg{
+        margin: 0 10px;
+        cursor: pointer;
+    }
+
+    header .incons{
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        cursor: pointer;
+    }
+    header .incons .menu{
+        display: none;
+    }
+
+    /* FIM DO HEADER */
+
+    /* MAIN */
+    .main{
+        display: flex;
+        height: 100%;
+        position: relative;
+    }
+    .login{
+        position: absolute;
+        width: 15%;
+        bottom: 40px;
+    }
+    .login label a{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    .login label a:hover{
+        background-color: var(--corHover);
+        border-left: 3px solid var(--cor3);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .sidebar{
+        background-color: var(--cor1);
+        width: 15%;
+        height: 100%;
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    .sidebar h3{
+        font-size: 100px;
+        color: var(--FontesTitles);
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-variation-settings:
+        "wdth" 100;
+    }
+
+    .sidebar h2{
+        font-weight: bold;
+        margin-bottom: 3rem;
+    }
+
+    .sidebar a{
+        display: block;
+        text-decoration: none;
+        padding: 10px 20px;
+        color: var(--FontesTitles);
+    }
+
+    .sidebar a i{
+        display: flex;
+        color: var(--FontesTitles);
+        justify-content: center;    
+    }
+
+    .sidebar label:hover{
+        background-color: var(--corHover);
+        border-left: 3px solid var(--cor3);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .menu label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Estilizando meu content */
+    .content{
+        width: 85%;
+        height: 100%;
+        background-color: #d2d2d2;
+    }
+    .container{
+        position: absolute;
+        width: 83%;
+        height: 90%;
+        margin-left: 1%;
+        margin-top: 1%;
+    }
+
+    /* Primeira parte do content */
+    .infor-desh{
+        display: flex;
+    }
+    .infor-desh div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 400px;
+        height: 100px;
+        background-color: var(--cor2);
+        margin: 5px;
+        border-radius: 8px;
+    }
+    .infor-desh div p{
+        margin: 15px;
+    }
+    .infor-desh div h2{
+        margin: 15px;
+        font-weight: 400;
+    }
+    .infor-desh div i{
+        margin-top: 8%;
+        margin-right: 15px;
+        font-size: 30px;
+    }
+    .infor-desh .infor1{
+        background-image:linear-gradient(to right, var(--cor2), var(--gradiBlue));
+    }
+    .infor-desh .infor2{
+        background-image:linear-gradient(to right, var(--cor3), var(--gradiBlueB));
+        color: var(--FontesTiW);
+    }
+    .infor-desh .infor3{
+        background-image:linear-gradient(to right, var(--cor4), var(--gradiYellow)) ;
+    }
+    .infor-desh .infor4{
+        background-image:linear-gradient(to right, var(--cor5), var(--gradiOrange)) ;
+    }
+    /*  Segunda Parte do content */
+    .infor-graphic{
+        display: flex;
+    }
+    .infor-graphic .graphic2 div{
+        background-color: var(--FontesTiW);
+        width: 385px;
+        height: 400px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+    .infor-graphic .graphic1{
+        background-color: var(--FontesTiW);
+        width: 788px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+    .graphic1 .g1{
+        width: 100%;
+        height: 100%;
+    }
+    .infor-graphic .graphic2{
+        display: flex;
+    }
+    /* .graphic2 .g2{
+        width: 300px;
+    } */
+    /* Terceira parte do content */
+    .information{
+    display: flex;
+    }
+    .information div{
+        background-color: var(--FontesTiW);
+        width: 810px;
+        height: 300px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+
+/* Para monitores grandes */
+@media(max-width: 1880){
+    .infor-graphic .graphic1{
+        width: 760px;
+    }
+    .infor-graphic .graphic2 div{
+        width: 385px;
+    }
+}
+
+    /* PARA MACBOOK */
+@media(max-width: 1280px){
+    .graphic1 .g1 {
+        width: 520px;
+        height: 260px;
+    }
+
+    .infor-graphic .graphic1 {
+        background-color: var(--FontesTiW);
+        width: 788px;
+        height: 250px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+    .infor-graphic .graphic2 div {
+        background-color: var(--FontesTiW);
+        width: 255px;
+        height: 250px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+    .infor-graphic .graphic2 div {
+        width: 202px;
+    }
+}
+@media (max-width: 1024px){
+    .infor-graphic .graphic1{
+        width: 415px;
+    }
+    .graphic1 .g1 {
+        width: 415px;
+    }
+}
+@media(max-width: 884px){
+    .sidebar{
+        display: none;
+    }
+    .content {
+        width: 99%;
+        height: 147%;
+        
+    }
+    .container {
+        position: absolute;
+        width: 97%;
+        height: 147%;
+        margin-left: 1%;
+        margin-top: 1%;
+        background-color: #d2d2d2;
+    }
+    .infor-graphic {
+        display: flex;
+        flex-direction: column;
+    }
+    .infor-graphic .graphic1 {
+        background-color: var(--FontesTiW);
+        width: 99%;
+        height: 250px;
+        border-radius: 8px;
+    }
+    .graphic1 .g1 {
+        width: 100%;
+        height: 100%;
+    }
+    .infor-graphic .graphic2 div {
+        background-color: var(--FontesTiW);
+        width: 100%;
+        height: 380px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+    .information div {
+        background-color: var(--FontesTiW);
+        width: 810px;
+        height: 454px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+}
+
+/* PARA TABLET mini IPAD */
+@media(max-width: 768px){
+
+    header .incons .menu{
+        display: block;
+    }
+    .sidebar{
+        display: none;
+    }
+
+    .main {
+        width: 100%;
+        height: 119%;
+        background-color: #d2d2d2;
+    }
+    .content {
+        width: 100%;
+        height: 210%;
+    }
+    .container{
+        position: absolute;
+        width: 98%;
+        height: 191vh;
+        margin-left: 1%;
+        margin-top: 1%;
+        background-color: #d2d2d2;
+    }
+    .infor-graphic {
+        display: flex;
+        flex-direction: column;
+    }   
+    .infor-graphic .graphic1 {
+        background-color: var(--FontesTiW);
+        width: 99%;
+        margin: 5px;
+        border-radius: 8px;
+    }
+
+    .graphic1.canvas{
+        display: block;
+        box-sizing: border-box;
+        height: 300px;
+        width: 740px;
+    }
+    .infor-graphic .graphic2{
+        display: flex;
+        flex-direction: column;
+        width: 99%;
+    }
+}
+
+@media(max-width: 576px){
+    header .incons .menu{
+        display: block;
+    }
+    .main {
+        width: 100%;
+        height: 100%;
+        background-color: #d2d2d2;
+    }
+    .sidebar{
+        display: none;
+    }
+
+    .main{
+        width: 100vw;
+        height: 100vh;
+        background-color: #d2d2d2;
+    }
+    .content {
+        width: 100vw;
+        height: 210%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 98%;
+        height: 210%;
+        margin-left: 1%;
+        margin-top: 1%;
+        background-color: #d2d2d2;
+    }
+    .infor-desh{
+        flex-direction: column;
+    }
+    .infor-desh div{
+        width: 97%;
+    }
+
+    .infor-graphic{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .infor-graphic div{
+        width: 99%;
+    }
+    .infor-graphic .graphic1{
+        width: 97%;
+    }
+    .infor-graphic .graphic2 div {
+        width: 97%;
+    }
+    .infor-graphic .graphic2 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .information div {
+        background-color: var(--FontesTiW);
+        width: 97%;
+        height: 200px;
+        margin: 5px;
+        border-radius: 8px;
+    }
+    .information{
+        display: flex;
+        flex-direction: column;
+    }
+}
+ 
+@media(max-width: 320){
+    header .incons .menu{
+        display: block;
+    }
+    .main {
+        width: 100%;
+        height: 100%;
+        background-color: #d2d2d2;
+    }
+    .sidebar{
+        display: none;
+    }
+
+    .content {
+        width: 100%;
+        height: 350%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 98%;
+        height: 210%;
+        margin-left: 1%;
+        margin-top: 1%;
+        background-color: #d2d2d2;
+    } 
+    .infor-graphic .graphic1 {
+        background-color: var(--FontesTiW);
+        width: 99%;
+        margin: 5px;
+        border-radius: 8px;
+    }
+}
+
+@media(width <= 162){
+    header{
+    display: none;
+   }
+}
