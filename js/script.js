@@ -156,7 +156,7 @@ function meses(ano2022){
 
          } ,
           borderWidth: 1,
-          backgroundColor: ['#023047'],
+          backgroundColor: ['#0b80bb'],
         }]
       },
       options: {
