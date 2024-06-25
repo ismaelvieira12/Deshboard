@@ -18,7 +18,23 @@ body{
     width: 5%;
     height: 100vh;
 }
+#expandir{
+    margin-right: 30px;
+    opacity: 0.7;
+    font-size: 15px;
+    animation: expandir 1s infinite;
+}
+@keyframes expandir {
+    from{
+        transform: rotate(180deg);
+    }
+    to{
+        transform: rotate(180deg);
+
+    }
+}
 .fixed-top { left: 7%;}
+
 .bg-body-tertiary{background-color: var(--corSize);}
 .cabeca{
     position: absolute;
@@ -40,11 +56,49 @@ body{
     align-items: center;
     gap: 50px;
 }
-.menu{
+.caixa-top{
+    border-bottom: 1px solid var(--corPurple);
+    text-align: center;
+}
+.logo-img{
+    margin-top: 50px;
+    padding-bottom: 20px;
+    width: 50px;
+    border: 2px solid var(--corBlue);
+    border-radius: 50%;
+}
+.menu label{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 100%;
+}
 
+.menu label i{
+    font-size: 20px;
+    color:var(--corPurple);
+    padding: 50%;
+    background-color: var(--corSize);
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover{
+        color: var(--corSize);
+        background-color: var(--corPurple);
+        transition: 0.5s;
+    }
 }
 .login{
-    position: fixed;
+    position: absolute;
     bottom: 50px;
     width: 100%;
+}
+.login a{
+    color: var(--corPurple);
+    &:hover{
+        color: var(--corSize);
+        background-color: var(--corPurple);
+        transition: 0.5s;
+    }
 }
