@@ -59,12 +59,12 @@ body{
 .caixa-top{
     border-bottom: 1px solid var(--corPurple);
     text-align: center;
+    padding-bottom: 20px;
 }
 .logo-img{
-    margin-top: 50px;
-    padding-bottom: 20px;
+    margin-top: 30px;
     width: 50px;
-    border: 2px solid var(--corBlue);
+    border: 2px solid var(--corPurple);
     border-radius: 50%;
 }
 .menu label{
@@ -101,4 +101,20 @@ body{
         background-color: var(--corPurple);
         transition: 0.5s;
     }
+}
+
+.container-text {
+    position: absolute;
+    width: 70%;
+    height: 600px;
+    z-index: 11;
+    display: flex;
+    top: 8%;
+    left: 7%;
+}
+.teste{
+    width: 400px;
+    height: 200px;
+    background-color: #52459E;
+    margin: 5px;
 }
