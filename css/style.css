@@ -46,15 +46,24 @@ body{
 
 .nav-left{
     background-color: var(--corBlue);
-    width: 70%;
+    width: 5%;
     height: 95%;
     margin: 30px 20px;
     border-radius: 30px;
-
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
+}
+.nav-rigth {
+    background-color: #fff;
+    border-radius: 8px;
+    position: fixed;
+    width: 21%;
+    height: 90%;
+    left: 78%;
+    top: 8%;
 }
 .caixa-top{
     border-bottom: 1px solid var(--corPurple);
@@ -83,6 +92,7 @@ body{
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
     &:hover{
         color: var(--corSize);
         background-color: var(--corPurple);
@@ -95,26 +105,37 @@ body{
     width: 100%;
 }
 .login a{
+    padding: 15px;
+    border-radius: 50%;
+    background-color: var(--corSize);
     color: var(--corPurple);
+    border: 2px solid var(--corPurple);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
     &:hover{
         color: var(--corSize);
         background-color: var(--corPurple);
         transition: 0.5s;
+        border: 2px solid #fff;
     }
 }
 
 .container-text {
     position: absolute;
     width: 70%;
-    height: 600px;
+    height: 100%;
     z-index: 11;
     display: flex;
     top: 8%;
     left: 7%;
 }
+.feed{
+    width: 100%;
+    height: 100px;
+}
 .teste{
-    width: 400px;
-    height: 200px;
-    background-color: #52459E;
-    margin: 5px;
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+    margin: 0 5px;
+    border-radius: 10px;
 }
