@@ -44,7 +44,7 @@ body{
     /* border-right: 1px solid var(--corSizeLigth); */
 }
 
-.nav-left{
+.nav-left {
     background-color: var(--corBlue);
     width: 5%;
     height: 95%;
@@ -54,7 +54,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
     box-shadow: 1px 1px 10px #8873ff7f;
 }
 .nav-rigth {
@@ -134,12 +134,21 @@ body{
     height: 100px;
 }
 .teste{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50%;
     width: 100%;
     height: 100px;
     background-color: #fff;
     margin: 0 5px;
     border-radius: 10px;
     box-shadow: 1px 1px 10px #ffffff87;
+}
+.teste i{
+  font-size: 30px;
+  color: var(--corPurple);
+  opacity: 0.5;
 }
 
 .container-graphic{
