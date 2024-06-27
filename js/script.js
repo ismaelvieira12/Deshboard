@@ -58,9 +58,10 @@
     }
 
 
-  function meses(ano2022, ano2023){
+  function meses(ano2022, ano2023, ano2024){
     console.log(ano2023);
     console.log(ano2022);
+    console.log(ano2024);
   //  let  valorAnual = '';
     // jan23.api[20].TOTAL+
     // jan23.api[0].TOTAL+
@@ -124,6 +125,25 @@
                 'Nov': ano2023.api[10].VALOR,
                 'Dez': ano2023.api[11].VALOR, 
               } ,
+          },
+          {
+            borderWidth: 2,
+            backgroundColor: ['#26A653'],
+            label: '2024',
+              data: {
+                'Jan': ano2024.api[0].VALOR, 
+                'Fer': ano2024.api[1].VALOR,
+                'Mar': ano2024.api[2].VALOR,
+                'Abr': ano2024.api[3].VALOR,
+                'Mai': ano2024.api[4].VALOR,
+                'Jun': ano2024.api[5].VALOR,
+                'Jul': ano2024.api[6].VALOR,
+                'Ago': ano2024.api[7].VALOR,
+                'Set': ano2024.api[8].VALOR,
+                'Out': ano2024.api[9].VALOR,
+                'Nov': ano2024.api[10].VALOR,
+                'Dez': ano2024.api[11].VALOR, 
+              } ,
           }
         ]
         },
@@ -134,19 +154,7 @@
             easing: 'easeOutBounce'
           },
           borderRadius: 3,
-          layout: {
-            padding: 20,
-          },
-          labels:{
-            position: 'left',
-          },
-          title:{
-            display:true,
-            text: 'Grafico ANUAL'
-          },
-          tooltip: {
-            enable: false,
-          }
+          
         },
     });
   }
@@ -166,8 +174,8 @@
     // const dez23 = await fetch('https://script.google.com/macros/s/AKfycbxzABAvDqLS_fYb3FF92y6TK8YgmmGxXxbwqEF70gTKYWNhhhFyXsxFysKxx6uX2yvA/exec').then(response => response.json());
     const ano2022 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=eru1BoZCMDOOEMhGBPrJjMU_LPFReYMzrFTKqf91hYWA-KOTSM_N4R6ZEC_Zlm9OeNTXmj3jg6ek3T6QQeIbQcqsWLi4DpPpm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFVXWXR0nSELR97zGgQBms-7dZnT2diY5rajuaka_Z0rKkB6hHYVkl7PctLAiJohTZfdx3kKMqce8bLhRpGbczYtqRaF3dzGGA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
     const ano2023 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=D0UnS-k2C2q72Uqqmw2Ltp8VYJvmgcbEyQT8DB4Fz2EOfEIHS1wbTmxe3B6QLrkFSR-KMATC9CDu6OEciJbU5GAY8Rct8AAom5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCKerEFGYu5RKo7_hwoyk64pIYAI3a4nI1PMwRI5ACjO_KqAHhAYqx9WyNYmiCxzABQOoFJIBY7SONyqn6HH6MceWczTUG0_rTrSCZ144_ckf23vXPw2sfA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
-
-    meses(ano2022, ano2023);
+    const ano2024 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=TpRtny9BCS06jfPrYdpzRRBGPTcg9gnIfaI6Ik3-brChEOTX9oXvhS05Hez0Y_o-f02PI4CY5GBYkVnd3c5zI0QM7toAmXKDm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnITRmA-SjkP81Hf1fql0XOdhb081W2uApJGJyyNDokJyZRJPOi0afyT7NYJqYuxTcV8kUIY-BrFve3SjpYHzAfderpqyuI2nDg&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json()); 
+    meses(ano2022, ano2023, ano2024);
   }
 
   //   const valorTotal = document.querySelector('#valueTotal');
