@@ -9,6 +9,7 @@
     --corSize: #F2F6FF;
     --corBlue: #C2D2F2;
     --corGreen: #26A653;
+    --corGreen: #39ff7fd6;
     --corPurple: #52459E;
 
     --corSizeLigth: #DEE1E6;
@@ -68,6 +69,12 @@ body{
     top: 8%;
     box-shadow: 1px 1px 10px #ffffff87;
 }
+.infor-metas{
+    background-color: #26A653;
+    border-radius: 8px;
+    width: 100%;
+    height: 50%;
+}
 .caixa-top{
     border-bottom: 1px solid var(--corPurple);
     text-align: center;
@@ -108,7 +115,7 @@ body{
     width: 100%;
 }
 .login a{
-    padding: 15px;
+    padding: 15px 18px;
     border-radius: 50%;
     background-color: var(--corSize);
     color: var(--corPurple);
@@ -119,6 +126,7 @@ body{
         background-color: var(--corPurple);
         transition: 0.5s;
         border: 2px solid #fff;
+        opacity: 0.5;
     }
 }
 
