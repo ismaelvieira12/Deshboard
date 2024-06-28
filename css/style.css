@@ -1,4 +1,4 @@
-
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 *{
     margin: 0;
     padding: 0;
@@ -9,7 +9,6 @@
     --corSize: #F2F6FF;
     --corBlue: #C2D2F2;
     --corGreen: #26A653;
-    --corGreen: #39ff7fd6;
     --corPurple: #52459E;
 
     --corSizeLigth: #DEE1E6;
@@ -168,10 +167,16 @@ body{
 }
 
 .graphic {
-    background-color: #fff;
     width: 70%;
     height: 100%;
     border-radius: 10px;
+    /* background-color: #fff; */
+    box-shadow: 1px 1px 10px #d3d7de;
+    
+    &:hover{
+        box-shadow: 1px 1px 10px #d3d7de;
+        cursor: pointer;
+    }
 }
 
 .graphic-second {
