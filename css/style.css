@@ -8,9 +8,9 @@
     --corBlueLigth:#85F2F2;
     --corSize: #F2F6FF;
     --corBlue: #C2D2F2;
-    --corGreen: #26A653;
-    --corPurple: #52459E;
-
+    --corGreen: #26a653;
+    --corPurple: #52459e;
+    --corGrafico: rgb(142, 202, 230);
     --corSizeLigth: #DEE1E6;
 }
 
@@ -55,7 +55,6 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
     box-shadow: 1px 1px 10px #8873ff7f;
 }
 .nav-rigth {
