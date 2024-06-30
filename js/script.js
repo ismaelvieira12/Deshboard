@@ -190,14 +190,16 @@ const graphicBar = document.getElementById('container');
       },  
       scales: {
         x:{
-          drawTicks: true,
           grid:{
-              display: false,
-            }
+            draw: false,
+            display: false,
+          }
         },
         y:{
-          
-            display: true
+          grid: {
+
+            display: false
+          }
           
         }
       }
