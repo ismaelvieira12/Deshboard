@@ -3,6 +3,9 @@ expandir.addEventListener('click', () => {
   navleft.classList.add('.moverLeft-top');
 })
 
+
+const metas = document.querySelector('#metas');
+
 const ctx = document.getElementById('pie');
             
 new Chart(ctx, {
@@ -14,11 +17,11 @@ new Chart(ctx, {
       data: [12, 19, 3, 5],
       borderWidth: 1,
       backgroundColor: [
-            '#8ecae6',
-            '#219ebc',
-            '#023047',
-            '#ffb703',
-            '#fb8500',
+        '#8ecae6',
+        '#219ebc',
+        '#023047',
+        '#ffb703',
+        '#fb8500',
       ],
     }]
   },
@@ -36,7 +39,11 @@ new Chart(ctx, {
       title: {
         display: true,
         text: 'Tabela de clientes',
-      },
+        font: {
+          size:20,
+        },
+        color: '#52459E',
+      },    
     }, 
     tooltips: {
       enabled: false,
@@ -85,11 +92,17 @@ console.log(ano2024);
 
 
 const graphicBar = document.getElementById('container');
+Chart.defaults.color = '#52459E';
   new Chart(graphicBar, {
     type: 'bar',
     data: {
       labels: [],
       datasets: [{
+        borderSkipped: false,
+        borderRadius: 20,
+        categoryPercentage: 0.8,
+        borderWidth: 2,
+        backgroundColor: ['#8ecae6'],
         label: '2022',
         data: {
           'Jan': ano2022.api[0].VALOR, 
@@ -104,14 +117,14 @@ const graphicBar = document.getElementById('container');
           'Out': ano2022.api[9].VALOR,
           'Nov': ano2022.api[10].VALOR,
           'Dez': ano2022.api[11].VALOR,
-
-      } ,
-        borderWidth: 1,
-        backgroundColor: ['#8ecae6'],
+        },
       },
       {
         borderWidth: 2,
         backgroundColor: ['#52459E'],
+        borderSkipped: false,
+        borderRadius: 20,
+        categoryPercentage: 0.8,
         label: '2023',
           data: {
             'Jan': ano2023.api[0].VALOR, 
@@ -126,11 +139,14 @@ const graphicBar = document.getElementById('container');
             'Out': ano2023.api[9].VALOR,
             'Nov': ano2023.api[10].VALOR,
             'Dez': ano2023.api[11].VALOR, 
-          } ,
+          },
       },
       {
         borderWidth: 2,
         backgroundColor: ['#26A653'],
+        borderSkipped: false,
+        borderRadius: 20,
+        categoryPercentage: 0.8,
         label: '2024',
           data: {
             'Jan': ano2024.api[0].VALOR, 
@@ -146,7 +162,7 @@ const graphicBar = document.getElementById('container');
             'Nov': ano2024.api[10].VALOR,
             'Dez': ano2024.api[11].VALOR, 
           } ,
-      }
+      },
     ]
     },
 
@@ -166,10 +182,26 @@ const graphicBar = document.getElementById('container');
             size:20,
           },
           color: '#52459E',
+        },
+        tooltip: {
+          enabled: true,
+          backgroundColor:['rgb(82, 69, 158)'],
         },    
       },  
-    }
-});
+      scales: {
+        x:{
+            grid:{
+                display: false
+            }
+        },
+        y:{
+          
+            display: false
+          
+        }
+      }
+    },
+  });
 }
 
 
