@@ -92,7 +92,7 @@ console.log(ano2024);
 
 
 const graphicBar = document.getElementById('container');
-Chart.defaults.color = '#52459E';
+
   new Chart(graphicBar, {
     type: 'bar',
     data: {
@@ -190,13 +190,14 @@ Chart.defaults.color = '#52459E';
       },  
       scales: {
         x:{
-            grid:{
-                display: false
+          drawTicks: true,
+          grid:{
+              display: false,
             }
         },
         y:{
           
-            display: false
+            display: true
           
         }
       }
