@@ -3,6 +3,9 @@ expandir.addEventListener('click', () => {
   navleft.classList.add('.moverLeft-top');
 })
 
+
+const metas = document.querySelector('#metas');
+
 const ctx = document.getElementById('pie');
             
 new Chart(ctx, {
@@ -14,34 +17,38 @@ new Chart(ctx, {
       data: [12, 19, 3, 5],
       borderWidth: 1,
       backgroundColor: [
-            '#8ecae6',
-            '#219ebc',
-            '#023047',
-            '#ffb703',
-            '#fb8500',
+        '#8ecae6',
+        '#219ebc',
+        '#023047',
+        '#ffb703',
+        '#fb8500',
       ],
     }]
   },
-    options: {
-      responsive: true,
-      layout: {
-        padding: {
-          left: 50
-        },
+  options: {
+    responsive: true,
+    layout: {
+      padding: {
+        left: 50
       },
-      plugins: {
-        legend: {
-          position: 'left',
-        },
-        title: {
-          display: true,
-          text: 'Tabela de clientes',
-        },
-      }, 
-      tooltips: {
-        enabled: false,
+    },
+    plugins: {
+      legend: {
+        position: 'left',
       },
-    }
+      title: {
+        display: true,
+        text: 'Tabela de clientes',
+        font: {
+          size:20,
+        },
+        color: '#52459E',
+      },    
+    }, 
+    tooltips: {
+      enabled: false,
+    },
+  }
 });
 
 const labels = [
@@ -61,35 +68,41 @@ const data = {
 
 
 function meses(ano2022, ano2023, ano2024){
-console.log(ano2023);
-console.log(ano2022);
-console.log(ano2024);
-//  let  valorAnual = '';
-// jan23.api[20].TOTAL+
-// jan23.api[0].TOTAL+
-// jan23.api[0].TOTAL+
-// abr23.api[26].TOTAL+
-// mai23.api[28].TOTAL+
-// jun23.api[31].TOTAL+
-// jul23.api[35].TOTAL+
-// ago23.api[36].TOTAL+
-// set23.api[38].TOTAL+
-// out23.api[32].TOTAL +
-// nov23.api[74].TOTAL +  
-// nov23.api[37].TOTAL + 
-// nov23.api[37].TOTAL+
-// dez23.api[15].TOTAL +  
-// dez23.api[36].TOTAL +
-// dez23.api[69].TOTAL
-// onload(valorAnual);
+  console.log(ano2023);
+  console.log(ano2022);
+  console.log(ano2024);
+  //  let  valorAnual = '';
+  // jan23.api[20].TOTAL+
+  // jan23.api[0].TOTAL+
+  // jan23.api[0].TOTAL+
+  // abr23.api[26].TOTAL+
+  // mai23.api[28].TOTAL+
+  // jun23.api[31].TOTAL+
+  // jul23.api[35].TOTAL+
+  // ago23.api[36].TOTAL+
+  // set23.api[38].TOTAL+
+  // out23.api[32].TOTAL +  
+  // nov23.api[74].TOTAL +  
+  // nov23.api[37].TOTAL + 
+  // nov23.api[37].TOTAL+
+  // dez23.api[15].TOTAL +  
+  // dez23.api[36].TOTAL +
+  // dez23.api[69].TOTAL
+  // onload(valorAnual);
 
 
-const graphicBar = document.getElementById('container');
+  const graphicBar = document.getElementById('container');
+
   new Chart(graphicBar, {
     type: 'bar',
     data: {
       labels: [],
       datasets: [{
+        borderSkipped: false,
+        borderRadius: 20,
+        categoryPercentage: 0.8,
+        borderWidth: 2,
+        backgroundColor: ['#8ecae6'],
         label: '2022',
         data: {
           'Jan': ano2022.api[0].VALOR, 
@@ -104,14 +117,14 @@ const graphicBar = document.getElementById('container');
           'Out': ano2022.api[9].VALOR,
           'Nov': ano2022.api[10].VALOR,
           'Dez': ano2022.api[11].VALOR,
-
-      } ,
-        borderWidth: 1,
-        backgroundColor: ['#85F2F2'],
+        },
       },
       {
         borderWidth: 2,
         backgroundColor: ['#52459E'],
+        borderSkipped: false,
+        borderRadius: 20,
+        categoryPercentage: 0.8,
         label: '2023',
           data: {
             'Jan': ano2023.api[0].VALOR, 
@@ -126,11 +139,14 @@ const graphicBar = document.getElementById('container');
             'Out': ano2023.api[9].VALOR,
             'Nov': ano2023.api[10].VALOR,
             'Dez': ano2023.api[11].VALOR, 
-          } ,
+          },
       },
       {
         borderWidth: 2,
         backgroundColor: ['#26A653'],
+        borderSkipped: false,
+        borderRadius: 20,
+        categoryPercentage: 0.8,
         label: '2024',
           data: {
             'Jan': ano2024.api[0].VALOR, 
@@ -146,7 +162,7 @@ const graphicBar = document.getElementById('container');
             'Nov': ano2024.api[10].VALOR,
             'Dez': ano2024.api[11].VALOR, 
           } ,
-      }
+      },
     ]
     },
 
@@ -166,13 +182,22 @@ const graphicBar = document.getElementById('container');
             size:20,
           },
           color: '#52459E',
+        },
+        tooltip: {
+          enabled: true,
+          backgroundColor:['rgb(82, 69, 158)'],
         },    
-        tooltips: {
-          enabled: false
-        }
       },  
-    }
-});
+      scales: {
+        x:{
+          grid:{
+            draw: false,
+            display: false,
+          }
+        },
+      }
+    },
+  });
 }
 
 
