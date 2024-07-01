@@ -68,30 +68,30 @@ const data = {
 
 
 function meses(ano2022, ano2023, ano2024){
-console.log(ano2023);
-console.log(ano2022);
-console.log(ano2024);
-//  let  valorAnual = '';
-// jan23.api[20].TOTAL+
-// jan23.api[0].TOTAL+
-// jan23.api[0].TOTAL+
-// abr23.api[26].TOTAL+
-// mai23.api[28].TOTAL+
-// jun23.api[31].TOTAL+
-// jul23.api[35].TOTAL+
-// ago23.api[36].TOTAL+
-// set23.api[38].TOTAL+
-// out23.api[32].TOTAL +
-// nov23.api[74].TOTAL +  
-// nov23.api[37].TOTAL + 
-// nov23.api[37].TOTAL+
-// dez23.api[15].TOTAL +  
-// dez23.api[36].TOTAL +
-// dez23.api[69].TOTAL
-// onload(valorAnual);
+  console.log(ano2023);
+  console.log(ano2022);
+  console.log(ano2024);
+  //  let  valorAnual = '';
+  // jan23.api[20].TOTAL+
+  // jan23.api[0].TOTAL+
+  // jan23.api[0].TOTAL+
+  // abr23.api[26].TOTAL+
+  // mai23.api[28].TOTAL+
+  // jun23.api[31].TOTAL+
+  // jul23.api[35].TOTAL+
+  // ago23.api[36].TOTAL+
+  // set23.api[38].TOTAL+
+  // out23.api[32].TOTAL +  
+  // nov23.api[74].TOTAL +  
+  // nov23.api[37].TOTAL + 
+  // nov23.api[37].TOTAL+
+  // dez23.api[15].TOTAL +  
+  // dez23.api[36].TOTAL +
+  // dez23.api[69].TOTAL
+  // onload(valorAnual);
 
 
-const graphicBar = document.getElementById('container');
+  const graphicBar = document.getElementById('container');
 
   new Chart(graphicBar, {
     type: 'bar',
@@ -195,13 +195,6 @@ const graphicBar = document.getElementById('container');
             display: false,
           }
         },
-        y:{
-          grid: {
-
-            display: false
-          }
-          
-        }
       }
     },
   });
