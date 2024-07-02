@@ -163,6 +163,30 @@ function meses(ano2022, ano2023, ano2024){
             'Dez': ano2024.api[11].VALOR, 
           } ,
       },
+      {
+        type: 'line',
+        label: 'D9',
+        data: [2000, 2000, 2000, 500, 300, 700, 800, 1000, 600, 800, 1500, 2000],
+        // borderColor: Utils.CHART_COLORS.yellow,
+        // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.yellow),
+        fill: {above: 'rgba(83, 82, 88, 0.415)', below: 'red', target: {value: 50}},
+        
+        options: {
+          scales: {
+            y: {
+              stacked: true
+            }
+          },
+          plugins: {
+            filler: {
+              propagate: false
+            },
+            'samples-filler-analyser': {
+              target: 'chart-analyser'
+            },
+          },
+        },
+      },
     ]
     },
 
