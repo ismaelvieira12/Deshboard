@@ -4,7 +4,33 @@ expandir.addEventListener('click', () => {
 })
 
 
+
 const metas = document.querySelector('#metas');
+new Chart(metas, {
+  type: 'pie',
+  data: {
+    labels: ['Instalados' ,'Desativados','Metas'],
+    datasets: [{
+      label: '# of Votes',
+      data:[12, 19, 3],
+    }],
+  },
+  // options: {
+  //   responsive: true,
+  //   plugins: {
+  //     legend: {
+  //       position: 'top',
+  //     },
+  //     title: {
+  //       display: true,
+  //       text: 'Chart.js Pie Chart'
+  //     }
+  //   }
+  // },
+  
+})
+
+
 
 const ctx = document.getElementById('pie');
             
@@ -29,7 +55,8 @@ new Chart(ctx, {
     responsive: true,
     layout: {
       padding: {
-        left: 50
+        left: 20,
+        right: 20
       },
     },
     plugins: {
@@ -102,7 +129,7 @@ function meses(ano2022, ano2023, ano2024){
         borderRadius: 20,
         categoryPercentage: 0.8,
         borderWidth: 2,
-        backgroundColor: ['#8ecae6'],
+        backgroundColor: ['#219ebc'],
         label: '2022',
         data: {
           'Jan': ano2022.api[0].VALOR, 
@@ -163,30 +190,30 @@ function meses(ano2022, ano2023, ano2024){
             'Dez': ano2024.api[11].VALOR, 
           } ,
       },
-      {
-        type: 'line',
-        label: 'D9',
-        data: [2000, 2000, 2000, 500, 300, 700, 800, 1000, 600, 800, 1500, 2000],
-        // borderColor: Utils.CHART_COLORS.yellow,
-        // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.yellow),
-        fill: {above: 'rgba(83, 82, 88, 0.415)', below: 'red', target: {value: 50}},
+      // {
+      //   type: 'line',
+      //   label: 'D9',
+      //   data: [1800, 1080, 1750, 1200, 1880, 1650, 1080, 1750, 1800, 1050, 1800, 2000],
+      //   // borderColor: Utils.CHART_COLORS.yellow,
+      //   // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.yellow),
+      //   fill: {above: 'rgba(136, 112, 254, 0.415)', below: 'red', target: {value: 50}},
         
-        options: {
-          scales: {
-            y: {
-              stacked: true
-            }
-          },
-          plugins: {
-            filler: {
-              propagate: false
-            },
-            'samples-filler-analyser': {
-              target: 'chart-analyser'
-            },
-          },
-        },
-      },
+      //   options: {
+      //     scales: {
+      //       y: {
+      //         stacked: true
+      //       }
+      //     },
+      //     plugins: {
+      //       filler: {
+      //         propagate: false
+      //       },
+      //       'samples-filler-analyser': {
+      //         target: 'chart-analyser'
+      //       },
+      //     },
+      //   },
+      // },
     ]
     },
 
