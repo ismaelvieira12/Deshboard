@@ -68,7 +68,7 @@ body{
     box-shadow: 1px 1px 10px #ffffff87;
 }
 .infor-metas{
-    background-color: #26A653;
+    background-color: var(--corBlue);
     border-radius: 8px;
     width: 100%;
     height: 50%;
