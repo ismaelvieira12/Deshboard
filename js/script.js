@@ -9,24 +9,42 @@ const metas = document.querySelector('#metas');
 new Chart(metas, {
   type: 'pie',
   data: {
-    labels: ['Instalados' ,'Desativados','Metas'],
+    labels: ['Ativados' ,'Desativados','Metas'],
     datasets: [{
-      label: '# of Votes',
-      data:[12, 19, 3],
+      label: 'Clientes',
+      data:[
+        {name:'Ativados' ,value: 12},
+        {name:'Desativados', value: 19}, 
+        {name: 'Metas:', value:3}
+      ],
     }],
   },
-  // options: {
-  //   responsive: true,
-  //   plugins: {
-  //     legend: {
-  //       position: 'top',
-  //     },
-  //     title: {
-  //       display: true,
-  //       text: 'Chart.js Pie Chart'
-  //     }
-  //   }
-  // },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        align:'start',
+        labels:{
+          usePointStyle: true,
+          textAlign: 'center',
+          useBorderRadius: true
+        }
+      },
+      title: {
+        display: true,
+        text: 'Metas',
+        font: {
+          size:20,
+        },
+      },
+    },
+    layout: {
+      padding: {
+        left: 30
+      },
+    },
+  },
   
 })
 
@@ -62,6 +80,7 @@ new Chart(ctx, {
     plugins: {
       legend: {
         position: 'left',
+        
       },
       title: {
         display: true,
@@ -129,7 +148,7 @@ function meses(ano2022, ano2023, ano2024){
         borderRadius: 20,
         categoryPercentage: 0.8,
         borderWidth: 2,
-        backgroundColor: ['#219ebc'],
+        backgroundColor: ['#8ecae6'],
         label: '2022',
         data: {
           'Jan': ano2022.api[0].VALOR, 
