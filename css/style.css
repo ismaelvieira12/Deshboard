@@ -10,7 +10,7 @@
     --corBlue: #C2D2F2;
     --corGreen: #26a653;
     --corPurple: #52459e;
-    --corGrafico:rgb(82, 69, 158);
+    --corGrafico:rgba(136, 112, 254, 0.415);
     --corSizeLigth: #DEE1E6;
 }
 
@@ -68,7 +68,7 @@ body{
     box-shadow: 1px 1px 10px #ffffff87;
 }
 .infor-metas{
-    background-color: #26A653;
+    background-color: var(--corBlue);
     border-radius: 8px;
     width: 100%;
     height: 50%;

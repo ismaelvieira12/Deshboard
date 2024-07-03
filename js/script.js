@@ -4,7 +4,51 @@ expandir.addEventListener('click', () => {
 })
 
 
+
 const metas = document.querySelector('#metas');
+new Chart(metas, {
+  type: 'pie',
+  data: {
+    labels: ['Ativados' ,'Desativados','Metas'],
+    datasets: [{
+      label: 'Clientes',
+      data:[
+        {name:'Ativados' ,value: 12},
+        {name:'Desativados', value: 19}, 
+        {name: 'Metas:', value:3}
+      ],
+    }],
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        align:'start',
+        labels:{
+          usePointStyle: true,
+          textAlign: 'center',
+          useBorderRadius: true
+        }
+      },
+      title: {
+        display: true,
+        text: 'Metas',
+        font: {
+          size:20,
+        },
+      },
+    },
+    layout: {
+      padding: {
+        left: 30
+      },
+    },
+  },
+  
+})
+
+
 
 const ctx = document.getElementById('pie');
             
@@ -29,12 +73,14 @@ new Chart(ctx, {
     responsive: true,
     layout: {
       padding: {
-        left: 50
+        left: 20,
+        right: 20
       },
     },
     plugins: {
       legend: {
         position: 'left',
+        
       },
       title: {
         display: true,
@@ -163,6 +209,30 @@ function meses(ano2022, ano2023, ano2024){
             'Dez': ano2024.api[11].VALOR, 
           } ,
       },
+      // {
+      //   type: 'line',
+      //   label: 'D9',
+      //   data: [1800, 1080, 1750, 1200, 1880, 1650, 1080, 1750, 1800, 1050, 1800, 2000],
+      //   // borderColor: Utils.CHART_COLORS.yellow,
+      //   // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.yellow),
+      //   fill: {above: 'rgba(136, 112, 254, 0.415)', below: 'red', target: {value: 50}},
+        
+      //   options: {
+      //     scales: {
+      //       y: {
+      //         stacked: true
+      //       }
+      //     },
+      //     plugins: {
+      //       filler: {
+      //         propagate: false
+      //       },
+      //       'samples-filler-analyser': {
+      //         target: 'chart-analyser'
+      //       },
+      //     },
+      //   },
+      // },
     ]
     },
 
