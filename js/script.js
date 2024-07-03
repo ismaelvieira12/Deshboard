@@ -12,7 +12,7 @@ new Chart(metas, {
     labels: ['Ativados' ,'Desativados','Metas'],
     datasets: [{
       label: 'Clientes',
-      data:[100, 5, 15],
+      data:[46, 5, 100],
       backgroundColor: [
         '#26A653',
         '#cf5959b7',
@@ -137,7 +137,7 @@ function meses(ano2022, ano2023, ano2024){
 
   const inforValor = document.querySelector('#Valor-total');
   let valorTotalAnual = ano2022.api[13].VALOR + ano2023.api[13].VALOR + ano2024.api[13].VALOR
-  inforValor.innerHTML= `R$: ${valorTotalAnual}`;
+  inforValor.innerText= `R$: ${valorTotalAnual}`;
   inforValor.style.color='#26A653', opacity= '0.5';
   const graphicBar = document.getElementById('container');
 
@@ -251,17 +251,17 @@ function meses(ano2022, ano2023, ano2024){
 
 
 
-async function api(){
-// const jan23 = await fetch('https://script.google.com/macros/s/AKfycbyv9-o9vDKlffGR_y0HQRVyk5HwmE0Bc15xk0MShYTp8AwQMcg2xiQ2C9ez4OlKklpo/exec').then(response => response.json());
-// const abr23 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=VtmP1AIZ6RF4lTLDjwWRVtnXirTZ1e9vI8660EsjO7hgeiNTOdUmDiy92I-AVLf0A6kE4RuFi4M3T4Jqati4tcqM-yuI1QMgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnC6zHBlGXRb4_Lpawi71PK31NEniKNRBBIOr4pjt_P19fgoUwW5nsEt2KsWTK97MvCElphgE6Zc-Z-0JfF49MDHshTl8x83JkA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
-// const mai23 = await fetch('https://script.google.com/macros/s/AKfycbzXM_dRxEZ0fmCNQTWQb4rk9HkH6mdYRMgJoA_QzvOzYq9IozE6HXEZEXRa888CTC0N/exec').then(response => response.json());
-// const jun23 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=DNXV5uYEr6AwkD7Q6BtSPe2FFaEmGfg6_SCZS23wEncKZI_gLcxyDbYZXL4eQ5NFqiJ0YjY3OEPNFLfn4QxZzUh4QZdAonEjm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnLjdpmtY8sWDmJXzSpJ8CdK-h6XOUNGxIl1v3K2RZeP2TUZjwPrB8_bXeDA24R2187wYnaKOPZPbO-ki0ZRdLxsW5mHJiC7Yag&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
-// const jul23 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=6CSmAv97wf1AutV8Adfdy0-d1y4mf1rbiMkRfD2oBZVWCj1NKVwu3hy-pIDJgZS1uddAOpm2l-B5oV92jWRZbtdtwfPQqTd0m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnD_rqQViQvLjxyOdpskk159XMIRVpEYHsjfC1wYLx10Bsjz1j2A8EjRSofX8rLPpgv6joDzRjz6kvQo6YJTGd6ZV8BCno9Aazw&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
-// const ago23 = await fetch('https://script.google.com/macros/s/AKfycbw7faf45Oz4nDse85Ik4u4WmQTe5FYsIpHe1zkoa95-Cbs6C1rsQIPzh7nHDLxCVnak/exec').then(response => response.json());
-// const set23 = await fetch('https://script.google.com/macros/s/AKfycbxqlrxTrHocWMdPdQs5dHd9VdsJAtqE6oU8RsPIQJz43eq6w20X9QXpa3zOetgnDn26/exec').then(response => response.json());
-// const out23 = await fetch('https://script.google.com/macros/s/AKfycbxIJdZ2BXz6fW559XiitN8jrmYD3PgxdwGv0W8p5Z54KF4GYUD_Hbyxz6lsxDGmDw2e/exec').then(response => response.json());
-// const nov23 = await fetch('https://script.google.com/macros/s/AKfycbzYYfVTUofN5tXnsQRyfbHUWLgitXouRTL0J4O0XKGpP72kZX889RaenS5_dV-s4Hea/exec').then(response => response.json());
-// const dez23 = await fetch('https://script.google.com/macros/s/AKfycbxzABAvDqLS_fYb3FF92y6TK8YgmmGxXxbwqEF70gTKYWNhhhFyXsxFysKxx6uX2yvA/exec').then(response => response.json());
+async function api(ano2022, ano2023, ano2024){
+  // const jan23 = await fetch('https://script.google.com/macros/s/AKfycbyv9-o9vDKlffGR_y0HQRVyk5HwmE0Bc15xk0MShYTp8AwQMcg2xiQ2C9ez4OlKklpo/exec').then(response => response.json());
+  // const abr23 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=VtmP1AIZ6RF4lTLDjwWRVtnXirTZ1e9vI8660EsjO7hgeiNTOdUmDiy92I-AVLf0A6kE4RuFi4M3T4Jqati4tcqM-yuI1QMgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnC6zHBlGXRb4_Lpawi71PK31NEniKNRBBIOr4pjt_P19fgoUwW5nsEt2KsWTK97MvCElphgE6Zc-Z-0JfF49MDHshTl8x83JkA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
+  // const mai23 = await fetch('https://script.google.com/macros/s/AKfycbzXM_dRxEZ0fmCNQTWQb4rk9HkH6mdYRMgJoA_QzvOzYq9IozE6HXEZEXRa888CTC0N/exec').then(response => response.json());
+  // const jun23 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=DNXV5uYEr6AwkD7Q6BtSPe2FFaEmGfg6_SCZS23wEncKZI_gLcxyDbYZXL4eQ5NFqiJ0YjY3OEPNFLfn4QxZzUh4QZdAonEjm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnLjdpmtY8sWDmJXzSpJ8CdK-h6XOUNGxIl1v3K2RZeP2TUZjwPrB8_bXeDA24R2187wYnaKOPZPbO-ki0ZRdLxsW5mHJiC7Yag&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
+  // const jul23 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=6CSmAv97wf1AutV8Adfdy0-d1y4mf1rbiMkRfD2oBZVWCj1NKVwu3hy-pIDJgZS1uddAOpm2l-B5oV92jWRZbtdtwfPQqTd0m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnD_rqQViQvLjxyOdpskk159XMIRVpEYHsjfC1wYLx10Bsjz1j2A8EjRSofX8rLPpgv6joDzRjz6kvQo6YJTGd6ZV8BCno9Aazw&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
+  // const ago23 = await fetch('https://script.google.com/macros/s/AKfycbw7faf45Oz4nDse85Ik4u4WmQTe5FYsIpHe1zkoa95-Cbs6C1rsQIPzh7nHDLxCVnak/exec').then(response => response.json());
+  // const set23 = await fetch('https://script.google.com/macros/s/AKfycbxqlrxTrHocWMdPdQs5dHd9VdsJAtqE6oU8RsPIQJz43eq6w20X9QXpa3zOetgnDn26/exec').then(response => response.json());
+  // const out23 = await fetch('https://script.google.com/macros/s/AKfycbxIJdZ2BXz6fW559XiitN8jrmYD3PgxdwGv0W8p5Z54KF4GYUD_Hbyxz6lsxDGmDw2e/exec').then(response => response.json());
+  // const nov23 = await fetch('https://script.google.com/macros/s/AKfycbzYYfVTUofN5tXnsQRyfbHUWLgitXouRTL0J4O0XKGpP72kZX889RaenS5_dV-s4Hea/exec').then(response => response.json());
+  // const dez23 = await fetch('https://script.google.com/macros/s/AKfycbxzABAvDqLS_fYb3FF92y6TK8YgmmGxXxbwqEF70gTKYWNhhhFyXsxFysKxx6uX2yvA/exec').then(response => response.json());
 
   try {
     const ano2022 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=eru1BoZCMDOOEMhGBPrJjMU_LPFReYMzrFTKqf91hYWA-KOTSM_N4R6ZEC_Zlm9OeNTXmj3jg6ek3T6QQeIbQcqsWLi4DpPpm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFVXWXR0nSELR97zGgQBms-7dZnT2diY5rajuaka_Z0rKkB6hHYVkl7PctLAiJohTZfdx3kKMqce8bLhRpGbczYtqRaF3dzGGA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
@@ -281,6 +281,6 @@ async function api(){
 //   const valorTotal = document.querySelector('#valueTotal');
 //   const numberAnual = parseFloat(valorAnual);
 //   valorTotal.innerText = `$ ${numberAnual.toFixed(2)}`;
-// }
+
 
 api();
