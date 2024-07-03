@@ -10,8 +10,12 @@
     --corBlue: #C2D2F2;
     --corGreen: #26a653;
     --corPurple: #52459e;
-    --corGrafico:rgba(136, 112, 254, 0.415);
     --corSizeLigth: #DEE1E6;
+
+
+    /* Cores que vou usar no script */
+    --corErro: #cf5959b7;
+    --corGrafico:rgba(136, 112, 254, 0.415);
 }
 
 body{
