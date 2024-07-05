@@ -9,13 +9,12 @@ const metas = document.querySelector('#metas');
 new Chart(metas, {
   type: 'pie',
   data: {
-    labels: ['Ativados' ,'Desativados','Metas'],
+    labels: ['Ativados', 'Metas'],
     datasets: [{
       label: 'Clientes',
-      data:[46, 5, 100],
+      data:[46, 100],
       backgroundColor: [
-        '#26A653',
-        '#cf5959b7',
+        '#79a6ff',
         '#ffb703',
       ],
     }],
@@ -24,8 +23,8 @@ new Chart(metas, {
     responsive: true,
     plugins: {
       legend: {
-        position: 'bottom',
-        align:'start',
+        position: 'top',
+        align:'center',
         labels:{
           usePointStyle: true,
           textAlign: 'center',
@@ -62,7 +61,7 @@ new Chart(ctx, {
       data: [14, 5, 3],
       borderWidth: 1,
       backgroundColor: [
-        '#26A653',
+        '#79a6ff',
         '#cf5959b7',
         '#ffb703',
       ],
@@ -90,9 +89,6 @@ new Chart(ctx, {
         color: '#ABA9D9',
       },    
     }, 
-    tooltips: {
-      enabled: false,
-    },
   }
 });
 
@@ -134,13 +130,8 @@ function meses(ano2022, ano2023, ano2024){
   // dez23.api[36].TOTAL +
   // dez23.api[69].TOTAL
   // onload(valorAnual);
-
-  const inforValor = document.querySelector('#Valor-total');
-  let valorTotalAnual = ano2022.api[13].VALOR + ano2023.api[13].VALOR + ano2024.api[13].VALOR
-  inforValor.innerText= `R$: ${valorTotalAnual}`;
-  inforValor.style.color='#26A653', opacity= '0.5';
   const graphicBar = document.getElementById('container');
-
+  
   new Chart(graphicBar, {
     type: 'bar',
     data: {
@@ -191,18 +182,18 @@ function meses(ano2022, ano2023, ano2024){
       },
       {
         borderWidth: 2,
-        backgroundColor: ['#26A653'],
+        backgroundColor: ['#26a653'],
         borderSkipped: false,
         borderRadius: 20,
         categoryPercentage: 0.8,
         label: '2024',
           data: {
-            'Jan': ano2024.api[0].VALOR, 
-            'Fer': ano2024.api[1].VALOR,
-            'Mar': ano2024.api[2].VALOR,
-            'Abr': ano2024.api[3].VALOR,
-            'Mai': ano2024.api[4].VALOR,
-            'Jun': ano2024.api[5].VALOR,
+            'Jan': ano2024.api[0].VALOR.toFixed(2), 
+            'Fer': ano2024.api[1].VALOR.toFixed(2),
+            'Mar': ano2024.api[2].VALOR.toFixed(2),
+            'Abr': ano2024.api[3].VALOR.toFixed(2),
+            'Mai': ano2024.api[4].VALOR.toFixed(2),
+            'Jun': ano2024.api[5].VALOR.toFixed(2),
             'Jul': ano2024.api[6].VALOR,
             'Ago': ano2024.api[7].VALOR,
             'Set': ano2024.api[8].VALOR,
@@ -234,7 +225,10 @@ function meses(ano2022, ano2023, ano2024){
         },
         tooltip: {
           enabled: true,
-          backgroundColor:['rgb(82, 69, 158)'],
+          backgroundColor: '#52459e',
+          position: 'average',
+          xAlign:'center',
+          yAlign: 'bottom',
         },    
       },  
       scales: {
@@ -247,11 +241,14 @@ function meses(ano2022, ano2023, ano2024){
       }
     },
   });
+
+  let valorTotalAnual =  ano2022.api[13].VALOR + ano2023.api[13].VALOR + ano2024.api[13].VALOR;
+  valor(valorTotalAnual);
 }
 
 
 
-async function api(ano2022, ano2023, ano2024){
+async function api(ano2023, ano2024){
   // const jan23 = await fetch('https://script.google.com/macros/s/AKfycbyv9-o9vDKlffGR_y0HQRVyk5HwmE0Bc15xk0MShYTp8AwQMcg2xiQ2C9ez4OlKklpo/exec').then(response => response.json());
   // const abr23 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=VtmP1AIZ6RF4lTLDjwWRVtnXirTZ1e9vI8660EsjO7hgeiNTOdUmDiy92I-AVLf0A6kE4RuFi4M3T4Jqati4tcqM-yuI1QMgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnC6zHBlGXRb4_Lpawi71PK31NEniKNRBBIOr4pjt_P19fgoUwW5nsEt2KsWTK97MvCElphgE6Zc-Z-0JfF49MDHshTl8x83JkA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
   // const mai23 = await fetch('https://script.google.com/macros/s/AKfycbzXM_dRxEZ0fmCNQTWQb4rk9HkH6mdYRMgJoA_QzvOzYq9IozE6HXEZEXRa888CTC0N/exec').then(response => response.json());
@@ -263,6 +260,8 @@ async function api(ano2022, ano2023, ano2024){
   // const nov23 = await fetch('https://script.google.com/macros/s/AKfycbzYYfVTUofN5tXnsQRyfbHUWLgitXouRTL0J4O0XKGpP72kZX889RaenS5_dV-s4Hea/exec').then(response => response.json());
   // const dez23 = await fetch('https://script.google.com/macros/s/AKfycbxzABAvDqLS_fYb3FF92y6TK8YgmmGxXxbwqEF70gTKYWNhhhFyXsxFysKxx6uX2yvA/exec').then(response => response.json());
 
+  
+ 
   try {
     const ano2022 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=eru1BoZCMDOOEMhGBPrJjMU_LPFReYMzrFTKqf91hYWA-KOTSM_N4R6ZEC_Zlm9OeNTXmj3jg6ek3T6QQeIbQcqsWLi4DpPpm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFVXWXR0nSELR97zGgQBms-7dZnT2diY5rajuaka_Z0rKkB6hHYVkl7PctLAiJohTZfdx3kKMqce8bLhRpGbczYtqRaF3dzGGA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
     const ano2023 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=D0UnS-k2C2q72Uqqmw2Ltp8VYJvmgcbEyQT8DB4Fz2EOfEIHS1wbTmxe3B6QLrkFSR-KMATC9CDu6OEciJbU5GAY8Rct8AAom5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCKerEFGYu5RKo7_hwoyk64pIYAI3a4nI1PMwRI5ACjO_KqAHhAYqx9WyNYmiCxzABQOoFJIBY7SONyqn6HH6MceWczTUG0_rTrSCZ144_ckf23vXPw2sfA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
@@ -278,9 +277,14 @@ async function api(ano2022, ano2023, ano2024){
   }
 }
 
-//   const valorTotal = document.querySelector('#valueTotal');
-//   const numberAnual = parseFloat(valorAnual);
-//   valorTotal.innerText = `$ ${numberAnual.toFixed(2)}`;
+async function valor(valorTotalAnual){
+  const inforValor = document.querySelector('#Valor-total');
+  // Formatando o numero para duas casas decimais depois da virgula
+  let numberAnual = parseFloat(valorTotalAnual);
+  inforValor.innerText= `R$: ${numberAnual.toFixed(2)}`;
+}
 
+api()
+api2()
 
-api();
+valor()
