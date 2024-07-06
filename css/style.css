@@ -14,8 +14,10 @@
 
 
     /* Cores que vou usar no script */
-    --corErro: #cf5959ab;
+    --corErro: #cf5959b7;
     --corGrafico:rgba(136, 112, 254, 0.415);
+    --corGrafico: #79a6ff;
+    --corGrafico: #3a3a3b7c;
 }
 
 body{
@@ -156,6 +158,9 @@ body{
     border-radius: 10px;
     box-shadow: 1px 1px 10px #ffffff87;
 }
+.teste label p, h2 {
+    opacity: 0.7;
+}
 .teste i{
   font-size: 30px;
   color: var(--corPurple);
@@ -174,7 +179,6 @@ body{
     width: 70%;
     height: 100%;
     border-radius: 10px;
-    /* background-color: #fff; */
     box-shadow: 1px 1px 10px #d3d7de;
     
     &:hover{
@@ -187,4 +191,15 @@ body{
     width: 35%;
     margin-left: 10px;
     margin-right: 5px;
+    position: relative;
+}
+
+
+@media (max-width :1682px){
+    .container-graphic{
+        height: 40%;
+    }
+    .infor-metas{
+        height: 40%;
+    }
 }
