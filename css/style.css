@@ -173,7 +173,9 @@ body{
     margin-left: 0.5%;
     display: flex;
 }
-
+.mensal {
+    background-color: #79a6ff;
+}
 .graphic {
     width: 70%;
     height: 100%;
