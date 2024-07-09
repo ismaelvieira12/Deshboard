@@ -40,7 +40,7 @@ body{
 
     }
 }
-.fixed-top { left: 8%;}
+.fixed-top { left: 7%;}
 
 .bg-body-tertiary{background-color: var(--corSize);}
 .cabeca{
@@ -54,9 +54,8 @@ body{
 .nav-left {
     background-color: var(--corBlue);
     width: 7%;
-    height: 95%;
-    margin: 20px 8px;
-    border-radius: 30px;
+    height: 100%;
+    margin: 0px 0px;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -140,7 +139,7 @@ body{
     height: 100%;
     z-index: 11;
     top: 12%;
-    left: 9%;
+    left: 8%;
 }
 .feed{
     width: 100%;
