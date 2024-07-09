@@ -175,6 +175,13 @@ body{
 }
 .mensal {
     background-color: #79a6ff;
+    border-radius: 8px;
+}
+#teste-grafico {
+    height: 100%;
+    width: 100%;
+    background-color: #52459e;
+    border-radius: 10px;
 }
 .graphic {
     width: 70%;
