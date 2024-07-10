@@ -9,13 +9,13 @@
     --corSize: #F2F6FF;
     --corBlue: #C2D2F2;
     --corGreen: #26a653;
-    --corPurple: #52459e;
+    --corPurple: #52459ea8;
     --corSizeLigth: #DEE1E6;
 
 
     /* Cores que vou usar no script */
     --corErro: #cf5959b7;
-    --corGrafico:rgba(136, 112, 254, 0.415);
+    --corGrafico:#8870fe6a;
     --corGrafico: #79a6ff;
     --corGrafico: #3a3a3b7c;
 }
@@ -174,14 +174,13 @@ body{
     display: flex;
 }
 .mensal {
-    background-color: #79a6ff;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 #teste-grafico {
     height: 100%;
     width: 100%;
-    background-color: #52459e;
     border-radius: 10px;
+    box-shadow: 1px 1px 10px #d3d7de;
 }
 .graphic {
     width: 70%;
