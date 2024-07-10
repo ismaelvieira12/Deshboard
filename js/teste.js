@@ -5,11 +5,11 @@ Highcharts.setOptions({
     },
 
     chart: {
-        backgroundColor: '#000000',
+        backgroundColor: 'transparent',
         zooming: {
             resetButton: {
                 theme: {
-                    fill: '#f23644',
+                    fill: '#8870fe6a',
                     stroke: 'none',
                     style: {
                         color: '#ffffff'
@@ -18,7 +18,7 @@ Highcharts.setOptions({
                     states: {
                         hover: {
                             style: {
-                                color: '#000000'
+                                color: '#79a6ff'
                             }
                         }
                     }
@@ -29,7 +29,7 @@ Highcharts.setOptions({
 
     title: {
         style: {
-            color: '#b0abab',
+            color: '#ABA9D9',
             fontSize: '2em'
         }
     },
@@ -37,7 +37,7 @@ Highcharts.setOptions({
     xAxis: {
         labels: {
             style: {
-                color: '#b0abab'
+                color: '#79a6ff'
             }
         }
     },
@@ -45,7 +45,7 @@ Highcharts.setOptions({
     yAxis: {
         labels: {
             style: {
-                color: '#b0abab'
+                color: '#79a6ff'
             }
         }
     },
@@ -55,7 +55,7 @@ Highcharts.setOptions({
             fillColor: {
                 linearGradient: [0, 0, 0, 40],
                 stops: [
-                    [0, '#5c0d13'],
+                    [0, '#79a6ff'],
                     [1, '#000000']
                 ]
             }
@@ -63,15 +63,15 @@ Highcharts.setOptions({
         xAxis: {
             labels: {
                 style: {
-                    color: '#ffffff',
+                    color: '#79a6ff',
                     opacity: 1,
-                    textOutline: '#000000'
+                    textOutline: '#79a6ff'
                 }
             }
         },
-        maskFill: 'rgba(181, 145, 143, 0.2)',
+        maskFill: '#79a6ff',
         handles: {
-            backgroundColor: '#5f5959',
+            backgroundColor: '#79a6ff',
             borderRadius: '50%',
             width: 20,
             height: 20
@@ -83,13 +83,13 @@ Highcharts.setOptions({
             contextButton: {
                 symbolStroke: '#d9d7d7',
                 theme: {
-                    fill: '#000000',
+                    fill: '#52459ea8',
                     states: {
                         hover: {
-                            fill: '#000000'
+                            fill: '#79a6ff'
                         },
                         select: {
-                            fill: '#f23644'
+                            fill: '#52459e'
                         }
                     }
                 }
@@ -98,8 +98,8 @@ Highcharts.setOptions({
     },
 
     scrollbar: {
-        barBackgroundColor: '#5f5959',
-        trackBorderColor: '#5f5959'
+        barBackgroundColor: '#79a6ff',
+        trackBorderColor: '#52459e'
     },
 
     rangeSelector: {
@@ -109,23 +109,23 @@ Highcharts.setOptions({
             'stroke-width': 0,
             r: 8,
             style: {
-                color: '#d9d7d7',
+                color: '#52459ea8',
                 fontWeight: 'bold',
                 fontSize: '1em'
             },
             states: {
                 select: {
-                    fill: '#f96772',
+                    fill: '#52459ea8',
                     style: {
-                        color: '#000000'
+                        color: '#ffffff'
                     }
                 },
                 hover: {
                     fill: 'none',
-                    stroke: '#f96772',
-                    'stroke-width': 1,
+                    stroke: '#52459ea8',
+                    'stroke-width': 2,
                     style: {
-                        color: '#ffffff'
+                        color: '#52459ea8'
                     }
                 }
             }
@@ -135,11 +135,11 @@ Highcharts.setOptions({
     plotOptions: {
         area: {
             threshold: null,
-            color: '#f23644',
+            color: '#52459ea8',
             fillColor: {
                 linearGradient: [0, 0, 0, 450],
                 stops: [
-                    [0, '#5c0d13'],
+                    [0, '#79a6ff90'],
                     [1, '#000000']
                 ]
             }
@@ -159,8 +159,14 @@ Highcharts.setOptions({
 Highcharts.stockChart('teste-grafico', {
 
     title: {
-        text: 'BTCETH',
-        align: 'left'
+        text: 'Grafico Mensal',
+        align: 'left',
+    },
+
+    layouts: {
+        padding:{
+            left: 20
+        }
     },
 
     xAxis: {
@@ -168,7 +174,7 @@ Highcharts.stockChart('teste-grafico', {
         lineWidth: 0,
         crosshair: {
             width: 1,
-            color: '#616161',
+            color: '#ABA9D9',
             zIndex: 3
         }
     },
@@ -216,7 +222,7 @@ Highcharts.stockChart('teste-grafico', {
 
     tooltip: {
         shape: 'rect',
-        shadow: false,
+        shadow: true,
         borderWidth: 0
     },
 
