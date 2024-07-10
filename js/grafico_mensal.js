@@ -139,7 +139,7 @@ Highcharts.setOptions({
             fillColor: {
                 linearGradient: [0, 0, 0, 450],
                 stops: [
-                    [0, '#8870fe6a'],
+                    [0, '#79a6ff90'],
                     [1, '#000000']
                 ]
             }
