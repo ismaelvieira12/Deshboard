@@ -86,7 +86,7 @@ Highcharts.setOptions({
                     fill: '#52459ea8',
                     states: {
                         hover: {
-                            fill: '#79a6ff'
+                            fill: '#79a6ff' 
                         },
                         select: {
                             fill: '#52459e'
