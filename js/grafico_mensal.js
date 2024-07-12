@@ -235,3 +235,6 @@ Highcharts.stockChart('teste-grafico', {
         }
     }]
 });
+
+
+

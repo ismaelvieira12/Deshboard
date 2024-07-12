@@ -22,6 +22,14 @@
         <link rel="shortcut icon" href="imgs/activity.svg" type="image/x-icon">
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <link rel="stylesheet" href="css/style.css">
+
+
+        
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
       </head>
 <body>
     <header>
@@ -97,7 +105,9 @@
             <div class="nav-rigth">
               <div class="infor-metas">
                 <canvas id="metas" style="height:40vh; width:80vw"> </canvas>
-                <div class="infor-metas-list"></div>
+                <div class="infor-metas-list highcharts-figure d-flex justify-content-center align-items-center">
+                  <div id="container-speed" class="chart-container" style="width: 100%; height: 90%;"></div>                 
+                </div>
               </div>
             </div>
         </section>
@@ -145,5 +155,6 @@
     <script src="js/script.js"></script>
     <script src="js/meu_script.js"></script>
     <script src="js/grafico_mensal.js"></script>
+    <script src="js/grafico_metas.js"></script>
   </body>
 </html>
