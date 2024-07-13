@@ -1,3 +1,47 @@
+const metas = document.querySelector('#metas');
+new Chart(metas, {
+  type: 'pie',
+  data: {
+    labels: ['Ativados', 'Metas'],
+    datasets: [{
+      label: 'Clientes',
+      data:[46, 100],
+      backgroundColor: [
+        '#79a6ff', 
+        '#ffb703',
+      ],
+    }],
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+        align:'center',
+        labels:{
+          usePointStyle: true,
+          textAlign: 'center',
+          useBorderRadius: true
+        }
+      },
+      title: {
+        display: true,
+        text: 'Metas',
+        font: {
+          size:20,
+        },
+      },
+    },
+    layout: {
+      padding: {
+        left: 30
+      },
+    },
+  },
+  
+})
+
+
 const gaugeOptions = {
     chart: {
         type: 'solidgauge'
