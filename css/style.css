@@ -76,14 +76,14 @@ body{
 .infor-metas{
     background-color: var(--corBlue);
     border-radius: 8px;
-    width: 100%;
+    
     height: 50%;
 }
 
 .infor-metas-list{
     background-color: var(--corBlue);
     margin-top: 10%;
-    width: 100%;
+    
     height: 50%;
     border-radius: 5px;
 }
