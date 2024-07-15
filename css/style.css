@@ -41,6 +41,13 @@ body{
 
     }
 }
+.box{
+    display: none;
+}
+#modo-noturno{
+    opacity: 0.1;
+    cursor: pointer;
+}
 .fixed-top { left: 7%;}
 
 .bg-body-tertiary{background-color: var(--corSize);}
