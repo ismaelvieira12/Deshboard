@@ -3,8 +3,14 @@ expandir.addEventListener('click', () => {
   navleft.classList.add('.moverLeft-top');
 })
 
+const inputCheck = document.querySelector('#modo-noturno');
+const boxIcons = document.querySelector('.smol');
 
-
+inputCheck.addEventListener('click', () => {
+  boxIcons.classList.add('sun');
+  boxIcons.classList.remove('bi-moon-stars-fill');
+  
+})
 const metas = document.querySelector('#metas');
 new Chart(metas, {
   type: 'pie',
