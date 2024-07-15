@@ -4,10 +4,12 @@ expandir.addEventListener('click', () => {
 })
 
 const inputCheck = document.querySelector('#modo-noturno');
-const boxIcons = document.querySelector('.chk');
+const boxIcons = document.querySelector('.smol');
 
 inputCheck.addEventListener('click', () => {
-  boxIcons.classList.remove('bi-moon-stars-fill')
+  boxIcons.classList.add('sun');
+  boxIcons.classList.remove('bi-moon-stars-fill');
+  
 })
 const metas = document.querySelector('#metas');
 new Chart(metas, {
