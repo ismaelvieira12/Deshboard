@@ -1,296 +1,161 @@
-
-expandir.addEventListener('click', () => {  
-  navleft.classList.add('.moverLeft-top');
-})
-
-const inputCheck = document.querySelector('#modo-noturno');
-const boxIcons = document.querySelector('.smol');
-
-inputCheck.addEventListener('click', () => {
-  boxIcons.classList.add('bi-brightness-high-fill');
-  boxIcons.classList.remove('bi-moon-stars-fill');
-  
-})
-const metas = document.querySelector('#metas');
-new Chart(metas, {
-  type: 'pie',
-  data: {
-    labels: ['Ativados', 'Metas'],
-    datasets: [{
-      label: 'Clientes',
-      data:[46, 100],
-      backgroundColor: [
-        '#79a6ff', 
-        '#ffb703',
-      ],
-    }],
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-        align:'center',
-        labels:{
-          usePointStyle: true,
-          textAlign: 'center',
-          useBorderRadius: true
-        }
-      },
-      title: {
-        display: true,
-        text: 'Metas',
-        font: {
-          size:20,
-        },
-      },
-    },
-    layout: {
-      padding: {
-        left: 30
-      },
-    },
-  },
-  
-})
-
-
-
-const ctx = document.getElementById('pie');
-            
-new Chart(ctx, {
-  type: 'doughnut',
-  data: {
-    labels: ['Ativos', 'desativados', 'Pendentes'],
-    datasets: [{
-      label: '# of Votes',
-      data: [14, 5, 3],
-      borderWidth: 1,
-      backgroundColor: [
-        '#79a6ff',
-        '#cf5959b7',
-        '#ffb703',
-      ],
-    }]
-  },
-  options: {
-    responsive: true,
-    layout: {
-      padding: {
-        left: 20,
-        right: 20
-      },
-    },
-    plugins: {
-      legend: {
-        position: 'left',
+<!DOCTYPE html>
+<html lang="pt_BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <title>Dashboard StarLink</title>
         
-      },
-      title: {
-        display: true,
-        text: 'Tabela de clientes',
-        font: {
-          size:20,
-        },
-        color: '#ABA9D9',
-      },    
-    }, 
-  }
-});
+        <script src="https://code.highcharts.com/stock/highstock.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-const labels = [
-  {name: 'T1', value: 15},
-  {name: 'T2', value: 30},
-  {name: 'T3', value: 45},
-  {name: 'T4', value: 60},
-
-]
-
-const data = {
-  labels,
-  datasets: [{
-    data:[]
-  }]
-}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="shortcut icon" href="imgs/activity.svg" type="image/x-icon">
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <link rel="stylesheet" href="css/style.css">
 
 
-function meses(ano2022, ano2023, ano2024){
-  console.log(ano2023);
-  console.log(ano2022);
-  console.log(ano2024);
-  //  let  valorAnual = '';
-  // jan23.api[20].TOTAL+
-  // jan23.api[0].TOTAL+
-  // jan23.api[0].TOTAL+
-  // abr23.api[26].TOTAL+
-  // mai23.api[28].TOTAL+
-  // jun23.api[31].TOTAL+
-  // jul23.api[35].TOTAL+
-  // ago23.api[36].TOTAL+
-  // set23.api[38].TOTAL+
-  // out23.api[32].TOTAL +  
-  // nov23.api[74].TOTAL +  
-  // nov23.api[37].TOTAL + 
-  // nov23.api[37].TOTAL+
-  // dez23.api[15].TOTAL +  
-  // dez23.api[36].TOTAL +
-  // dez23.api[69].TOTAL
-  // onload(valorAnual);
-  const graphicBar = document.getElementById('container');
-  
-  new Chart(graphicBar, {
-    type: 'bar',
-    data: {
-      labels: [],
-      datasets: [{
-        borderSkipped: false,
-        borderRadius: 20,
-        categoryPercentage: 0.8,
-        borderWidth: 2,
-        backgroundColor: ['#85F2F2'],
-        label: '2022',
-        data: {
-          'Jan': ano2022.api[0].VALOR, 
-          'Fer': ano2022.api[1].VALOR ,
-          'Mar': ano2022.api[2].VALOR ,
-          'Abr': ano2022.api[3].VALOR,
-          'Mai': ano2022.api[4].VALOR,
-          'Jun': ano2022.api[5].VALOR,
-          'Jul': ano2022.api[6].VALOR,
-          'Ago': ano2022.api[7].VALOR,
-          'Set': ano2022.api[8].VALOR,
-          'Out': ano2022.api[9].VALOR,
-          'Nov': ano2022.api[10].VALOR,
-          'Dez': ano2022.api[11].VALOR,
-        },
-      },
-      {
-        borderWidth: 2,
-        backgroundColor: ['#52459E'],
-        borderSkipped: false,
-        borderRadius: 20,
-        categoryPercentage: 0.8,
-        label: '2023',
-          data: {
-            'Jan': ano2023.api[0].VALOR, 
-            'Fer': ano2023.api[1].VALOR,
-            'Mar': ano2023.api[2].VALOR,
-            'Abr': ano2023.api[3].VALOR,
-            'Mai': ano2023.api[4].VALOR,
-            'Jun': ano2023.api[5].VALOR,
-            'Jul': ano2023.api[6].VALOR,
-            'Ago': ano2023.api[7].VALOR,
-            'Set': ano2023.api[8].VALOR,
-            'Out': ano2023.api[9].VALOR,
-            'Nov': ano2023.api[10].VALOR,
-            'Dez': ano2023.api[11].VALOR, 
-          },
-      },
-      {
-        borderWidth: 2,
-        backgroundColor: ['#26a653'],
-        borderSkipped: false,
-        borderRadius: 20,
-        categoryPercentage: 0.8,
-        label: '2024',
-          data: {
-            'Jan': ano2024.api[0].VALOR.toFixed(2), 
-            'Fer': ano2024.api[1].VALOR.toFixed(2),
-            'Mar': ano2024.api[2].VALOR.toFixed(2),
-            'Abr': ano2024.api[3].VALOR.toFixed(2),
-            'Mai': ano2024.api[4].VALOR.toFixed(2),
-            'Jun': ano2024.api[5].VALOR.toFixed(2),
-            'Jul': ano2024.api[6].VALOR,
-            'Ago': ano2024.api[7].VALOR,
-            'Set': ano2024.api[8].VALOR,
-            'Out': ano2024.api[9].VALOR,
-            'Nov': ano2024.api[10].VALOR,
-            'Dez': ano2024.api[11].VALOR, 
-          } ,
-      },
-     
-    ]
-    },
+        
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+      </head>
+<body>
+    <header>
+        <nav class="navbar-expand-lg navbar bg-body-tertiary fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-backward espacao" id="expandir"></i> <i class="fa-solid fa-fire-flame-curved "></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"> Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Clientes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#contato">Contato</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <div class="form-check form-switch chk" style="padding-left: 0;">
+                        <i class="bi bi-moon-stars-fill smol" style="margin-right: -20px;"></i>
+                        <!-- <i class="bi bi-brightness-high-fill"></i> -->
+                        <input type="checkbox" name="checkbox" id="modo-noturno">
+                        <label class="box" for="modo-noturno">
+                          <i class="bi sun icons"></i>
+                          <i class="bi bi-moon-stars-fill icons" style="margin-left: 12px;"></i>
+                          <div class="ball"></div>
+                        </label>
+                      </div>
+                    </a>
+                  </li>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <main>
+        <section class="cabeca">
+            <div class="nav-left">
+                <!-- Moneu -->
+                <label class="caixa-top">
+                    <h2><img src="imgs/logo_starLink.jpg" class="logo-img top" alt="Logo da cafeteria"></h2>
+                </label>
+                <div class="menu d-flex flex-column">
+                    <label>
+                        <i class="fa-solid fa-house"></i>
+                    </label>
+                    <label>     
+                        <i class="fa-solid fa-users"></i>
+                    </label>
+                    <label>
+                        <i class="fa-solid fa-phone"></i>
+                    </label>
+                    <label>
+                        <i class="fa-solid fa-handshake"></i>
+                    </label>
+                </div>
+                <div class="login d-flex justify-content-center">
+                    <label>
+                        <a href="#">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </a>
+                    </label>
+                </div>
+            </div>
+            <div class="nav-rigth">
+              <div class="infor-metas">
+                <canvas id="metas" style="height:40vh; width:80vw"> </canvas>
+                <div class="infor-metas-list highcharts-figure d-flex justify-content-center align-items-center">
+                  <div id="container-speed" class="chart-container" style="width: 100%; height: 90%;"></div>                 
+                </div>
+              </div>
+            </div>
+        </section>
 
-    options: {
-      responsive: true,
-      layout: {
-        padding: 5,
-      },
-      plugins: {
-        legend: {
-          position: 'bottom',
-        },
-        title: {
-          display: true,
-          text: 'Valores anuais',
-          font: {
-            size:20,
-          },
-          color: '#ABA9D9',
-        },
-        tooltip: {
-          enabled: true,
-          backgroundColor: '#52459e',
-          position: 'average',
-          xAlign:'center',
-          yAlign: 'bottom',
-        },    
-      },  
-      scales: {
-        x:{
-          grid:{
-            draw: false,
-            display: false,
-          }
-        },
-      }
-    },
-  });
+        <section class="container-text ">
+            <div class="d-flex feed">
+                <div class="teste">
+                    <label>
+                        <p>Valor Anual </p>
+                        <h2 id="Valor-total">~</h2>
+                    </label>
+                    <label><i class="bi bi-bar-chart-fill"></i></label>
+                </div>
+                <div class="teste">
+                    <label>
+                        <p>  Valor Mensal</p>
+                        <h2>R$: ~</h2>
+                    </label>
+                    <label><i class="fa-solid fa-chart-line"></i></label>
+                </div>
+                <div class="teste">
+                    <label>
+                        <p>METAS</p>
+                        <h2>R$: 20</h2>
+                    </label>
+                    <label><i class="fa-solid fa-chart-pie"></i></label>
+                </div>
+            </div>
+            
+            <section class="container-graphic">
+              <div class="graphic">
+                <canvas id="container" style="width: 100%; height:100%; border-radius: 20px;"></canvas>
+              </div>
+                <div class="graphic graphic-second">
+                    <canvas id="pie" style="width: 100%; height:100%; border-radius: 20px;"></canvas>
+                </div>
+            </section>
+            <section class="container-graphic mensal">
+              <div id="teste-grafico"></div>
+            </section>
+        </section>
+        
+    </main>
 
-  let valorTotalAnual =  ano2022.api[13].VALOR + ano2023.api[13].VALOR + ano2024.api[13].VALOR;
-  valor(valorTotalAnual);
-}
-
-
-
-async function api(ano2023, ano2024){
-  // const jan23 = await fetch('https://script.google.com/macros/s/AKfycbyv9-o9vDKlffGR_y0HQRVyk5HwmE0Bc15xk0MShYTp8AwQMcg2xiQ2C9ez4OlKklpo/exec').then(response => response.json());
-  // const abr23 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=VtmP1AIZ6RF4lTLDjwWRVtnXirTZ1e9vI8660EsjO7hgeiNTOdUmDiy92I-AVLf0A6kE4RuFi4M3T4Jqati4tcqM-yuI1QMgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnC6zHBlGXRb4_Lpawi71PK31NEniKNRBBIOr4pjt_P19fgoUwW5nsEt2KsWTK97MvCElphgE6Zc-Z-0JfF49MDHshTl8x83JkA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
-  // const mai23 = await fetch('https://script.google.com/macros/s/AKfycbzXM_dRxEZ0fmCNQTWQb4rk9HkH6mdYRMgJoA_QzvOzYq9IozE6HXEZEXRa888CTC0N/exec').then(response => response.json());
-  // const jun23 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=DNXV5uYEr6AwkD7Q6BtSPe2FFaEmGfg6_SCZS23wEncKZI_gLcxyDbYZXL4eQ5NFqiJ0YjY3OEPNFLfn4QxZzUh4QZdAonEjm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnLjdpmtY8sWDmJXzSpJ8CdK-h6XOUNGxIl1v3K2RZeP2TUZjwPrB8_bXeDA24R2187wYnaKOPZPbO-ki0ZRdLxsW5mHJiC7Yag&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
-  // const jul23 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=6CSmAv97wf1AutV8Adfdy0-d1y4mf1rbiMkRfD2oBZVWCj1NKVwu3hy-pIDJgZS1uddAOpm2l-B5oV92jWRZbtdtwfPQqTd0m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnD_rqQViQvLjxyOdpskk159XMIRVpEYHsjfC1wYLx10Bsjz1j2A8EjRSofX8rLPpgv6joDzRjz6kvQo6YJTGd6ZV8BCno9Aazw&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
-  // const ago23 = await fetch('https://script.google.com/macros/s/AKfycbw7faf45Oz4nDse85Ik4u4WmQTe5FYsIpHe1zkoa95-Cbs6C1rsQIPzh7nHDLxCVnak/exec').then(response => response.json());
-  // const set23 = await fetch('https://script.google.com/macros/s/AKfycbxqlrxTrHocWMdPdQs5dHd9VdsJAtqE6oU8RsPIQJz43eq6w20X9QXpa3zOetgnDn26/exec').then(response => response.json());
-  // const out23 = await fetch('https://script.google.com/macros/s/AKfycbxIJdZ2BXz6fW559XiitN8jrmYD3PgxdwGv0W8p5Z54KF4GYUD_Hbyxz6lsxDGmDw2e/exec').then(response => response.json());
-  // const nov23 = await fetch('https://script.google.com/macros/s/AKfycbzYYfVTUofN5tXnsQRyfbHUWLgitXouRTL0J4O0XKGpP72kZX889RaenS5_dV-s4Hea/exec').then(response => response.json());
-  // const dez23 = await fetch('https://script.google.com/macros/s/AKfycbxzABAvDqLS_fYb3FF92y6TK8YgmmGxXxbwqEF70gTKYWNhhhFyXsxFysKxx6uX2yvA/exec').then(response => response.json());
-
-  
- 
-  try {
-    const ano2022 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=eru1BoZCMDOOEMhGBPrJjMU_LPFReYMzrFTKqf91hYWA-KOTSM_N4R6ZEC_Zlm9OeNTXmj3jg6ek3T6QQeIbQcqsWLi4DpPpm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFVXWXR0nSELR97zGgQBms-7dZnT2diY5rajuaka_Z0rKkB6hHYVkl7PctLAiJohTZfdx3kKMqce8bLhRpGbczYtqRaF3dzGGA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
-    const ano2023 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=D0UnS-k2C2q72Uqqmw2Ltp8VYJvmgcbEyQT8DB4Fz2EOfEIHS1wbTmxe3B6QLrkFSR-KMATC9CDu6OEciJbU5GAY8Rct8AAom5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCKerEFGYu5RKo7_hwoyk64pIYAI3a4nI1PMwRI5ACjO_KqAHhAYqx9WyNYmiCxzABQOoFJIBY7SONyqn6HH6MceWczTUG0_rTrSCZ144_ckf23vXPw2sfA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json());
-    const ano2024 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=TpRtny9BCS06jfPrYdpzRRBGPTcg9gnIfaI6Ik3-brChEOTX9oXvhS05Hez0Y_o-f02PI4CY5GBYkVnd3c5zI0QM7toAmXKDm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnITRmA-SjkP81Hf1fql0XOdhb081W2uApJGJyyNDokJyZRJPOi0afyT7NYJqYuxTcV8kUIY-BrFve3SjpYHzAfderpqyuI2nDg&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(response => response.json()); 
-    meses(ano2022, ano2023, ano2024);
-  } catch (error) {
-    console.error("API não encontrada");
-    const erro = document.querySelector('.graphic');
-    erro.style.paddingTop='10em'
-    erro.style.textAlign='center'
-    erro.style.backgroundColor='#cf5959ab';
-    erro.innerHTML="<h1>ERRO não foi possivel encontrar a API</h1>";
-  }
-}
-
-async function valor(valorTotalAnual){
-  const inforValor = document.querySelector('#Valor-total');
-  // Formatando o numero para duas casas decimais depois da virgula
-  let numberAnual = parseFloat(valorTotalAnual);
-  inforValor.innerText= `R$: ${numberAnual.toFixed(2)}`;
-}
-
-api()
-api2()
-
-valor()
+    <script src="js/script.js"></script>
+    <script src="js/meu_script.js"></script>
+    <script src="js/grafico_mensal.js"></script>
+    <script src="js/grafico_metas.js"></script>
+  </body>
+</html>
