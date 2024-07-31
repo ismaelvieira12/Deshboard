@@ -23,7 +23,6 @@
 
 body{
     background-color: var(--corSize);
-    width: 5%;
     height: 100vh;
 }
 #expandir{
@@ -38,14 +37,13 @@ body{
     }
     to{
         transform: rotate(180deg);
-
     }
 }
 .box{
     display: none;
 }
 #modo-noturno{
-    opacity: 0.1;
+    opacity: 0;
     cursor: pointer;
 }
 .fixed-top { left: 7%;}
