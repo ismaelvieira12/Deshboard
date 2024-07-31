@@ -1,162 +1,228 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="./" type="image/x-icon">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <title>Dashboard StarLink</title>
-        
-        <script src="https://code.highcharts.com/stock/highstock.js"></script>
-        <script src="https://code.highcharts.com/modules/data.js"></script>
-        <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-        <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
-        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <link rel="shortcut icon" href="imgs/activity.svg" type="image/x-icon">
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <!-- <link rel="stylesheet" href="css/style.css"> -->
-         <link rel="stylesheet" href="css/meu_style.css">
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --corBlueLigth:#85F2F2;
+    --corSize: #F2F6FF;
+    --corBlue: #C2D2F2;
+    --corGreen: #26a653;
+    --corPurple: #52459ea8;
+    --corSizeLigth: #DEE1E6;
 
 
-        
-<script src="https://code.highcharts.com/highcharts-more.js"></script>
-<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-      </head>
-<body>
-    <header>
-        <nav class="navbar-expand-lg navbar bg-body-tertiary fixed-top">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-backward espacao" id="expandir"></i> <i class="fa-solid fa-fire-flame-curved "></i></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"> Dashboard</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Clientes</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#contato">Contato</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <div class="form-check form-switch chk" style="padding-left: 0;">
-                        <i class="bi bi-moon-stars-fill smol" style="margin-right: -20px;"></i>
-                        <!-- <i class="bi bi-brightness-high-fill"></i> -->
-                        <input type="checkbox" name="checkbox" id="modo-noturno">
-                        <label class="box" for="modo-noturno">
-                          <i class="bi sun icons"></i>
-                          <i class="bi bi-moon-stars-fill icons" style="margin-left: 12px;"></i>
-                          <div class="ball"></div>
-                        </label>
-                      </div>
-                    </a>
-                  </li>
-              </div>
-            </div>
-          </div>
-        </nav>
-    </header>
-    <main>
-        <section class="cabeca">
-            <div class="nav-left">
-                <!-- Moneu -->
-                <label class="caixa-top">
-                    <h2><img src="imgs/logo_starLink.jpg" class="logo-img top" alt="Logo da cafeteria"></h2>
-                </label>
-                <div class="menu d-flex flex-column">
-                    <label>
-                        <i class="fa-solid fa-house"></i>
-                    </label>
-                    <label>     
-                        <i class="fa-solid fa-users"></i>
-                    </label>
-                    <label>
-                        <i class="fa-solid fa-phone"></i>
-                    </label>
-                    <label>
-                        <i class="fa-solid fa-handshake"></i>
-                    </label>
-                </div>
-                <div class="login d-flex justify-content-center">
-                    <label>
-                        <a href="#">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                        </a>
-                    </label>
-                </div>
-            </div>
-            <div class="nav-rigth">
-              <div class="infor-metas">
-                <canvas id="metas" style="height:40vh; width:80vw"> </canvas>
-                <div class="infor-metas-list highcharts-figure d-flex justify-content-center align-items-center">
-                  <div id="container-speed" class="chart-container" style="width: 100%; height: 90%;"></div>                 
-                </div>
-              </div>
-            </div>
-        </section>
+    /* Cores que vou usar no script */
+    --corErro: #cf5959b7;
+    --corGrafico:#8870fe6a;
+    --corGrafico: #79a6ff;
+    --corGrafico: #79a6ff90;
+    --corGrafico: #3a3a3b7c;
+}
 
-        <section class="container-text ">
-            <div class="d-flex feed">
-                <div class="teste">
-                    <label>
-                        <p>Valor Anual </p>
-                        <h2 id="Valor-total">~</h2>
-                    </label>
-                    <label><i class="bi bi-bar-chart-fill"></i></label>
-                </div>
-                <div class="teste">
-                    <label>
-                        <p>  Valor Mensal</p>
-                        <h2>R$: ~</h2>
-                    </label>
-                    <label><i class="fa-solid fa-chart-line"></i></label>
-                </div>
-                <div class="teste">
-                    <label>
-                        <p>METAS</p>
-                        <h2>R$: 20</h2>
-                    </label>
-                    <label><i class="fa-solid fa-chart-pie"></i></label>
-                </div>
-            </div>
-            
-            <section class="container-graphic">
-              <div class="graphic">
-                <canvas id="container" style="width: 100%; height:100%; border-radius: 20px;"></canvas>
-              </div>
-                <div class="graphic graphic-second">
-                    <canvas id="pie" style="width: 100%; height:100%; border-radius: 20px;"></canvas>
-                </div>
-            </section>
-            <section class="container-graphic mensal">
-              <div id="teste-grafico"></div>
-            </section>
-        </section>
-        
-    </main>
+body{
+    background-color: var(--corSize);
+    height: 100vh;
+}
+#expandir{
+    margin-right: 30px;
+    opacity: 0.7;
+    font-size: 15px;
+    animation: expandir 1s infinite;
+}
+@keyframes expandir {
+    from{
+        transform: rotate(180deg);
+    }
+    to{
+        transform: rotate(180deg);
+    }
+}
+.box{
+    display: none;
+}
+#modo-noturno{
+    opacity: 0;
+    cursor: pointer;
+}
+.fixed-top { left: 7%;}
 
-    <script src="js/script.js"></script>
-    <script src="js/meu_script.js"></script>
-    <script src="js/grafico_mensal.js"></script>
-    <script src="js/grafico_metas.js"></script>
-  </body>
-</html>
+.bg-body-tertiary{background-color: var(--corSize);}
+.cabeca{
+    position: absolute;
+    background-color: var(--corSize);
+    width: 7%;
+    height: 100vh;
+    /* border-right: 1px solid var(--corSizeLigth); */
+}
+
+.nav-left {
+    background-color: var(--corBlue);
+    width: 7%;
+    height: 100%;
+    margin: 0px 0px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 10px #8873ff7f;
+}
+.nav-rigth {
+    background-color: #fff;
+    border-radius: 8px;
+    position: fixed;
+    width: 21%;
+    height: 90%;
+    left: 78%;
+    top: 12%;
+    box-shadow: 1px 1px 10px #ffffff87;
+}
+.infor-metas{
+    background-color: var(--corBlue);
+    border-radius: 8px;
+    width: 100%;
+    height: 50%;
+}
+
+.infor-metas-list{
+    background-color: var(--corBlue);
+    margin-top: 10%;
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+}
+
+.caixa-top{
+    border-bottom: 1px solid var(--corPurple);
+    text-align: center;
+    padding-bottom: 20px;
+}
+.logo-img{
+    margin-top: 30px;
+    width: 50px;
+    border: 2px solid var(--corPurple);
+    border-radius: 50%;
+}
+.menu label{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 100%;
+}
+
+.menu label i{
+    font-size: 20px;
+    color:var(--corPurple);
+    padding: 40%;
+    background-color: var(--corSize);
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+    &:hover{
+        color: var(--corSize);
+        background-color: var(--corPurple);
+        transition: 0.5s;
+    }
+}
+.login{
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+}
+.login a{
+    padding: 15px 18px;
+    border-radius: 50%;
+    background-color: var(--corSize);
+    color: var(--corPurple);
+    border: 2px solid var(--corPurple);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+    &:hover{
+        color: var(--corSize);
+        background-color: var(--corPurple);
+        transition: 0.5s;
+        border: 2px solid #fff;
+        opacity: 0.5;
+    }
+}
+
+.container-text {
+    position: absolute;
+    width: 68%;
+    height: 100%;
+    z-index: 11;
+    top: 12%;
+    left: 8%;
+}
+.feed{
+    width: 100%;
+    height: 100px;
+}
+.teste{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 25%;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    margin: 0 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #d3d7de;
+}
+.teste label p, h2 {
+    opacity: 0.7;
+}
+.teste i{
+  font-size: 30px;
+  color: var(--corPurple);
+  opacity: 0.5;
+}
+
+.container-graphic{
+    width: 100%;
+    height: 40%;
+    margin-top: 2%;
+    margin-left: 0.5%;
+    display: flex;
+}
+.mensal {
+    border-radius: 10px;
+    height: 45%;
+}
+#teste-grafico {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #d3d7de;
+}
+.graphic {
+    width: 70%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #d3d7de;
+    
+    &:hover{
+        box-shadow: 1px 1px 10px #d3d7de;
+        cursor: pointer;
+    }
+}
+
+.graphic-second {
+    width: 35%;
+    margin-left: 10px;
+    margin-right: 5px;
+    position: relative;
+}
+
+
+@media (max-width :1682px){
+    .container-graphic{
+        height: 40%;
+    }
+    .infor-metas{
+        height: 40%;
+    }
+}
