@@ -251,3 +251,11 @@ body{
         height: 40%;
     }
 }
+
+@media (max-width: 390px){
+    .cabeca{
+        & .nav-left{
+            display: none;
+        }
+    }
+}
