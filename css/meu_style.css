@@ -231,9 +231,6 @@ body{
             }
         }
     }
-
-
-  
 }
 
 /* Animação do icone de expandir */
@@ -245,9 +242,6 @@ body{
         transform: rotate(180deg);
     }
 }
-
-
-
 /* Responsividade */
 @media (max-width :1682px){
     .container-graphic{
