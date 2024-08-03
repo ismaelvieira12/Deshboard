@@ -276,15 +276,25 @@ body{
             height: 600px;
 
             & .graphic {
-                width: 149%;
+                width: 100%;
                 height: 250px;
-                margin-bottom: 50px;
             }
 
-          
+            & .graphic-first{
+                height: 400px;
+                margin-bottom: 20px;
+            }
+
+            & .graphic-second {
+                height: 400px;
+                left: -2%;
+            }
         }
 
-      
+        & .mensal{
+            margin-top: 35px;
+            height: 400px;
+        }
 
         & .teste {
             justify-content: space-between;
