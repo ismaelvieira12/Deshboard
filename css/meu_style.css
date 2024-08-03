@@ -204,7 +204,6 @@ body{
                 height: 100%;
                 border-radius: 10px;
                 box-shadow: 1px 1px 10px #d3d7de;
-                
                 &:hover{
                     box-shadow: 1px 1px 10px #d3d7de;
                     cursor: pointer;
@@ -231,7 +230,6 @@ body{
             }
         }
     }
-
 
 /* Animação do icone de expandir */
 @keyframes expandir {
@@ -282,7 +280,11 @@ body{
                 height: 250px;
                 margin-bottom: 50px;
             }
+
+          
         }
+
+      
 
         & .teste {
             justify-content: space-between;
