@@ -273,7 +273,7 @@ body{
         & .container-graphic {
             margin-top: 200px;
             flex-direction: column;
-            height: 600px;
+            height: 715px;
 
             & .graphic {
                 width: 100%;
@@ -281,8 +281,8 @@ body{
             }
 
             & .graphic-first{
-                height: 400px;
                 margin-bottom: 20px;
+                height: 295px;
             }
 
             & .graphic-second {
