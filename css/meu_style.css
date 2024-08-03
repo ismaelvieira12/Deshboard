@@ -241,7 +241,7 @@ body{
     }
 }
 
-/* Responsividade */
+/* Responsividade para dispositivos moveis*/ 
 @media (max-width :1682px){
     .container-graphic{
         height: 40%;
@@ -303,3 +303,10 @@ body{
         }
     }
 }
+
+/* @media(width: 884px){
+
+    #pie{
+        margin-left: 20%;
+    }
+} */
