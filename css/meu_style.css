@@ -304,9 +304,9 @@ body{
     }
 }
 
-/* @media(width: 884px){
+@media(width: 884px){
 
     #pie{
         margin-left: 20%;
     }
-} */
+}
