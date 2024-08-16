@@ -216,13 +216,3 @@ body{
     margin-right: 5px;
     position: relative;
 }
-
-
-@media (max-width :1682px){
-    .container-graphic{
-        height: 40%;
-    }
-    .infor-metas{
-        height: 40%;
-    }
-}
