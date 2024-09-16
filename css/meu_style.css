@@ -310,3 +310,12 @@ body{
         margin-left: 20%;
     }
 }
+
+/* Paleta de cores para o modo darck */
+:root{
+    --dark01:#000814;
+    --dark02:#001d3d;
+    --dark03:#003566;
+    --dark04:#ffc300;
+    --dark05:#ffd60a;
+}
