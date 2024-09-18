@@ -8,4 +8,4 @@
 ## Para tablets
 ![image](https://github.com/user-attachments/assets/1973b7ca-d56a-40ba-9d7d-316e3369f196)
 
-#//#explicação dos gráficos do Dashboard//
+##explicação dos gráficos do Dashboard
