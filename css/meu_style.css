@@ -242,7 +242,7 @@ body{
 }
 
 /* Responsividade para dispositivos moveis*/ 
-/* @media (max-width :1682px){
+@media (max-width :1682px){
     .container-graphic{
         height: 40%;
     }
@@ -251,7 +251,7 @@ body{
     }
 } */
 
-/*@media (width <= 884px){
+@media (width <= 884px){
     body{
         background-color:var(--dark01);
         & .fixed-top {
