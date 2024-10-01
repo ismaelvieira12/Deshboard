@@ -224,7 +224,7 @@ function testando(meses2024){
                 
                 
                 'Jan': meses2024.api[0].VALOR.toFixed(2), 
-                // 'Fer': ano2024.api[1].VALOR.toFixed(2),
+                 'Fer': meses2024.api[1].VALOR.toFixed(2),
                 // 'Mar': ano2024.api[2].VALOR.toFixed(2),
                 // 'Abr': ano2024.api[3].VALOR.toFixed(2),
                 // 'Mai': ano2024.api[4].VALOR.toFixed(2),
