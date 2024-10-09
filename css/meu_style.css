@@ -251,7 +251,7 @@ body{
     }
 } */
 
-@media (width <= 884px){
+/*@media (width <= 884px){
     body{
         background-color:var(--dark01);
         & .fixed-top {
@@ -265,7 +265,7 @@ body{
 
     .feed {
         flex-direction: column;
-    }*/
+    } */
 
     .container-text {
         width: 94%;
