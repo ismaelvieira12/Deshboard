@@ -291,6 +291,6 @@ async function valor(valorTotalAnual){
 }
 
 api()
-api2()
+// api2()
 
 valor()
