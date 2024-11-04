@@ -1,5 +1,6 @@
-// Configurando o estilo do gráfico
-function testando(diasDoMes) {
+// Configuring the style of the chart
+function testando(meses2024){
+
     Highcharts.setOptions({
         lang: {
             rangeSelectorZoom: ''
@@ -36,14 +37,10 @@ function testando(diasDoMes) {
         },
     
         xAxis: {
-            type: 'datetime', // Define o eixo X como datas
             labels: {
                 style: {
                     color: '#79a6ff'
                 }
-            },
-            dateTimeLabelFormats: {
-                day: '%e de %b' // Formato do rótulo do eixo X (ex: 1 de Jan)
             }
         },
     
@@ -55,20 +52,123 @@ function testando(diasDoMes) {
             }
         },
     
+        navigator: {
+            series: {
+                fillColor: {
+                    linearGradient: [0, 0, 0, 40],
+                    stops: [
+                        [0, '#79a6ff'],
+                        [1, '#000000']
+                    ]
+                }
+            },
+            xAxis: {
+                labels: {
+                    style: {
+                        color: '#79a6ff',
+                        opacity: 1,
+                        textOutline: '#79a6ff'
+                    }
+                }
+            },
+            maskFill: '#79a6ff',
+            handles: {
+                backgroundColor: '#79a6ff',
+                borderRadius: '50%',
+                width: 20,
+                height: 20
+            }
+        },
+    
+        exporting: {
+            buttons: {
+                contextButton: {
+                    symbolStroke: '#d9d7d7',
+                    theme: {
+                        fill: '#52459ea8',
+                        states: {
+                            hover: {
+                                fill: '#79a6ff' 
+                            },
+                            select: {
+                                fill: '#52459e'
+                            }
+                        }
+                    }
+                }
+            }
+        },
+    
+        scrollbar: {
+            barBackgroundColor: '#79a6ff',
+            trackBorderColor: '#52459e'
+        },
+    
+        rangeSelector: {
+            buttonTheme: {
+                fill: 'none',
+                stroke: 'none',
+                'stroke-width': 0,
+                r: 8,
+                style: {
+                    color: '#52459ea8',
+                    fontWeight: 'bold',
+                    fontSize: '1em'
+                },
+                states: {
+                    select: {
+                        fill: '#52459ea8',
+                        style: {
+                            color: '#ffffff'
+                        }
+                    },
+                    hover: {
+                        fill: 'none',
+                        stroke: '#52459ea8',
+                        'stroke-width': 2,
+                        style: {
+                            color: '#52459ea8'
+                        }
+                    }
+                }
+            }
+        },
+    
+        plotOptions: {
+            area: {
+                threshold: null,
+                color: '#52459ea8',
+                fillColor: {
+                    linearGradient: [0, 0, 0, 450],
+                    stops: [
+                        [0, '#79a6ff90'],
+                        [1, '#000000']
+                    ]
+                }
+            }
+        },
+    
+    
         tooltip: {
             backgroundColor: '#212020',
             style: {
                 color: '#ffffff'
-            },
-            xDateFormat: '%e de %B' // Formato da data no tooltip
+            }
         }
     });
     
-    // Configuração do gráfico
+    // Configuring the chart.
     Highcharts.stockChart('teste-grafico', {
+    
         title: {
-            text: 'Gráfico dos Últimos 30 Dias',
+            text: 'Grafico Mensal',
             align: 'left',
+        },
+    
+        layouts: {
+            padding:{
+                left: 20
+            }
         },
     
         xAxis: {
@@ -81,11 +181,29 @@ function testando(diasDoMes) {
             }
         },
     
+        scrollbar: {
+            barBorderRadius: 4,
+            height: 8,
+            margin: 0,
+            trackBorderRadius: 4
+        },
+    
         yAxis: {
             gridLineWidth: 0,
             offset: 30,
             accessibility: {
-                description: 'Valores Diários'
+                description: 'price in Ethereum'
+            }
+        },
+    
+        navigator: {
+            enabled: false,
+            xAxis: {
+                gridLineWidth: 0
+            },
+            outlineWidth: 0,
+            handles: {
+                lineWidth: 0
             }
         },
     
@@ -98,13 +216,16 @@ function testando(diasDoMes) {
             selected: 1
         },
     
+        tooltip: {
+            shape: 'rect',
+            shadow: true,
+            borderWidth: 0
+        },
+    
         series: [{
-            name: 'Valores Diários',
+            name: 'Valores Mensais',
             type: 'area',
-            data: diasDoMes.map((dia, index) => [
-                Date.UTC(2024, 0, index + 1), // Gera uma data para cada dia do mês de Janeiro de 2024
-                dia.VALOR // Valor do dia vindo da API
-            ]),
+            data: meses2024.api.map(mes => mes.VALOR), // Dados da API
             tooltip: {
                 valueDecimals: 2,
                 pointFormat: '{point.y}'
@@ -113,13 +234,11 @@ function testando(diasDoMes) {
     });
 }
 
+
 async function graficoMensal() {
-    // Obtém os dados da API
-    const diasDoMes = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=eru1BoZCMDOOEMhGBPrJjMU_LPFReYMzrFTKqf91hYWA-KOTSM_N4R6ZEC_Zlm9OeNTXmj3jg6ek3T6QQeIbQcqsWLi4DpPpm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFVXWXR0nSELR97zGgQBms-7dZnT2diY5rajuaka_Z0rKkB6hHYVkl7PctLAiJohTZfdx3kKMqce8bLhRpGbczYtqRaF3dzGGA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2')
-        .then(response => response.json());
-
-    console.log(diasDoMes); // Exibe a estrutura para verificar
-    testando(diasDoMes);
+const meses2024 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=eru1BoZCMDOOEMhGBPrJjMU_LPFReYMzrFTKqf91hYWA-KOTSM_N4R6ZEC_Zlm9OeNTXmj3jg6ek3T6QQeIbQcqsWLi4DpPpm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFVXWXR0nSELR97zGgQBms-7dZnT2diY5rajuaka_Z0rKkB6hHYVkl7PctLAiJohTZfdx3kKMqce8bLhRpGbczYtqRaF3dzGGA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(Response => Response.json());
+console.log(meses2024); // Exiba a estrutura para verificar
+testando(meses2024);
 }
-
+// testando();
 graficoMensal();
