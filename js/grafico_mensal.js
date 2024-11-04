@@ -221,10 +221,8 @@ function testando(meses2024){
             },
         
             data: {
-                
-                
                 // 'Jan': meses2024.api[0].VALOR.toFixed(2), 
-                //  'Fer': meses2024.api[1].VALOR.toFixed(2),
+                // 'Fer': meses2024.api[1].VALOR.toFixed(2),
                 // 'Mar': ano2024.api[2].VALOR.toFixed(2),
                 // 'Abr': ano2024.api[3].VALOR.toFixed(2),
                 // 'Mai': ano2024.api[4].VALOR.toFixed(2),
@@ -235,9 +233,9 @@ function testando(meses2024){
                 // 'Out': ano2024.api[9].VALOR,
                 // 'Nov': ano2024.api[10].VALOR,
                 // 'Dez': ano2024.api[11].VALOR, 
-                csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@1e5fcf4/samples/data/btc-eth.csv',
-                firstRowAsNames: false,
-                startRow: 1
+                // csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@1e5fcf4/samples/data/btc-eth.csv',
+                // firstRowAsNames: false,
+                // startRow: 1
             },
         
             tooltip: {
@@ -247,8 +245,9 @@ function testando(meses2024){
             },
         
             series: [{
-                name: 'BTC-ETH Price',
+                name: 'Valores Mensais',
                 type: 'area',
+                data: meses2024.api.map(mes => mes.VALOR), // Dados da API
                 tooltip: {
                     valueDecimals: 2,
                     pointFormat: '{point.y}'
@@ -260,8 +259,8 @@ function testando(meses2024){
 
 async function graficoMensal() {
     const meses2024 = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=eru1BoZCMDOOEMhGBPrJjMU_LPFReYMzrFTKqf91hYWA-KOTSM_N4R6ZEC_Zlm9OeNTXmj3jg6ek3T6QQeIbQcqsWLi4DpPpm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFVXWXR0nSELR97zGgQBms-7dZnT2diY5rajuaka_Z0rKkB6hHYVkl7PctLAiJohTZfdx3kKMqce8bLhRpGbczYtqRaF3dzGGA&lib=M8G5hm_VlBnB5nuEPbx8Vg6frgnVbBec2').then(Response => Response.json());
+    console.log(meses2024); // Exiba a estrutura para verificar
     testando(meses2024);
-  
 }
+// testando();
 graficoMensal();
-testando(meses2024);
