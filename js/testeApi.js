@@ -17,7 +17,12 @@ async function pegarDados() {
         });
 
         const res = await response.json();
-        console.log(res);
+        if(res.api_token){
+            localStorage.setItem('api_token', res.api_token);
+            console.log(res.api_token);
+        }else{
+            
+        }
     }catch{
 
     }
