@@ -2,7 +2,7 @@ const autoApi = 'https://api.beesweb.com.br/adm/sessions';
 const ProRequ = 'https://api.beesweb.com.br/adm/charges/{chargeId}';
 
 
-async function pegarDados() {
+async function autenticacao() {
    const loginData = {
         email: 'ismael@starlink.com',
         password: '13579852'
@@ -18,14 +18,39 @@ async function pegarDados() {
 
         const res = await response.json();
         if(res.api_token){
-            localStorage.setItem('api_token', res.api_token);
-            console.log(res.api_token);
+            localStorage.setItem('api_token', res.api_token); // salvar o token para requisições posteriores
+            console.log('Token salvo com sucesso!');
         }else{
-            
+            console.log('Erro ao salvar o token');
         }
-    }catch{
-
+    }catch (error) {
+        console.error('Erro ao fazer login:', error);
     }
 }
 
-pegarDados();
+async function pegarDados(endpoint){
+    const pegarToken = localStorage.getItem('api_token');// pegar o token salvos
+
+    //verificar se o usuário está autenticado
+    if (!api_token) {
+        console.error('Token não encontrado, faça primeiro o login');
+    }
+
+    try {
+        const response = await fetch(`https://api.beesweb.com.br/adm/${endpoint}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${pegarToken}`
+            }
+        })
+
+        const data = await response.json();
+        console.log('Dados obtidos:', data);
+        
+    }  catch (error) {
+        console.error('Erro ao buscar dados:', error);
+    }
+}
+
+// pegarDados();
+autenticacao();
