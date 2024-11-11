@@ -52,5 +52,5 @@ async function pegarDados(endpoint){
     }
 }
 
-// pegarDados();
+pegarDados();
 autenticacao();
