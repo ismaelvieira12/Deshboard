@@ -1,56 +1,49 @@
-const autoApi = 'https://api.beesweb.com.br/adm/sessions';
-const ProRequ = 'https://api.beesweb.com.br/adm/charges/{chargeId}';
+// Função para fazer login e obter o token
+async function getAuthToken() {
+    const response = await fetch('https://api.beesweb.com.br/adm/sessions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: 'ismael@starlink.com',
+            password: '13579852'
+        })
+    });
 
-
-async function autenticacao() {
-   const loginData = {
-        email: 'ismael@starlink.com',
-        password: '13579852'
-    }
-    try{
-        const response = await fetch(autoApi, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(loginData)
-        });
-
-        const res = await response.json();
-        if(res.api_token){
-            localStorage.setItem('api_token', res.api_token); // salvar o token para requisições posteriores
-            console.log('Token salvo com sucesso!');
-        }else{
-            console.log('Erro ao salvar o token');
-        }
-    }catch (error) {
-        console.error('Erro ao fazer login:', error);
+    const data = await response.json();
+    
+    if (response.ok) {
+        return data.api_token; // Retorna o token se a resposta for bem-sucedida
+    } else {
+        throw new Error('Erro ao fazer login: ' + data.message);
     }
 }
 
-async function pegarDados(endpoint){
-    const pegarToken = localStorage.getItem('api_token');// pegar o token salvos
-
-    //verificar se o usuário está autenticado
-    if (!api_token) {
-        console.error('Token não encontrado, faça primeiro o login');
-    }
-
+// Função para obter os pagamentos usando o token
+async function getPayments() {
     try {
-        const response = await fetch(`https://api.beesweb.com.br/adm/${endpoint}`, {
+        const token = await getAuthToken(); // Obtém o token de autenticação
+        
+        const response = await fetch(`https://api.beesweb.com.br/adm/charges`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${pegarToken}`
+                'Authorization': `Bearer ${token}`, // Usa o token no cabeçalho de autorização
+                'Content-Type': 'application/json'
             }
-        })
+        });
 
         const data = await response.json();
-        console.log('Dados obtidos:', data);
-        
-    }  catch (error) {
-        console.error('Erro ao buscar dados:', error);
+        console.log(data);
+        if (response.ok) {
+            console.log('Pagamentos:', data); // Exibe os dados de pagamento no console
+        } else {
+            console.error('Erro ao buscar pagamentos:', data.message);
+        }
+    } catch (error) {
+        console.error(error.message);
     }
 }
 
-//pegarDados();
-autenticacao();
+// Chamar a função para buscar os pagamentos de um `chargeId` específico
+getPayments();
