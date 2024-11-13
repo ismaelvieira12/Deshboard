@@ -113,20 +113,41 @@
                 <input type="password" name="password" id="password">
             </label>
         </div>
-        <input class="btn" type="submit" value="Enviar">
+        <button class="btn">Enviar</button>
         <a href="#" class="forgot">Esqueceu sua senha?</a>
     </form>
 
     <!-- Escript -->
     <script>
-        const inputEmail = document.querySelector('#email').value;
-        const inputPassword = document.querySelector('#password').value;
         const button = document.querySelector('.btn');
-
+        
+        
         button.addEventListener('click', () => {
-            console.log(`Valor digitado: ${inputEmail.value}`);
+            const inputPassword = document.querySelector('#password').value;
+            const form = document.querySelector('form');
+            const inputEmail = document.querySelector('#email').value;
+            //Expressão para validar um email;
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            //verifica se o email é valido ou não.
+            if(regex.test(inputEmail)){
+                alert('O email digita é válido.');
+
+            }else{
+                alert("[ERRO!], O email digitado não é válido!");
+            }
+
+            if(inputPassword == ""){
+                alert('Não é possivel entrar com a senha sem nada digite pelo menos 6 caractres');
+            }else{
+                if(inputPassword.length >= 6){
+                    alert('Tudo certo!!');
+                }else{
+                    alert('Senha menor que o esperado.');
+                    
+                }
+            }
         })
-        console.log(inputPassword);
     </script>
 </body>
 </html>
