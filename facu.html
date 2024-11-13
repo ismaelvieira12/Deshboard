@@ -116,8 +116,9 @@
         const inputPassword = document.querySelector('#password').value;
         const button = document.querySelector('.btn');
 
-        btn
-        console.log(`Valor digitado: ${inputEmail}`);
+        button.addEventListener('click', () => {
+            console.log(`Valor digitado: ${inputEmail}`);
+        })
         console.log(inputPassword);
     </script>
 </body>
