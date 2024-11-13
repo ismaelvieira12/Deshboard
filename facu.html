@@ -47,7 +47,6 @@
 
             & .box{
                 width: 400px;
-                height: 200px;
                 
                 & .box-input{
                     color: #ffffff;
@@ -106,13 +105,10 @@
         <div class="box">
             <label class="box-input">
                 <p>Email:</p>
-                <input type="email" name="email" id="email">
-            </label>
-            <label class="box-input">
-                <p>Senha:</p>
-                <input type="password" name="password" id="password">
+                <input type="email" name="email" id="email" placeholder="nome@gmail.com">
             </label>
         </div>
+        
         <button class="btn">Enviar</button>
         <a href="#" class="forgot">Esqueceu sua senha?</a>
     </form>
@@ -123,7 +119,6 @@
         
         
         button.addEventListener('click', () => {
-            const inputPassword = document.querySelector('#password').value;
             const form = document.querySelector('form');
             const inputEmail = document.querySelector('#email').value;
             //Expressão para validar um email;
@@ -135,16 +130,6 @@
 
             }else{
                 alert("[ERRO!], O email digitado não é válido!");
-            }
-
-            if(inputPassword == ""){
-                alert('Não é possivel entrar com a senha sem nada digite pelo menos 6 caractres');
-            }else{
-                if(inputPassword.length >= 6){
-                    alert('Tudo certo!!');
-                }else{
-                    alert('Senha menor que o esperado.');
-                }
             }
         })
     </script>
