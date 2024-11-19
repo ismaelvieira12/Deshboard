@@ -253,6 +253,7 @@ body{
 
 @media (max-width: 884px){
     body{
+        background-color: var(--dark02);
         & .fixed-top {
             left: 0%;
         } 
@@ -320,9 +321,6 @@ body{
     }
 }
 
-@media(width: 884px){
-
-}
 
 
 /* Paleta de cores para o modo darck */
