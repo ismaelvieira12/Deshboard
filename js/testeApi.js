@@ -33,7 +33,7 @@ async function getPayments() {
             }
         });
 
-        const data = await response.json();
+       /* const data = await response.json();
         console.log(data);
         if (response.ok) {
             console.log('Pagamentos:', data); // Exibe os dados de pagamento no console
