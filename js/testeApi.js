@@ -1,5 +1,5 @@
 // Função para fazer login e obter o token
-/*async function getAuthToken() {
+async function getAuthToken() {
     const response = await fetch('https://api.beesweb.com.br/adm/sessions', {
         method: 'POST',
         headers: {
