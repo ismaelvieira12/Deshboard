@@ -242,7 +242,7 @@ body{
 }
 
 /* Responsividade para dispositivos moveis*/ 
-@media (max-width: 1682px){
+/* @media (max-width: 1682px){
     .container-graphic{
         height: 40%;
     }
@@ -318,6 +318,84 @@ body{
     }
     #pie{
         margin-left: 20%;
+    }
+}
+ */
+
+
+
+ @media (max-width: 768px) {
+    /* Reduz a largura do menu lateral */
+    .cabeca, .cabeca .nav-left {
+        width: 15%;
+    }
+
+    /* Ajusta o container principal */
+    .container-text {
+        width: 85%;
+        left: 15%;
+        height: auto;
+        top: 10%;
+    }
+
+    /* Oculta o menu direito */
+    .cabeca .nav-rigth {
+        display: none;
+    }
+
+    /* Ajusta os elementos do menu */
+    .cabeca .nav-left .menu label {
+        margin: 10px;
+    }
+
+    .cabeca .nav-left .menu label i {
+        font-size: 18px;
+        padding: 20%;
+    }
+
+    /* Ajusta gráficos para se alinharem verticalmente */
+    .container-graphic {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .container-graphic .graphic {
+        width: 90%;
+        height: auto;
+    }
+
+    .container-graphic .graphic-second {
+        width: 90%;
+        margin: 0;
+    }
+
+    /* Ajusta textos no feed */
+    .container-text .teste {
+        flex-direction: column;
+        gap: 15px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .container-text .teste i {
+        font-size: 25px;
+    }
+
+    /* Ajusta o gráfico mensal */
+    .container-text .mensal {
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .container-text .mensal #teste-grafico {
+        width: 100%;
+        height: 300px; /* Define altura fixa para gráficos */
+    }
+
+    /* Oculta elementos desnecessários */
+    .cabeca .nav-left .login {
+        display: none;
     }
 }
 
