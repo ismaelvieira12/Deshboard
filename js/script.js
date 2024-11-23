@@ -143,25 +143,13 @@ function meses(ano2022, ano2023, ano2024){
     data: {
       labels: ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nor', 'dez'],
       datasets: [{
-        borderSkipped: false,
-        borderRadius: 20,
-        categoryPercentage: 0.8,
-        borderWidth: 2,
-        backgroundColor: ['#85F2F2'],
-        label: '2022',
-        data: ano2022.api.map(item => item.VALOR)
-          // 'Jan': ano2022.api[0].VALOR, 
-          // 'Fer': ano2022.api[1].VALOR ,
-          // 'Mar': ano2022.api[2].VALOR ,
-          // 'Abr': ano2022.api[3].VALOR,
-          // 'Mai': ano2022.api[4].VALOR,
-          // 'Jun': ano2022.api[5].VALOR,
-          // 'Jul': ano2022.api[6].VALOR,
-          // 'Ago': ano2022.api[7].VALOR,
-          // 'Set': ano2022.api[8].VALOR,
-          // 'Out': ano2022.api[9].VALOR,
-          // 'Nov': ano2022.api[10].VALOR,
-          // 'Dez': ano2022.api[11].VALO
+          borderSkipped: false,
+          borderRadius: 20,
+          categoryPercentage: 0.8,
+          borderWidth: 2,
+          backgroundColor: ['#85F2F2'],
+          label: '2022',
+             data: ano2022.api.map(item => item.VALOR),
         },
         {
           borderWidth: 2,
@@ -170,31 +158,20 @@ function meses(ano2022, ano2023, ano2024){
           borderRadius: 20,
           categoryPercentage: 0.8,
           label: '2023',
-            data: 
-              // 'Jan': ano2023.api[0].VALOR, 
-              // 'Fer': ano2023.api[1].VALOR,
-              // 'Mar': ano2023.api[2].VALOR,
-              // 'Abr': ano2023.api[3].VALOR,
-              // 'Mai': ano2023.api[4].VALOR,
-              // 'Jun': ano2023.api[5].VALOR,
-              // 'Jul': ano2023.api[6].VALOR,
-              // 'Ago': ano2023.api[7].VALOR,
-              // 'Set': ano2023.api[8].VALOR,
-              // 'Out': ano2023.api[9].VALOR,
-              // 'Nov': ano2023.api[10].VALOR,
-              // 'Dez': ano2023.api[11].VALOR, 
-        
+            data: ano2023.api.map(item => item.VALOR),
+        },
         {
+              
           borderWidth: 2,
           backgroundColor: ['#26a653'],
           borderSkipped: false,
           borderRadius: 20,
           categoryPercentage: 0.8,
           label: '2024',
-            data: ano2023.api.map(item => item.VALOR)
-        },
+            data: ano2024.api.map(item => item.VALOR)
+        }
      
-      ]
+      ],
     },
 
     options: {
