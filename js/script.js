@@ -141,7 +141,7 @@ function meses(ano2022, ano2023, ano2024){
   new Chart(graphicBar, {
     type: 'bar',
     data: {
-      labels: [],
+      labels: ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nor', 'dez'],
       datasets: [{
         borderSkipped: false,
         borderRadius: 20,
@@ -149,7 +149,7 @@ function meses(ano2022, ano2023, ano2024){
         borderWidth: 2,
         backgroundColor: ['#85F2F2'],
         label: '2022',
-        data: {
+        data: ano2022.api.map(item => item.VALOR)
           // 'Jan': ano2022.api[0].VALOR, 
           // 'Fer': ano2022.api[1].VALOR ,
           // 'Mar': ano2022.api[2].VALOR ,
@@ -162,7 +162,6 @@ function meses(ano2022, ano2023, ano2024){
           // 'Out': ano2022.api[9].VALOR,
           // 'Nov': ano2022.api[10].VALOR,
           // 'Dez': ano2022.api[11].VALOR,
-        },
       },
       {
         borderWidth: 2,
@@ -171,20 +170,19 @@ function meses(ano2022, ano2023, ano2024){
         borderRadius: 20,
         categoryPercentage: 0.8,
         label: '2023',
-          data: {
-            'Jan': ano2023.api[0].VALOR, 
-            'Fer': ano2023.api[1].VALOR,
-            'Mar': ano2023.api[2].VALOR,
-            'Abr': ano2023.api[3].VALOR,
-            'Mai': ano2023.api[4].VALOR,
-            'Jun': ano2023.api[5].VALOR,
-            'Jul': ano2023.api[6].VALOR,
-            'Ago': ano2023.api[7].VALOR,
-            'Set': ano2023.api[8].VALOR,
-            'Out': ano2023.api[9].VALOR,
-            'Nov': ano2023.api[10].VALOR,
-            'Dez': ano2023.api[11].VALOR, 
-          },
+          data: 
+            // 'Jan': ano2023.api[0].VALOR, 
+            // 'Fer': ano2023.api[1].VALOR,
+            // 'Mar': ano2023.api[2].VALOR,
+            // 'Abr': ano2023.api[3].VALOR,
+            // 'Mai': ano2023.api[4].VALOR,
+            // 'Jun': ano2023.api[5].VALOR,
+            // 'Jul': ano2023.api[6].VALOR,
+            // 'Ago': ano2023.api[7].VALOR,
+            // 'Set': ano2023.api[8].VALOR,
+            // 'Out': ano2023.api[9].VALOR,
+            // 'Nov': ano2023.api[10].VALOR,
+            // 'Dez': ano2023.api[11].VALOR, 
       },
       {
         borderWidth: 2,
