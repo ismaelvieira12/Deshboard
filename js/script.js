@@ -183,7 +183,7 @@ function meses(ano2022, ano2023, ano2024){
             // 'Out': ano2023.api[9].VALOR,
             // 'Nov': ano2023.api[10].VALOR,
             // 'Dez': ano2023.api[11].VALOR, 
-      },
+      
       {
         borderWidth: 2,
         backgroundColor: ['#26a653'],
