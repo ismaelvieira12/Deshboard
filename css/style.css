@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* :root{
+:root{
     --corBlueLigth:#85F2F2;
     --corSize: #F2F6FF;
     --corBlue: #C2D2F2;
@@ -19,7 +19,7 @@
     --corGrafico: #79a6ff;
     --corGrafico: #79a6ff90;
     --corGrafico: #3a3a3b7c;
-} */ */
+} */
 
 body{
     background-color: var(--corSize);
