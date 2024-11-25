@@ -266,7 +266,7 @@ body{
         flex-direction: column;
     }
     #pie{
-        margin-left: 0;
+        margin-left: 0 !important;
     }
     .container-text {
         width: 94%;
