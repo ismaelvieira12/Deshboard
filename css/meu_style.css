@@ -251,7 +251,7 @@ body{
     }
 }
 
-@media (width <= 884px){
+@media (max-width: 428){
     body{
         & .fixed-top {
             left: 0%;
@@ -265,7 +265,9 @@ body{
     .feed {
         flex-direction: column;
     }
-
+    #pie{
+        margin-left: 0 !important;
+    }
     .container-text {
         width: 94%;
         left: 2%;
@@ -304,7 +306,7 @@ body{
     }
 }
 
-@media(width: 884px){
+@media(max-width: 884px){
 
     #pie{
         margin-left: 20%;
