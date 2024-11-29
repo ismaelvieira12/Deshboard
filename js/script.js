@@ -206,6 +206,10 @@ function meses(ano2022, ano2023, ano2024){
             display: false,
           }
         },
+
+        y: {
+          max:5000
+        }
       }
     },
   });
