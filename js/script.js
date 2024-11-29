@@ -149,7 +149,7 @@ function meses(ano2022, ano2023, ano2024){
           borderWidth: 2,
           backgroundColor: ['#85F2F2'],
           label: '2022',
-             data: ano2022.api.map(item => item.VALOR),
+          data: ano2022.api.map(item => item.VALOR),
         },
         {
           borderWidth: 2,
@@ -158,7 +158,7 @@ function meses(ano2022, ano2023, ano2024){
           borderRadius: 20,
           categoryPercentage: 0.8,
           label: '2023',
-            data: ano2023.api.map(item => item.VALOR),
+          data: ano2023.api.map(item => item.VALOR),
         },
         {
               
@@ -168,7 +168,7 @@ function meses(ano2022, ano2023, ano2024){
           borderRadius: 20,
           categoryPercentage: 0.8,
           label: '2024',
-            data: ano2024.api.map(item => item.VALOR)
+          data: ano2024.api.map(item => item.VALOR)
         }
      
       ],
