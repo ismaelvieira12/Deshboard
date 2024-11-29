@@ -141,7 +141,7 @@ function meses(ano2022, ano2023, ano2024){
   new Chart(graphicBar, {
     type: 'bar',
     data: {
-      labels: ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nor', 'dez'],
+      labels: ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'],
       datasets: [{
           borderSkipped: false,
           borderRadius: 20,
