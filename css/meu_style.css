@@ -266,7 +266,7 @@ body{
         flex-direction: column;
     }
     #pie{
-        margin-left: 0 !important;
+        margin-left: 0;
     }
     .container-text {
         width: 94%;
@@ -306,7 +306,7 @@ body{
     }
 }
 
-@media(max-width: 884px){
+/* @media(max-width: 884px){
 
     #pie{
         margin-left: 20% !important;
@@ -360,4 +360,4 @@ body{
             margin: 8px 5px;
         }
     }
-}
+} */
