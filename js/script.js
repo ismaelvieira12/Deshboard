@@ -208,7 +208,7 @@ function meses(ano2022, ano2023, ano2024){
         },
 
         y: {
-          max:5000
+          max:4000
         }
       }
     },

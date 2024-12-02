@@ -46,4 +46,4 @@ async function getPayments() {
 }
 
 // Chamar a função para buscar os pagamentos de um `chargeId` específico
-getPayments();
+getPayments(1323379);
