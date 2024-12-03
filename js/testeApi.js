@@ -43,7 +43,8 @@ async function getPayments() {
     } catch (error) {
         console.error(error.message);
     }
+    const ids = current_page.data.map(item => item.id);
 }
 
 // Chamar a função para buscar os pagamentos de um `chargeId` específico
-getPayments(1323379);
+getPayments(current_page.map(item => item.id));
