@@ -25,7 +25,7 @@ async function getPayments() {
     try {
         const token = await getAuthToken(); // Obtém o token de autenticação
         
-        const response = await fetch(`https://api.beesweb.com.br/adm/charges/${id}`, {
+        const response = await fetch(`https://api.beesweb.com.br/adm/charges/`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`, // Usa o token no cabeçalho de autorização
@@ -46,7 +46,7 @@ async function getPayments() {
 }
 
 // Chamar a função para buscar os pagamentos de um `chargeId` específico
-getPayments(1328076);
+getPayments(current_page.data.map(item => item.id));
 
 
 // // Função para fazer login e obter o token
