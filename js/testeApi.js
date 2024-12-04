@@ -46,7 +46,7 @@ async function getPayments() {
 }
 
 // Chamar a função para buscar os pagamentos de um `chargeId` específico
-getPayments(current_page.data.map(item => item.id));
+getPayments(1328076);
 
 
 // // Função para fazer login e obter o token
