@@ -1,16 +1,16 @@
 
-expandir.addEventListener('click', () => {  
-  navleft.classList.add('.moverLeft-top');
-})
+// expandir.addEventListener('click', () => {  
+//   navleft.classList.add('.moverLeft-top');
+// })
 
-const inputCheck = document.querySelector('#modo-noturno');
-const boxIcons = document.querySelector('.smol');
+// const inputCheck = document.querySelector('#modo-noturno');
+// const boxIcons = document.querySelector('.smol');
 
-inputCheck.addEventListener('click', () => {
-  boxIcons.classList.add('bi-brightness-high-fill');
-  boxIcons.classList.remove('bi-moon-stars-fill');
+// inputCheck.addEventListener('click', () => {
+//   boxIcons.classList.add('bi-brightness-high-fill');
+//   boxIcons.classList.remove('bi-moon-stars-fill');
   
-})
+// })
 const metas = document.querySelector('#metas');
 new Chart(metas, {
   type: 'pie',
