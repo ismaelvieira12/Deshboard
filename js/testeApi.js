@@ -177,12 +177,12 @@ async function fetchAllPages() {
         } while (currentPage <= totalPages); // Continua enquanto houver páginas
         
 
-        // if (allData.situation == '3') {
-        //     // console.log(allData.name);
-        //     console.log("pago");
-        // } else {
-        //     console.log('erro ao carregar valor');
-        // }
+        if (allData.situation == '3') {
+            // console.log(allData.name);
+            console.log("pago");
+        } else {
+            console.log('erro ao carregar valor');
+        }
         console.log('Todos os dados carregados:', allData);
         return allData; // Retorna todos os elementos
     } catch (error) {
