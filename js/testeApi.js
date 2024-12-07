@@ -174,9 +174,6 @@ async function fetchAllPages() {
                 console.error('Erro ao buscar dados:', data.message);
                 break;
             }
-            const dataList = [currentPage];
-            const filteredData = dataList.filter(item => item.due_date && item.due_date.startsWith("2024"));
-            console.log(filteredData);
         } while (currentPage <= totalPages); // Continua enquanto houver páginas
         
         console.log('Todos os dados carregados:', allData);
