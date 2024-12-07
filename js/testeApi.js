@@ -176,13 +176,9 @@ async function fetchAllPages() {
             }
         } while (currentPage <= totalPages); // Continua enquanto houver páginas
         
-
-        if (allData.situation == '3') {
-            console.log(allData.name);
-            console.log("pago");
-        } else {
-        //     console.log('erro ao carregar valor');
-         }
+        const dataList = [allData];
+        const filteredData = dataList.filter(item => item.due_date && item.due_date.startsWith("2024"));
+        console.log(filteredData);
         console.log('Todos os dados carregados:', allData);
         return allData; // Retorna todos os elementos
     } catch (error) {
