@@ -329,7 +329,7 @@ async function fetchAllPages() {
             if (response.ok) {
                 allData = allData.concat(data.data); // Adiciona os elementos da página atual
                 totalPages = Math.ceil(data.statistics.all.quantity / data.per_page); // Calcula o total de páginas
-                // console.log(`Página ${currentPage} carregada com sucesso.`);
+                console.log(`Página ${currentPage} carregada com sucesso.`);
                 currentPage++; // Vai para a próxima página
             } else {
                 console.error('Erro ao buscar dados:', data.message);
