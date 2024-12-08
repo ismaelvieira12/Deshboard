@@ -345,20 +345,16 @@ async function fetchAllPages() {
 
 // Função para separar os dados por ano e filtrar por situation: 3
 function separateDataByYearAndSituation(dataList) {
-    const dataByYear = {
-        "2022": [],
-        "2023": [],
-        "2024": [],
-        "2025": []
-    };
+    const dataByYear = {};
 
     dataList.forEach(item => {
-        const dueDate = item.due_date; // Extrai o campo due_date
-        if (dueDate && item.situation === 3) { // Filtra apenas os registros com situation: 3
-            const year = dueDate.split("-")[0]; // Pega o ano da data
-            if (dataByYear[year]) {
-                dataByYear[year].push(item); // Adiciona ao ano correspondente
+        const dueDate = item.due_date;
+        if (dueDate && item.situation === 3) {
+            const year = dueDate.split("-")[0];
+            if (!dataByYear[year]) {
+                dataByYear[year] = [];
             }
+            dataByYear[year].push(item);
         }
     });
 
