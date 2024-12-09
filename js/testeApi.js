@@ -285,38 +285,15 @@
 // // Chamar a função principal
 // main();
 
-// Função para obter o token de autenticação
-async function getAuthToken() {
-    const response = await fetch('https://api.beesweb.com.br/adm/sessions', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: 'ismael@starlink.com',
-            password: '13579852'
-        })
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-        return data.api_token; // Retorna o token
-    } else {
-        throw new Error('Erro ao fazer login: ' + data.message);
-    }
-}
-
-// Função para buscar todas as páginas de dados
-async function fetchAllPages() {
+async function fetchMonthlyTotals(year) {
     try {
-        const token = await getAuthToken(); // Obtém o token de autenticação
-        let allData = []; // Array para armazenar todos os elementos
-        let currentPage = 1; // Página inicial
-        let totalPages = 1; // Total de páginas (ajustado dinamicamente)
+        const token = await getAuthToken();
+        let monthlyTotals = Array(12).fill(0);
+        let currentPage = 1;
+        let totalPages = 1;
 
         do {
-            const response = await fetch(`https://api.beesweb.com.br/adm/charges?page=${currentPage}`, {
+            const response = await fetch(`https://api.beesweb.com.br/adm/charges?page=${currentPage}&year=${year}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -324,58 +301,32 @@ async function fetchAllPages() {
                 }
             });
 
+            if (!response.ok) {
+                console.error(`Erro ${response.status}: ${response.statusText}`);
+                break; // Sai do loop se a resposta não for OK
+            }
+
             const data = await response.json();
+            if (data && data.data) {
+                data.data.forEach(item => {
+                    const dueDate = item.due_date;
+                    if (dueDate && item.situation === 3) {
+                        const month = parseInt(dueDate.split("-")[1], 10) - 1;
+                        monthlyTotals[month] += item.value;
+                    }
+                });
 
-            if (response.ok) {
-                allData = allData.concat(data.data); // Adiciona os elementos da página atual
-                totalPages = Math.ceil(data.statistics.all.quantity / data.per_page); // Calcula o total de páginas
-                console.log(`Página ${currentPage} carregada com sucesso.`);
-                currentPage++; // Vai para a próxima página
+                totalPages = Math.ceil(data.statistics.all.quantity / data.per_page);
+                currentPage++;
             } else {
-                console.error('Erro ao buscar dados:', data.message);
-                break;
+                console.error("Resposta inesperada da API:", data);
+                break; // Sai do loop se a estrutura de dados estiver incorreta
             }
-        } while (currentPage <= totalPages); // Continua enquanto houver páginas
-        
-        return allData; // Retorna todos os elementos
+        } while (currentPage <= totalPages);
+
+        return monthlyTotals;
     } catch (error) {
-        console.error('Erro ao buscar todas as páginas:', error.message);
+        console.error(`Erro ao buscar totais mensais para o ano ${year}:`, error.message);
     }
 }
 
-// Função para separar os dados por ano e filtrar por situation: 3
-function separateDataByYearAndSituation(dataList) {
-    const dataByYear = {};
-
-    dataList.forEach(item => {
-        const dueDate = item.due_date;
-        if (dueDate && item.situation === 3) {
-            const year = dueDate.split("-")[0];
-            if (!dataByYear[year]) {
-                dataByYear[year] = [];
-            }
-            dataByYear[year].push(item);
-        }
-    });
-
-    return dataByYear;
-}
-
-// Função principal para buscar, filtrar e separar os dados
-async function main() {
-    try {
-        const allData = await fetchAllPages(); // Busca todos os dados
-        const filteredData = separateDataByYearAndSituation(allData); // Separa por ano e filtra por situation: 3
-        
-        // Exibe os dados de cada ano
-        console.log("Dados de 2022 com situation 3:", filteredData["2022"]);
-        console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
-        console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
-        console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
-    } catch (error) {
-        console.error('Erro no processo principal:', error.message);
-    }
-}
-
-// Chamar a função principal
-main();
