@@ -9,8 +9,7 @@
 inputCheck.addEventListener('click', () => {
 boxIcons.classList.add('bi-brightness-high-fill');
 boxIcons.classList.remove('bi-moon-stars-fill');
-  
-// })
+   })
 const metas = document.querySelector('#metas');
 new Chart(metas, {
   type: 'pie',
