@@ -306,7 +306,7 @@ body{
     }
 }
 
-/* @media(max-width: 884px){
+@media(max-width: 884px){
 
     #pie{
         margin-left: 20% !important;
