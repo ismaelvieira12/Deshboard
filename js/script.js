@@ -7,7 +7,7 @@
 // const boxIcons = document.querySelector('.smol');
 
 inputCheck.addEventListener('click', () => {
-//   boxIcons.classList.add('bi-brightness-high-fill');
+boxIcons.classList.add('bi-brightness-high-fill');
 //   boxIcons.classList.remove('bi-moon-stars-fill');
   
 // })
