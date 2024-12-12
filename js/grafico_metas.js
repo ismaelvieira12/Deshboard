@@ -91,36 +91,6 @@ const chartSpeed = Highcharts.chart(
 
     }));
 
-// // The RPM gauge
-// const chartRpm = Highcharts.chart(
-//     'container-rpm', Highcharts.merge(gaugeOptions, {
-//         yAxis: {
-//             min: 0,
-//             max: 5,
-//             title: {
-//                 text: 'RPM'
-//             }
-//         },
-
-//         series: [{
-//             name: 'RPM',
-//             data: [1],
-//             dataLabels: {
-//                 format:
-//                 '<div style="text-align:center">' +
-//                 '<span style="font-size:25px">{y:.1f}</span><br/>' +
-//                 '<span style="font-size:12px;opacity:0.4">' +
-//                 '* 1000 / min' +
-//                 '</span>' +
-//                 '</div>'
-//             },
-//             tooltip: {
-//                 valueSuffix: ' revolutions/min'
-//             }
-//         }]
-
-//     }));
-
 // Bring life to the dials
 setInterval(function () {
     // Speed
