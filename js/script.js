@@ -3,7 +3,7 @@
 //   navleft.classList.add('.moverLeft-top');
 // })
 
-// const inputCheck = document.querySelector('#modo-noturno');
+const inputCheck = document.querySelector('#modo-noturno');
 const boxIcons = document.querySelector('.smol');
 
 inputCheck.addEventListener('click', () => {
