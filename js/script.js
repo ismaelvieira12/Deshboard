@@ -1,6 +1,5 @@
-
-// expandir.addEventListener('click', () => {  
-//   navleft.classList.add('.moverLeft-top');
+expandir.addEventListener('click', () => {  
+navleft.classList.add('.moverLeft-top');
  })
 
 const inputCheck = document.querySelector('#modo-noturno');
