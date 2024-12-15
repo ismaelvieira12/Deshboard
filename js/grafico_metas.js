@@ -1,4 +1,4 @@
-const gaugeOptions = {
+//const gaugeOptions = {
     chart: {
         type: 'solidgauge'
     },
