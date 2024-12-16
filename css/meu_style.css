@@ -57,7 +57,7 @@ body{
         height: 100vh;
 
         & .nav-left {
-            background-color: var(--corBlue);
+            background-color: rgba(248, 249, 250,1);
             width: 7%;
             height: 100%;
             margin: 0px 0px;
@@ -65,7 +65,7 @@ body{
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 1px 1px 10px #8873ff7f;
+            /* box-shadow: 1px 1px 10px #8873ff7f; */
 
             /* A parte de cima do menu lateral */
             & .caixa-top{
@@ -85,10 +85,14 @@ body{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding: 15px 50px;
                 left: 100%;
                 
                 &:hover{
-                    background-color: #26a653;
+                    background-color: var(--corSize);
+                    border-left: 2px solid var(--corGrafico);
+                    padding-left:48px;
+
                 }
                 & i{    
                     font-size: 1.5rem;
