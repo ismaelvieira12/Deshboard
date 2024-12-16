@@ -88,20 +88,8 @@ body{
                 align-items: center;
                 left: 100%;
 
-                & i{
-                    font-size: 20px;
-                    color:var(--corPurple);
-                    padding: 40%;
-                    background-color: var(--corSize);
-                    text-align: center;
-                    border-radius: 10px;
-                    cursor: pointer;
-                    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
-                    &:hover{
-                        color: var(--corSize);
-                        background-color: var(--corPurple);
-                        transition: 0.5s;
-                    }
+                & i{    
+                   font-size: 1rem;
                 }
             }
 
