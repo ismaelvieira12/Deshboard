@@ -70,7 +70,6 @@ body{
             /* A parte de cima do menu lateral */
             & .caixa-top{
                 border-bottom: 1px solid var(--corPurple);
-                text-align: center;
                 padding-bottom: 20px;
 
                 & .logo-img{
@@ -87,17 +86,21 @@ body{
                 justify-content: center;
                 align-items: center;
                 left: 100%;
-
+                
+                &:hover{
+                    background-color: #26a653;
+                }
                 & i{    
-                   font-size: 1rem;
+                    font-size: 1.5rem;
+                    
                 }
             }
-
+            
             & .login{
                 position: absolute;
                 bottom: 50px;
                 width: 100%;
-
+                
                 &  a{
                     padding: 15px 18px;
                     border-radius: 50%;
