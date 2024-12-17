@@ -51,7 +51,7 @@ body{
 }
     /* Começo do conteudo (main) */
     .cabeca{
-        position: absolute;
+        position: fixed;
         background-color: var(--corSize);
         width: 7%;
         height: 100vh;
@@ -61,7 +61,7 @@ body{
             width: 7%;
             height: 100%;
             margin: 0px 0px;
-            position: fixed;
+            /* position: relative; */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -86,21 +86,18 @@ body{
                 justify-content: center;
                 align-items: center;
                 gap: 15px;
-                height: 50px;
-                width: 100%;
-                /* background-color: #26a653; */
-                /* padding: 15px 100%; */
-                /* left: 100%; */
+                position: relative;
+                left: 0;
                 
                 &:hover{
-                    background-color: var(--corPurple);
+                    background-color: var(--corSizeLigth);
                     border-right: 2px solid var(--corPurple);
 
                 }
                 & p{
                     position: relative;
                     top: 50%;
-                    transform: translateY(-65%);
+                    transform: translateY(-50%);
                 }
                 & i{    
                     font-size: 1rem;
