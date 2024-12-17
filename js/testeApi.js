@@ -287,7 +287,8 @@
 
 // Função para obter o token de autenticação
 async function getAuthToken() {
-    const response = await fetch('https://api.beesweb.com.br/adm/sessions', {
+    const reque = 'https://api.beesweb.com.br/adm/sessions';
+    const response = await fetch(reque , {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

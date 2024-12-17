@@ -85,11 +85,11 @@ body{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 15px 32px;
+                padding: 15px 100%;
                 left: 100%;
                 
                 &:hover{
-                    background-color: var(--corSize);
+                    background-color: var(--corPurple);
                     border-right: 2px solid var(--corPurple);
                     /* padding-right:48px; */
 
