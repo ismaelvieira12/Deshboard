@@ -302,7 +302,7 @@ async function getAuthToken() {
     const data = await response.json();
 
     if (response.ok) {
-        return data.api_token; // Retorna o token
+            ; // Retorna o token
     } else {
         throw new Error('Erro ao fazer login: ' + data.message);
     }
