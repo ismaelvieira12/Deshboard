@@ -296,7 +296,7 @@ async function getAuthToken() {
         body: JSON.stringify({
             email: 'ismael@starlink.com',
             password: '13579852'
-        })
+        }),
     });
 
     const data = await response.json();
