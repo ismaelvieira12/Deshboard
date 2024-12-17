@@ -76,27 +76,26 @@ body{
                     margin-top: 30px;
                     width: 50px;
                     border: 2px solid var(--corPurple);
-                    border-radius: 50%;
+                    border-radius: 50%; 
                 }
             }
             & .menu{
                 width: 100%;
-                cursor: pointer;
             }
-
+            
             & .menu label{
                 margin-top: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                gap: 15px;
+                gap: 10px;
                 position: relative;
                 left: 0;
                 
                 &:hover{
-                    background-color: var(--corSizeLigth);
+                    background-color: var(--corSize);
                     border-right: 1px solid var(--corPurple);
-
+                    cursor: pointer;
                 }
                 & p{
                     position: relative;
@@ -109,22 +108,15 @@ body{
             }
             
             & .login{
-                position: absolute;
-                bottom: 50px;
+                position: fixed;
+                bottom: 20px;
                 width: 100%;
-                
                 &  a{
-                    padding: 15px 18px;
-                    border-radius: 50%;
-                    background-color: var(--corSize);
+                    text-decoration: none;
+                    font-size: 1.25rem;
                     color: var(--corPurple);
-                    border: 2px solid var(--corPurple);
-                    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
                     &:hover{
-                        color: var(--corSize);
-                        background-color: var(--corPurple);
-                        transition: 0.5s;
-                        border: 2px solid #fff;
+                        
                         opacity: 0.5;
                     }
                 }
