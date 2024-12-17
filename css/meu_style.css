@@ -79,29 +79,31 @@ body{
                     border-radius: 50%;
                 }
             }
-            
-            & .menu{
-                align-items: center;
-            }
 
             & .menu label{
                 margin-top: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                gap: 10px;
+                gap: 15px;
+                height: 50px;
+                width: 100%;
+                /* background-color: #26a653; */
                 /* padding: 15px 100%; */
-                left: 100%;
+                /* left: 100%; */
                 
                 &:hover{
                     background-color: var(--corPurple);
                     border-right: 2px solid var(--corPurple);
-                    /* padding-right:48px; */
 
+                }
+                & p{
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-65%);
                 }
                 & i{    
                     font-size: 1rem;
-                    
                 }
             }
             
