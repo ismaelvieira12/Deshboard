@@ -65,7 +65,7 @@ body{
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* box-shadow: 1px 1px 10px #8873ff7f; */
+            box-shadow: 0px 5px 20px  #8873ff1d;
 
             /* A parte de cima do menu lateral */
             & .caixa-top{
@@ -85,11 +85,12 @@ body{
             }
 
             & .menu label{
-                margin: 20px;
+                margin-top: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding: 15px 100%;
+                gap: 10px;
+                /* padding: 15px 100%; */
                 left: 100%;
                 
                 &:hover{
