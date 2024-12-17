@@ -79,6 +79,10 @@ body{
                     border-radius: 50%;
                 }
             }
+            
+            & .menu{
+                align-items: center;
+            }
 
             & .menu label{
                 margin: 20px;
