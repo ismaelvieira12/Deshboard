@@ -11,14 +11,14 @@ async function getAuthToken() {
         })
     });
 
-//     const data = await response.json();
+    const data = await response.json();
     
-//     if (response.ok) {
-//         return data.api_token; // Retorna o token se a resposta for bem-sucedida
-//     } else {
-//         throw new Error('Erro ao fazer login: ' + data.message);
-//     }
-// }
+    if (response.ok) {
+        return data.api_token; // Retorna o token se a resposta for bem-sucedida
+    } else {
+        throw new Error('Erro ao fazer login: ' + data.message);
+    }
+}
 
 // // Função para obter os pagamentos usando o token
 // async function getPayments() {
