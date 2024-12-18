@@ -1,15 +1,15 @@
  Função para fazer login e obter o token
 async function getAuthToken() {
-//     const response = await fetch('https://api.beesweb.com.br/adm/sessions', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             email: 'ismael@starlink.com',
-//             password: '13579852'
-//         })
-//     });
+    const response = await fetch('https://api.beesweb.com.br/adm/sessions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: 'ismael@starlink.com',
+            password: '13579852'
+        })
+    });
 
 //     const data = await response.json();
     
