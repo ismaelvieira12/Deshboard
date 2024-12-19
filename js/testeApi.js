@@ -1,24 +1,24 @@
- Função para fazer login e obter o token
-async function getAuthToken() {
-    const response = await fetch('https://api.beesweb.com.br/adm/sessions', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: 'ismael@starlink.com',
-            password: '13579852'
-        })
-    });
+//  Função para fazer login e obter o token
+// async function getAuthToken() {
+//     const response = await fetch('https://api.beesweb.com.br/adm/sessions', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             email: 'ismael@starlink.com',
+//             password: '13579852'
+//         })
+//     });
 
-    const data = await response.json();
+//     const data = await response.json();
     
-    if (response.ok) {
-        return data.api_token; // Retorna o token se a resposta for bem-sucedida
-    } else {
-        throw new Error('Erro ao fazer login: ' + data.message);
-    }
-}
+//     if (response.ok) {
+//         return data.api_token; // Retorna o token se a resposta for bem-sucedida
+//     } else {
+//         throw new Error('Erro ao fazer login: ' + data.message);
+//     }
+// }
 
 // // Função para obter os pagamentos usando o token
 // async function getPayments() {
