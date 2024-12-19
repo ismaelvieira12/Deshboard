@@ -302,7 +302,7 @@ async function getAuthToken() {
     const data = await response.json();
 
     if (response.ok) {
-        return  api_token; // Retorna o token
+        return  data.api_token; // Retorna o token
     } else {
         throw new Error('Erro ao fazer login: ' + data.message);
     }
@@ -336,7 +336,7 @@ async function fetchAllPages() {
                 console.error('Erro ao buscar dados:', data.message);
                 break;
             }
-        } while (currentPage <= totalPages); // Continua enquanto houver páginas
+        } while (currentPage <= allData); // Continua enquanto houver páginas
         
         return allData; // Retorna todos os elementos
     } catch (error) {
@@ -370,9 +370,9 @@ async function main() {
         
         // Exibe os dados de cada ano
         console.log("Dados de 2022 com situation 3:", filteredData["2022"]);
-        // console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
-        // console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
-        // console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
+        console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
+        console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
+        console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
     }
