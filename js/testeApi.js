@@ -295,14 +295,14 @@ async function getAuthToken() {
         },
         body: JSON.stringify({
             email: 'ismael@starlink.com',
-            password: '13579852'
+            password: '13579852',
         }),
     });
 
     const data = await response.json();
 
     if (response.ok) {
-            ; // Retorna o token
+        return  api_token; // Retorna o token
     } else {
         throw new Error('Erro ao fazer login: ' + data.message);
     }
