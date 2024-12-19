@@ -370,9 +370,9 @@ async function main() {
         
         // Exibe os dados de cada ano
         console.log("Dados de 2022 com situation 3:", filteredData["2022"]);
-        console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
-        console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
-        console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
+        // console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
+        // console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
+        // console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
     }
