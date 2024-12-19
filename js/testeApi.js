@@ -25,7 +25,7 @@
 //     try {
 //         const token = await getAuthToken(); // Obtém o token de autenticação
         
-//         const response = await fetch(`https://api.beesweb.com.br/adm/charges/`, {
+//         const response = await fetch(    , {
 //             method: 'GET',
 //             headers: {
 //                 'Authorization': `Bearer ${token}`, // Usa o token no cabeçalho de autorização
