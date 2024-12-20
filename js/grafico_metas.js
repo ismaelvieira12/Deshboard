@@ -1,7 +1,7 @@
 const gaugeOptions = {
     chart: {
         type: 'solidgauge'
-    },
+    },  
 
     title: null,
 
