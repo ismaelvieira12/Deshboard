@@ -334,7 +334,7 @@ async function fetchAllPages() {
                 allData.filter(intem => intem.due_date === "2022-01-20");
                 currentPage++; // Vai para a próxima página
             } else {
-                console.error('Erro ao buscar dados:', data.message, allData);
+                console.error('Erro ao buscar dados:', data.message);
                 break;
             }
         } while (currentPage <= totalPages); // Continua enquanto houver páginas
