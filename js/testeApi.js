@@ -1,3 +1,4 @@
+const { callback } = require("chart.js/helpers");
 
 
 // Função para obter o token de autenticação
@@ -101,6 +102,7 @@ async function main() {
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
     }
+    
 }
 
 // Chamar a função principal
