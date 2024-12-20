@@ -1,6 +1,3 @@
-const { callback } = require("chart.js/helpers");
-
-
 // Função para obter o token de autenticação
 async function getAuthToken() {
     const reque = 'https://api.beesweb.com.br/adm/sessions';
@@ -55,7 +52,6 @@ async function fetchAllPages() {
         // Cria um array de promessas para todas as páginas
         const pagePromises = [];
         for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
-            // console.log('dados da pagina', currentPage);
             pagePromises.push(fetchPage(token, currentPage));
         }
 
@@ -102,8 +98,8 @@ async function main() {
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
     }
-    
 }
 
 // Chamar a função principal
 main();
+
