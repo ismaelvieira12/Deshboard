@@ -302,7 +302,7 @@ async function getAuthToken() {
     const data = await response.json();
 
     if (response.ok) {
-        return  data.api_token; // Retorna o token
+        return data.api_token; // Retorna o token
     } else {
         throw new Error('Erro ao fazer login: ' + data.message);
     }
@@ -331,12 +331,13 @@ async function fetchAllPages() {
                 allData = allData.concat(data.data); // Adiciona os elementos da página atual
                 totalPages = Math.ceil(data.statistics.all.quantity / data.per_page); // Calcula o total de páginas
                 console.log(`Página ${currentPage} carregada com sucesso.`);
+                allData.filter(intem => item.due_date === "2022-01-20");
                 currentPage++; // Vai para a próxima página
             } else {
-                console.error('Erro ao buscar dados:', data.message);
+                console.error('Erro ao buscar dados:', data.message, );
                 break;
             }
-        } while (currentPage <= allData); // Continua enquanto houver páginas
+        } while (currentPage <= totalPages); // Continua enquanto houver páginas
         
         return allData; // Retorna todos os elementos
     } catch (error) {
