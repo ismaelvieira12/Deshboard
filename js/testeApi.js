@@ -331,10 +331,10 @@ async function fetchAllPages() {
                 allData = allData.concat(data.data); // Adiciona os elementos da página atual
                 totalPages = Math.ceil(data.statistics.all.quantity / data.per_page); // Calcula o total de páginas
                 console.log(`Página ${currentPage} carregada com sucesso.`);
-                allData.filter(intem => item.due_date === "2022-01-20");
+                allData.filter(intem => intem.due_date === "2022-01-20");
                 currentPage++; // Vai para a próxima página
             } else {
-                console.error('Erro ao buscar dados:', data.message, );
+                console.error('Erro ao buscar dados:', data.message, allData);
                 break;
             }
         } while (currentPage <= totalPages); // Continua enquanto houver páginas
