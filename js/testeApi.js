@@ -333,13 +333,13 @@ async function fetchAllPages() {
                 console.log(`Página ${currentPage} carregada com sucesso.`);
                 allData.filter(intem => intem.due_date === "2022-01-20");
                 currentPage++; // Vai para a próxima página
+                return allData; // Retorna todos os elementos
             } else {
                 console.error('Erro ao buscar dados:', data.message);
                 break;
             }
         } while (currentPage <= totalPages); // Continua enquanto houver páginas
         
-        return allData; // Retorna todos os elementos
     } catch (error) {
         console.error('Erro ao buscar todas as páginas:', error.message);
     }
