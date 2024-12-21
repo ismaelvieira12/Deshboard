@@ -254,7 +254,7 @@ async function valor(valorTotalAnual){
   inforValor.innerText= `R$: ${numberAnual.toFixed(2)}`;
 }
 
-api()
+// api()
 // api2()
 
 valor()

@@ -241,4 +241,4 @@ console.log(meses2024); // Exiba a estrutura para verificar
 testando(meses2024);
 }
 // testando();
-graficoMensal();
+// graficoMensal();
