@@ -96,6 +96,12 @@ async function main() {
         console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
 
+        let values =  filteredData["2022"].map(item => item.value_paid);
+        // Soma todos os valores
+        valuesI = parseFloat(values.replace(",", "."));
+        const total = valuesI.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+        console.log(valuesIupdate);
+        console.log(total);
         
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
