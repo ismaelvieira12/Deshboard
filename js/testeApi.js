@@ -96,8 +96,9 @@ async function main() {
         console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
 
-        function callback(){
-           console.log("value:", filteredData["2022"].value_paid);
+        function callback(value){
+        //    console.log("value:", filteredData["2022"].value_paid);
+            console.log('value:', value.value_paid);
         }
 
         filteredData["2022"].forEach(callback);
