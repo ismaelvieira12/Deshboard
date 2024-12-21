@@ -97,7 +97,7 @@ async function main() {
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
         console.log('valeu' filteredData['2022']);
 
-        filteredData['2022].forEach(callback);
+        filteredData['2022'].forEach(callback);
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
     }
