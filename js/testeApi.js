@@ -95,6 +95,12 @@ async function main() {
         console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
         console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
+
+        function callback(){
+           console.log("value:", filteredData["2022"].value_paid);
+        }
+
+        filteredData["2022"].forEach(callback);
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
     }
