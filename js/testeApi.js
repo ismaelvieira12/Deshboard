@@ -98,7 +98,12 @@ async function main() {
 
         function callback(value){
         //    console.log("value:", filteredData["2022"].value_paid);
-            console.log('value:', value.value_paid);
+            // console.log('value:', value.value_paid);
+            let soma = filteredData["2022"].value_paid.reduce(function(soma, i){
+                return soma + i;
+            });
+
+            console.log(soma);
         }
 
         filteredData["2022"].forEach(callback);
