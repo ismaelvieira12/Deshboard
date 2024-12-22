@@ -1,1 +1,1 @@
-// const text document.querySelector('#teste');
+const text document.querySelector('#teste');
