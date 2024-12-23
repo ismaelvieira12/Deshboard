@@ -108,7 +108,7 @@ async function main() {
         const total23 = values23.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         const total24 = values24.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         const total25 = valeus25.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-        console.log(total22.toFixed(2), total23.toFixed(2), total24.toFixed(2), total25.toFixed(2));
+        rest(total22.toFixed(2), total23.toFixed(2), total24.toFixed(2), total25.toFixed(2));
         
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
@@ -118,4 +118,70 @@ async function main() {
 // Chamar a função principal
 main();
 
+function rest(total22, total23, total24, total25,){
 
+    Highcharts.chart('container', {
+        chart: {
+            renderTo: 'container',
+            type: 'column'
+        },
+        title: {
+            text: 'Restaurants Complaints'
+        },
+        tooltip: {
+            shared: true
+        },
+        xAxis: {
+            categories: [
+                'Overpriced',
+                'Small portions',
+                'Wait time',
+                'Food is tasteless',
+                'No atmosphere',
+                'Not clean',
+                'Too noisy',
+                'Unfriendly staff'
+            ],
+            crosshair: true
+        },
+        yAxis: [{
+            title: {
+                text: ''
+            }
+        }, {
+            title: {
+                text: ''
+            },
+            minPadding: 0,
+            maxPadding: 0,
+            max: 100,
+            min: 0,
+            opposite: true,
+            labels: {
+                format: '{value}%'
+            }
+        }],
+        series: [{
+            type: 'pareto',
+            name: 'Pareto',
+            yAxis: 1,
+            zIndex: 10,
+            baseSeries: 1,
+            tooltip: {
+                valueDecimals: 2,
+                valueSuffix: '%'
+            }
+        }, {
+            name: 'Complaints',
+            type: 'column',
+            zIndex: 2,
+            data: [
+                parseFloat(total22),
+                parseFloat(total23),
+                parseFloat(total24),
+                parseFloat(total25),
+            ]
+        }]
+    });
+
+}
