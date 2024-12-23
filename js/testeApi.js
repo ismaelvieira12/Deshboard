@@ -97,10 +97,13 @@ async function main() {
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
 
         //Filtrar todos od valores e fazer a soma no final
-        const values =  filteredData["2022"].map(item => parseFloat(item.value_paid));
+        const values22 =  filteredData["2022"].map(item => parseFloat(item.value_paid));
+        const values23 =  filteredData["2023"].map(item => parseFloat(item.value_paid));
+        const values24 =  filteredData["2024"].map(item => parseFloat(item.value_paid));
+        const valeus25 =  filteredData["2025"].map(item => parseFloat(item.value_paid));
         // Soma todos os valores
-        const total = values.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-        console.log(values);
+        const total = values22.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+        console.log(values22);
         console.log(total.toFixed(2));
         
     } catch (error) {
