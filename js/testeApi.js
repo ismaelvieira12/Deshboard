@@ -106,7 +106,7 @@ async function main() {
         const total23 = values23.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         const total24 = values24.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         const total25 = valeus25.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-        console.log(total22.toFixed(2), );
+        console.log(total22.toFixed(2), total23.toFixed(2), total24.toFixed(2), total25.toFixed(2));
         
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
@@ -117,57 +117,81 @@ async function main() {
 main();
 
 
+// Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 Highcharts.chart('container', {
-    chart: {
-        renderTo: 'container',
-        type: 'column'
-    },
     title: {
-        text: 'Restaurants Complaints'
-    },
-    tooltip: {
-        shared: true
+        text: 'Sales of petroleum products March, Norway'
     },
     xAxis: {
         categories: [
-          "ano 2022",
-          "ano 2023",
-          "ano 2024",
-          "ano 2025",
-        ],
-        crosshair: true
+            'Jet fuel', 'Duty-free diesel', 'Petrol', 'Diesel', 'Gas oil'
+        ]
     },
-    yAxis: [{
+    yAxis: {
         title: {
-            text: ''
+            text: 'Million liters'
         }
-    }, {
-        title: {
-            text: ''
-        },
-        minPadding: 0,
-        maxPadding: 0,
-        max: 100,
-        min: 0,
-        opposite: true,
-        labels: {
-            format: '{value}%'
+    },
+    tooltip: {
+        valueSuffix: ' million liters'
+    },
+    plotOptions: {
+        series: {
+            borderRadius: '25%'
         }
-    }],
+    },
     series: [{
-        type: 'pareto',
-        name: 'Pareto',
-        yAxis: 1,
-        zIndex: 10,
-        baseSeries: 1,
-        tooltip: {
-            valueDecimals: 2,
-            valueSuffix: '%'
+        type: 'column',
+        name: '2020',
+        data: [59, 83, 65, 228, 184]
+    }, {
+        type: 'column',
+        name: '2021',
+        data: [24, 79, 72, 240, 167]
+    }, {
+        type: 'column',
+        name: '2022',
+        data: [58, 88, 75, 250, 176]
+    }, {
+        type: 'line',
+        step: 'center',
+        name: 'Average',
+        data: [47, 83.33, 70.66, 239.33, 175.66],
+        marker: {
+            lineWidth: 2,
+            lineColor: Highcharts.getOptions().colors[3],
+            fillColor: 'white'
         }
     }, {
-        name: 'Complaints',
-        type: 'column',
-        zIndex: 2,
-        data: [ 10251.12 , 17941.65 , 30274.90, 3000]
+        type: 'pie',
+        name: 'Total',
+        data: [{
+            name: '2020',
+            y: 619,
+            color: Highcharts.getOptions().colors[0], // 2020 color
+            dataLabels: {
+                enabled: true,
+                distance: -50,
+                format: '{point.total} M',
+                style: {
+                    fontSize: '15px'
+                }
+            }
+        }, {
+            name: '2021',
+            y: 586,
+            color: Highcharts.getOptions().colors[1] // 2021 color
+        }, {
+            name: '2022',
+            y: 647,
+            color: Highcharts.getOptions().colors[2] // 2022 color
+        }],
+        center: [75, 65],
+        size: 100,
+        innerSize: '70%',
+        showInLegend: false,
+        dataLabels: {
+            enabled: false
+        }
     }]
 });
