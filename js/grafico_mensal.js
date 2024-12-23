@@ -1,4 +1,4 @@
-Highcharts.chart('container', {
+//Highcharts.chart('container', {
     chart: {
         renderTo: 'container',
         type: 'column'
