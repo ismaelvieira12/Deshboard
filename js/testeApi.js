@@ -102,9 +102,11 @@ async function main() {
         const values24 =  filteredData["2024"].map(item => parseFloat(item.value_paid));
         const valeus25 =  filteredData["2025"].map(item => parseFloat(item.value_paid));
         // Soma todos os valores
-        const total = values22.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-        console.log(values22);
-        console.log(total.toFixed(2));
+        const total22 = values22.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        const total23 = values23.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        const total24 = values24.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        const total25 = valeus25.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        console.log(total22.toFixed(2), );
         
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
