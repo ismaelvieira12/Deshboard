@@ -40,15 +40,14 @@ body{
 
     & .fixed-top { 
         left: 7%;
-
+        background-color: #ffffff !important;
         & #modo-noturno{
             opacity: 0.1;
             cursor: pointer;
         } 
         
-        & .bg-body-tertiary{background-color: var(--corSize);}
     }
-
+    
 }
     /* Começo do conteudo (main) */
     .cabeca{
