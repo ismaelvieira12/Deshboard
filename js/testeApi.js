@@ -133,14 +133,11 @@ function rest(total22, total23, total24, total25,){
         },
         xAxis: {
             categories: [
-                'Overpriced',
-                'Small portions',
-                'Wait time',
-                'Food is tasteless',
-                'No atmosphere',
-                'Not clean',
-                'Too noisy',
-                'Unfriendly staff'
+                'Ano2022',
+                'Ano2023',
+                'Ano2024',
+                'Ano2025',
+                'Ano2026',
             ],
             crosshair: true
         },
@@ -163,7 +160,7 @@ function rest(total22, total23, total24, total25,){
         }],
         series: [{
             type: 'pareto',
-            name: 'Pareto',
+            name: 'metas',
             yAxis: 1,
             zIndex: 10,
             baseSeries: 1,
@@ -172,7 +169,7 @@ function rest(total22, total23, total24, total25,){
                 valueSuffix: '%'
             }
         }, {
-            name: 'Complaints',
+            name: 'Valores',
             type: 'column',
             zIndex: 2,
             data: [
