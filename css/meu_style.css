@@ -22,6 +22,7 @@
 }
 body{
     background-color: var(--corSize);
+    /* background-color: rgb(240, 240, 240); */
     height: 100vh;
 
     /* Icone de expandir */
@@ -52,12 +53,11 @@ body{
     /* Começo do conteudo (main) */
     .cabeca{
         position: fixed;
-        background-color: var(--corSize);
         width: 7%;
         height: 100vh;
-
+        
         & .nav-left {
-            background-color: rgba(248, 249, 250,1);
+            background-color: #FFFFFF;    
             width: 7%;
             height: 100%;
             margin: 0px 0px;
