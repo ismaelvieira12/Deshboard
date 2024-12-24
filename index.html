@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- ============= links favicon ============== -->
+     <link rel="shortcut icon" href="imgs/activity.svg" type="image/x-icon">
     <title>Document</title>
 </head>
 <body>
-    
+    <header>
+        <nav class="navbar-expand-lg navbar bg-body-tertiary fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-backward espacao" id="expandir"></i> <i class="fa-solid fa-fire-flame-curved "></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"> StarLink Provedor</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <div class="form-check form-switch chk" style="padding-left: 0;">
+                        <i class="bi bi-moon-stars-fill smol" style="margin-right: -20px;"></i>
+                        <!-- <i class="bi bi-brightness-high-fill"></i> -->
+                        <input type="checkbox" name="checkbox" id="modo-noturno">
+                        <label class="box" for="modo-noturno">
+                          <i class="bi sun icons"></i>
+                          <i class="bi bi-moon-stars-fill icons" style="margin-left: 12px;"></i>
+                          <div class="ball"></div>
+                        </label>
+                      </div>
+                    </a>
+                  </li>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
 </body>
 </html>
