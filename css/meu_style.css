@@ -129,7 +129,7 @@ body{
             width: 21%;
             height: 90%;
             left: 78%;
-            top: 12%;
+            top: 10%;
             box-shadow: 1px 1px 10px #ffffff87;
 
             & .infor-metas{
@@ -151,11 +151,11 @@ body{
     /*  Parte do meio do site */
     .container-text {
         position: absolute;
-        width: 68%;
+        width: 70.5%;
         height: 100%;
         z-index: 11;
-        top: 12%;
-        left: 8%;
+        top: 10%;
+        left: 7%;
 
         & .feed{
             width: 100%;
