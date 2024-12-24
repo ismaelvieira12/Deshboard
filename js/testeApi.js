@@ -126,7 +126,7 @@ function rest(total22, total23, total24, total25,){
             type: 'column'
         },
         title: {
-            text: 'Restaurants Complaints'
+            text: 'Valores Anuais'
         },
         tooltip: {
             shared: true
