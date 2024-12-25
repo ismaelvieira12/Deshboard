@@ -1,5 +1,5 @@
 
-const expandir = document.querySelector('#expandir');
+//const expandir = document.querySelector('#expandir');
 const cabeca = document.querySelector('.cabeca');
 
 expandir.addEventListener('click', () => {
