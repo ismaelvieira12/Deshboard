@@ -20,10 +20,17 @@ async function postApi() {
     else{
         console.error("não foi possivel carregar o token", data.mensage);
     }
-    
 }
 
-postApi();
+//para buscar todas as paginas vamos fazer uma função que pega os dados de uma única pagina e depois 
+// iremos chamala em outra função para buscar todas as páginas
+// para primeira função iremos passar dois parâmetros que servirá como ancora (token, page);
+
+async function getPage(token, page) {
+    const requepage = `https://api.beesweb.com.br/adm/charges?page=${page}`;
+
+    const 
+}
 // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 Highcharts.chart('mensal', {
     title: {
