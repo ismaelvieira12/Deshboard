@@ -1,3 +1,20 @@
+async function postApi() {
+    const urlApi = 'https://api.beesweb.com.br/adm/sessions';
+
+    const response = await fetch(urlApi, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'Application/json',
+        },
+        body: JSON.stringify({
+            email: 'ismael@starlink.com',
+            password: '13579852',
+        })
+    })
+    
+}
+
+
 // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 Highcharts.chart('mensal', {
     title: {
