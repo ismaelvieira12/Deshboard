@@ -10,11 +10,20 @@ async function postApi() {
             email: 'ismael@starlink.com',
             password: '13579852',
         })
-    })
+    });
+    const data = await response.json();
+
+    if(response.ok){
+        console.log(data.api_token);
+        return data.api_token;
+    }
+    else{
+        console.error("não foi possivel carregar o token", data.mensage);
+    }
     
 }
 
-
+postApi();
 // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 Highcharts.chart('mensal', {
     title: {
