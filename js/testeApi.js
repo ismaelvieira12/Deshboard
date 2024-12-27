@@ -153,7 +153,7 @@ function rest(total22, total23, total24, total25,){
             maxPadding: 0,
             max: 100,
             min: 0,
-            opposite: true,
+            // opposite: true,
             labels: {
                 format: '{value}%'
             }
