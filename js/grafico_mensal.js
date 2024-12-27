@@ -47,8 +47,25 @@ async function getPage(token, page) {
 }
 
 // para pegar os dados de todas as paginas
-async function name(params) {
-    
+async function name() {
+    try{
+        const token = await postApi(); // retorna o token de autenticação da API.
+
+        // pega os dados de uma página para buscar por todas as outras
+        const page1 = await getPage(token, 1)// retorna os valores da primeira página do sistema.
+        const totalPages = Math.ceil(page1.statistics.all.quantity / page1.per_page); // divide o numero de requisições
+        
+        // Criar um ARRAY de Pormises para todas as páginas
+        const pagePromises = []; // guardará as promises
+        for(let currentPage = 1; currentPage <= totalPages; currentPage++){
+            pagePromises.push(getPage(token, currentPage));
+        }
+
+        // guardar todos os resultados que vão ser retornados e retornalos de uma vez só com PARALELISMO de pormises.                                                                                                                                                                                                                               
+    }catch(error){
+
+    }
+
 }
 // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 Highcharts.chart('mensal', {
