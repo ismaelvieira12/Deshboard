@@ -23,7 +23,7 @@
 body{
     background-color: var(--corSize);
     /* background-color: rgb(240, 240, 240); */
-    height: 100vh;
+    height: 3000px;
 
     /* Icone de expandir */
     & #expandir{
@@ -219,7 +219,8 @@ body{
             background-color: #ffffff;
             margin: 1rem 0;
             margin-left: 0.5%;
-            margin-right: 0.01%;
+            margin-right: -0.1%;
+            margin-bottom: 3rem;
         }
     }
 
