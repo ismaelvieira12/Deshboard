@@ -22,7 +22,6 @@ async function getAuthToken() {
         throw new Error('Erro ao fazer login: ' + data.message);
     }
 }
-
 // Função para buscar uma única página de dados
 async function fetchPage(token, page) {
     const response = await fetch(`https://api.beesweb.com.br/adm/charges?page=${page}`, {

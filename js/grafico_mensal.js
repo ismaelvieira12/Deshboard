@@ -27,9 +27,28 @@ async function postApi() {
 // para primeira função iremos passar dois parâmetros que servirá como ancora (token, page);
 
 async function getPage(token, page) {
-    const requepage = `https://api.beesweb.com.br/adm/charges?page=${page}`;
+    const response = await fetch(`https://api.beesweb.com.br/adm/charges?page=${page}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    });
 
-    const 
+    const data = await response.json();
+
+    if(response.ok){
+        console.log(data);
+        return data;
+    }
+    else{
+        console.log("erro");
+    }
+}
+
+// para pegar os dados de todas as paginas
+async function name(params) {
+    
 }
 // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 Highcharts.chart('mensal', {
