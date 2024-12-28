@@ -108,14 +108,78 @@ async function main() {
         const total24 = values24.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         const total25 = valeus25.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         rest(total22.toFixed(2), total23.toFixed(2), total24.toFixed(2), total25.toFixed(2));
-        
     } catch (error) {
-        console.error('Erro no processo principal:', error.message);
+            console.error('Erro no processo principal:', error.message);
+        }
     }
-}
+    
+    // Chamar a função principal
+    main();
+    
+    // async function main() {
+    //     try {
+    //         const allData = await fetchAllPages(); // Busca todos os dados
+    //         const filteredData = separateDataByYearAndSituation(allData); // Separa por ano e filtra por situation: 3
+
+    //     // Exibe os dados de cada ano
+    //     console.log("Dados de 2022 com situation 3:", filteredData["2022"]);
+    //     console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
+    //     console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
+    //     console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
+
+    //     // Função para calcular totais mensais
+    //     const calculateMonthlyTotals = (data) => {
+    //         const monthlyTotals = {};
+    //         data.forEach(item => {
+    //             const month = new Date(item.due_date).getMonth() + 1; // Pega o mês (1 a 12)
+    //             const value = parseFloat(item.value_paid);
+    //             if (!monthlyTotals[month]) {
+    //                 monthlyTotals[month] = 0;
+    //             }
+    //             monthlyTotals[month] += value;
+    //         });
+    //         return monthlyTotals;
+    //     };
+
+    //     // Função para calcular total anual
+    //     const calculateAnnualTotal = (data) => {
+    //         return data.reduce((accumulator, item) => {
+    //             return accumulator + parseFloat(item.value_paid);
+    //         }, 0).toFixed(2);
+    //     };
+
+    //     // Calcula totais por ano e mês
+    //     const totals = {};
+    //     for (const year of ["2022", "2023", "2024", "2025"]) {
+    //         const data = filteredData[year] || [];
+    //         totals[year] = {
+    //             annualTotal: calculateAnnualTotal(data),
+    //             monthlyTotals: calculateMonthlyTotals(data),
+    //         };
+    //     }
+
+    //     // Exibe os totais
+    //     console.log("Totais calculados:", totals);
+
+    //     // // Exibe o resumo de totais
+    //     // for (const year in totals) {
+    //     //     console.log(`Totais do ano ${year}:`);
+    //     //     console.log(`- Total anual: ${totals[year].annualTotal}`);
+    //     //     console.log(`- Totais mensais:`);
+    //     //     for (const month in totals[year].monthlyTotals) {
+    //     //         console.log(`  - Mês ${month}: ${totals[year].monthlyTotals[month].toFixed(2)}`);
+    //     //     }
+    //     // }
+        
+    // } catch (error) {
+    //     console.error('Erro no processo principal:', error.message);
+    // }
+//}
 
 // Chamar a função principal
-main();
+// main();
+
+
 
 function rest(total22, total23, total24, total25,){
 
