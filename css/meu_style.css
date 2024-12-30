@@ -21,8 +21,8 @@
     --corGrafico: #3a3a3b7c;
 }
 body{
-    background-color: var(--corSize);
-    /* background-color: rgb(240, 240, 240); */
+    /* background-color: var(--corSize); */
+    background-color: #F5F8FA;
     height: 1200px;
 
     /* Icone de expandir */
@@ -193,7 +193,7 @@ body{
             display: flex;
             
             & .graphic {
-                background-color: #ffffff;
+                background-color: #FFFFFF;
                 width: 71%;
                 height: 100%;
                 border-radius: 10px;
@@ -216,7 +216,7 @@ body{
             border-radius: 10px;
             height: 50%;
             box-shadow: 1px 1px 10px #d3d7de;
-            background-color: #ffffff;
+            background-color: #FFFFFF;
             margin: 1rem 0;
             margin-left: 0.5%;
             margin-right: -0.1%;
