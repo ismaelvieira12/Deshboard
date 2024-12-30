@@ -20,10 +20,27 @@
     --corGrafico: #79a6ff90;
     --corGrafico: #3a3a3b7c;
     --corTooltip:#3a3a3b;
+
+    /* NOVA PALETA DE CORES */
+    --fundo-principal: #ffffff;
+    --fundo-card: #f9f9f9;
+    --bordas-shadow: #e0e0e0;
+
+    /* ========== PARA TEXTOS ========= */
+    --texto-principal: #333333;
+    --texto-secundário: #666666;
+
+    /* ========== PARA BOTÕES e LINKS ===========*/
+    --destaques-botoes-links: #2196F3;
+
+    /* ====== PARA GRAFICOS ================ */
+    --cor-de-grafico1: #5c6bc0;
+    --cor-de-grafico2: #ff7043;
+    --cor-de-grafico3: #8bc34a;
+    --cor-de-grafico4: #ffeb3b;
 }
 body{
-    /* background-color: var(--corSize); */
-    background-color: #F5F8FA;
+    background-color: var(--fundo-principal);
     height: 1200px;
 
     /* Icone de expandir */
@@ -41,7 +58,7 @@ body{
 
     & .fixed-top { 
         left: 7%;
-        background-color: #ffffff !important;
+        background-color: var(--corBlue) !important;
         & #modo-noturno{
             opacity: 0.1;
             cursor: pointer;
@@ -57,7 +74,7 @@ body{
         height: 100vh;
         
         & .nav-left {
-            background-color: #FFFFFF;    
+            background-color: #ffffff;    
             width: 7%;
             height: 100%;
             margin: 0px 0px;
@@ -93,7 +110,7 @@ body{
                 left: 0;
                 
                 &:hover{
-                    background-color: var(--corSize);
+                    background-color: var(--fundo-card);
                     border-right: 1px solid var(--corPurple);
                     cursor: pointer;
                 }
@@ -197,6 +214,7 @@ body{
                 background-color: #FFFFFF;
                 width: 71%;
                 height: 100%;
+                padding-top: 10px;
                 border-radius: 10px;
                 box-shadow: 1px 1px 10px #e6eaec;
                 &:hover{
@@ -233,6 +251,7 @@ body{
         font-size: 40px;
         font-weight: bold;
         color: #000000;
+        padding: 0 10px;
     }
 
 /* Animação do icone de expandir */

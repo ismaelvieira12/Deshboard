@@ -210,10 +210,13 @@ function rest(total22, total23, total24, total25,){
         tooltip: {
             shared: true
         },
-        xAxis: {
+        xAxis: [{
+            crosshair: true,
+            title: {
+                color: '#fff',
+            },
             categories: anos.map(item => item),
-            crosshair: true
-        },
+        }],
         yAxis: [{
             title: {
                 text: ''
@@ -226,7 +229,7 @@ function rest(total22, total23, total24, total25,){
             // maxPadding: 0,
             max: 100,
             // min: 0,
-            // opposite: false,
+            opposite: true,
             // labels: {
             //     format: '{value}%'
             // }
