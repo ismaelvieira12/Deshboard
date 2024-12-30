@@ -108,8 +108,11 @@ async function main() {
         const total24 = values24.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         const total25 = valeus25.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         rest(total22.toFixed(2), total23.toFixed(2), total24.toFixed(2), total25.toFixed(2));
-    } catch (error) {
+    }   catch (error) {
             console.error('Erro no processo principal:', error.message);
+            const container = document.querySelector('#container');
+            container.style.backgroundColor="#FA0000"
+            container.innerHTML=""
         }
     }
     
@@ -182,6 +185,7 @@ async function main() {
 
 
 function rest(total22, total23, total24, total25,){
+    const anual = document.querySelector('#totalAnual');
 
     Highcharts.chart('container', {
         chart: {
@@ -189,7 +193,7 @@ function rest(total22, total23, total24, total25,){
             type: 'column'
         },
         title: {
-            text: 'Valores Anuais'
+            text: ''
         },
         tooltip: {
             shared: true
@@ -243,5 +247,16 @@ function rest(total22, total23, total24, total25,){
             ]
         }]
     });
+    // Somando os valores de forma dinâmica
+    const totalAnual = data.reduce((acc, value) => acc + value, 0);
 
+    // Formatando o total no formato real brasileiro (R$)
+    const totalAnualFormatado = totalAnual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+
+    // Exibindo o resultado no elemento anual
+    anual.innerText = totalAnualFormatado;
+
+//    const totalAnual =   parseFloat(total22) + parseFloat(total23) + parseFloat(total24) + parseFloat(total25);
+//    anual.innerText=`${totalAnual}`;
 }
