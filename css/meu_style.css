@@ -58,7 +58,7 @@ body{
 
     & .fixed-top { 
         left: 7%;
-        background-color: var(--corBlue) !important;
+        /* background-color: var(--corBlue) !important; */
         & #modo-noturno{
             opacity: 0.1;
             cursor: pointer;
