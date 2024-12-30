@@ -111,8 +111,9 @@ async function main() {
     }   catch (error) {
             console.error('Erro no processo principal:', error.message);
             const container = document.querySelector('#container');
-            container.style.backgroundColor="#FA0000"
-            container.innerHTML=""
+            container.style.backgroundColor="#cf5959b7";
+            container.classList.add('container-anual');
+            container.innerHTML="<h3>Erro de API, aguarde alguns segundos</h3>";
         }
     }
     
@@ -247,6 +248,12 @@ function rest(total22, total23, total24, total25,){
             ]
         }]
     });
+    const  data = [
+        parseFloat(total22),
+        parseFloat(total23),
+        parseFloat(total24),
+        parseFloat(total25),
+    ]
     // Somando os valores de forma dinâmica
     const totalAnual = data.reduce((acc, value) => acc + value, 0);
 
@@ -256,7 +263,4 @@ function rest(total22, total23, total24, total25,){
 
     // Exibindo o resultado no elemento anual
     anual.innerText = totalAnualFormatado;
-
-//    const totalAnual =   parseFloat(total22) + parseFloat(total23) + parseFloat(total24) + parseFloat(total25);
-//    anual.innerText=`${totalAnual}`;
 }

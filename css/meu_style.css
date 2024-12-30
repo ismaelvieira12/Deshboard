@@ -224,6 +224,16 @@ body{
         }
     }
 
+    .container-anual{
+        background-color: var(--corErro);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        font-weight: bold;
+        color: #000000;
+    }
+
 /* Animação do icone de expandir */
 @keyframes expandir {
     from{
