@@ -79,17 +79,18 @@ async function mensal(totals){
         }]
     });
      // Exibe os totais
-      
+     const month = [];
     await totals.forEach(item => {
-        const month = item.monthlyTotals;
+        
+        month.push(item);
         console.log("ano", month);
     });
-    console.log("Totais calculados:", totals);
-    const teste = totals['2022'].forEach(item => { 
-       const days = item.monthlyTotals;
-       console.log(days);
-    })
-    console.log(teste);
+    // console.log("Totais calculados:", totals);
+    // totals['2022'].forEach(item => { 
+    //    const days = item.monthlyTotals;
+    //    console.log(days);
+    // })
+    // console.log(teste);
 }
 
 mensal()
