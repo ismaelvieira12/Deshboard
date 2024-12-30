@@ -19,6 +19,7 @@
     --corGrafico: #79a6ff;
     --corGrafico: #79a6ff90;
     --corGrafico: #3a3a3b7c;
+    --corTooltip:#3a3a3b;
 }
 body{
     /* background-color: var(--corSize); */

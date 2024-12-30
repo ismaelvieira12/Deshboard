@@ -224,9 +224,9 @@ function rest(total22, total23, total24, total25,){
             },
             // minPadding: 10,
             // maxPadding: 0,
-            // max: 100,
+            max: 100,
             // min: 0,
-            // // opposite: true,
+            // opposite: false,
             // labels: {
             //     format: '{value}%'
             // }
@@ -237,16 +237,17 @@ function rest(total22, total23, total24, total25,){
             yAxis: 1,
             zIndex: 10,
             baseSeries: 1,
-            tooltip: {
+            tooltip:{
                 valueDecimals: 2,
-                valueSuffix: '%'
-            }
-        }, {
+                valueSuffix: '%',
+            },
+        }, 
+        {
             name: 'Valores',
             type: 'column',
             zIndex: 2,
             data: valorano.map(item => item)
-        }]
+        }],
     });
    
     // Somando os valores de forma dinâmica
