@@ -113,7 +113,7 @@ async function main() {
             const container = document.querySelector('#container');
             container.style.backgroundColor="#cf5959b7";
             container.classList.add('container-anual');
-            container.innerHTML="<h3>Erro de API, aguarde alguns segundos</h3>";
+            container.innerHTML="<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
         }
     }
     
@@ -187,7 +187,18 @@ async function main() {
 
 function rest(total22, total23, total24, total25,){
     const anual = document.querySelector('#totalAnual');
-
+    anos = [
+        'Ano2022',
+        'Ano2023',
+        'Ano2024',
+        'Ano2025',
+    ],
+    valorano = [
+        parseFloat(total22),
+        parseFloat(total23),
+        parseFloat(total24),
+        parseFloat(total25),
+    ] 
     Highcharts.chart('container', {
         chart: {
             renderTo: 'container',
@@ -200,13 +211,7 @@ function rest(total22, total23, total24, total25,){
             shared: true
         },
         xAxis: {
-            categories: [
-                'Ano2022',
-                'Ano2023',
-                'Ano2024',
-                'Ano2025',
-                'Ano2026',
-            ],
+            categories: anos.map(item => item),
             crosshair: true
         },
         yAxis: [{
@@ -217,14 +222,14 @@ function rest(total22, total23, total24, total25,){
             title: {
                 text: ''
             },
-            minPadding: 0,
-            maxPadding: 0,
-            max: 100,
-            min: 0,
-            // opposite: true,
-            labels: {
-                format: '{value}%'
-            }
+            // minPadding: 10,
+            // maxPadding: 0,
+            // max: 100,
+            // min: 0,
+            // // opposite: true,
+            // labels: {
+            //     format: '{value}%'
+            // }
         }],
         series: [{
             type: 'pareto',
@@ -240,22 +245,12 @@ function rest(total22, total23, total24, total25,){
             name: 'Valores',
             type: 'column',
             zIndex: 2,
-            data: [
-                parseFloat(total22),
-                parseFloat(total23),
-                parseFloat(total24),
-                parseFloat(total25),
-            ]
+            data: valorano.map(item => item)
         }]
     });
-    const  data = [
-        parseFloat(total22),
-        parseFloat(total23),
-        parseFloat(total24),
-        parseFloat(total25),
-    ]
+   
     // Somando os valores de forma dinâmica
-    const totalAnual = data.reduce((acc, value) => acc + value, 0);
+    const totalAnual = valorano.reduce((acc, value) => acc + value, 0);
 
     // Formatando o total no formato real brasileiro (R$)
     const totalAnualFormatado = totalAnual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
