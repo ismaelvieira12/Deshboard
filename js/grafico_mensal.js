@@ -80,11 +80,16 @@ async function mensal(totals){
     });
      // Exibe os totais
       
-   await totals.forEach(item => {
+    await totals.forEach(item => {
         const month = item.monthlyTotals;
-         console.log("ano", month);
-     });
+        console.log("ano", month);
+    });
     console.log("Totais calculados:", totals);
+    const teste = totals['2022'].forEach(item => { 
+       const days = item.monthlyTotals;
+       console.log(days);
+    })
+    console.log(teste);
 }
 
 mensal()
