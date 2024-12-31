@@ -11,11 +11,11 @@ async function mensal(totals){
     console.log(month);// mostra na tela um array com todos os valores dos meses do ano
     const meses2022 = [];
     for(let i = 1; i <= 12; i++){
-        meses2022.push(month[0][i]);
+        meses2022.push(month[1][i]);
     }
-//    meses2022.map((item) => console.log(item));
+//  const test =  meses2022.map((item) => item);
 
-    // console.log(month);
+    console.log(test);
     Highcharts.chart('mensal', {
         title: {
             text: ''
@@ -39,7 +39,10 @@ async function mensal(totals){
         _series: [{
             type: 'column',
             name: '2020',
-            data: meses2022.map(item => item)
+            data: month[1].map((item) => {
+                item <= 12
+                item++
+            })
         }, {
             type: 'column',
             name: '2021',
