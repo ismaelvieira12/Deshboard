@@ -19,8 +19,6 @@ async function mensal(totals){
     //     meses2023.push(month[1][i]);
     // }
     console.log(meses2022);
-    // console.log(meses2023);
-//  const test =  meses2022.map((item) => item);
 
     mesesText = ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
 
@@ -47,11 +45,24 @@ async function mensal(totals){
         _series: [{
             type: 'column',
             name: '2020',
-            data: meses2022.map(item => item)
+            data: [
+                month[0][1] = 0,
+                month[0][2] = 0,
+                month[0][3] = 0,
+                month[0][4],
+                month[0][5],
+                month[0][6],
+                month[0][7],
+                month[0][8],
+                month[0][9],
+                month[0][10],
+                month[0][11],
+                month[0][12]
+            ]
         }, {
             type: 'column',
             name: '2021',
-            data: meses2022.map(item => item)
+            data: [58, 88, 75, 250, 176]
         }, {
             type: 'column',
             name: '2022',
@@ -106,12 +117,6 @@ async function mensal(totals){
         },
     });
   
-    // console.log("Totais calculados:", totals);
-    // totals['2022'].forEach(item => { 
-    //    const days = item.monthlyTotals;
-    //    console.log(days);
-    // })
-    // console.log(teste);
 }
 
 mensal()
