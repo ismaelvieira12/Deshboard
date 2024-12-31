@@ -5,20 +5,23 @@ async function mensal(totals){
     const month = []; // Armazena apenas os valores dos meses de todos os anos
     await totals.forEach(item => {
         let teste = item.monthlyTotals;
-        month.push(teste);
+        parseFloat(month.push(teste));
     });
-    
     console.log(month);// mostra na tela um array com todos os valores dos meses do ano
-    const meses2022 = [];
+
+
+    const meses2023 = [];// guarda os valores totais dos meses do ano de 2023
     for(let i = 1; i <= 12; i++){
-        meses2022.push(month[0][i]);
+        meses2023.push(month[1][i]);
     }
 
-    // const meses2023 = [];
-    // for(let i = 1; i <= 12; i++){
-    //     meses2023.push(month[1][i]);
-    // }
-    console.log(meses2022);
+
+    const meses2024 = []; // guarda os valores totais dos meses do ano de 2024
+    for(let i = 1; i <= 12; i++){
+        meses2024.push(month[2][i]);
+    }
+    console.log(meses2023);
+    
 
     mesesText = ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
 
@@ -62,21 +65,11 @@ async function mensal(totals){
         }, {
             type: 'column',
             name: '2021',
-            data: [58, 88, 75, 250, 176]
+            data: meses2023.map(item => item)
         }, {
             type: 'column',
             name: '2022',
-            data: [58, 88, 75, 250, 176]
-        }, {
-            type: 'line',
-            step: 'center',
-            name: 'Average',
-            data: [47, 83.33, 70.66, 239.33, 175.66],
-            marker: {
-                lineWidth: 2,
-                lineColor: Highcharts.getOptions().colors[3],
-                fillColor: 'white'
-            }
+            data: meses2024.map(item => item)
         }, {
             type: 'pie',
             name: 'Total',
