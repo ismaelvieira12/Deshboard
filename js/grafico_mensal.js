@@ -9,8 +9,12 @@ async function mensal(totals){
         month.push(teste);
     });
 
-    console.log(month);
+    
+    // for(let i = 1; i <= 12; i++){
+    //     console.log(month[0][i]);
+    // }
 
+    // console.log(month);
     Highcharts.chart('mensal', {
         title: {
             text: 'Sales of petroleum products March, Norway'
@@ -33,10 +37,11 @@ async function mensal(totals){
                 borderRadius: '25%'
             }
         },
-        series: [{
+        _series: [{
             type: 'column',
             name: '2020',
-            data: month[0].map(item => item.value)
+            // data: month[0][0].map(item => item)
+            // data: [month[0][4], month[0][5], month[0][6], month[0][7], month[0][8], month[0][9], month[0][10], month[0][11], month[0][12]],
         }, {
             type: 'column',
             name: '2021',
@@ -86,7 +91,13 @@ async function mensal(totals){
             dataLabels: {
                 enabled: false
             }
-        }]
+        }],
+        get series() {
+            return this._series;
+        },
+        set series(value) {
+            this._series = value;
+        },
     });
   
     // console.log("Totais calculados:", totals);
