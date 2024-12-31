@@ -13,25 +13,23 @@ async function mensal(totals){
     for(let i = 1; i <= 12; i++){
         meses2022.push(month[0][i]);
     }
-    console.log(meses2022);
+//    meses2022.map((item) => console.log(item));
 
     // console.log(month);
     Highcharts.chart('mensal', {
         title: {
-            text: 'Sales of petroleum products March, Norway'
+            text: ''
         },
         xAxis: {
-            categories: [
-                'Jet fuel', 'Duty-free diesel', 'Petrol', 'Diesel', 'Gas oil'
-            ]
+            categories: ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
         },
         yAxis: {
             title: {
-                text: 'Million liters'
+                text: ''
             }
         },
         tooltip: {
-            valueSuffix: ' million liters'
+            valueSuffix: ' '
         },
         plotOptions: {
             series: {
@@ -41,11 +39,11 @@ async function mensal(totals){
         _series: [{
             type: 'column',
             name: '2020',
-            // data: ['jan', fer],
+            data: meses2022.map(item => item)
         }, {
             type: 'column',
             name: '2021',
-            data: meses2022.map(item => item)
+            // data: meses2022.map((item) => {item <= 12}),
         }, {
             type: 'column',
             name: '2022',
