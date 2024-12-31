@@ -164,6 +164,14 @@ function separateDataByYearAndSituation(dataList) {
         rest(totals)
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
+        const container = document.querySelector('#container');
+        const mensal = document.querySelector('#mensal');
+        mensal.style.backgroundColor="#cf5959b7";
+        mensal.classList.add('container-anual');
+        mensal.innerHTML="<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
+        container.style.backgroundColor="#cf5959b7";
+        container.classList.add('container-anual');
+        container.innerHTML="<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
     }
 }
 

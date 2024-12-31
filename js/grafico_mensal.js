@@ -1,9 +1,10 @@
 
 // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 async function mensal(totals){
+    
     // Exibe os totais
     const month = []; // Armazena apenas os valores dos meses de todos os anos
-    await totals.forEach(item => {
+    totals.forEach(item => {
         let teste = item.monthlyTotals;
         parseFloat(month.push(teste));
     });
@@ -21,7 +22,11 @@ async function mensal(totals){
         meses2024.push(month[2][i]);
     }
     console.log(meses2023);
-    
+
+    const meses2025 = []; // guarda os valores totais dos meses do ano de 2024
+    for(let i = 1; i <= length; i++){
+        meses2025.push(month[3][i]);
+    }
 
     mesesText = ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
 
@@ -71,6 +76,10 @@ async function mensal(totals){
             name: '2022',
             data: meses2024.map(item => item)
         }, {
+            type: 'column',
+            name: '2025',
+            data: meses2025.map(item => item)
+        },{
             type: 'pie',
             name: 'Total',
             data: [{
@@ -109,7 +118,6 @@ async function mensal(totals){
             this._series = value;
         },
     });
-  
 }
 
 mensal()
