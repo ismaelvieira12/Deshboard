@@ -1,6 +1,16 @@
 
 // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 async function mensal(totals){
+
+    // Exibe os totais
+    const month = [];
+    await totals.forEach(item => {
+        let teste = item.monthlyTotals;
+        month.push(teste);
+    });
+
+    console.log(month);
+
     Highcharts.chart('mensal', {
         title: {
             text: 'Sales of petroleum products March, Norway'
@@ -26,7 +36,7 @@ async function mensal(totals){
         series: [{
             type: 'column',
             name: '2020',
-            data: [59, 83, 65, 228, 184]
+            data: month[0].map(item => item.value)
         }, {
             type: 'column',
             name: '2021',
@@ -78,14 +88,7 @@ async function mensal(totals){
             }
         }]
     });
-     // Exibe os totais
-     const month = [];
-    await totals.forEach(item => {
-       let teste = item.monthlyTotals;
-       month.push(teste).toFixed(2);
-    });
-
-    console.log(month);
+  
     // console.log("Totais calculados:", totals);
     // totals['2022'].forEach(item => { 
     //    const days = item.monthlyTotals;
