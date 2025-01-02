@@ -52,25 +52,7 @@ Highcharts.chart('controle-taxas', {
         type: 'area'
     },
     accessibility: {
-        description: 'Image description: An area chart compares the nuclear ' +
-            'stockpiles of the USA and the USSR/Russia between 1945 and ' +
-            '2024. The number of nuclear weapons is plotted on the Y-axis ' +
-            'and the years on the X-axis. The chart is interactive, and the ' +
-            'year-on-year stockpile levels can be traced for each country. ' +
-            'The US has a stockpile of 2 nuclear weapons at the dawn of the ' +
-            'nuclear age in 1945. This number has gradually increased to 170 ' +
-            'by 1949 when the USSR enters the arms race with one weapon. At ' +
-            'this point, the US starts to rapidly build its stockpile ' +
-            'culminating in 31,255 warheads by 1966 compared to the USSR’s 8,' +
-            '400. From this peak in 1967, the US stockpile gradually ' +
-            'decreases as the USSR’s stockpile expands. By 1978 the USSR has ' +
-            'closed the nuclear gap at 25,393. The USSR stockpile continues ' +
-            'to grow until it reaches a peak of 40,159 in 1986 compared to ' +
-            'the US arsenal of 24,401. From 1986, the nuclear stockpiles of ' +
-            'both countries start to fall. By 2000, the numbers have fallen ' +
-            'to 10,577 and 12,188 for the US and Russia, respectively. The ' +
-            'decreases continue slowly after plateauing in the 2010s, and in ' +
-            '2024 the US has 3,708 weapons compared to Russia’s 4,380.'
+        description: ''
     },
     title: {
         text: 'Relação de taxas'
@@ -86,13 +68,14 @@ Highcharts.chart('controle-taxas', {
         }
     },
     yAxis: {
+        borderRadius: 100,
         title: {
             text: 'Nuclear weapon states'
         }
     },
     tooltip: {
         pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>' +
-            'warheads in {point.x}'
+        'warheads in {point.x}'
     },
     plotOptions: {
         area: {

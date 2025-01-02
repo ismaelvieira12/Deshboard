@@ -74,7 +74,7 @@ body{
         height: 100vh;
 
         & .nav-left {
-            background-color: #ffffff;    
+            background-color:var(--corBlue);    
             width: 7%;
             height: 100%;
             margin: 0px 0px;

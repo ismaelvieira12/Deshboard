@@ -51,38 +51,44 @@ async function mensal(totals){
             }
         },
         _series: [{
-            type: 'column',
-            name: '2022',
-            color: "#2f3764",
-            data: [
-                month[0][1] = 0,
-                month[0][2] = 0,
-                month[0][3] = 0,
-                month[0][4],
-                month[0][5],
-                month[0][6],
-                month[0][7],
-                month[0][8],
-                month[0][9],
-                month[0][10],
-                month[0][11],
-                month[0][12]
-            ]
-        }, {
-            type: 'column',
-            name: '2023',
-            data: meses2023.map(item => item),
-            color: "#5c6bc0"
-        }, {
+            // type: 'column',
+            // name: '2022',
+            // color: "#2f3764",
+            // data: [
+            //     month[0][1] = 0,
+            //     month[0][2] = 0,
+            //     month[0][3] = 0,
+            //     month[0][4],
+            //     month[0][5],
+            //     month[0][6],
+            //     month[0][7],
+            //     month[0][8],
+            //     month[0][9],
+            //     month[0][10],
+            //     month[0][11],
+            //     month[0][12]
+            // ]
+        }, 
+        {
+            // type: 'column',
+            // name: '2023',
+            // data: meses2023.map(item => item),
+            // color: "#5c6bc0"
+        }, 
+        {
             type: 'column',
             name: '2024',
             data: meses2024.map(item => item),
-            color: "#6857be"
-        }, {
-            type: 'column',
-            name: '2025',
-            data: meses2025.map(item => item),
-        },{
+            color: "#6857be",
+            paddign: 0,
+            borderRadius: 3,
+        }, 
+        // {
+        //     type: 'column',
+        //     name: '2025',
+        //     data: meses2025.map(item => item),
+        // },
+        {
             type: 'pie',
             name: 'Total',
             data: [{
