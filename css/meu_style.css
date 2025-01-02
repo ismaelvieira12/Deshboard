@@ -14,12 +14,12 @@
 
 
     /* Cores que vou usar no script */
-    /* --corErro: #cf5959b7; */
-    /* --corGrafico:#8870fe6a; */
-    /* --corGrafico: #79a6ff; */
-    /* --corGrafico: #79a6ff90; */
-    /* --corGrafico: #3a3a3b7c; */
-    /* --corTooltip:#3a3a3b; */
+    --corErro: #cf5959b7;
+    --corGrafico:#8870fe6a;
+    --corGrafico: #79a6ff;
+    --corGrafico: #79a6ff90;
+    --corGrafico: #3a3a3b7c;
+    --corTooltip:#3a3a3b;
 
     /* NOVA PALETA DE CORES */
     --fundo-principal: #ffffff;
