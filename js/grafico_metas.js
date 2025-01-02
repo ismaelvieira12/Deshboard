@@ -59,7 +59,7 @@ Highcharts.chart('controle-taxas', {
     },
     subtitle: {
         text: 'Planilha: <a href="https://docs.google.com/spreadsheets/d/10pWYp5zYH9KTFRKtPQAxlubIpvKPyH8C5sossrJZ_I0/edit?gid=1461853183#gid=1461853183" ' +
-            'target="_blank">StarLink</a>'
+        'target="_blank">StarLink</a>'
     },
     xAxis: {
         allowDecimals: false,
@@ -74,6 +74,11 @@ Highcharts.chart('controle-taxas', {
         }
     },
     tooltip: {
+        backgroundColor: '#3a3a3b', // Cor de fundo do tooltip (claro)
+        borderColor: '#ddd', // Cor da borda do tooltip
+        style: {
+            color: '#d6d6d6', // Cor do texto no tooltip (escuro)
+        },
         pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>' +
         'warheads in {point.x}'
     },
@@ -108,7 +113,7 @@ Highcharts.chart('controle-taxas', {
         ]
     }, {
         name: 'USSR/Russia',
-        color: "#5c74ff",
+        color: "#221b44af",
         data: [
             null, null, null, null, null, null, null, null, null,
             1, 5, 25, 50, 120, 150, 200, 426, 660, 863, 1048, 1627, 2492,

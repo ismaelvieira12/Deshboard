@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+}   
 
 :root{
     --corBlueLigth:#85F2F2;
@@ -20,6 +20,7 @@
     --corGrafico: #79a6ff90;
     --corGrafico: #3a3a3b7c;
     --corTooltip:#3a3a3b;
+    --cor: #221b44af;
 
     /* NOVA PALETA DE CORES */
     --fundo-principal: #ffffff;

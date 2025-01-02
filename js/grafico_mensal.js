@@ -43,7 +43,12 @@ async function mensal(totals){
             }
         },
         tooltip: {
-            valueSuffix: ' '
+            valueSuffix: ' ',
+            backgroundColor: '#3a3a3b', // Cor de fundo do tooltip (claro)
+            borderColor: '#ddd', // Cor da borda do tooltip
+            style: {
+                color: '#d6d6d6', // Cor do texto no tooltip (escuro)
+            },
         },
         plotOptions: {
             series: {
