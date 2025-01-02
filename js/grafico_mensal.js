@@ -52,7 +52,7 @@ async function mensal(totals){
         },
         _series: [{
             type: 'column',
-            name: '2020',
+            name: '2022',
             color: "#2f3764",
             data: [
                 month[0][1] = 0,
@@ -70,12 +70,12 @@ async function mensal(totals){
             ]
         }, {
             type: 'column',
-            name: '2021',
+            name: '2023',
             data: meses2023.map(item => item),
             color: "#5c6bc0"
         }, {
             type: 'column',
-            name: '2022',
+            name: '2024',
             data: meses2024.map(item => item),
             color: "#6857be"
         }, {
