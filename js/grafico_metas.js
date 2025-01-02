@@ -73,11 +73,11 @@ Highcharts.chart('controle-taxas', {
             '2024 the US has 3,708 weapons compared to Russia’s 4,380.'
     },
     title: {
-        text: 'US and USSR nuclear stockpiles'
+        text: 'Relação de taxas'
     },
     subtitle: {
-        text: 'Source: <a href="https://fas.org/issues/nuclear-weapons/status-world-nuclear-forces/" ' +
-            'target="_blank">FAS</a>'
+        text: 'Planilha: <a href="https://docs.google.com/spreadsheets/d/10pWYp5zYH9KTFRKtPQAxlubIpvKPyH8C5sossrJZ_I0/edit?gid=1461853183#gid=1461853183" ' +
+            'target="_blank">StarLink</a>'
     },
     xAxis: {
         allowDecimals: false,
