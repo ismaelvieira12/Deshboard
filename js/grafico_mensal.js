@@ -53,6 +53,7 @@ async function mensal(totals){
         _series: [{
             type: 'column',
             name: '2020',
+            color: "#2f3764",
             data: [
                 month[0][1] = 0,
                 month[0][2] = 0,
@@ -76,12 +77,11 @@ async function mensal(totals){
             type: 'column',
             name: '2022',
             data: meses2024.map(item => item),
-            color: "#3e4881"
+            color: "#6857be"
         }, {
             type: 'column',
             name: '2025',
             data: meses2025.map(item => item),
-            color: "#2f3764"
         },{
             type: 'pie',
             name: 'Total',
