@@ -111,7 +111,7 @@ Highcharts.chart('controle-taxas', {
     },
     series: [{
         name: 'USA',
-        color: "#ff7043",
+        color: "#5c6bc0",
         data: [
             null, null, null, null, null, 2, 9, 13, 50, 170, 299, 438, 841,
             1169, 1703, 2422, 3692, 5543, 7345, 12298, 18638, 22229, 25540,
@@ -125,6 +125,7 @@ Highcharts.chart('controle-taxas', {
         ]
     }, {
         name: 'USSR/Russia',
+        color: "#5c74ff",
         data: [
             null, null, null, null, null, null, null, null, null,
             1, 5, 25, 50, 120, 150, 200, 426, 660, 863, 1048, 1627, 2492,
