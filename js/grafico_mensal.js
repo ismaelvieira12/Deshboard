@@ -70,22 +70,25 @@ async function mensal(totals){
         }, {
             type: 'column',
             name: '2021',
-            data: meses2023.map(item => item)
+            data: meses2023.map(item => item),
+            color: "#5c6bc0"
         }, {
             type: 'column',
             name: '2022',
-            data: meses2024.map(item => item)
+            data: meses2024.map(item => item),
+            color: "#3e4881"
         }, {
             type: 'column',
             name: '2025',
-            data: meses2025.map(item => item)
+            data: meses2025.map(item => item),
+            color: "#2f3764"
         },{
             type: 'pie',
             name: 'Total',
             data: [{
                 name: '2020',
                 y: 619,
-                color: Highcharts.getOptions().colors[0], // 2020 color
+                color: "#5c6bc0", // 2020 color
                 dataLabels: {
                     enabled: true,
                     distance: -50,
@@ -97,11 +100,11 @@ async function mensal(totals){
             }, {
                 name: '2021',
                 y: 586,
-                color: Highcharts.getOptions().colors[1] // 2021 color
+                color: "#3e4881" // 2021 color
             }, {
                 name: '2022',
                 y: 647,
-                color: Highcharts.getOptions().colors[2] // 2022 color
+                color: "#2f3764" // 2022 color
             }],
             center: [75, 65],
             size: 100,
