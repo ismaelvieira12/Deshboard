@@ -58,11 +58,15 @@ async function mensal(totals){
             },
         },
         plotOptions: {
+            column: {
+                pointPadding: 0,
+                borderWidth: 0
+            },
             series: {
                 borderRadius: '25%'
             }
         },
-        _series: [{
+        series:[ {
             type: 'column',
             name: '2022',
             color: "#2f3764",
@@ -90,45 +94,45 @@ async function mensal(totals){
             name: '2025',
             data: a2025.map(valor => valor),
             borderRadius: 3,
-        },
-        {
-            type: 'pie',
-            name: 'Total',
-            data: [{
-                name: '2020',
-                y: 619,
-                color: "#5c6bc0", // 2020 color
-                dataLabels: {
-                    enabled: true,
-                    distance: -50,
-                    format: '{point.total} M',
-                    style: {
-                        fontSize: '15px'
-                    }
-                }
-            }, {
-                name: '2021',
-                y: 586,
-                color: "#3e4881" // 2021 color
-            }, {
-                name: '2022',
-                y: 647,
-                color: "#2f3764" // 2022 color
-            }],
-            center: [75, 65],
-            size: 100,
-            innerSize: '70%',
-            showInLegend: false,
-            dataLabels: {
-                enabled: false
-            }
         }],
-        get series() {
-            return this._series;
-        },
-        set series(value) {
-            this._series = value;
-        },
+        // {
+        //     type: 'pie',
+        //     name: 'Total',
+        //     data: [{
+        //         name: '2020',
+        //         y: 619,
+        //         color: "#5c6bc0", // 2020 color
+        //         dataLabels: {
+        //             enabled: true,
+        //             distance: -50,
+        //             format: '{point.total} M',
+        //             style: {
+        //                 fontSize: '15px'
+        //             }
+        //         }
+        //     }, {
+        //         name: '2021',
+        //         y: 586,
+        //         color: "#3e4881" // 2021 color
+        //     }, {
+        //         name: '2022',
+        //         y: 647,
+        //         color: "#2f3764" // 2022 color
+        //     }],
+        //     center: [75, 65],
+        //     size: 100,
+        //     innerSize: '70%',
+        //     showInLegend: false,
+        //     dataLabels: {
+        //         enabled: false
+        //     }
+        // },
+        // get series() {
+        //     return this._series;
+        // },
+        // set series(value) {
+        //     this._series = value;
+        // },
     });
 }
 
