@@ -67,12 +67,14 @@ async function mensal(totals){
             name: '2022',
             color: "#2f3764",
             data: a2022.map(item => item),
+            borderRadius: 3,
         }, 
         {
             type: 'column',
             name: '2023',
             data: meses2023.map(item => item),
-            color: "#5c6bc0"
+            color: "#5c6bc0",
+            borderRadius: 3,
         }, 
         {
             type: 'column',
@@ -86,7 +88,7 @@ async function mensal(totals){
         {
             type: 'column',
             name: '2025',
-            data: a2025.map(valor => valor === undefined ? null : valor),
+            data: a2025.map(valor => valor),
             borderRadius: 3,
         },
         {
