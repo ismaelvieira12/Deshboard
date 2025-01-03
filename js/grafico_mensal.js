@@ -8,8 +8,14 @@ async function mensal(totals){
         let teste = item.monthlyTotals;
         parseFloat(month.push(teste));
     });
+    // month(valor => valor === undefined ? null : valor);
     console.log(month);// mostra na tela um array com todos os valores dos meses do ano
 
+    const meses2022 = []
+    for (let i = 1; i <= array.length ; i++) {
+        meses2022.push('2022', month[0][i]);
+    }
+    console.log(meses2022);
 
     const meses2023 = [];// guarda os valores totais dos meses do ano de 2023
     for(let i = 1; i <= 12; i++){
@@ -60,20 +66,7 @@ async function mensal(totals){
             type: 'column',
             name: '2022',
             color: "#2f3764",
-            data: [
-                month[0][1] = 0,
-                month[0][2] = 0,
-                month[0][3] = 0,
-                month[0][4],
-                month[0][5],
-                month[0][6],
-                month[0][7],
-                month[0][8],
-                month[0][9],
-                month[0][10],
-                month[0][11],
-                month[0][12]
-            ]
+            data: month[0][1](item => item),
         }, 
         {
             type: 'column',
