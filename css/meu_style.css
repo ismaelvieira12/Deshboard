@@ -198,8 +198,23 @@ body{
 
             & i{
                 font-size: 30px;
-                color: var(--corPurple);
+                color: var(--fundo-principal);
                 opacity: 0.5;
+            }
+            &:nth-child(1){
+                background-color: var(--cor);
+                box-shadow: 1px 1px 10px var(--cor);
+                color: #ffffff;
+            }
+            &:nth-child(2){
+                background-color: var(--cor);
+                box-shadow: 1px 1px 10px var(--cor);
+                color: #ffffff;
+            }
+            &:nth-child(3){
+                background-color: var(--cor);
+                box-shadow: 1px 1px 10px var(--cor);
+                color: #ffffff;
             }
         }
 
