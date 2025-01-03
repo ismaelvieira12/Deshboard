@@ -41,7 +41,8 @@ async function mensal(totals){
             text: ''
         },
         xAxis: {
-            categories: mesesText.map(item => item)
+            categories: mesesText.map(item => item),
+             gridLineColor: '#FA4000'
         },
         yAxis: {
             title: {
@@ -68,28 +69,28 @@ async function mensal(totals){
                 borderRadius: '25%'
             }
         },
-        series:[ 
-        //     type: 'column',
-        //     name: '2022',
-        //     color: "#2f3764",
-        //     data: a2022.map(item => item),
-        //     borderRadius: 3,
-        // }, 
-        // {
-        //     type: 'column',
-        //     name: '2023',
-        //     data: meses2023.map(item => item),
-        //     color: "#5c6bc0",
-        //     borderRadius: 3,
-        // }, 
-        // {
-        //     type: 'column',
-        //     name: '2024',
-        //     data: meses2024.map(item => item),
-        //     color: "#6857be",
-        //     borderRadius: 3,
+        series:[ {
+            type: 'column',
+            name: '2022',
+            color: "#2f3764",
+            data: a2022.map(item => item),
+            borderRadius: 3,
+        }, 
+        {
+            type: 'column',
+            name: '2023',
+            data: meses2023.map(item => item),
+            color: "#5c6bc0",
+            borderRadius: 3,
+        }, 
+        {
+            type: 'column',
+            name: '2024',
+            data: meses2024.map(item => parseFloat(item.toFixed(2))),
+            color: "#6857be",
+            borderRadius: 3,
             
-        // },
+        },
         //para subistituir os valores unifined por null temos que mudar o array
         // a condicional verifica se o valor é igual a UNDEFINED se for será mudado para null, se não ficará o valor original pago
         {
@@ -115,12 +116,12 @@ async function mensal(totals){
                 ]
             },
             borderRadius: 0,
-            data: meses2024.map(item => item),
-            tooltip: {
-                pointFormatter: function () {
-                    return (`<b>${this.name = 'Meta:'} ${new Intl.NumberFormat('pt-BR').format(this.y)}</b>`);
-                }
-            }
+            data: meses2024.map(item => parseFloat(item.toFixed(2))),
+            // tooltip: {
+            //     pointFormatter: function () {
+            //         return (`<b>Meta: R$ ${new Intl.NumberFormat('pt-BR').format(this.y)}</b>`);
+            //     }
+            // }
         }],
     });
 }
