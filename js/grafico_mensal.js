@@ -14,8 +14,8 @@ async function mensal(totals){
     for (let i = 1; i <= 12 ; i++) {
         meses2022.push(month[0][i]);
     }
-    meses2022.map(valor => valor === undefined ? null : valor);
-    console.log('2022', meses2022);
+    const a2022 = meses2022.map(valor => valor === undefined ? null : valor);
+    console.log('2022', a2022);
 
     const meses2023 = [];// guarda os valores totais dos meses do ano de 2023
     for(let i = 1; i <= 12; i++){
@@ -66,7 +66,7 @@ async function mensal(totals){
             type: 'column',
             name: '2022',
             color: "#2f3764",
-            // data: month[0][1](item => item),
+            data: a2022.map(item => item),
         }, 
         {
             type: 'column',
