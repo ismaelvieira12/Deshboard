@@ -201,7 +201,7 @@ body{
                 color: var(--fundo-principal);
                 opacity: 0.5;
             }
-            &:nth-child(1){
+            /* &:nth-child(1){
                 background-color: var(--cor);
                 box-shadow: 1px 1px 10px var(--cor);
                 color: #ffffff;
@@ -215,7 +215,7 @@ body{
                 background-color: var(--cor);
                 box-shadow: 1px 1px 10px var(--cor);
                 color: #ffffff;
-            }
+            } */
         }
 
         & .container-graphic{
