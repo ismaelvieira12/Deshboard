@@ -1,7 +1,6 @@
 
 // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 async function mensal(totals){
-    
     // Exibe os totais
     const month = []; // Armazena apenas os valores dos meses de todos os anos
     totals.forEach(item => {
@@ -56,6 +55,9 @@ async function mensal(totals){
             style: {
                 color: '#d6d6d6', // Cor do texto no tooltip (escuro)
             },
+          // para formatar os valores com formato BR (o this.y) representa o valor que está no eixo y
+
+            
         },
         plotOptions: {
             column: {
@@ -66,27 +68,28 @@ async function mensal(totals){
                 borderRadius: '25%'
             }
         },
-        series:[ {
-            type: 'column',
-            name: '2022',
-            color: "#2f3764",
-            data: a2022.map(item => item),
-            borderRadius: 3,
-        }, 
-        {
-            type: 'column',
-            name: '2023',
-            data: meses2023.map(item => item),
-            color: "#5c6bc0",
-            borderRadius: 3,
-        }, 
-        {
-            type: 'column',
-            name: '2024',
-            data: meses2024.map(item => item),
-            color: "#6857be",
-            borderRadius: 3,
-        },
+        series:[ 
+        //     type: 'column',
+        //     name: '2022',
+        //     color: "#2f3764",
+        //     data: a2022.map(item => item),
+        //     borderRadius: 3,
+        // }, 
+        // {
+        //     type: 'column',
+        //     name: '2023',
+        //     data: meses2023.map(item => item),
+        //     color: "#5c6bc0",
+        //     borderRadius: 3,
+        // }, 
+        // {
+        //     type: 'column',
+        //     name: '2024',
+        //     data: meses2024.map(item => item),
+        //     color: "#6857be",
+        //     borderRadius: 3,
+            
+        // },
         //para subistituir os valores unifined por null temos que mudar o array
         // a condicional verifica se o valor é igual a UNDEFINED se for será mudado para null, se não ficará o valor original pago
         {
@@ -94,45 +97,31 @@ async function mensal(totals){
             name: '2025',
             data: a2025.map(valor => valor),
             borderRadius: 3,
+            color: '#2f3764',
+        },{
+            type: 'area',
+            name: 'Meta',
+            color: '#2f00af85',
+            fillColor: {
+                linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                },
+                stops: [
+                    [0, '#6857be'],      // Cor no topo
+                    [1, 'rgba(104, 87, 190, 0)'] // Transparente na base
+                ]
+            },
+            borderRadius: 0,
+            data: meses2024.map(item => item),
+            tooltip: {
+                pointFormatter: function () {
+                    return (`<b>${this.name = 'Meta:'} ${new Intl.NumberFormat('pt-BR').format(this.y)}</b>`);
+                }
+            }
         }],
-        // {
-        //     type: 'pie',
-        //     name: 'Total',
-        //     data: [{
-        //         name: '2020',
-        //         y: 619,
-        //         color: "#5c6bc0", // 2020 color
-        //         dataLabels: {
-        //             enabled: true,
-        //             distance: -50,
-        //             format: '{point.total} M',
-        //             style: {
-        //                 fontSize: '15px'
-        //             }
-        //         }
-        //     }, {
-        //         name: '2021',
-        //         y: 586,
-        //         color: "#3e4881" // 2021 color
-        //     }, {
-        //         name: '2022',
-        //         y: 647,
-        //         color: "#2f3764" // 2022 color
-        //     }],
-        //     center: [75, 65],
-        //     size: 100,
-        //     innerSize: '70%',
-        //     showInLegend: false,
-        //     dataLabels: {
-        //         enabled: false
-        //     }
-        // },
-        // get series() {
-        //     return this._series;
-        // },
-        // set series(value) {
-        //     this._series = value;
-        // },
     });
 }
 

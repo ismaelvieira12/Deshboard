@@ -208,7 +208,7 @@ function rest(totals){
             borderColor: '#ddd', // Cor da borda do tooltip
             style: {
                 color: '#d6d6d6', // Cor do texto no tooltip (escuro)
-            }
+            },
         },
         xAxis: [{
             crosshair: true,
