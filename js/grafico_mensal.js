@@ -70,7 +70,7 @@ async function mensal(totals){
             },
             area: {
                 // pointStart: 1940,
-                
+                radius: 50,
                 marker: {
                     enabled: false,
                     symbol: 'circle',
