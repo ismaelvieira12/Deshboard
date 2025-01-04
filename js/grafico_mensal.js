@@ -67,6 +67,19 @@ async function mensal(totals){
             },
             series: {
                 borderRadius: '25%'
+            },
+            area: {
+                // pointStart: 1940,
+                marker: {
+                    enabled: false,
+                    symbol: 'circle',
+                    radius: 20,
+                    states: {
+                        hover: {
+                            enabled: true
+                        }
+                    }
+                }
             }
         },
         series:[ {
@@ -122,6 +135,21 @@ async function mensal(totals){
             //         return (`<b>Meta: R$ ${new Intl.NumberFormat('pt-BR').format(this.y)}</b>`);
             //     }
             // }
+            plotOptions: {
+                area: {
+                    pointStart: 1940,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
         }],
     });
 }
