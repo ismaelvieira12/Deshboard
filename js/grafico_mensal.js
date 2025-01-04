@@ -73,7 +73,7 @@ async function mensal(totals){
                 radius: 50,
                 marker: {
                     enabled: false,
-                    symbol: 'circle',
+                    // symbol: '',
                     radius: 1,
                     states: {
                         hover: {
