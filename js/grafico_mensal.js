@@ -67,14 +67,12 @@ async function mensal(totals){
             },
             series: {
                 borderRadius: '25%',
-                // radius: 5,
             },
             area: {
-                // pointStart: 1940,
                 borderRadius: '25%',
                 marker: {
                     enabled: false,
-                    // symbol: '',
+
                     radius: 1,
                     states: {
                         hover: {
