@@ -372,11 +372,11 @@ body{
             margin-top: 200px;
             gap: 25px;
             flex-direction: column;
-            height: 685px;
+            height: 785px;
 
             & .graphic {
                 width: 100%;
-                height: 250px;
+                height: 600px;
             }
 
             & .graphic-first{
