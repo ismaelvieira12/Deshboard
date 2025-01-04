@@ -70,10 +70,11 @@ async function mensal(totals){
             },
             area: {
                 // pointStart: 1940,
+                
                 marker: {
                     enabled: false,
                     symbol: 'circle',
-                    radius: 20,
+                    radius: 1,
                     states: {
                         hover: {
                             enabled: true
