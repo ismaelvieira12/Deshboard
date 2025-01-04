@@ -114,9 +114,12 @@ async function mensal(totals){
             borderRadius: 3,
             color: '#2f3764',
         },{
-            type: 'area',
+            type: 'areaspline',
             name: 'Meta',
             color: '#2f00af85',
+            rangeSelector: {
+                selected: 1
+            },
             fillColor: {
                 linearGradient: {
                     x1: 0,
