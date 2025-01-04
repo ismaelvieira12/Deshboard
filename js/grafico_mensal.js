@@ -68,9 +68,9 @@ async function mensal(totals){
             series: {
                 borderRadius: '25%'
             },
+            radius: 50,
             area: {
                 // pointStart: 1940,
-                radius: 50,
                 marker: {
                     enabled: false,
                     // symbol: '',
