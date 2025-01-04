@@ -66,11 +66,12 @@ async function mensal(totals){
                 borderWidth: 0
             },
             series: {
-                borderRadius: '25%'
+                borderRadius: '25%',
+                // radius: 5,
             },
-            radius: 50,
             area: {
                 // pointStart: 1940,
+                borderRadius: '25%',
                 marker: {
                     enabled: false,
                     // symbol: '',
@@ -129,7 +130,7 @@ async function mensal(totals){
                     [1, 'rgba(104, 87, 190, 0)'] // Transparente na base
                 ]
             },
-            borderRadius: 0,
+            borderRadius: '25%',
             data: meses2024.map(item => parseFloat(item.toFixed(2))),
             // tooltip: {
             //     pointFormatter: function () {
