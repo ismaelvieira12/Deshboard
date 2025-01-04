@@ -120,6 +120,9 @@ async function mensal(totals){
             rangeSelector: {
                 selected: 1
             },
+            marker: {
+                enabled: false
+            },
             fillColor: {
                 linearGradient: {
                     x1: 0,

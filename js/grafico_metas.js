@@ -48,6 +48,7 @@
 
 // Data retrieved from https://fas.org/issues/nuclear-weapons/status-world-nuclear-forces/
 Highcharts.chart('controle-taxas', {
+    
     chart: {
         type: 'area'
     },
