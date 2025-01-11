@@ -12,3 +12,8 @@
 
 ##explicação dos gráficos do Dashboard
 
+
+```js 
+
+const teste = document.quarySelector("#teste");
+console.log(teste);
