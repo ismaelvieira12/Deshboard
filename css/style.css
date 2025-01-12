@@ -94,11 +94,11 @@ body{
     border-radius: 5px;
 }
 
-.caixa-top{
+/*.caixa-top{
     border-bottom: 1px solid var(--corPurple);
     text-align: center;
     padding-bottom: 20px;
-}
+}*/
 .logo-img{
     margin-top: 30px;
     width: 50px;
