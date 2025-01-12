@@ -43,10 +43,10 @@ body{
 .box{
     display: none;
 }
-#modo-noturno{
+/*#modo-noturno{
     opacity: 0;
     cursor: pointer;
-}
+}*/
 .fixed-top { left: 7%;}
 
 .bg-body-tertiary{background-color: var(--corSize);}
