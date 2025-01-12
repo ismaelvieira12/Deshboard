@@ -26,12 +26,12 @@ body{
     background-color: var(--corSize);
     height: 100vh;
 }
-#expandir{
+/*#expandir{
     margin-right: 30px;
     opacity: 0.7;
     font-size: 15px;
     animation: expandir 1s infinite;
-}
+}*/
 @keyframes expandir {
     from{
         transform: rotate(180deg);
