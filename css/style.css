@@ -58,7 +58,7 @@ body{
     /* border-right: 1px solid var(--corSizeLigth); */
 }
 
-/*.nav-left {
+.nav-left {
     background-color: var(--corBlue);
     width: 7%;
     height: 100%;
