@@ -43,7 +43,7 @@ body{
 .box{
     display: none;
 }
-/*#modo-noturno{
+#modo-noturno{
     opacity: 0;
     cursor: pointer;
 }*/
