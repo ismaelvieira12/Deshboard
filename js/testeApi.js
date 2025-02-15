@@ -193,7 +193,8 @@ function rest(totals){
         parseFloat(totals['2023'].annualTotal),
         parseFloat(totals['2024'].annualTotal),
         parseFloat(totals['2025'].annualTotal),
-    ]
+    ],
+    colors = ['#f29559','#202c39', '#b8b08d', '#283845']; // Defina as cores para cada ano
     Highcharts.chart('container', {
         chart: {
             renderTo: 'container',
@@ -235,6 +236,7 @@ function rest(totals){
             zIndex: 10,
             baseSeries: 1,
             tooltip:{
+                backgroundColor: '#202c39',
                 valueDecimals: 2,
                 valueSuffix: '%',
             },
@@ -243,7 +245,10 @@ function rest(totals){
             name: 'Valores',
             type: 'column',
             zIndex: 2,
-            data: valorano.map(item => item)
+            data: valorano.map((item, index) => ({
+                y: item,
+                color: colors[index] // Define cores diferentes para cada barra
+            })),
         }],
     });
    
