@@ -87,13 +87,12 @@ body{
 
             /* A parte de cima do menu lateral */
             & .caixa-top{
-                border-bottom: 1px solid #202c39;
+                border-bottom: 1px solid #ffffff;
                 padding-bottom: 20px;
 
                 & .logo-img{
                     margin-top: 30px;
                     width: 50px;
-                    border: 2px solid var(--corPurple);
                     border-radius: 50%; 
                 }
             }
@@ -102,26 +101,33 @@ body{
             }
             
             & .menu label{
+                position: relative;
                 margin-top: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 gap: 10px;
-                position: relative;
                 left: 0;
+                cursor: pointer;
                 
-                &:hover{
-                    background-color: var(--fundo-card);
-                    border-right: 1px solid var(--corPurple);
-                    cursor: pointer;
+                &:hover::after{
+                    content: "";
+                    position: absolute;
+                    bottom: 5px;
+                    width: 60%;
+                    height: 2px;
+                    background-color: #ffffff;
+                    animation: menu-left .1s linear;
                 }
                 & p{
                     position: relative;
                     top: 50%;
                     transform: translateY(-50%);
+                    color: #ffffff;
                 }
                 & i{    
                     font-size: 1rem;
+                    color: #ffffff;
                 }
             }
             
@@ -132,7 +138,7 @@ body{
                 &  a{
                     text-decoration: none;
                     font-size: 1.25rem;
-                    color: var(--corPurple);
+                    color: #ffffff;
                     &:hover{
                         opacity: 0.5;
                     }
@@ -277,6 +283,18 @@ body{
     }
     to{
         transform: rotate(180deg);
+    }
+}
+
+
+@keyframes menu-left {
+    0%{
+        left: 20%;
+        width: 20%;
+    }
+    100%{
+        left: 20%;
+        width: 60%;
     }
 }
 
