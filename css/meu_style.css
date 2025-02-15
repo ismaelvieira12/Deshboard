@@ -75,7 +75,7 @@ body{
         height: 100vh;
 
         & .nav-left {
-            background-color:var(--corBlue);    
+            background-color: #202c39;    
             width: 7%;
             height: 100%;
             margin: 0px 0px;
@@ -83,11 +83,11 @@ body{
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0px 5px 20px  #8873ff1d;
+            /* box-shadow: 0px 5px 20px  #202c395d; */
 
             /* A parte de cima do menu lateral */
             & .caixa-top{
-                border-bottom: 1px solid var(--corPurple);
+                border-bottom: 1px solid #202c39;
                 padding-bottom: 20px;
 
                 & .logo-img{
@@ -194,27 +194,28 @@ body{
 
             & label p, h2 {
                 opacity: 0.7;
+                color: #000000;
             }
 
             & i{
                 font-size: 30px;
-                color: var(--fundo-principal);
-                opacity: 0.5;
+                color: #000000;
+                opacity: 0.7;
             }
             &:nth-child(1){
-                background: linear-gradient(135deg, #007bff, #00d4ff);
-                box-shadow: 1px 1px 10px var(--cor);
-                color: #ffffff;
+                background: linear-gradient(135deg, #283845, #202c39);
+                box-shadow: 1px 1px 10px #202c39;
+                & p, & h2{
+                    color: #ffffff;
+                }
             }
             &:nth-child(2){
-                background: radial-gradient(circle, #ff7eb3, #ff758c);
-                box-shadow: 1px 1px 10px var(--cor);
-                color: #ffffff;
+                background: linear-gradient(135deg,  #f2d492,#b8b08d);
+                box-shadow: 1px 1px 10px #b8b08d;
             }
             &:nth-child(3){
-                background: linear-gradient(180deg, #f6d365, #fda085);
-                box-shadow: 1px 1px 10px var(--cor);
-                color: #ffffff;
+                background-color: #f29559;
+                box-shadow: 1px 1px 10px #f29559;
             }
         }
 
@@ -309,6 +310,7 @@ body{
     }
     .container-text {
         width: 94%;
+        height: 115%;
         left: 2%;
 
         & .container-graphic {
