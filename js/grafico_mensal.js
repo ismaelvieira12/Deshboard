@@ -28,7 +28,7 @@ async function mensal(totals){
     }
     console.log('2024', meses2023);
 
-    const meses2025 = [52]; // guarda os valores totais dos meses do ano de 2025
+    const meses2025 = []; // guarda os valores totais dos meses do ano de 2025
     for(let i = 1; i <= 12; i++){
         meses2025.push(month[3][i]);
     }

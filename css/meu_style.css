@@ -250,10 +250,15 @@ body{
                 margin-left: 10px;
                 margin-right: 5px;
                 position: relative;
+                max-height:  100%; /* Altura máxima antes de ativar a rolagem */
+                overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
+                /* padding: 10px; Espaçamento interno */
 
                 & .clientes{
-                    text-align: center;
+                    text-align: justify;
                     color: #202c39;
+                    margin:0px 0px 15px 0px;
+                    background-color: #f2d4923f;
                 }
             }        
         }
