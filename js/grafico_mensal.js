@@ -32,7 +32,9 @@ async function mensal(totals){
     for(let i = 1; i <= 12; i++){
         meses2025.push(month[3][i]);
     }
-    const a2025 = meses2025.map(valor => valor === undefined ? null : valor)
+    const a2025 = meses2025.map(valor => 
+        (valor !== null && valor !== undefined) ? parseFloat(valor.toFixed(2)) : valor
+    );
     console.log('2025', a2025);
     mesesText = ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
 
