@@ -115,7 +115,7 @@ body{
                     position: absolute;
                     bottom: 5px;
                     width: 60%;
-                    height: 2px;
+                    height: 1px;
                     background-color: #ffffff;
                     animation: menu-left .1s linear;
                 }
