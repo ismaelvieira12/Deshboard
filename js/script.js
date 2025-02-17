@@ -55,7 +55,19 @@ new Chart(metas, {
 
 
 function discionario(a2025){
-  console.log (a2025);
+  const disc = document.querySelector(".graphic-second");
+    const handler = {
+      set(target, property, value) {
+          if (!isNaN(property)) { // Verifica se a propriedade é um índice numérico
+            disc.innerHTML=`Novo valor adicionado: ${value} no índice ${property}`;
+          }
+          target[property] = value; // Define o valor no array
+          return true;
+      }
+  };
+
+  // const proxyArray = new Proxy(a2025, handler);
+  // disc.innerHTML=`${proxyArray}`
 }
 
 
