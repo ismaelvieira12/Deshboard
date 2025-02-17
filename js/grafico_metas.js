@@ -52,7 +52,7 @@ Highcharts.chart('controle-taxas', {
     },
     series: [{
         name: 'USA',
-        color: "#5c6bc0",
+        color: "#202c39",
         data: [
             null, null, null, null, null, 2, 9, 13, 50, 170, 299, 438, 841,
             1169, 1703, 2422, 3692, 5543, 7345, 12298, 18638, 22229, 25540,

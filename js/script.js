@@ -18,8 +18,8 @@ new Chart(metas, {
       label: 'Clientes',
       data:[46, 100],
       backgroundColor: [
-        '#79a6ff', 
-        '#ffb703',
+        '#283845', 
+        '#b8b08d',
       ],
     }],
   },

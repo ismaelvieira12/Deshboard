@@ -112,11 +112,11 @@ async function mensal(totals){
             name: '2025',
             data: a2025.map(valor => valor),
             borderRadius: 3,
-            color: '#2f3764',
+            color: '#283845',
         },{
             type: 'areaspline',
             name: 'Meta',
-            color: '#2f00af85',
+            color: '#283845',
             rangeSelector: {
                 selected: 1
             },
@@ -131,8 +131,8 @@ async function mensal(totals){
                     y2: 1
                 },
                 stops: [
-                    [0, '#6857be'],      // Cor no topo
-                    [1, 'rgba(104, 87, 190, 0)'] // Transparente na base
+                    [0, '#283845'],      // Cor no topo
+                    [1, 'rgba(40, 56, 69, 0.209)'] // Transparente na base
                 ]
             },
             borderRadius: '25%',
