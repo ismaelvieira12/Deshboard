@@ -1,52 +1,4 @@
-// Highcharts.chart('controle-taxas', {
-//     chart: {
-//         type: 'column'
-//     },
-//     title: {
-//         text: 'Controle de taxas'
-//     },
-//     subtitle: {
-//         text: 'planilha: <a "https://docs.google.com/spreadsheets/d/10pWYp5zYH9KTFRKtPQAxlubIpvKPyH8C5sossrJZ_I0/edit?gid=1461853183#gid=1461853183">StarLink</a>'
-//     },
-//     xAxis: {
-//         categories: ['2019', '2020', '2021']
-//     },
-//     yAxis: {
-//         min: 0,
-//         title: {
-//             text: ''
-//         }
-//     },
-//     tooltip: {
-//         pointFormat: '<span style="color:{series.color}">{series.name}</span>' +
-//             ': <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
-//         shared: true
-//     },
-//     plotOptions: {
-//         column: {
-//             stacking: 'percent',
-//             dataLabels: {
-//                 enabled: false,
-//                 format: '{point.percentage:.0f}%'
-//             }
-//         }
-//     },
-//     series: [{
-//         name: 'boletos',
-//         data: [434, 290, 307]
-//     }, {
-//         name: 'descontos',
-//         data: [272, 153, 156]
-//     }, {
-//         name: 'juros',
-//         data: [13, 7, 8]
-//     }, {
-//         name: 'Sea',
-//         data: [55, 35, 41]
-//     }]
-// });
 
-// Data retrieved from https://fas.org/issues/nuclear-weapons/status-world-nuclear-forces/
 Highcharts.chart('controle-taxas', {
     
     chart: {
@@ -112,19 +64,5 @@ Highcharts.chart('controle-taxas', {
             5113, 5066, 4897, 4881, 4804, 4717, 4571, 4018, 3822, 3785, 3805,
             3750, 3708, 3708, 3708, 3708
         ]
-    }, {
-        name: 'USSR/Russia',
-        color: "#221b44af",
-        data: [
-            null, null, null, null, null, null, null, null, null,
-            1, 5, 25, 50, 120, 150, 200, 426, 660, 863, 1048, 1627, 2492,
-            3346, 4259, 5242, 6144, 7091, 8400, 9490, 10671, 11736, 13279,
-            14600, 15878, 17286, 19235, 22165, 24281, 26169, 28258, 30665,
-            32146, 33486, 35130, 36825, 38582, 40159, 38107, 36538, 35078,
-            32980, 29154, 26734, 24403, 21339, 18179, 15942, 15442, 14368,
-            13188, 12188, 11152, 10114, 9076, 8038, 7000, 6643, 6286, 5929,
-            5527, 5215, 4858, 4750, 4650, 4600, 4500, 4490, 4300, 4350, 4330,
-            4310, 4495, 4477, 4489, 4380
-        ]
-    }]
+    }, ]
 });
