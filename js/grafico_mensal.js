@@ -38,6 +38,8 @@ async function mensal(totals){
     console.log('2025', a2025);
     mesesText = ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
 
+    discionario(a2025);
+
     Highcharts.chart('mensal', {
         title: {
             text: ''

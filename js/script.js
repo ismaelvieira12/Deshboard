@@ -54,7 +54,9 @@ new Chart(metas, {
 
 
 
-
+function discionario(a2025){
+  console.log (a2025);
+}
 
 
 // function meses(ano2022, ano2023, ano2024){

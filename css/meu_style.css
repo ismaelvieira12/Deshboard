@@ -250,6 +250,11 @@ body{
                 margin-left: 10px;
                 margin-right: 5px;
                 position: relative;
+
+                & .clientes{
+                    text-align: center;
+                    color: #202c39;
+                }
             }        
         }
 
