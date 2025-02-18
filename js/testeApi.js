@@ -235,8 +235,8 @@ function rest(totals){
             yAxis: 1,
             zIndex: 10,
             baseSeries: 1,
+            color: '#202c39',
             tooltip:{
-                backgroundColor: '#202c39',
                 valueDecimals: 2,
                 valueSuffix: '%',
             },
