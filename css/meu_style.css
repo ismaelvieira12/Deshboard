@@ -250,12 +250,11 @@ body{
                 width: 35%;
                 margin-left: 10px;
                 margin-right: 5px;
-                /* max-height:  100%; Altura máxima antes de ativar a rolagem */
+                max-height:  100%; /*Altura máxima antes de ativar a rolagem*/
                 /* overflow-y: auto; Adiciona rolagem vertical quando necessário */
                 /* padding: 10px; Espaçamento interno */
 
                 & .clientes{
-                    
                     text-align: justify;
                     color: #202c39;
                     margin:0px 0px 15px 0px;
@@ -266,10 +265,11 @@ body{
                 }
 
                 & .box-list{
-                    width: 100%;
+                    position: relative;
+                    width: 35%;
                     margin-left: 10px;
                     margin-right: 5px;
-                    max-height:  100%; /* Altura máxima antes de ativar a rolagem */
+                    max-height:  100%; /*Altura máxima antes de ativar a rolagem*/
                     overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
                     /* padding: 10px; Espaçamento interno */
                 }
