@@ -267,14 +267,23 @@ body{
                     margin-top: -10px;
                     & .box-coluns-name{
                         display: flex;
-                        justify-content: space-between
-                        ;
+                        justify-content: space-between;
                         width: 100%;
-                        padding: 10px;
-                        
+                        padding: 0 10px;
+                        & p{
+                            font-weight: bold;
+                            color: #202c39;
+                        }
 
                         & div{
                             display: flex;
+                            gap: 20px;
+                            margin-right: 15px;
+                            
+                            & p{
+                                font-weight: bold;
+                                color: #202c39;
+                            }
                         }
                     }
                     & h4{
