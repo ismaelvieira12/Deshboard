@@ -256,19 +256,22 @@ body{
 
                 & .clientes{
                     display: flex;
-                    align-items: center;
+                    align-items: start;
+                    justify-self: center;
                     flex-direction: column;
                     color: #202c39;
                     border-top-left-radius: 10px;
                     border-top-right-radius: 10px;
                     background-color: #f2d4923f;
                     width: 100%;
-                    
                     margin-top: -10px;
                     & .box-coluns-name{
                         display: flex;
+                        justify-content: space-between
+                        ;
                         width: 100%;
-                        /* background-color: #202c397d; */
+                        padding: 10px;
+                        
 
                         & div{
                             display: flex;
