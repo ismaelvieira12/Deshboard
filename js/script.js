@@ -54,9 +54,8 @@ new Chart(metas, {
 
 
 
-function discionario(a2025, testt) {
+async function discionario(a2025) {
   const disc = document.querySelector(".list");
-  console.log(testt);
   const handler = {
     set(target, property, value) {
       if (!isNaN(property)) { // Verifica se a propriedade é um índice numérico

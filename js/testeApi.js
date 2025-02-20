@@ -130,7 +130,6 @@ function separateDataByYearAndSituation(dataList) {
         console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
         console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
-
         // Função para calcular totais mensais
         const calculateMonthlyTotals = (data) => {
             const monthlyTotals = {};
@@ -162,8 +161,6 @@ function separateDataByYearAndSituation(dataList) {
             };
         }
         rest(totals)
-        const testt = totals['2025'];
-        discionario(testt)
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
         const container = document.querySelector('#container');
@@ -264,6 +261,7 @@ function rest(totals){
         }],
     });
    
+    
     // Somando os valores de forma dinâmica
     const totalAnual = valorano.reduce((acc, value) => acc + value, 0);
 
