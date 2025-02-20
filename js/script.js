@@ -60,7 +60,7 @@ function discionario(a2025) {
   const handler = {
     set(target, property, value) {
       if (!isNaN(property)) { // Verifica se a propriedade é um índice numérico
-        disc.innerHTML += `<p>Novo valor adicionado: ${value} no índice ${property}</p>`;
+        console.log( `<p>Novo valor adicionado: ${value} no índice ${property}</p>`);
       }
       target[property] = value; // Define o valor no array
       return true;
