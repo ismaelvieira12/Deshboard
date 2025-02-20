@@ -162,6 +162,8 @@ function separateDataByYearAndSituation(dataList) {
             };
         }
         rest(totals)
+        const testt = totals['2025'];
+        discionario(testt)
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
         const container = document.querySelector('#container');

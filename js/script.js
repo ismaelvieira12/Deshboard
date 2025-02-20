@@ -54,9 +54,9 @@ new Chart(metas, {
 
 
 
-function discionario(a2025) {
+function discionario(a2025, testt) {
   const disc = document.querySelector(".list");
-
+  console.log(testt);
   const handler = {
     set(target, property, value) {
       if (!isNaN(property)) { // Verifica se a propriedade é um índice numérico
@@ -75,7 +75,7 @@ function discionario(a2025) {
   return proxyArray;
 }
 
-discionario();
+
 
 
 // function meses(ano2022, ano2023, ano2024){
