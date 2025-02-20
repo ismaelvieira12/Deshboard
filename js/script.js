@@ -54,12 +54,13 @@ new Chart(metas, {
 
 
 
-async function discionario(a2025) {
+async function discionario(a2025, filteredData) {
   const disc = document.querySelector(".list");
+  console.log(filteredData["2025"]);
   const handler = {
     set(target, property, value) {
       if (!isNaN(property)) { // Verifica se a propriedade é um índice numérico
-        console.log( `<p>Novo valor adicionado: ${value} no índice ${property}</p>`);
+        
       }
       target[property] = value; // Define o valor no array
       return true;
