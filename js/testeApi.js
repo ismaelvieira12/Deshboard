@@ -196,6 +196,15 @@ function rest(totals){
     ],
     colors = ['#f29559','#202c39', '#b8b08d', '#283845']; // Defina as cores para cada ano
     Highcharts.chart('container', {
+        legend: {
+            itemStyle: {
+                color: '#202c39', // Cor do texto do botão (vermelho neste exemplo)
+                fontWeight: 'bold' // Deixa o texto em negrito
+            },
+            itemHoverStyle: {
+                color: '#b8b08d' // Cor ao passar o mouse (verde)
+            }
+        },
         chart: {
             renderTo: 'container',
             type: 'column'
@@ -240,10 +249,11 @@ function rest(totals){
                 valueDecimals: 2,
                 valueSuffix: '%',
             },
-        }, 
+        },
         {
             name: 'Valores',
             type: 'column',
+            color: '#202c39',
             zIndex: 2,
             data: valorano.map((item, index) => ({
                 y: item,
