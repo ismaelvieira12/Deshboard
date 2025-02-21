@@ -60,7 +60,11 @@ function discionario(a2025) {
   const handler = {
     set(target, property, value) {
       if (!isNaN(property)) { // Verifica se a propriedade é um índice numérico
-        
+        swal({
+          title: "Good job!",
+          text: "You clicked the button!",
+          icon: "success",
+        });
       }
       target[property] = value; // Define o valor no array
       return true;
