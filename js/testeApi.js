@@ -132,8 +132,16 @@ function separateDataByYearAndSituation(dataList) {
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
         
         const extractData = (filteredData) => {
-            return filteredData['2025'].map()
+            return filteredData['2025'].map(item => ({
+                customer_name: item.customer.name,
+                date_payment: item.date_payment,
+                due_date: item.due_date,
+                value: item.value,
+                value_paid: item.value_paid
+            }));
         }
+        // Chamada da função e exibição do resultado
+        console.log('testando', extractData(filteredData));
         // Função para calcular totais mensais
         const calculateMonthlyTotals = (data) => {
             const monthlyTotals = {};
