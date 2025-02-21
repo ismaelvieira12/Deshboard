@@ -133,15 +133,28 @@ function separateDataByYearAndSituation(dataList) {
         
         const extractData = (filteredData) => {
             return filteredData['2025'].map(item => ({
-                customer_name: item.customer.name,
-                date_payment: item.date_payment,
-                due_date: item.due_date,
-                value: item.value,
-                value_paid: item.value_paid
+              customer_name: item.customer.name,
+              date_payment: item.date_payment,
+              due_date: item.due_date,
+              value: item.value,
+              value_paid: item.value_paid
             }));
         }
+          
+        //Passando (filteredData) como parâmetro para fazer o filtro dentro de outra função (script.js)
         // Chamada da função e exibição do resultado
         console.log('testando', extractData(filteredData));
+
+
+        const testee = {
+            
+                nome: 'ismael',
+                nobrenome: 'nascimento',
+                number:"987",
+            
+        }
+
+         discionario(testee)
         // Função para calcular totais mensais
         const calculateMonthlyTotals = (data) => {
             const monthlyTotals = {};

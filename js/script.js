@@ -54,7 +54,9 @@ new Chart(metas, {
 
 
 
-async function discionario(a2025) {
+async function discionario(a2025, testee) {
+
+  console.log(testee);
   const disc = document.querySelector(".list");
   const handler = {
     set(target, property, value) {
@@ -73,7 +75,6 @@ async function discionario(a2025) {
 
   return proxyArray;
 }
-
 
 
 // function meses(ano2022, ano2023, ano2024){
