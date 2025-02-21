@@ -54,7 +54,7 @@ new Chart(metas, {
 
 
 
-async function discionario(a2025) {
+function discionario(a2025) {
 
   const disc = document.querySelector(".list");
   const handler = {
