@@ -54,9 +54,8 @@ new Chart(metas, {
 
 
 
-async function discionario(a2025, testee) {
+async function discionario(a2025) {
 
-  console.log(testee);
   const disc = document.querySelector(".list");
   const handler = {
     set(target, property, value) {

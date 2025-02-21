@@ -145,16 +145,6 @@ function separateDataByYearAndSituation(dataList) {
         // Chamada da função e exibição do resultado
         console.log('testando', extractData(filteredData));
 
-
-        const testee = {
-            
-                nome: 'ismael',
-                nobrenome: 'nascimento',
-                number:"987",
-            
-        }
-
-         discionario(testee)
         // Função para calcular totais mensais
         const calculateMonthlyTotals = (data) => {
             const monthlyTotals = {};
