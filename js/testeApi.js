@@ -131,7 +131,22 @@ function separateDataByYearAndSituation(dataList) {
         console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
         
-       
+        function filtrarDados(dados) {
+            return dados.map(item => ({
+                name: item.customer.name,
+                date_payment: item.date_payment || "Não informado",
+                due_date: item.due_date || "Não informado",
+                value: item.value ? parseFloat(item.value).toFixed(2) : "0.00", // Converte para número e mantém 2 casas decimais
+                value_paid: item.value_paid ? parseFloat(item.value_paid).toFixed(2) : "0.00"
+            }));
+        }
+        
+        // Filtra os dados do ano 2025 mantendo apenas os campos desejados
+        const dadosFiltrados2025 = filtrarDados(filteredData["2025"] || []);
+        
+        // Exibe o resultado no console
+        console.log("Dados filtrados para 2025:", dadosFiltrados2025);
+        
 
         // Função para calcular totais mensais
         const calculateMonthlyTotals = (data) => {
