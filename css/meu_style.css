@@ -303,7 +303,6 @@ body{
 
                     & .list{
                         margin-top: 5px;
-                        border-bottom: 1px solid #28384500;
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
