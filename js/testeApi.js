@@ -303,17 +303,17 @@ function filtrarDados(dados) {
             value: item.value ? parseFloat(item.value).toFixed(2) : "0.00",
             value_paid: item.value_paid ? parseFloat(item.value_paid).toFixed(2) : "0.00"
         }))
-        .filter(item => {
-            // Verifica se a data de pagamento está no mês e ano atuais
-            if (item.date_payment !== "Não informado") {
-                const dataPagamento = new Date(item.date_payment);
-                return (
-                    dataPagamento.getMonth() + 1 === mesAtual && // Compara o mês
-                    dataPagamento.getFullYear() === anoAtual // Compara o ano
-                );
-            }
-            return false;
-        });
+        // .filter(item => {
+        //     // Verifica se a data de pagamento está no mês e ano atuais
+        //     if (item.date_payment !== "Não informado") {
+        //         const dataPagamento = new Date(item.date_payment);
+        //         return (
+        //             dataPagamento.getMonth() + 1 === mesAtual && // Compara o mês
+        //             dataPagamento.getFullYear() === anoAtual // Compara o ano
+        //         );
+        //     }
+        //     return false;
+        // });
 }
 
 
