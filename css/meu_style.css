@@ -310,17 +310,20 @@ body{
                         & .value_paid, & .value{
                             width: 90px;
                             text-align: center;
+                            font-style: 15px;
 
                             &:nth-child(3){
                                 background-color: #b8b08d;
-                                border-radius: 5px;
+                                border-radius: 2px;
                                 color: #202c39;
-                                margin-right: 5px;
+                                margin-right: 2px;
+                                font-weight: bold;
                             }
                         }
 
                         & .name{
                             width: 240px;
+                            font-style: 15px;
                         }
                     }
                 }
