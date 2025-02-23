@@ -290,14 +290,32 @@ function rest(totals){
 
 // Função para filtrar os dados mais simplificados
 function filtrarDados(dados) {
-    return dados.map(item => ({
-        name: item.customer.name,
-        date_payment: item.date_payment || "Não informado",
-        due_date: item.due_date || "Não informado",
-        value: item.value ? parseFloat(item.value).toFixed(2) : "0.00", // Converte para número e mantém 2 casas decimais
-        value_paid: item.value_paid ? parseFloat(item.value_paid).toFixed(2) : "0.00"
-    }));
+    // Obtém a data atual
+    const hoje = new Date();
+    const mesAtual = hoje.getMonth() + 1; // getMonth() retorna de 0 a 11, então somamos 1
+    const anoAtual = hoje.getFullYear();
+
+    return dados
+        .map(item => ({
+            name: item.customer.name,
+            date_payment: item.date_payment || "Não informado",
+            due_date: item.due_date || "Não informado",
+            value: item.value ? parseFloat(item.value).toFixed(2) : "0.00",
+            value_paid: item.value_paid ? parseFloat(item.value_paid).toFixed(2) : "0.00"
+        }))
+        .filter(item => {
+            // Verifica se a data de pagamento está no mês e ano atuais
+            if (item.date_payment !== "Não informado") {
+                const dataPagamento = new Date(item.date_payment);
+                return (
+                    dataPagamento.getMonth() + 1 === mesAtual && // Compara o mês
+                    dataPagamento.getFullYear() === anoAtual // Compara o ano
+                );
+            }
+            return false;
+        });
 }
+
 
 // Seleciona o contêiner onde os dados serão inseridos
 const container = document.querySelector(".box-list");
