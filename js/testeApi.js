@@ -131,6 +131,7 @@ function separateDataByYearAndSituation(dataList) {
         console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
         
+       
 
         // Função para calcular totais mensais
         const calculateMonthlyTotals = (data) => {

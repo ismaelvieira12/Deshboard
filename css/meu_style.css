@@ -300,6 +300,23 @@ body{
                     margin-right: 5px;
                     max-height: 82%;
                     overflow-y: auto;
+
+                    & .list{
+                        margin-top: 2px;
+                        border-bottom: 1px solid #26a653;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        
+                        & .value_paid, & .value{
+                            width: 90px;
+                            text-align: center;
+                        }
+
+                        & .name{
+                            width: 240px;
+                        }
+                    }
                 }
             }        
         }

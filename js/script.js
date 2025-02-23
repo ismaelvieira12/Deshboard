@@ -54,59 +54,59 @@ new Chart(metas, {
 
 
 
-function discionario(a2025) {
-  const disc = document.querySelector(".list");
+// function discionario(a2025) {
+//   const disc = document.querySelector(".list");
 
-  const handler = {
-    set(target, property, value) {
-      const index = Number(property);
+//   const handler = {
+//     set(target, property, value) {
+//       const index = Number(property);
 
-      if (!isNaN(index)) {
-        let message = "";
+//       if (!isNaN(index)) {
+//         let message = "";
 
-        if (index in target) {
-          message = `O índice ${index} foi atualizado de "${target[index]}" para "${value}"`;
-        } else {
-          message = `Novo valor "${value}" adicionado na posição ${index}`;
-        }
+//         if (index in target) {
+//           message = `O índice ${index} foi atualizado de "${target[index]}" para "${value}"`;
+//         } else {
+//           message = `Novo valor "${value}" adicionado na posição ${index}`;
+//         }
 
-        swal({
-          title: "Alteração Detectada!",
-          text: message,
-          icon: "success",
-        });
-      }
+//         swal({
+//           title: "Alteração Detectada!",
+//           text: message,
+//           icon: "success",
+//         });
+//       }
 
-      target[property] = value;
-      atualizarLista(target);
-      return true;
-    },
+//       target[property] = value;
+//       atualizarLista(target);
+//       return true;
+//     },
 
-    deleteProperty(target, property) {
-      const value = target[property];
+//     deleteProperty(target, property) {
+//       const value = target[property];
 
-      swal({
-        title: "Valor Removido!",
-        text: `O índice ${property} com valor "${value}" foi removido`,
-        icon: "warning",
-      });
+//       swal({
+//         title: "Valor Removido!",
+//         text: `O índice ${property} com valor "${value}" foi removido`,
+//         icon: "warning",
+//       });
 
-      delete target[property];
-      atualizarLista(target);
-      return true;
-    }
-  };
+//       delete target[property];
+//       atualizarLista(target);
+//       return true;
+//     }
+//   };
 
-  // Criando Proxy para monitorar mudanças no array
-  const proxyArray = new Proxy(a2025, handler);
+//   // Criando Proxy para monitorar mudanças no array
+//   const proxyArray = new Proxy(a2025, handler);
 
-  function atualizarLista(arr) {
-    disc.innerHTML = arr.map((v, i) => `<p>Índice ${i}: ${v}</p>`).join("");
-  }
+//   function atualizarLista(arr) {
+//     disc.innerHTML = arr.map((v, i) => `<p>Índice ${i}: ${v}</p>`).join("");
+//   }
 
-  atualizarLista(a2025);
-  return proxyArray;
-}
+//   atualizarLista(a2025);
+//   return proxyArray;
+// }
 
 // // Simulação de array vindo da API
 // let lista = discionario([2,10,5]);
