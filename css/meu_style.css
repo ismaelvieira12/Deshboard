@@ -302,13 +302,13 @@ body{
                     overflow-y: auto;
 
                     & .list{
-                        margin-top: 5px;
+                        margin-top: 8px;
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
                         
                         & .value_paid, & .value{
-                            width: 90px;
+                            width: 70px;
                             text-align: center;
                             font-size: 14px;
 
@@ -316,12 +316,12 @@ body{
                                 background-color: #b8b08da4;
                                 border-radius: 2px;
                                 color: #202c39;
-                                margin-right: 2px;
+                                margin-right: 5px;
                             }
                         }
 
                         & .name{
-                            width: 240px;
+                            width: 220px;
                             font-size: 14px;
                         }
                     }
