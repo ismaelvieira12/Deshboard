@@ -313,6 +313,7 @@ body{
 
                             &:nth-child(3){
                                 background-color: #b8b08d;
+                                border-radius: 5px;
                             }
                         }
 
