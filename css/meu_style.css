@@ -302,8 +302,8 @@ body{
                     overflow-y: auto;
 
                     & .list{
-                        margin-top: 2px;
-                        border-bottom: 1px solid #26a653;
+                        margin-top: 5px;
+                        border-bottom: 1px solid #28384500;
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
@@ -311,6 +311,10 @@ body{
                         & .value_paid, & .value{
                             width: 90px;
                             text-align: center;
+
+                            &:nth-child(3){
+                                background-color: #283845;
+                            }
                         }
 
                         & .name{
