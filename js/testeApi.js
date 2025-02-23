@@ -130,23 +130,16 @@ function separateDataByYearAndSituation(dataList) {
         console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
         console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
-        
-        function filtrarDados(dados) {
-            return dados.map(item => ({
-                name: item.customer.name,
-                date_payment: item.date_payment || "Não informado",
-                due_date: item.due_date || "Não informado",
-                value: item.value ? parseFloat(item.value).toFixed(2) : "0.00", // Converte para número e mantém 2 casas decimais
-                value_paid: item.value_paid ? parseFloat(item.value_paid).toFixed(2) : "0.00"
-            }));
-        }
-        
+
+
         // Filtra os dados do ano 2025 mantendo apenas os campos desejados
         const dadosFiltrados2025 = filtrarDados(filteredData["2025"] || []);
-        
+
         // Exibe o resultado no console
         console.log("Dados filtrados para 2025:", dadosFiltrados2025);
-        
+
+        // Popula os dados no HTML
+        popularDados(dadosFiltrados2025);
 
         // Função para calcular totais mensais
         const calculateMonthlyTotals = (data) => {
@@ -294,14 +287,56 @@ function rest(totals){
    mensal(totals);
 }
 
-const extractData = (filteredData) => {
-    return filteredData['2025'].map(item => ({
-        customer_name: item.customer.name,
-        date_payment: item.date_payment,
-        due_date: item.due_date,
-        value: item.value,
-        value_paid: item.value_paid
+
+// Função para filtrar os dados mais simplificados
+function filtrarDados(dados) {
+    return dados.map(item => ({
+        name: item.customer.name,
+        date_payment: item.date_payment || "Não informado",
+        due_date: item.due_date || "Não informado",
+        value: item.value ? parseFloat(item.value).toFixed(2) : "0.00", // Converte para número e mantém 2 casas decimais
+        value_paid: item.value_paid ? parseFloat(item.value_paid).toFixed(2) : "0.00"
     }));
 }
-// Chamada da função e exibição do resultado
-console.log('testando', extractData(filteredData));
+
+// Seleciona o contêiner onde os dados serão inseridos
+const container = document.querySelector(".box-list");
+
+// Função para popular os dados no HTML
+function popularDados(dados) {
+    // Limpa o conteúdo antes de adicionar novos elementos
+    container.innerHTML = "";
+
+    // Percorre cada item do array e cria os elementos HTML
+    dados.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("list"); // Adiciona a classe "list"
+
+        // Cria os elementos <span> para os dados
+        const nameSpan = document.createElement("span");
+        nameSpan.classList.add("name");
+        nameSpan.textContent = item.name; // Agora acessa item.name corretamente
+
+        const valueSpan = document.createElement("span");
+        valueSpan.classList.add("value");
+        valueSpan.textContent = `R$ ${item.value}`; // Valor formatado
+
+        const valuePaidSpan = document.createElement("span");
+        valuePaidSpan.classList.add("value_paid");
+        valuePaidSpan.textContent = `R$ ${item.value_paid}`; // Valor pago formatado
+
+        // Adiciona os <span> dentro da div
+        div.appendChild(nameSpan);
+        div.appendChild(valueSpan);
+        div.appendChild(valuePaidSpan);
+
+        // Adiciona a div no container principal
+        container.appendChild(div);
+    });
+}
+
+
+
+
+
+
