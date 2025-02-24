@@ -260,6 +260,11 @@ function rest(totals){
                 valueDecimals: 2,
                 valueSuffix: '%',
             },
+            states: {
+                hover: {
+                    color: '#202c39',
+                }
+            }
         },
         {
             name: 'Valores',
