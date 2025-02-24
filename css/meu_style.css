@@ -435,8 +435,21 @@ body{
                 height: 400px;
                 left: -2%;
 
+                & .box-coluns-name{
+                    & div {
+                        gap: 5px;
+                        margin-right: -5px !important;
+                    }
+                }
+
                 & .box-list{
                     max-height: 80%;
+
+                    & .list {
+                        & .value_paid, & .value {
+                            width: 18%;
+                        }
+                    }
                 }
             }
         }
