@@ -275,6 +275,11 @@ function rest(totals){
                 y: item,
                 color: colors[index] // Define cores diferentes para cada barra
             })),
+           
+            hover: {
+                color: '#202c39',
+            }
+            
         }],
     });
    
