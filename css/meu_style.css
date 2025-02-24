@@ -396,7 +396,7 @@ body{
 
 
 
-@media(max-width: 390px){
+@media(max-width: 440px){
     body{
         & .fixed-top {
             left: 0%;
