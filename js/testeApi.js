@@ -260,11 +260,6 @@ function rest(totals){
                 valueDecimals: 2,
                 valueSuffix: '%',
             },
-            states: {
-                hover: {
-                    color: '#202c39',
-                }
-            }
         },
         {
             name: 'Valores',
@@ -276,10 +271,6 @@ function rest(totals){
                 color: colors[index] // Define cores diferentes para cada barra
             })),
            
-            hover: {
-                color: '#202c39',
-            }
-            
         }],
     });
    
