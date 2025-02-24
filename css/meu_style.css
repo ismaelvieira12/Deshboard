@@ -74,91 +74,78 @@ body{
         width: 7%;
         height: 100vh;
 
-        .nav-left {
+        & .nav-left {
             background-color: #202c39;    
             width: 7%;
             height: 100%;
-            margin: 0px;
+            margin: 0px 0px;
             position: fixed;
             display: flex;
             flex-direction: column;
             align-items: center;
+            /* box-shadow: 0px 5px 20px  #202c395d; */
+
+            /* A parte de cima do menu lateral */
+            & .caixa-top{
+                border-bottom: 1px solid #ffffff;
+                padding-bottom: 20px;
+
+                & .logo-img{
+                    margin-top: 30px;
+                    width: 50px;
+                    border-radius: 50%; 
+                }
+            }
+            & .menu{
+                width: 100%;
+            }
+            
+            & .menu label{
+                position: relative;
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                left: 0;
+                cursor: pointer;
+                
+                &:hover::after{
+                    content: "";
+                    position: absolute;
+                    bottom: 5px;
+                    width: 60%;
+                    height: 1px;
+                    background-color: #ffffff;
+                    animation: menu-left .1s linear;
+                }
+                & p{
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: #ffffff;
+                }
+                & i{    
+                    font-size: 1rem;
+                    color: #ffffff;
+                }
+            }
+            
+            & .login{
+                position: fixed;
+                bottom: 20px;
+                width: 100%;
+                &  a{
+                    text-decoration: none;
+                    font-size: 1.25rem;
+                    color: #ffffff;
+                    &:hover{
+                        opacity: 0.5;
+                    }
+                }
+            }
+            
         }
-        
-        .nav-left .caixa-top {
-            border-bottom: 1px solid #ffffff;
-            padding-bottom: 20px;
-        }
-        
-        .nav-left .caixa-top .logo-img {
-            margin-top: 30px;
-            width: 50px;
-            border-radius: 50%; 
-        }
-        
-        .nav-left .menu {
-            width: 100%;
-        }
-        
-        .nav-left .menu label {
-            position: relative;
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            left: 0;
-            cursor: pointer;
-        }
-        
-        .nav-left .menu label:hover::after {
-            content: "";
-            position: absolute;
-            bottom: 5px;
-            width: 60%;
-            height: 1px;
-            background-color: #ffffff;
-            animation: menu-left .1s linear;
-        }
-        
-        /* Estilizando os links dentro do menu */
-        .nav-left .menu a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #ffffff;
-        }
-        
-        .nav-left .menu a p {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #ffffff;
-        }
-        
-        .nav-left .menu a i {
-            font-size: 1rem;
-            color: #ffffff;
-        }
-        
-        .nav-left .login {
-            position: fixed;
-            bottom: 20px;
-            width: 100%;
-        }
-        
-        /* Estilizando o link de login */
-        .nav-left .login a {
-            text-decoration: none;
-            font-size: 1.25rem;
-            color: #ffffff;
-        }
-        
-        .nav-left .login a:hover {
-            opacity: 0.5;
-        }
-        
 
         & .nav-rigth {
             border-radius: 8px;
