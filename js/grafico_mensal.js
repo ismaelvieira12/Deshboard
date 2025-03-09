@@ -1,19 +1,9 @@
 
 // // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 
-//função para obter o mês e o ano atual
-function obterMesAtual(){
-    const hoje = new Date();
 
-    return {
-        mes: hoje.getMonth() + 1, // getMonth retorna 0 a 11 
-        ano: hoje.getFullYear(),
-    }
-}
 
 async function mensal(totals){
-    const totalmes = totals[2022].monthlyTotals;
-    console.log('Testando o totals', totalmes);
     // Exibe os totais
     const month = []; // Armazena apenas os valores dos meses de todos os anos
     totals.forEach(item => {
@@ -56,7 +46,7 @@ async function mensal(totals){
         console.error("Erro: Lista de totais está vazia ou indefinida.");
         return 0;
     }
-
+    //função para obter o mês e o ano atual
     const hoje = new Date();
     const mesAtual = hoje.getMonth() + 1; // getMonth() retorna de 0 a 11, então somamos 1
     const anoAtual = hoje.getFullYear();
@@ -92,7 +82,8 @@ async function mensal(totals){
 
     console.log(`Total do mês ${mesAtual}/${anoAtual}: R$ ${totalMesAtual.toLocaleString('pt-BR')}`);
     
-    
+    //populando os dados no HTML.
+    document.getElementById('text-mensal').innerText = `Total do mês ${mesAtual}/${anoAtual}`
 
 
     // discionario(a2025);
