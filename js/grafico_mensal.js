@@ -84,7 +84,7 @@ async function mensal(totals){
     
     //populando os dados no HTML.
     document.getElementById('text-mensal').innerText = `Total do mês ${mesAtual}/${anoAtual}`
-
+    document.getElementById('valor-mensal').innerText = `R$ ${totalMesAtual.toLocaleString('pt-BR')}`;
 
     // discionario(a2025);
 
