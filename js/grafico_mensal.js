@@ -1,5 +1,16 @@
 
 // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
+
+//função para obter o mês e o ano atual
+function obterMesAtual(){
+    const hoje = new Date();
+
+    return {
+        mes: hoje.getMonth() + 1, // getMonth retorna 0 a 11 
+        ano: hoje.getFullYear(),
+    }
+}
+
 async function mensal(totals){
     // Exibe os totais
     const month = []; // Armazena apenas os valores dos meses de todos os anos
