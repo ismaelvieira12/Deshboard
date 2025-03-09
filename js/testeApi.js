@@ -357,7 +357,17 @@ function popularDados(dados) {
     });
 }
 
+// 🔹 Executa ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+    const pagamentosDoMes = filtrarDados(dadosExemplo);
+    popularDados(pagamentosDoMes);
+});
 
+// 🔹 Atualiza automaticamente a cada 24 horas para capturar novos pagamentos
+setInterval(() => {
+    const pagamentosDoMes = filtrarDados(dadosExemplo);
+    popularDados(pagamentosDoMes);
+}, 86400000); // 86.400.000ms = 24 horas
 
 
 

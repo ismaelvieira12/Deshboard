@@ -362,6 +362,33 @@ body{
         padding: 0 10px;
     }
 
+
+/* Faz a barra de rolagem mais fina */
+::-webkit-scrollbar {
+    width: 5px; /* Largura da barra vertical */
+    height: 100px; /* Altura da barra horizontal */
+}
+
+/* Personaliza o fundo da barra de rolagem */
+::-webkit-scrollbar-track {
+    background: transparent; /* Cor do fundo da barra */
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* Personaliza a "alça" da barra de rolagem */
+::-webkit-scrollbar-thumb {
+    background: #202c39a4; /* Cor da alça */
+    border-radius: 5px;
+}
+
+/* Altera a cor quando o usuário passa o mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--borda-Btn);
+}
+
+
+
 /* Animação do icone de expandir */
 @keyframes expandir {
     from{
