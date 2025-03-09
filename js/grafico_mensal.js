@@ -12,7 +12,7 @@ function obterMesAtual(){
 }
 
 async function mensal(totals){
-    const totalmes = totals.monthlyTotals;
+    const totalmes = totals[2022].monthlyTotals;
     console.log('Testando o totals', totalmes);
     // Exibe os totais
     const month = []; // Armazena apenas os valores dos meses de todos os anos
@@ -63,10 +63,10 @@ async function mensal(totals){
     
     // Definição do mapeamento dos anos para os índices do array
     const indiceAno = {
-        2022: 0,
-        2023: 1,
-        2024: 2,
-        2025: 3
+        2022: 2022,
+        2023: 2023,
+        2024: 2024,
+        2025: 2025
     };
 
     // Obtém o índice do ano no array
