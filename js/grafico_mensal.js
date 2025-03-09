@@ -12,6 +12,8 @@ function obterMesAtual(){
 }
 
 async function mensal(totals){
+    const totalmes = totals.monthlyTotals;
+    console.log('Testando o totals', totalmes);
     // Exibe os totais
     const month = []; // Armazena apenas os valores dos meses de todos os anos
     totals.forEach(item => {
@@ -55,22 +57,43 @@ async function mensal(totals){
         return 0;
     }
 
-    const { mes, ano } = obterMesAtual();
+    const hoje = new Date();
+    const mesAtual = hoje.getMonth() + 1; // getMonth() retorna de 0 a 11, então somamos 1
+    const anoAtual = hoje.getFullYear();
+    
+    // Definição do mapeamento dos anos para os índices do array
+    const indiceAno = {
+        2022: 0,
+        2023: 1,
+        2024: 2,
+        2025: 3
+    };
 
-    // Filtra o array para encontrar o ano correspondente
-    const dadosAnoAtual = totals.find(item => item.ano === ano);
+    // Obtém o índice do ano no array
+    const indexAno = indiceAno[anoAtual];
 
-    if (!dadosAnoAtual) {
-        console.warn(`Nenhum dado encontrado para o ano ${ano}`);
+    // Se o ano atual não estiver no mapeamento, retorna erro
+    if (indexAno === undefined) {
+        console.warn(`Nenhum dado encontrado para o ano ${anoAtual}`);
         return 0;
     }
 
-    // Obtém o valor do mês atual
-    const totalMesAtual = dadosAnoAtual.monthlyTotals[mes] || 0;
+    // Obtém os dados do ano atual
+    const dadosAno = totals[indexAno]?.monthlyTotals;
+    console.log('Testando indece', dadosAno);
+    // Se não houver dados para o ano, retorna 0
+    if (!dadosAno) {
+        console.warn(`Nenhum dado registrado para o ano ${anoAtual}`);
+        return 0;
+    }
 
-    console.log(`Total do mês ${mes}/${ano}: R$ ${totalMesAtual.toLocaleString('pt-BR')}`);
-    return totalMesAtual;
-}
+    // Obtém o total do mês atual
+    const totalMesAtual = dadosAno[mesAtual] || 0;
+
+    console.log(`Total do mês ${mesAtual}/${anoAtual}: R$ ${totalMesAtual.toLocaleString('pt-BR')}`);
+    
+    
+
 
     // discionario(a2025);
 
