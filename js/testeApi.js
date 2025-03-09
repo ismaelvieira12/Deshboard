@@ -289,12 +289,18 @@ function rest(totals){
 }
 
 
-// Função para filtrar os dados mais simplificados
-function filtrarDados(dados) {
-    // Obtém a data atual
+// Obtém a data atual
+function obterMesAtual() {
     const hoje = new Date();
-    const mesAtual = hoje.getMonth() + 1; // getMonth() retorna de 0 a 11, então somamos 1
-    const anoAtual = hoje.getFullYear();
+    return {
+        mes: hoje.getMonth() + 1, // getMonth() retorna de 0 a 11, então somamos 1
+        ano: hoje.getFullYear(),
+    };
+}
+
+// Função para filtrar os pagamentos do mês atual
+function filtrarDados(dados) {
+    const { mes, ano } = obterMesAtual();
 
     return dados
         .map(item => ({
@@ -302,58 +308,54 @@ function filtrarDados(dados) {
             date_payment: item.date_payment || "Não informado",
             due_date: item.due_date || "Não informado",
             value: item.value ? parseFloat(item.value).toFixed(2) : "0.00",
-            value_paid: item.value_paid ? parseFloat(item.value_paid).toFixed(2) : "0.00"
+            value_paid: item.value_paid ? parseFloat(item.value_paid).toFixed(2) : "0.00",
         }))
-        // .filter(item => {
-        //     // Verifica se a data de pagamento está no mês e ano atuais
-        //     if (item.date_payment !== "Não informado") {
-        //         const dataPagamento = new Date(item.date_payment);
-        //         return (
-        //             dataPagamento.getMonth() + 1 === mesAtual && // Compara o mês
-        //             dataPagamento.getFullYear() === anoAtual // Compara o ano
-        //         );
-        //     }
-        //     return false;
-        // });
+        .filter(item => {
+            if (item.date_payment !== "Não informado") {
+                const dataPagamento = new Date(item.date_payment);
+                return (
+                    dataPagamento.getMonth() + 1 === mes && // Compara o mês
+                    dataPagamento.getFullYear() === ano // Compara o ano
+                );
+            }
+            return false;
+        });
 }
-
 
 // Seleciona o contêiner onde os dados serão inseridos
 const container = document.querySelector(".box-list");
 
 // Função para popular os dados no HTML
 function popularDados(dados) {
-    // Limpa o conteúdo antes de adicionar novos elementos
-    container.innerHTML = "";
+    container.innerHTML = ""; // Limpa antes de adicionar novos elementos
 
-    // Percorre cada item do array e cria os elementos HTML
+    if (dados.length === 0) {
+        container.innerHTML = "<p>Nenhum pagamento registrado para este mês.</p>";
+        return;
+    }
+
     dados.forEach(item => {
         const div = document.createElement("div");
-        div.classList.add("list"); // Adiciona a classe "list"
+        div.classList.add("list");
 
-        // Cria os elementos <span> para os dados
         const nameSpan = document.createElement("span");
         nameSpan.classList.add("name");
-        nameSpan.textContent = item.name; // Agora acessa item.name corretamente
+        nameSpan.textContent = item.name;
 
         const valueSpan = document.createElement("span");
         valueSpan.classList.add("value");
-        valueSpan.textContent = `R$ ${item.value}`; // Valor formatado
+        valueSpan.textContent = `R$ ${item.value}`;
 
         const valuePaidSpan = document.createElement("span");
         valuePaidSpan.classList.add("value_paid");
-        valuePaidSpan.textContent = `R$ ${item.value_paid}`; // Valor pago formatado
+        valuePaidSpan.textContent = `R$ ${item.value_paid}`;
 
-        // Adiciona os <span> dentro da div
         div.appendChild(nameSpan);
         div.appendChild(valueSpan);
         div.appendChild(valuePaidSpan);
-
-        // Adiciona a div no container principal
         container.appendChild(div);
     });
 }
-
 
 
 
