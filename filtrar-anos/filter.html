@@ -20,6 +20,50 @@
 </head>
 <body>
 <!--     =============== Grafico para filtragem dos meses e dos dias ============== -->
+
+<header>
+    <nav class="navbar-expand-lg navbar bg-body-tertiary fixed-top">
+      <div class="container-fluid">
+        <h2>Dashboard</h2>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><h2>StarLink Provedor</h2></a>
+            </li>
+            <div class="menu d-flex flex-column">
+                <label>
+                    <a href="#">
+                    <i class="icon-home"></i>
+                    <p>Home</p>
+                    </a>
+                </label>
+                <label>   
+                    <a href="filtrar-anos/filter.html">
+                    <i class="icon-graph"></i>
+                    <p> Filtrar</p>
+                    </a>
+                </label> 
+                <label>   
+                    <a href="#">
+                    <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                    <p> Taxas</p>
+                    </a>
+                </label> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+<!-- =============== Menu do lado esquerdo onde tem o icone filtrar ======================= -->
+</header>
     <section class="cabeca">
 
         <div class="nav-left">
@@ -29,13 +73,13 @@
             </label>
             <div class="menu d-flex flex-column">
                 <label>
-                    <a href="#">
+                    <a href="../index.html">
                         <i class="icon-home"></i>
                         <p>Home</p>
                     </a>
                 </label>
                 <label>   
-                    <a href="filtrar-anos/filter.html">
+                    <a href="#">
                         <i class="icon-graph"></i>
                         <p> Filtrar</p>
                     </a>
@@ -56,5 +100,8 @@
             </div>
         </div>
     </section>
+    <main>
+        
+    </main>
 </body>
 </html>

@@ -33,9 +33,9 @@ body{
 }
 /* Começo do conteudo (main) */
 .cabeca{
-position: fixed;
-width: 7%;
-height: 100vh;
+    position: fixed;
+    width: 7%;
+    height: 100vh;
 
     & .nav-left {
         background-color: #202c39;    
@@ -111,5 +111,11 @@ height: 100vh;
             }
         }
         
+    }
+}
+
+@media (max-width: 440px){
+    .cabeca{
+        display: none;
     }
 }
