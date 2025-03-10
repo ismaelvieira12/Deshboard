@@ -157,15 +157,23 @@ body{
             
             & .infor-metas{                
                 width: 100%;
-                height: 350px;
-                margin-bottom: 10px;
-                /* background-color: #d2d2d2; */
+                height: 50%;
+                background-image:linear-gradient(to bottom, transparent, #f2d4923f);
+                border-radius: 8px;
+                margin-bottom:10%;
                 
-
                 & canvas {
-                    background-color: #f2d4923f;
-                    border-radius: 8px;
+                    /* background-color: #f5e1b64b; */
                     padding:10px;
+                    border-radius: 8px;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                & .total-infor-cliente{
+                    display: flex;
+                    justify-content: space-around;
+                    background-color: #f2d4923f;
                 }
             }
             & .infor-metas-list {
