@@ -18,14 +18,12 @@ async function getAuthToken() {
     
     if (response.ok) {
         const token = data.api_token
-        await getTotalClients(token);
+        getTotalClients(token)
         return data.api_token; // Retorna o token
     } else {
         throw new Error('Erro ao fazer login: ' + data.message);
     }
 }
-
-
 
 // Função para buscar uma única página de dados
 async function fetchPage(token, page) {
@@ -376,3 +374,73 @@ setInterval(() => {
 
 
 
+//Função para pegar TOTAL DE CLIENTES
+async function getTotalClients(token) {
+    const response = await fetch('https://api.beesweb.com.br/adm/customers', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+        const totalCliente = data.statistics;
+        graficMetas(totalCliente);
+        console.log('teste', totalCliente);
+        return totalCliente;
+    } else {
+        throw new Error('Erro ao buscar clientes: ' + data.message);
+    }
+
+}
+
+function graficMetas(totalCliente){
+    const faltaMeta = 100 - totalCliente.active;
+    console.log(faltaMeta);
+    document.getElementById('meta').innerText = `${faltaMeta}`
+    const metas = document.querySelector('#metas');
+    new Chart(metas, {
+        type: 'pie',
+        data: {
+            labels: ['Ativados', 'Desativados'],
+            datasets: [{
+            label: 'Clientes',
+            data:[totalCliente.active, totalCliente.disable],
+            backgroundColor: [
+                '#283845', 
+                '#b8b08d',
+            ],
+            }],
+        },
+        options: {
+            responsive: true,
+            plugins: {
+            legend: {
+                position: 'top',
+                align:'center',
+                labels:{
+                usePointStyle: true,
+                textAlign: 'center',
+                useBorderRadius: true
+                }
+            },
+            title: {
+                display: true,
+                text: 'Metas',
+                font: {
+                size:20,
+                },
+            },
+            },
+            layout: {
+            padding: {
+                left: 30
+            },
+            },
+        },
+    
+    });
+}
