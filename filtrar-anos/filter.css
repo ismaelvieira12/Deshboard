@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}   
+body{
+    background-color: #F8F9FA;
+    height: 1200px;
+
+    /* Icone de expandir */
+    & #expandir{
+        margin-right: 30px;
+        opacity: 0.7;
+        font-size: 15px;
+        animation: expandir 1s infinite;
+    }
+
+    /* Menu */
+    & .box{
+        display: none;
+    }
+
+    & .fixed-top { 
+        left: 7%;
+        background-color: #ffffff !important;
+        & #modo-noturno{
+            opacity: 0.1;
+            cursor: pointer;
+        } 
+        
+    }
+    
+}
+/* Começo do conteudo (main) */
+.cabeca{
+position: fixed;
+width: 7%;
+height: 100vh;
+
+    & .nav-left {
+        background-color: #202c39;    
+        width: 7%;
+        height: 100%;
+        margin: 0px 0px;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* box-shadow: 0px 5px 20px  #202c395d; */
+
+        /* A parte de cima do menu lateral */
+        & .caixa-top{
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 20px;
+
+            & .logo-img{
+                margin-top: 30px;
+                width: 50px;
+                border-radius: 50%; 
+            }
+        }
+        & .menu{
+            width: 100%;
+        }
+        
+        & .menu label> a{
+            position: relative;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+            left: 0;
+            cursor: pointer;
+            text-decoration: none;
+            
+            &:hover::after{
+                content: "";
+                position: absolute;
+                bottom: 5px;
+                width: 80%;
+                height: 1px;
+                left: 5px;
+                background-color: #ffffff;
+                animation: menu-left .1s linear;
+            }
+            & p{
+                position: relative;
+                color: #ffffff;
+            }
+            & i{ 
+                top: 5px;
+                left: 10px;
+                position: absolute;   
+                font-size: 1rem;
+                color: #ffffff;
+            }
+        }
+        
+        & .login{
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            &  a{
+                text-decoration: none;
+                font-size: 1.25rem;
+                color: #ffffff;
+                &:hover{
+                    opacity: 0.5;
+                }
+            }
+        }
+        
+    }
+}
