@@ -155,11 +155,17 @@ body{
             left: 78%;
             top: 10%;
             
-            & .infor-metas{
-                background-color: #f2d4923f;
-                border-radius: 8px;
+            & .infor-metas{                
                 width: 100%;
                 height: 50%;
+
+                & canvas {
+                    background-color: #f2d4923f;
+                    border-radius: 8px;
+                    padding: 10px;
+                    /* border: 2px solid #333; */
+                    /* background-color: #fff; */
+                }
             }
             & .infor-metas-list {
                 background-color: #ffffff;
@@ -362,7 +368,6 @@ body{
         padding: 0 10px;
     }
 
-
 /* Faz a barra de rolagem mais fina */
 ::-webkit-scrollbar {
     width: 5px; /* Largura da barra vertical */
@@ -378,13 +383,13 @@ body{
 
 /* Personaliza a "alça" da barra de rolagem */
 ::-webkit-scrollbar-thumb {
-    background: #202c39a4; /* Cor da alça */
+    background: transparent; /* Cor da alça */
     border-radius: 5px;
 }
 
 /* Altera a cor quando o usuário passa o mouse */
 ::-webkit-scrollbar-thumb:hover {
-    background: #b8b08da4; 
+    background: transparent; 
 }
 
 
