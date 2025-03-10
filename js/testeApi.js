@@ -15,13 +15,18 @@ async function getAuthToken() {
     });
 
     const data = await response.json();
-
+    
     if (response.ok) {
+        const token = data.api_token
+        await getTotalClients(token);
         return data.api_token; // Retorna o token
     } else {
         throw new Error('Erro ao fazer login: ' + data.message);
     }
 }
+
+
+
 // Função para buscar uma única página de dados
 async function fetchPage(token, page) {
     const response = await fetch(`https://api.beesweb.com.br/adm/charges?page=${page}`, {

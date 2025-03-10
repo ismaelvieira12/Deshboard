@@ -384,7 +384,7 @@ body{
 
 /* Altera a cor quando o usuário passa o mouse */
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--borda-Btn);
+    background: #b8b08da4; 
 }
 
 

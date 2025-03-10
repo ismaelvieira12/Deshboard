@@ -70,7 +70,6 @@ async function mensal(totals){
 
     // Obtém os dados do ano atual
     const dadosAno = totals[indexAno]?.monthlyTotals;
-    console.log('Testando indece', dadosAno);
     // Se não houver dados para o ano, retorna 0
     if (!dadosAno) {
         console.warn(`Nenhum dado registrado para o ano ${anoAtual}`);
