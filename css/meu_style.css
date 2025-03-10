@@ -100,32 +100,35 @@ body{
                 width: 100%;
             }
             
-            & .menu label{
+            & .menu label> a{
                 position: relative;
                 margin-top: 20px;
                 display: flex;
-                justify-content: center;
+                justify-content: space-around;
                 align-items: center;
                 gap: 10px;
                 left: 0;
                 cursor: pointer;
+                text-decoration: none;
                 
                 &:hover::after{
                     content: "";
                     position: absolute;
                     bottom: 5px;
-                    width: 60%;
+                    width: 80%;
                     height: 1px;
+                    left: 5px;
                     background-color: #ffffff;
                     animation: menu-left .1s linear;
                 }
                 & p{
                     position: relative;
-                    top: 50%;
-                    transform: translateY(-50%);
                     color: #ffffff;
                 }
-                & i{    
+                & i{ 
+                    top: 5px;
+                    left: 10px;
+                    position: absolute;   
                     font-size: 1rem;
                     color: #ffffff;
                 }
@@ -161,12 +164,10 @@ body{
                 margin-bottom:10%;
                 
                 & canvas {
-                    background-image:linear-gradient(to bottom, transparent, #f2d4923f);
-                    /* background-color: #f2d4923f; */
+                    background-image:linear-gradient(to bottom, #f3e8d13f, #f2d4923f);
                     padding:10px;
                     border-top-left-radius: 8px;
                     border-top-right-radius: 8px;
-                    /* border-radius: 8px; */
                     width: 100%;
                     height: 100%;
                 }
@@ -177,7 +178,6 @@ body{
                     background-color: #f2d4923f;
                     border-bottom-left-radius: 8px;
                     border-bottom-right-radius: 8px;
-
                     font-weight: bold;
                     color: #283845bf;
                     
