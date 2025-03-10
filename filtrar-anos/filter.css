@@ -124,7 +124,6 @@ header{
 }
 main{
     position: fixed;
-    background-color: aqua;
     left: 7%;
     width: 93%;
     height: 100vh;
