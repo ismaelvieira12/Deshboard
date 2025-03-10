@@ -241,7 +241,7 @@ body{
             &:nth-child(1){
                 background: linear-gradient(135deg, #283845, #202c39);
                 box-shadow: 1px 1px 10px #202c39;
-                & p, & h2{
+                & p, & h2, & i{
                     color: #ffffff;
                 }
             }
