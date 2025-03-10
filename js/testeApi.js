@@ -389,7 +389,7 @@ async function getTotalClients(token) {
     if (response.ok) {
         const totalCliente = data.statistics;
         graficMetas(totalCliente);
-        console.log('teste', totalCliente);
+        console.log('Dados base Total Cliente', totalCliente);
         return totalCliente;
     } else {
         throw new Error('Erro ao buscar clientes: ' + data.message);
@@ -399,7 +399,6 @@ async function getTotalClients(token) {
 
 function graficMetas(totalCliente){
     const faltaMeta = 100 - totalCliente.active;
-    console.log(faltaMeta);
     document.getElementById('meta').innerText = `${faltaMeta}`
     const metas = document.querySelector('#metas');
     new Chart(metas, {
