@@ -157,12 +157,15 @@ body{
             
             & .infor-metas{                
                 width: 100%;
-                height: 50%;
+                height: 350px;
+                margin-bottom: 10px;
+                /* background-color: #d2d2d2; */
+                
 
                 & canvas {
                     background-color: #f2d4923f;
                     border-radius: 8px;
-                    padding: 10px;
+                    padding:10px;
                 }
             }
             & .infor-metas-list {
