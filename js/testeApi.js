@@ -87,41 +87,6 @@ function separateDataByYearAndSituation(dataList) {
 
     return dataByYear;
 }
-
-// Função principal para buscar, filtrar e separar os dados
-// async function main() {
-//     try {
-//         const allData = await fetchAllPages(); // Busca todos os dados
-//         const filteredData = separateDataByYearAndSituation(allData); // Separa por ano e filtra por situation: 3
-
-//         // Exibe os dados de cada ano
-//         console.log("Dados de 2022 com situation 3:", filteredData["2022"]);
-//         console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
-//         console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
-//         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
-
-//         //Filtrar todos od valores e fazer a soma no final
-//         const values22 =  filteredData["2022"].map(item => parseFloat(item.value_paid));
-//         const values23 =  filteredData["2023"].map(item => parseFloat(item.value_paid));
-//         const values24 =  filteredData["2024"].map(item => parseFloat(item.value_paid));
-//         const valeus25 =  filteredData["2025"].map(item => parseFloat(item.value_paid));
-//         // Soma todos os valores
-//         const total22 = values22.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-//         const total23 = values23.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-//         const total24 = values24.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-//         const total25 = valeus25.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-//         rest(total22.toFixed(2), total23.toFixed(2), total24.toFixed(2), total25.toFixed(2));
-//     }catch (error) {
-//         console.error('Erro no processo principal:', error.message);
-//         const container = document.querySelector('#container');
-//         container.style.backgroundColor="#cf5959b7";
-//         container.classList.add('container-anual');
-//         container.innerHTML="<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
-//     }
-// }
-    
-    // Chamar a função principal
-    // main();
     
     async function main() {
         try {
@@ -402,13 +367,6 @@ function graficMetas(totalCliente){
     document.getElementById('meta').innerText = `${faltaMeta}`
     const metas = document.querySelector('#metas');
     document.getElementById('all').innerText = `${totalCliente.all}`;
-
-
-
-
-
-
-
     new Chart(metas, {
         type: 'pie',
         data: {
