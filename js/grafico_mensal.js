@@ -4,6 +4,7 @@
 
 
 async function mensal(totals){
+    console.log(totals)
     // Exibe os totais
     const month = []; // Armazena apenas os valores dos meses de todos os anos
     totals.forEach(item => {
