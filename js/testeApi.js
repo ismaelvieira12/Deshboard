@@ -402,13 +402,7 @@ function graficMetas(totalCliente){
     document.getElementById('meta').innerText = `${faltaMeta}`
     const metas = document.querySelector('#metas');
     document.getElementById('all').innerText = `${totalCliente.all}`;
-
-
-
-
-
-
-
+    
     new Chart(metas, {
         type: 'pie',
         data: {
