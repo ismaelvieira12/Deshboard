@@ -88,10 +88,10 @@ function separateDataByYearAndSituation(dataList) {
     return dataByYear;
 }
     
-    async function main() {
-        try {
-            const allData = await fetchAllPages(); // Busca todos os dados
-            const filteredData = separateDataByYearAndSituation(allData); // Separa por ano e filtra por situation: 3
+async function main() {
+    try {
+        const allData = await fetchAllPages(); // Busca todos os dados
+        const filteredData = separateDataByYearAndSituation(allData); // Separa por ano e filtra por situation: 3
 
         // Exibe os dados de cada ano
         console.log("Dados de 2022 com situation 3:", filteredData["2022"]);
