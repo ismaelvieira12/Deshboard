@@ -163,14 +163,14 @@ body{
                 width: 100%;
                 height: 50%;
                 margin-bottom:10%;
-                
+               
                 & canvas {
-                    background-image:linear-gradient(to bottom, #f3e8d13f, #f2d4923f);
+                    background-image:linear-gradient(to bottom, #faf1dd3f, #f2d4923f);
                     padding:10px;
                     border-top-left-radius: 8px;
                     border-top-right-radius: 8px;
                     width: 100%;
-                    height: 100%;
+                    height: 90%;
                 }
 
                 & .total-infor-cliente{
