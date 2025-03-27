@@ -10,6 +10,9 @@
     --cor04: #f2d492;
     --cor05: #f29559;
     --Branco: #ffffff;
+
+    --valorPositivo: rgba(0, 128, 0, 0.486);
+    --valorNegativo: rgb(255, 73, 73);
 }
 body{
     background-color: #F8F9FA;
@@ -162,13 +165,18 @@ main{
                 list-style: none;
                 & .cabeçalho{
                     background-color: var(--cor05);
-                    /* margin: 10px auto; */
                     color: white;
                     width: 100%;
+                    height: 100%;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     border-radius: 5px 5px 0px 0px;
+                    & p{
+                        height: 100%;
+                        padding: 0 15px;
+                    }
+
                 }
                 & .taxa-line{
                     height: 25px;
@@ -176,13 +184,21 @@ main{
                     display: flex;
                     justify-content: space-between;
                     border-bottom: 1px solid #e6eaec3b;
-                    background-color: #b8b08d;
+                    /* background-color: #b8b08d; */
+                    
+                    & p{
+                        height: 100%;
+                        padding: 0 15px;
+                    }
+                    & .valor-total{
+                        background-color: var(--valorNegativo);
+                    }
                 }
 
                 & .nome{
                     padding-left: 5px;
                     height: 100%;
-                    width: 450px;
+                    width: 30%;
                 }
             }
 
