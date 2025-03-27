@@ -179,6 +179,10 @@ main{
 
                 }
                 & .taxa-line{
+                    &:nth-child(1){
+                        margin-top: 10px;
+                    }
+                    margin-bottom: 15px;
                     height: 25px;
                     width: 100%;
                     display: flex;
@@ -190,8 +194,11 @@ main{
                         height: 100%;
                         padding: 0 15px;
                     }
-                    & .valor-total{
+                    & .valor-multa{
                         background-color: var(--valorNegativo);
+                    }
+                    & .valor-total{
+                        background-color: var(--valorPositivo);
                     }
                 }
 
