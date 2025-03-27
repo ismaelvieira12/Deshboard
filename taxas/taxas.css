@@ -147,13 +147,12 @@ main{
         & .cabeçalho{
             margin: 10px auto;
             color: white;
-            width: 100%;
+            width: 95%;
             max-height: 85%;
-            /* overflow-y: auto; */
+
             & .nome{
                 height: 100%;
-                width: 19%;
-                /* background-color: #b8b08d; */
+                max-width: 300px;
             }
         }
         & input, & button{
@@ -175,11 +174,15 @@ main{
             }
             & .taxa-line{
                 height: 25px;
-                /* margin: 5px 0 */
-                /* background-color: #f29559; */
+                width: 100%;
                 display: flex;
                 justify-content: space-between;
                 box-shadow: 1px 0px 1px #e6eaec;
+
+                & .nome{
+                    height: 100%;
+                    max-width: 19%;
+                }
             }
 
         }
