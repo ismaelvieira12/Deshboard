@@ -3,6 +3,11 @@
     padding:0;
     box-sizing: border-box;
 }   
+:root{
+    --cor01: #202c39;
+    --cor02: #f2d4923f;
+    --Branco: #ffffff;
+}
 body{
     background-color: #F8F9FA;
 
@@ -134,6 +139,10 @@ main{
         background-color: #202c39;
         margin: 100px auto;
         border-radius: 10px;
+    }
+
+    & #resultados{
+        color: white;
     }
 }
 @media (max-width: 440px){
