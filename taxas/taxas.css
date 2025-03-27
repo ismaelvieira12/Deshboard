@@ -136,13 +136,12 @@ main{
     left: 7%;
     width: 93%;
     height: 100vh;
-    & div{
-        background-color: #f2d492;
+    & .filter-anos-id{
         box-shadow: 1px 1px 10px #e6eaec;
         width: 90%;
-        height: 50%;
         border-radius: 10px;
         margin: 30px auto;
+        background-color: #202c39;
         
         & input, & button{
             margin: 10px 0 0 10px;
@@ -151,11 +150,11 @@ main{
             border-radius: 3px;
         }
         & #resultados{
-            background-color: #202c39;
             margin: 10px auto;
             color: white;
             width: 95%;
-            height: 85%;
+            max-height: 85%;
+            overflow-y: auto;
         }
     }
     
