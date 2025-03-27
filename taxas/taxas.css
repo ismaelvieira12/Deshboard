@@ -132,17 +132,17 @@ header{
 }
 main{
     position: fixed;
-    /* top: 100px; */
+    top: 60px;
     left: 7%;
     width: 93%;
     height: 100vh;
-    background-color: #202c39;
     & div{
+        background-color: #f2d492;
         box-shadow: 1px 1px 10px #e6eaec;
         width: 90%;
         height: 50%;
         border-radius: 10px;
-        margin: auto;
+        margin: 30px auto;
         
         & input, & button{
             margin: 10px 0 0 10px;
@@ -152,8 +152,10 @@ main{
         }
         & #resultados{
             background-color: #202c39;
-            margin: 20px auto;
+            margin: 10px auto;
             color: white;
+            width: 95%;
+            height: 85%;
         }
     }
     
