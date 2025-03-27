@@ -135,12 +135,14 @@ main{
     top: 60px;
     left: 7%;
     width: 93%;
-    height: 100vh;
+    height: 100%;
+    overflow-y: auto;
+
     & .filter-anos-id{
         box-shadow: 1px 1px 10px #e6eaec;
         width: 90%;
         border-radius: 10px;
-        margin: 30px auto;
+        margin: 30px auto 150px;
         background-color: #202c39;
         
         & input, & button{
@@ -155,6 +157,15 @@ main{
             width: 95%;
             max-height: 85%;
             overflow-y: auto;
+
+            & .taxa-line{
+                height: 25px;
+                /* margin: 5px 0 */
+                /* background-color: #f29559; */
+                display: flex;
+                justify-content: space-between;
+                box-shadow: 1px 0px 1px #e6eaec;
+            }
         }
     }
     
