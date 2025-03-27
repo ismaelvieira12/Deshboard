@@ -144,17 +144,7 @@ main{
         border-radius: 10px;
         margin: 30px auto 150px;
         background-color: #202c39;
-        & .cabeçalho{
-            margin: 10px auto;
-            color: white;
-            width: 95%;
-            max-height: 85%;
 
-            & .nome{
-                height: 100%;
-                max-width: 300px;
-            }
-        }
         & input, & button{
             margin: 10px 0 0 10px;
             background-color: var(--cor05);
@@ -168,22 +158,29 @@ main{
             width: 95%;
             max-height: 85%;
             overflow-y: auto;
-
-            & li{
+            & ul{
                 list-style: none;
-            }
-            & .taxa-line{
-                height: 25px;
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                box-shadow: 1px 0px 1px #e6eaec;
+                & .cabeçalho{
+                    margin: 10px auto;
+                    color: white;
+                    width: 95%;
+                    max-height: 85%;
+                }
+                & .taxa-line{
+                    height: 25px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    
+                    border-bottom: 1px solid #e6eaec3b;
+                }
 
                 & .nome{
                     height: 100%;
-                    max-width: 19%;
+                    width: 450px;
                 }
             }
+
 
         }
     }
