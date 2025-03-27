@@ -163,6 +163,7 @@ main{
             overflow-y: auto;
             & ul{
                 list-style: none;
+                padding-left: 0px;
                 & .cabeçalho{
                     background-color: var(--cor05);
                     color: white;
@@ -188,7 +189,6 @@ main{
                     display: flex;
                     justify-content: space-between;
                     border-bottom: 1px solid #e6eaec3b;
-                    /* background-color: #b8b08d; */
                     
                     & p{
                         height: 100%;
