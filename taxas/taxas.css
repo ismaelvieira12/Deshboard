@@ -164,7 +164,7 @@ main{
             & ul{
                 list-style: none;
                 padding-left: 0px;
-                & .cabeçalho{
+                & .cabecalho{
                     background-color: var(--cor05);
                     color: white;
                     width: 100%;
