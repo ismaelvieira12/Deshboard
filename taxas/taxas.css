@@ -6,6 +6,9 @@
 :root{
     --cor01: #202c39;
     --cor02: #f2d4923f;
+    --cor03: #b8b08d;
+    --cor04: #f2d492;
+    --cor05: #f29559;
     --Branco: #ffffff;
 }
 body{
@@ -142,6 +145,9 @@ main{
         border-radius: 10px;
         margin: auto;
         
+        & input, & button{
+            background-color: var(--cor03);
+        }
         & #resultados{
             margin: 20px auto;
             color: white;
