@@ -5,5 +5,4 @@ function buscarDados(){
     const divCabecalho = document.createElement('div').classList.add('cabecalho');
     ulEl.appendChild(divCabecalho);
 
-    return ()
 }
