@@ -295,15 +295,13 @@ const container = document.querySelector(".box-list");
 
 // Função para popular os dados no HTML
 function popularDados(dados) {
-    buscarDados(dados);
-    console.log('Testeando TAXAS', dados);
     container.innerHTML = ""; // Limpa antes de adicionar novos elementos
     
     if (dados.length === 0) {
         container.innerHTML = "<p>Nenhum pagamento registrado para este mês.</p>";
         return;
     }
-
+    
     dados.forEach(item => {
         const div = document.createElement("div");
         div.classList.add("list");
@@ -325,6 +323,8 @@ function popularDados(dados) {
         div.appendChild(valuePaidSpan);
         container.appendChild(div);
     });
+    const lista = document.getElementById("box-taxas");
+    
 }
 
 // 🔹 Executa ao carregar a página
