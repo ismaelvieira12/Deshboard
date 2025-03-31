@@ -295,6 +295,7 @@ const container = document.querySelector(".box-list");
 
 // Função para popular os dados no HTML
 function popularDados(dados) {
+    console.log('Testando as TAXAS', dados)
     container.innerHTML = ""; // Limpa antes de adicionar novos elementos
     
     if (dados.length === 0) {
