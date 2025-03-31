@@ -3,7 +3,7 @@ const lista = document.getElementById("box-taxas");
 
 
 function buscarDados(dados){
-    console.log('Testeando TAXAS', dados);
+   const dados = dados
     const li = document.createElement("li");
     li.innerHTML = `
         <div class="taxa-line">

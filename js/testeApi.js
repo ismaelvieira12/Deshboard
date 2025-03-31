@@ -293,9 +293,10 @@ function filtrarDados(dados) {
 // Seleciona o contêiner onde os dados serão inseridos
 const container = document.querySelector(".box-list");
 
-buscarDados(dados);
 // Função para popular os dados no HTML
 function popularDados(dados) {
+    buscarDados(dados);
+    console.log('Testeando TAXAS', dados);
     container.innerHTML = ""; // Limpa antes de adicionar novos elementos
     
     if (dados.length === 0) {
