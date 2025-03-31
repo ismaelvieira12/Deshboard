@@ -293,11 +293,11 @@ function filtrarDados(dados) {
 // Seleciona o contêiner onde os dados serão inseridos
 const container = document.querySelector(".box-list");
 
+buscarDados(dados);
 // Função para popular os dados no HTML
 function popularDados(dados) {
-    buscarDados(dados);
     container.innerHTML = ""; // Limpa antes de adicionar novos elementos
-
+    
     if (dados.length === 0) {
         container.innerHTML = "<p>Nenhum pagamento registrado para este mês.</p>";
         return;
@@ -306,19 +306,19 @@ function popularDados(dados) {
     dados.forEach(item => {
         const div = document.createElement("div");
         div.classList.add("list");
-
+        
         const nameSpan = document.createElement("span");
         nameSpan.classList.add("name");
         nameSpan.textContent = item.name;
-
+        
         const valueSpan = document.createElement("span");
         valueSpan.classList.add("value");
         valueSpan.textContent = `R$ ${item.value}`;
-
+        
         const valuePaidSpan = document.createElement("span");
         valuePaidSpan.classList.add("value_paid");
         valuePaidSpan.textContent = `R$ ${item.value_paid}`;
-
+        
         div.appendChild(nameSpan);
         div.appendChild(valueSpan);
         div.appendChild(valuePaidSpan);
