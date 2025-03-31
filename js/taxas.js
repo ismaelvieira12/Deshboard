@@ -2,7 +2,8 @@ const lista = document.getElementById("box-taxas");
 
 
 
-function buscarDados(){
+function buscarDados(dados){
+    console.log(dados);
     const li = document.createElement("li");
     li.innerHTML = `
         <div class="taxa-line">
@@ -17,3 +18,4 @@ function buscarDados(){
     `;
     lista.appendChild(li);
 }
+buscarDados()
