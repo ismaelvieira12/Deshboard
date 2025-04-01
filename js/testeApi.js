@@ -172,7 +172,9 @@ function rest(totals){
         parseFloat(totals['2023'].annualTotal),
         parseFloat(totals['2024'].annualTotal),
         parseFloat(totals['2025'].annualTotal),
-    ],
+    ];
+    const livro = valorano[3];
+    console.log("testando taxa", livro);
     colors = ['#f29559','#202c39', '#b8b08d', '#283845']; // Defina as cores para cada ano
     Highcharts.chart('container', {
         legend: {
@@ -338,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
 setInterval(() => {
     const pagamentosDoMes = filtrarDados(dadosExemplo);
     popularDados(pagamentosDoMes);
-}, 86400000); // 86.400.000ms = 24 horas
+}, 1000); // 86.400.000ms = 24 horas
 
 
 

@@ -2,8 +2,8 @@ const lista = document.getElementById("box-taxas");
 
 
 
-function buscarDados(){
-   
+function buscarDadosTaxas(totals){
+    console.log("testando taxa", totals);
     const li = document.createElement("li");
     li.innerHTML = `
         <div class="taxa-line">
