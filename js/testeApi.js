@@ -173,8 +173,6 @@ function rest(totals){
         parseFloat(totals['2024'].annualTotal),
         parseFloat(totals['2025'].annualTotal),
     ];
-    const livro = valorano[3];
-    console.log("testando taxa", livro);
     colors = ['#f29559','#202c39', '#b8b08d', '#283845']; // Defina as cores para cada ano
     Highcharts.chart('container', {
         legend: {
@@ -280,16 +278,16 @@ function filtrarDados(dados) {
             value: item.value ? parseFloat(item.value).toFixed(2) : "0.00",
             value_paid: item.value_paid ? parseFloat(item.value_paid).toFixed(2) : "0.00",
         }))
-        .filter(item => {
-            if (item.date_payment !== "Não informado") {
-                const dataPagamento = new Date(item.date_payment);
-                return (
-                    dataPagamento.getMonth() + 1 === mes && // Compara o mês
-                    dataPagamento.getFullYear() === ano // Compara o ano
-                );
-            }
-            return false;
-        });
+        // .filter(item => {
+        //     if (item.date_payment !== "Não informado") {
+        //         const dataPagamento = new Date(item.date_payment);
+        //         return (
+        //             dataPagamento.getMonth() + 1 === mes && // Compara o mês
+        //             dataPagamento.getFullYear() === ano // Compara o ano
+        //         );
+        //     }
+        //     return false;
+        // });
 }
 
 // Seleciona o contêiner onde os dados serão inseridos
