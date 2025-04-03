@@ -266,7 +266,7 @@ function obterMesAtual() {
     };
 }
 
-// Função para filtrar os pagamentos do mês atual
+// Função para filtrar os pagamentos realizados no mês atual
 function filtrarDados(dados) {
     const { mes, ano } = obterMesAtual();
 
@@ -282,8 +282,8 @@ function filtrarDados(dados) {
             if (item.date_payment !== "Não informado") {
                 const dataPagamento = new Date(item.date_payment);
                 return (
-                    dataPagamento.getMonth() + 1 === mes && // Compara o mês
-                    dataPagamento.getFullYear() === ano // Compara o ano
+                    dataPagamento.getMonth() + 1 === mes && // Mês do pagamento igual ao mês atual
+                    dataPagamento.getFullYear() === ano // Ano do pagamento igual ao ano atual
                 );
             }
             return false;
@@ -295,7 +295,7 @@ const container = document.querySelector(".box-list");
 
 // Função para popular os dados no HTML
 function popularDados(dados) {
-    console.log('Testando as TAXAS', dados)
+    console.log('Pagamentos do mês:', dados);
     container.innerHTML = ""; // Limpa antes de adicionar novos elementos
     
     if (dados.length === 0) {
@@ -324,8 +324,6 @@ function popularDados(dados) {
         div.appendChild(valuePaidSpan);
         container.appendChild(div);
     });
-    const lista = document.getElementById("box-taxas");
-    
 }
 
 // 🔹 Executa ao carregar a página
@@ -338,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
 setInterval(() => {
     const pagamentosDoMes = filtrarDados(dadosExemplo);
     popularDados(pagamentosDoMes);
-}, 1000); // 86.400.000ms = 24 horas
+}, 86400000); // 24 horas em milissegundos
 
 
 
