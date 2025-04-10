@@ -142,74 +142,28 @@ main{
     overflow-y: auto;
 
     & .filter-anos-id{
+        padding: 10px 10px;
         box-shadow: 1px 1px 10px #e6eaec;
         width: 90%;
         border-radius: 10px;
         margin: 30px auto 150px;
         background-color: #202c39;
+        color: #ccc;
 
-        & input, & button{
-            margin: 10px 0 0 10px;
-            background-color: var(--cor05);
-            border: none;
-            border-radius: 3px;
-            padding: 5PX;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
         }
-        & #resultados{
-            margin: 10px auto;
-            color: white;
-            width: 95%;
-            max-height: 85%;
-            overflow-y: auto;
-            & ul{
-                list-style: none;
-                padding-left: 0px;
-                & .cabecalho{
-                    background-color: var(--cor05);
-                    color: white;
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    border-radius: 5px 5px 0px 0px;
-                    & p{
-                        height: 100%;
-                        padding: 0 15px;
-                    }
-
-                }
-                & .taxa-line{
-                    &:nth-child(1){
-                        margin-top: 10px;
-                    }
-                    margin-bottom: 15px;
-                    height: 25px;
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    border-bottom: 1px solid #e6eaec3b;
-                    
-                    & p{
-                        height: 100%;
-                        padding: 0 15px;
-                    }
-                    & .valor-multa{
-                        background-color: var(--valorNegativo);
-                    }
-                    & .valor-total{
-                        background-color: var(--valorPositivo);
-                    }
-                }
-
-                & .nome{
-                    padding-left: 5px;
-                    height: 100%;
-                    width: 30%;
-                }
-            }
-
-
+          th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+          input {
+            /* width: 100%;
+            box-sizing: border-box;
+            border: none; */
         }
     }
     
@@ -242,3 +196,4 @@ main{
         width: 100vw;
     }
 }
+
