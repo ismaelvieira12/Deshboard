@@ -151,20 +151,27 @@ main{
         color: #ccc;
 
         table {
-            border-collapse: collapse;
             width: 100%;
-            table-layout: fixed;
-        }
+            border-collapse: collapse;
+            margin-top: 10px;
+          }
+        
           th, td {
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 8px;
             text-align: center;
-        }
-          input {
-            /* width: 100%;
+          }
+        
+          input[type="text"], input[type="number"] {
+            width: 100%;
             box-sizing: border-box;
-            border: none; */
-        }
+            padding: 4px;
+          }
+        
+          .filter-anos-id {
+            max-width: 100%;
+            overflow-x: auto;
+          }
     }
     
 }

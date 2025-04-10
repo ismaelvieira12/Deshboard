@@ -105,33 +105,35 @@
             <!-- Campo de data -->
             <input type="date" id="dataInput">
             <button onclick="buscarDados()">Buscar</button>
+          
             <div id="resultados">
-                <thead id="box-taxas">
-                    <table class="cabecalho">
-                        <tr>
-                            <th class="nome">Nome</th>
-                            <th class="valor-pago">Valor/Pago</th>
-                            <th class="valor-plano">Valor/plano</th>
-                            <th class="valor-multa">Multa</th>
-                            <th class="valor-juros">Valor/Juros</th>
-                            <th class="juros-dia">Juros/Dia</th>
-                            <th class="valor-total">Total/Pagar</th>
-                        </tr>
-                    </table>
-                    <tbody>
-                        <tr class="taxa-line">
-                            <td> <input type="text" name="name" id="nome" class="nome" value="Ismael Nascimento Vieira"> </td>
-                            <td class="valor-pago"> <input type="number"value="57,20"> </td>
-                            <td class="valor-plano"> <input type="number"value="55"> </td>
-                            <td class="valor-multa"> <input type="number" value="4%"> </td>
-                            <td class="valor-juros"> <input type="number" value="0,00"> </td>
-                            <td class="juros-dia"> <input type="number" value="2%"> </td>
-                            <td class="valor-total"> <input type="number" value="R$: 57,20"> </td>
-                        </tr>
-                    </tbody>
+              <table>
+                <thead>
+                  <tr>
+                    <th class="nome">Nome</th>
+                    <th class="valor-pago">Valor/Pago</th>
+                    <th class="valor-plano">Valor/Plano</th>
+                    <th class="valor-multa">Multa (%)</th>
+                    <th class="valor-juros">Valor/Juros</th>
+                    <th class="juros-dia">Juros/Dia (%)</th>
+                    <th class="valor-total">Total/Pagar</th>
+                  </tr>
                 </thead>
+                <tbody>
+                  <tr class="taxa-line">
+                    <td><input type="text" value="Ismael Nascimento Vieira"></td>
+                    <td><input type="number" class="valor-pago" value="57.20"></td>
+                    <td><input type="number" class="valor-plano" value="55"></td>
+                    <td><input type="number" class="valor-multa" value="4"></td>
+                    <td><input type="number" class="valor-juros" value="0.00"></td>
+                    <td><input type="number" class="juros-dia" value="2"></td>
+                    <td><input type="text" class="valor-total" readonly></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-        </div>
+          </div>
+          
     </main>
 
     <script src="js/taxas.js"></script>
