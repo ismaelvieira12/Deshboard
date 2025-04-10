@@ -1,0 +1,63 @@
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      table-layout: fixed;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+    }
+</style>
+  
+<table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Valor/Pago</th>
+        <th>Valor/plano</th>
+        <th>Multa</th>
+        <th>Valor/Juros</th>
+        <th>Juros/Dia</th>
+        <th>Total/Pagar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" value="João" /></td>
+        <td><input type="number" class="horas" value="8" /></td>
+        <td><input type="number" class="valor" value="20" /></td>
+        <td class="total">R$ 160,00</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <script>
+    const linhas = document.querySelectorAll("tbody tr");
+  
+    linhas.forEach(linha => {
+      const horasInput = linha.querySelector(".horas");
+      const valorInput = linha.querySelector(".valor");
+      const totalCell = linha.querySelector(".total");
+  
+      function calcularTotal() {
+        const horas = parseFloat(horasInput.value) || 0;
+        const valor = parseFloat(valorInput.value) || 0;
+        const total = horas * valor;
+        totalCell.textContent = `R$ ${total.toFixed(2)}`;
+      }
+  
+      horasInput.addEventListener("input", calcularTotal);
+      valorInput.addEventListener("input", calcularTotal);
+    });
+  </script>
+  
