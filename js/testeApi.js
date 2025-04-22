@@ -326,6 +326,9 @@ function popularDados(dados) {
     });
 }
 
+const taxas = popularDados().json()
+console.log("Testando o json", taxas);
+
 // 🔹 Executa ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
     const pagamentosDoMes = filtrarDados(dadosExemplo);
