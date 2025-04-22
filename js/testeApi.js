@@ -324,10 +324,10 @@ function popularDados(dados) {
         div.appendChild(valuePaidSpan);
         container.appendChild(div);
     });
+    console.log('Pagamentos do mês (JSON):', JSON.stringify(dados, null, 2));
 }
 
-const taxas = popularDados().json()
-console.log("Testando o json", taxas);
+
 
 // 🔹 Executa ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
