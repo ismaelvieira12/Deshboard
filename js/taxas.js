@@ -51,3 +51,9 @@ function calcularTotal(row) {
     console.log("Buscar dados para:", data);
     // Adapte com sua lógica de busca real
   }
+
+
+
+  function taxasJson(taxasJson){
+    console.log('Pagamentos do mês (JSON):', taxasJson);
+  }

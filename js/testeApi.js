@@ -326,7 +326,6 @@ function popularDados(dados) {
     });
 
     const taxasJson = JSON.stringify(dados, null, 2)
-    
 }
 
 
