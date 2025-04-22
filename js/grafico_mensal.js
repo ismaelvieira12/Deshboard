@@ -135,28 +135,28 @@ async function mensal(totals){
             }
         },
         series:[ 
-            {
-            type: 'column',
-            name: '2022',
-            color: "#2f3764",
-            data: a2022.map(item => item),
-            borderRadius: 3,
-        }, 
-        {
-            type: 'column',
-            name: '2023',
-            data: meses2023.map(item => item),
-            color: "#5c6bc0",
-            borderRadius: 3,
-        }, 
-        {
-            type: 'column',
-            name: '2024',
-            data: meses2024.map(item => parseFloat(item.toFixed(2))),
-            color: "#6857be",
-            borderRadius: 3,
+        //     {
+        //     type: 'column',
+        //     name: '2022',
+        //     color: "#2f3764",
+        //     data: a2022.map(item => item),
+        //     borderRadius: 3,
+        // }, 
+        // {
+        //     type: 'column',
+        //     name: '2023',
+        //     data: meses2023.map(item => item),
+        //     color: "#5c6bc0",
+        //     borderRadius: 3,
+        // }, 
+        // {
+        //     type: 'column',
+        //     name: '2024',
+        //     data: meses2024.map(item => parseFloat(item.toFixed(2))),
+        //     color: "#6857be",
+        //     borderRadius: 3,
             
-        },
+        // },
         //para subistituir os valores unifined por null temos que mudar o array
         // a condicional verifica se o valor é igual a UNDEFINED se for será mudado para null, se não ficará o valor original pago
         {
