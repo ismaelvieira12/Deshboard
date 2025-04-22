@@ -324,7 +324,9 @@ function popularDados(dados) {
         div.appendChild(valuePaidSpan);
         container.appendChild(div);
     });
-    console.log('Pagamentos do mês (JSON):', JSON.stringify(dados, null, 2));
+
+    const taxasJson = JSON.stringify(dados, null, 2)
+    
 }
 
 
