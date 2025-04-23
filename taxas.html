@@ -100,44 +100,45 @@
         </div>
     </section>
 </header>
-
 <div class="container">
-    <h2>Tabela de Taxas</h2>
-    <div class="controls">
-      <select id="anoSelect"></select>
-      <select id="mesSelect">
-        <option value="01">Janeiro</option>
-        <option value="02">Fevereiro</option>
-        <option value="03">Março</option>
-        <option value="04">Abril</option>
-        <option value="05">Maio</option>
-        <option value="06">Junho</option>
-        <option value="07">Julho</option>
-        <option value="08">Agosto</option>
-        <option value="09">Setembro</option>
-        <option value="10">Outubro</option>
-        <option value="11">Novembro</option>
-        <option value="12">Dezembro</option>
-      </select>
-      <button onclick="filtrarDados()">Buscar</button>
+  <div class="filter-anos-id">
+      <h2>Tabela de Taxas</h2>
+      <div class="controls">
+        <select id="anoSelect"></select>
+        <select id="mesSelect">
+          <option value="01">Janeiro</option>
+          <option value="02">Fevereiro</option>
+          <option value="03">Março</option>
+          <option value="04">Abril</option>
+          <option value="05">Maio</option>
+          <option value="06">Junho</option>
+          <option value="07">Julho</option>
+          <option value="08">Agosto</option>
+          <option value="09">Setembro</option>
+          <option value="10">Outubro</option>
+          <option value="11">Novembro</option>
+          <option value="12">Dezembro</option>
+        </select>
+        <button onclick="filtrarDados()">Buscar</button>
+      </div>
+      <table class="tabela" id="tabelaTaxas">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Plano</th>
+            <th>Valor do Plano</th>
+            <th>Dias em atraso</th>
+            <th>Multa (%)</th>
+            <th>Valor/Juros</th>
+            <th>Juros/Dia (%)</th>
+            <th>Juros</th>
+            <th>Valor/Pago</th>
+          </tr>
+        </thead>
+        <tbody id="corpoTabela"></tbody>
+      </table>
     </div>
-    <table class="tabela" id="tabelaTaxas">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Plano</th>
-          <th>Valor do Plano</th>
-          <th>Dias em atraso</th>
-          <th>Multa (%)</th>
-          <th>Valor/Juros</th>
-          <th>Juros/Dia (%)</th>
-          <th>Juros</th>
-          <th>Valor/Pago</th>
-        </tr>
-      </thead>
-      <tbody id="corpoTabela"></tbody>
-    </table>
-  </div>
+</div>
 
     <!-- <main>
         <div class="filter-anos-id">
