@@ -326,7 +326,7 @@ function popularDados(dados) {
     });
 
     const taxasJson = JSON.stringify(dados, null, 2)
-    taxasJson(taxasJson);
+    console.log('Pagamentos do mês (JSON):', taxasJson);
 }
 
 

@@ -22,40 +22,32 @@ buscarDados()
 
 
 function calcularTotal(row) {
-    const valorPlano = parseFloat(row.querySelector('.valor-plano').value) || 0;
-    const multa = parseFloat(row.querySelector('.valor-multa').value) || 0;
-    const juros = parseFloat(row.querySelector('.valor-juros').value) || 0;
-    const jurosDia = parseFloat(row.querySelector('.juros-dia').value) || 0;
+  const valorPlano = parseFloat(row.querySelector('.valor-plano').value) || 0;
+  const multa = parseFloat(row.querySelector('.valor-multa').value) || 0;
+  const juros = parseFloat(row.querySelector('.valor-juros').value) || 0;
+  const jurosDia = parseFloat(row.querySelector('.juros-dia').value) || 0;
 
-    const valorComMulta = valorPlano * (multa / 100);
-    const valorComJurosDia = valorPlano * (jurosDia / 100);
+  const valorComMulta = valorPlano * (multa / 100);
+  const valorComJurosDia = valorPlano * (jurosDia / 100);
 
-    const total = valorPlano + valorComMulta + juros + valorComJurosDia;
+  const total = valorPlano + valorComMulta + juros + valorComJurosDia;
 
-    row.querySelector('.valor-total').value = `R$ ${total.toFixed(2)}`;
-  }
+  row.querySelector('.valor-total').value = `R$ ${total.toFixed(2)}`;
+}
 
-  // Adiciona o evento de input para todos os campos da linha
-  document.querySelectorAll('.taxa-line').forEach(row => {
-    row.querySelectorAll('input').forEach(input => {
-      input.addEventListener('input', () => calcularTotal(row));
-    });
-
-    // Calcula inicialmente
-    calcularTotal(row);
+// Adiciona o evento de input para todos os campos da linha
+document.querySelectorAll('.taxa-line').forEach(row => {
+  row.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', () => calcularTotal(row));
   });
 
-  function buscarDados() {
-    // Aqui você pode usar o valor do campo #dataInput para filtrar, se quiser
-    const data = document.getElementById("dataInput").value;
-    console.log("Buscar dados para:", data);
-    // Adapte com sua lógica de busca real
-  }
+  // Calcula inicialmente
+  calcularTotal(row);
+});
 
-
-
-  function taxasJson(taxasJson){
-    console.log('Pagamentos do mês (JSON):', taxasJson);
-  }
-
-  taxasJson();
+function buscarDados() {
+  // Aqui você pode usar o valor do campo #dataInput para filtrar, se quiser
+  const data = document.getElementById("dataInput").value;
+  console.log("Buscar dados para:", data);
+  // Adapte com sua lógica de busca real
+}
