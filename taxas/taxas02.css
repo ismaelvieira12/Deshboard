@@ -142,7 +142,7 @@ body {
 .container { 
     position: fixed;
     top: 60px;
-    left: 7.5%;
+    left: 7%;
     width: 93%;
     height: 100%;
     overflow-y: auto;
@@ -151,7 +151,7 @@ body {
     & .filter-anos-id{
         padding: 10px 10px;
         box-shadow: 1px 1px 10px #e6eaec;
-        width: 100%;
+        width: 90%;
         border-radius: 10px;
         margin: 30px auto 150px;
         background-color: #202c39;
