@@ -51,3 +51,165 @@
 //   console.log("Buscar dados para:", data);
 //   // Adapte com sua lógica de busca real
 // }
+
+
+
+const getPlano = (valor) => {
+  const v = parseFloat(valor);
+  if (v === 55) return "35MB";
+  if (v === 65) return "45MB";
+  if (v === 85) return "100MB";
+  return "-";
+};
+
+let dadosMock = [];
+
+const filtrarDados = () => {
+  const ano = document.getElementById("anoSelect").value;
+  const mes = document.getElementById("mesSelect").value;
+  const corpo = document.getElementById("corpoTabela");
+  corpo.innerHTML = ""; // Limpa a tabela antes de preencher
+
+  // Filtra os dados para o ano e mês selecionados
+  const filtrados = dadosMock.filter(item =>
+    item.situation === 3 && item.due_date?.startsWith(`${ano}-${mes}`)
+  );
+
+  filtrados.forEach(item => {
+    const nome = item.customer?.name || "N/A";
+    let valorPlano = parseFloat(item.value).toFixed(2);
+    let valorPago = parseFloat(item.value_paid || 0).toFixed(2);
+
+    // Calculando os dias de atraso
+    const diasAtraso = Math.max(
+      0,
+      Math.floor(
+        (new Date(item.date_payment) - new Date(item.due_date)) / (1000 * 60 * 60 * 24)
+      )
+    );
+
+    // Lógica de desconto, multa e juros
+    const desconto = 3; // Desconto de R$3,00 para pagamento antecipado
+    const multaPercent = 4; // 4% de multa
+    const jurosDiaPercent = 0.25; // 0,25% de juros por dia
+    let multa = 0;
+    let juros = 0;
+    let total = parseFloat(valorPlano);
+
+    // Se o pagamento for antes do vencimento, aplica o desconto e não cobra multa nem juros
+    if (new Date(item.date_payment) < new Date(item.due_date)) {
+      total = total - desconto; // Aplica o desconto de R$3,00
+      multa = 0;  // Não há multa
+      juros = 0;  // Não há juros
+    } else {
+      // Aplica multa e juros apenas se houver atraso
+      if (diasAtraso > 0) {
+        multa = (valorPlano * multaPercent / 100).toFixed(2);
+        juros = (valorPlano * (jurosDiaPercent / 100) * diasAtraso).toFixed(2);
+        total = (parseFloat(valorPlano) + parseFloat(multa) + parseFloat(juros)).toFixed(2);
+      }
+    }
+
+    // Construindo a linha da tabela com inputs
+    const linha = `
+      <tr data-id="${item.id}">
+        <td>${nome}</td>
+        <td>${getPlano(valorPlano)}</td>
+        <td><input type="number" value="${valorPlano}" onchange="atualizarValores(this, ${item.id})" data-type="valorPlano" /></td>
+        <td><input type="number" value="${diasAtraso}" onchange="atualizarValores(this, ${item.id})" data-type="diasAtraso" /></td>
+        <td><input type="number" value="${multaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="multaPercent" /></td>
+        <td>${juros}</td>
+        <td><input type="number" value="${jurosDiaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="jurosDiaPercent" /></td>
+        <td><input type="number" value="${juros}" onchange="atualizarValores(this, ${item.id})" data-type="juros" /></td>
+        <td><input type="number" value="${valorPago}" onchange="atualizarValores(this, ${item.id})" data-type="valorPago" /></td>
+      </tr>`;
+    corpo.innerHTML += linha;
+  });
+};
+
+const anos = [2022, 2023, 2024, 2025];
+const anoSelect = document.getElementById("anoSelect");
+anos.forEach(ano => {
+  const opt = document.createElement("option");
+  opt.value = ano;
+  opt.textContent = ano;
+  anoSelect.appendChild(opt);
+});
+
+async function getAuthToken() {
+  const response = await fetch('https://api.beesweb.com.br/adm/sessions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: 'ismael@starlink.com',
+      password: '13579852'
+    })
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.message);
+  return data.api_token;
+}
+
+async function fetchPage(token, page) {
+  const response = await fetch(`https://api.beesweb.com.br/adm/charges?page=${page}`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.message);
+  return data;
+}
+
+async function carregarDados() {
+  try {
+    const token = await getAuthToken();
+    const primeiraPagina = await fetchPage(token, 1);
+    const totalPages = Math.ceil(primeiraPagina.statistics.all.quantity / primeiraPagina.per_page);
+    const todasPaginas = await Promise.all(
+      Array.from({ length: totalPages }, (_, i) => fetchPage(token, i + 1))
+    );
+    dadosMock = todasPaginas.flatMap(p => p.data);
+  } catch (err) {
+    console.error("Erro ao carregar dados:", err.message);
+  }
+}
+
+function atualizarValores(input, id) {
+  const linha = input.closest('tr');
+  const valorPlanoInput = linha.querySelector('[data-type="valorPlano"]');
+  const diasAtrasoInput = linha.querySelector('[data-type="diasAtraso"]');
+  const multaPercentInput = linha.querySelector('[data-type="multaPercent"]');
+  const jurosDiaPercentInput = linha.querySelector('[data-type="jurosDiaPercent"]');
+  const jurosInput = linha.querySelector('[data-type="juros"]');
+  const valorPagoInput = linha.querySelector('[data-type="valorPago"]');
+
+  let valorPlano = parseFloat(valorPlanoInput.value).toFixed(2);
+  let diasAtraso = parseInt(diasAtrasoInput.value);
+  let multaPercent = parseFloat(multaPercentInput.value).toFixed(2);
+  let jurosDiaPercent = parseFloat(jurosDiaPercentInput.value).toFixed(2);
+  let juros = parseFloat(jurosInput.value).toFixed(2);
+  let valorPago = parseFloat(valorPagoInput.value).toFixed(2);
+
+  const desconto = 3;
+  let multa = 0;
+  let total = parseFloat(valorPlano);
+
+  // Se o pagamento for antes do vencimento, aplica o desconto e não cobra multa nem juros
+  if (diasAtraso < 0) {
+    total = total - desconto; // Aplica o desconto de R$3,00
+    multa = 0;  // Não há multa
+    juros = 0;  // Não há juros
+  } else {
+    // Aplica multa e juros apenas se houver atraso
+    multa = (valorPlano * multaPercent / 100).toFixed(2);
+    total = (parseFloat(valorPlano) + parseFloat(multa) + parseFloat(juros)).toFixed(2);
+  }
+
+  // Atualiza o campo Valor/Pago
+  valorPagoInput.value = total;
+}
+
+carregarDados();

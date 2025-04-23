@@ -15,13 +15,14 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" integrity="sha512-QKC1UZ/ZHNgFzVKSAhV5v5j73eeL9EEN289eKAEFaAjgAiobVAnVv/AGuPbXsKl1dNoel3kNr6PYnSiTzVVBCw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="taxas/taxas.css">
+        <!-- <link rel="stylesheet" href="taxas/taxas.css"> -->
+         <link rel="stylesheet" href="taxas/taxas02.css">
     <title>Filtragem de grafico_mensal</title>
 </head>
 <body>
 <!--     =============== Grafico para filtragem dos meses e dos dias ============== -->
 
-<!-- <header>
+<header>
     <nav class="navbar-expand-lg navbar bg-body-tertiary fixed-top">
       <div class="container-fluid">
         <h2>Tabela de Taxas</h2>
@@ -62,7 +63,6 @@
         </div>
       </div>
     </nav>
-
     <section class="cabeca">
 
         <div class="nav-left">
@@ -99,7 +99,47 @@
             </div>
         </div>
     </section>
-    <main>
+</header>
+
+<div class="container">
+    <h2>Tabela de Taxas</h2>
+    <div class="controls">
+      <select id="anoSelect"></select>
+      <select id="mesSelect">
+        <option value="01">Janeiro</option>
+        <option value="02">Fevereiro</option>
+        <option value="03">Março</option>
+        <option value="04">Abril</option>
+        <option value="05">Maio</option>
+        <option value="06">Junho</option>
+        <option value="07">Julho</option>
+        <option value="08">Agosto</option>
+        <option value="09">Setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+      </select>
+      <button onclick="filtrarDados()">Buscar</button>
+    </div>
+    <table class="tabela" id="tabelaTaxas">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Plano</th>
+          <th>Valor do Plano</th>
+          <th>Dias em atraso</th>
+          <th>Multa (%)</th>
+          <th>Valor/Juros</th>
+          <th>Juros/Dia (%)</th>
+          <th>Juros</th>
+          <th>Valor/Pago</th>
+        </tr>
+      </thead>
+      <tbody id="corpoTabela"></tbody>
+    </table>
+  </div>
+
+    <!-- <main>
         <div class="filter-anos-id">
          
             <input type="date" id="dataInput">
