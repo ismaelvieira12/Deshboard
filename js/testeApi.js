@@ -92,23 +92,22 @@ async function main() {
     try {
         const allData = await fetchAllPages(); // Busca todos os dados
         const filteredData = separateDataByYearAndSituation(allData); // Separa por ano e filtra por situation: 3
-
         // Exibe os dados de cada ano
         console.log("Dados de 2022 com situation 3:", filteredData["2022"]);
         console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
         console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
         console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
-
-
+        
+        
         // Filtra os dados do ano 2025 mantendo apenas os campos desejados
         const dadosFiltrados2025 = filtrarDados(filteredData["2025"] || []);
 
         // Exibe o resultado no console
         console.log("Dados filtrados para 2025:", dadosFiltrados2025);
-
+        
         // Popula os dados no HTML
         popularDados(dadosFiltrados2025);
-
+        
         // Função para calcular totais mensais
         const calculateMonthlyTotals = (data) => {
             const monthlyTotals = {};
@@ -122,14 +121,14 @@ async function main() {
             });
             return monthlyTotals;
         };
-
+        
         // Função para calcular total anual
         const calculateAnnualTotal = (data) => {
             return data.reduce((accumulator, item) => {
                 return accumulator + parseFloat(item.value_paid);
             }, 0).toFixed(2);
         };
-
+        
         // Calcula totais por ano e mês
         const totals = [];
         for (const year of ["2022", "2023", "2024", "2025"]) {
@@ -139,6 +138,7 @@ async function main() {
                 monthlyTotals: calculateMonthlyTotals(data),
             };
         }
+        buscarDadosTaxas(totals)
         rest(totals)
        
     } catch (error) {
