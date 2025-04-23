@@ -91,30 +91,28 @@ function separateDataByYearAndSituation(dataList) {
 async function main() {
     try {
         const allData = await fetchAllPages(); // Busca todos os dados
-        const filteredData = separateDataByYearAndSituation(allData); // Separa por ano e situation: 3
+        const filteredData = separateDataByYearAndSituation(allData); // Separa por ano e filtra por situation: 3
+        // Exibe os dados de cada ano
+        console.log("Dados de 2022 com situation 3:", filteredData["2022"]);
+        console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
+        console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
+        console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
+        
+        
+        // Filtra os dados do ano 2025 mantendo apenas os campos desejados
+        const dadosFiltrados2025 = filtrarDados(filteredData["2025"] || []);
 
-        // 🔹 Obtem todos os anos disponíveis dinamicamente
-        const anosDisponiveis = Object.keys(filteredData).sort();
-
-        // 🔹 Exibe os dados de cada ano (para análise no console)
-        anosDisponiveis.forEach(ano => {
-            console.log(`Dados de ${ano} com situation 3:`, filteredData[ano]);
-        });
-
-        // 🔹 Dados do mês atual
-        const { ano } = obterMesAtual();
-        const dadosAnoAtual = filteredData[ano] || [];
-        const dadosFiltrados = filtrarDados(dadosAnoAtual); // Dados do mês atual
-
-        // Exibe e popula os dados filtrados no HTML
-        console.log(`Dados filtrados para ${ano}:`, dadosFiltrados);
-        popularDados(dadosFiltrados);
-
-        // 🔹 Funções auxiliares
+        // Exibe o resultado no console
+        console.log("Dados filtrados para 2025:", dadosFiltrados2025);
+        
+        // Popula os dados no HTML
+        popularDados(dadosFiltrados2025);
+        
+        // Função para calcular totais mensais
         const calculateMonthlyTotals = (data) => {
             const monthlyTotals = {};
             data.forEach(item => {
-                const month = new Date(item.due_date).getMonth() + 1;
+                const month = new Date(item.due_date).getMonth() + 1; // Pega o mês (1 a 12)
                 const value = parseFloat(item.value_paid);
                 if (!monthlyTotals[month]) {
                     monthlyTotals[month] = 0;
@@ -123,36 +121,37 @@ async function main() {
             });
             return monthlyTotals;
         };
-
+        
+        // Função para calcular total anual
         const calculateAnnualTotal = (data) => {
-            return data.reduce((acc, item) => acc + parseFloat(item.value_paid), 0).toFixed(2);
+            return data.reduce((accumulator, item) => {
+                return accumulator + parseFloat(item.value_paid);
+            }, 0).toFixed(2);
         };
-
-        // 🔹 Calcula totais por ano e mês
-        const totals = {};
-        anosDisponiveis.forEach(ano => {
-            const data = filteredData[ano] || [];
-            totals[ano] = {
+        
+        // Calcula totais por ano e mês
+        const totals = [];
+        for (const year of ["2022", "2023", "2024", "2025"]) {
+            const data = filteredData[year] || [];
+            totals[year] = {
                 annualTotal: calculateAnnualTotal(data),
                 monthlyTotals: calculateMonthlyTotals(data),
             };
-        });
-
-        rest(totals);
-
+        }
+        rest(totals)
+       
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
         const container = document.querySelector('#container');
         const mensal = document.querySelector('#mensal');
-        mensal.style.backgroundColor = "#cf5959b7";
+        mensal.style.backgroundColor="#cf5959b7";
         mensal.classList.add('container-anual');
-        mensal.innerHTML = "<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
-        container.style.backgroundColor = "#cf5959b7";
+        mensal.innerHTML="<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
+        container.style.backgroundColor="#cf5959b7";
         container.classList.add('container-anual');
-        container.innerHTML = "<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
+        container.innerHTML="<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
     }
 }
-
 
 // Chamar a função principal
 main();
@@ -419,19 +418,3 @@ function graficMetas(totalCliente){
 }
 
 
-async function buscarDadosTaxas(totals){
-  console.log("testeando a função de taxas", totals)
-    const li = document.createElement("li");
-    li.innerHTML = `
-        <div class="taxa-line">
-            <p class="nome">Ismael Nascimento Vieira</p>
-            <p class="valor-pago">57,20</p>
-            <p class="valor-plano">55</p>
-            <p class="valor-multa">4%</p>
-            <p class="valor-juros">00,00</p>
-            <p class="juros-dia">0,025</p>
-            <p class="valor-total">57,02</p>
-        </div>
-    `;
-    lista.appendChild(li);
-}

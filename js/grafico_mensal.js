@@ -3,7 +3,6 @@
 
 
 async function mensal(totals){
-    buscarDadosTaxas(totals);
     console.log('testando mensal', totals)
     // Exibe os totais
     const month = []; // Armazena apenas os valores dos meses de todos os anos
