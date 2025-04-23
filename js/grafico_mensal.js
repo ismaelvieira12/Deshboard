@@ -2,8 +2,8 @@
 // // Data retrieved from https://www.ssb.no/energi-og-industri/olje-og-gass/statistikk/sal-av-petroleumsprodukt/artikler/auka-sal-av-petroleumsprodukt-til-vegtrafikk
 
 
-
 async function mensal(totals){
+    buscarDadosTaxas(totals);
     console.log('testando mensal', totals)
     // Exibe os totais
     const month = []; // Armazena apenas os valores dos meses de todos os anos
@@ -19,19 +19,19 @@ async function mensal(totals){
     }
     const a2022 = meses2022.map(valor => valor === undefined ? null : valor);
     console.log('2022', a2022);
-
+    
     const meses2023 = [];// guarda os valores totais dos meses do ano de 2023
     for(let i = 1; i <= 12; i++){
         meses2023.push(month[1][i]);
     }
     console.log('2023', meses2023);
-
+    
     const meses2024 = []; // guarda os valores totais dos meses do ano de 2024
     for(let i = 1; i <= 12; i++){
         meses2024.push(month[2][i]);
     }
     console.log('2024', meses2024);
-
+    
     const meses2025 = []; // guarda os valores totais dos meses do ano de 2025
     for(let i = 1; i <= 12; i++){
         meses2025.push(month[3][i]);
@@ -41,8 +41,8 @@ async function mensal(totals){
     );
     console.log('2025', a2025);
     mesesText = ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
-
-
+    
+    
     if (!totals || !Array.isArray(totals) || totals.length === 0) {
         console.error("Erro: Lista de totais está vazia ou indefinida.");
         return 0;
@@ -59,16 +59,16 @@ async function mensal(totals){
         2024: 2024,
         2025: 2025
     };
-
+    
     // Obtém o índice do ano no array
     const indexAno = indiceAno[anoAtual];
-
+    
     // Se o ano atual não estiver no mapeamento, retorna erro
     if (indexAno === undefined) {
         console.warn(`Nenhum dado encontrado para o ano ${anoAtual}`);
         return 0;
     }
-
+    
     // Obtém os dados do ano atual
     const dadosAno = totals[indexAno]?.monthlyTotals;
     // Se não houver dados para o ano, retorna 0
@@ -76,7 +76,7 @@ async function mensal(totals){
         console.warn(`Nenhum dado registrado para o ano ${anoAtual}`);
         return 0;
     }
-
+    
     // Obtém o total do mês atual
     const totalMesAtual = dadosAno[mesAtual] || 0;
 
@@ -85,7 +85,8 @@ async function mensal(totals){
     //populando os dados no HTML.
     document.getElementById('text-mensal').innerText = `Total do mês ${mesAtual}/${anoAtual}`
     document.getElementById('valor-mensal').innerText = `R$ ${totalMesAtual.toLocaleString('pt-BR')}`;
-
+    
+    
     // discionario(a2025);
 
     Highcharts.chart('mensal', {
