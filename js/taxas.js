@@ -57,3 +57,5 @@ function calcularTotal(row) {
   function taxasJson(taxasJson){
     console.log('Pagamentos do mês (JSON):', taxasJson);
   }
+
+  taxasJson();
