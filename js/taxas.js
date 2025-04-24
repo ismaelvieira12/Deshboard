@@ -64,68 +64,50 @@ const getPlano = (valor) => {
 
 let dadosMock = [];
 
-const filtrarDados = () => {
-  const ano = document.getElementById("anoSelect").value;
-  const mes = document.getElementById("mesSelect").value;
-  const corpo = document.getElementById("corpoTabela");
-  corpo.innerHTML = ""; // Limpa a tabela antes de preencher
+filtrados.forEach(item => {
+  const nome = item.customer?.name || "N/A";
+  let valorPlano = parseFloat(item.value).toFixed(2);
+  let valorPago = parseFloat(item.value_paid || 0).toFixed(2);
 
-  // Filtra os dados para o ano e mês selecionados
-  const filtrados = dadosMock.filter(item =>
-    item.situation === 3 && item.due_date?.startsWith(`${ano}-${mes}`)
+  const diasAtraso = Math.max(
+    0,
+    Math.floor(
+      (new Date(item.date_payment) - new Date(item.due_date)) / (1000 * 60 * 60 * 24)
+    )
   );
 
-  filtrados.forEach(item => {
-    const nome = item.customer?.name || "N/A";
-    let valorPlano = parseFloat(item.value).toFixed(2);
-    let valorPago = parseFloat(item.value_paid || 0).toFixed(2);
+  const desconto = 3;
+  const multaPercent = 4;
+  const jurosDiaPercent = 0.25;
+  let multa = 0;
+  let juros = 0;
+  let total = parseFloat(valorPlano);
 
-    // Calculando os dias de atraso
-    const diasAtraso = Math.max(
-      0,
-      Math.floor(
-        (new Date(item.date_payment) - new Date(item.due_date)) / (1000 * 60 * 60 * 24)
-      )
-    );
+  if (new Date(item.date_payment) < new Date(item.due_date)) {
+    total = total - desconto;
+    multa = 0;
+    juros = 0;
+  } else if (diasAtraso > 0) {
+    multa = (valorPlano * multaPercent / 100).toFixed(2);
+    juros = (valorPlano * (jurosDiaPercent / 100) * diasAtraso).toFixed(2);
+    total = (parseFloat(valorPlano) + parseFloat(multa) + parseFloat(juros)).toFixed(2);
+  }
 
-    // Lógica de desconto, multa e juros
-    const desconto = 3; // Desconto de R$3,00 para pagamento antecipado
-    const multaPercent = 4; // 4% de multa
-    const jurosDiaPercent = 0.25; // 0,25% de juros por dia
-    let multa = 0;
-    let juros = 0;
-    let total = parseFloat(valorPlano);
+  const linha = `
+    <tr data-id="${item.id}">
+      <td>${nome}</td>
+      <td>${getPlano(valorPlano)}</td>
+      <td><input type="number" value="${valorPlano}" onchange="atualizarValores(this, ${item.id})" data-type="valorPlano" /></td>
+      <td><input type="number" value="${diasAtraso}" onchange="atualizarValores(this, ${item.id})" data-type="diasAtraso" /></td>
+      <td>R$ ${multa}</td>
+      <td>R$ ${juros}</td>
+      <td><input type="number" value="${multaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="multaPercent" /></td>
+      <td><input type="number" value="${jurosDiaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="jurosDiaPercent" /></td>
+      <td><input type="number" value="${valorPago}" onchange="atualizarValores(this, ${item.id})" data-type="valorPago" /></td>
+    </tr>`;
+  corpo.innerHTML += linha;
+});
 
-    // Se o pagamento for antes do vencimento, aplica o desconto e não cobra multa nem juros
-    if (new Date(item.date_payment) < new Date(item.due_date)) {
-      total = total - desconto; // Aplica o desconto de R$3,00
-      multa = 0;  // Não há multa
-      juros = 0;  // Não há juros
-    } else {
-      // Aplica multa e juros apenas se houver atraso
-      if (diasAtraso > 0) {
-        multa = (valorPlano * multaPercent / 100).toFixed(2);
-        juros = (valorPlano * (jurosDiaPercent / 100) * diasAtraso).toFixed(2);
-        total = (parseFloat(valorPlano) + parseFloat(multa) + parseFloat(juros)).toFixed(2);
-      }
-    }
-
-    // Construindo a linha da tabela com inputs
-    const linha = `
-      <tr data-id="${item.id}">
-        <td>${nome}</td>
-        <td>${getPlano(valorPlano)}</td>
-        <td><input type="number" value="${valorPlano}" onchange="atualizarValores(this, ${item.id})" data-type="valorPlano" /></td>
-        <td><input type="number" value="${diasAtraso}" onchange="atualizarValores(this, ${item.id})" data-type="diasAtraso" /></td>
-        <td><input type="number" value="${multaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="multaPercent" /></td>
-        <td>${juros}</td>
-        <td><input type="number" value="${jurosDiaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="jurosDiaPercent" /></td>
-        <td><input type="number" value="${juros}" onchange="atualizarValores(this, ${item.id})" data-type="juros" /></td>
-        <td><input type="number" value="${valorPago}" onchange="atualizarValores(this, ${item.id})" data-type="valorPago" /></td>
-      </tr>`;
-    corpo.innerHTML += linha;
-  });
-};
 
 const anos = [2022, 2023, 2024, 2025];
 const anoSelect = document.getElementById("anoSelect");
