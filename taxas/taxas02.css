@@ -198,3 +198,10 @@ input[type="number"] {
     padding: 5px; 
     text-align: center; 
 }
+
+#graficoValores{
+    position: absolute;
+    background-color: #b8b08d !important;
+    top: 50px;
+    right: 0;
+}
