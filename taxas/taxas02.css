@@ -158,7 +158,17 @@ body {
         color: #ccc;
     }
 }
-
+.controls{
+    & #anoSelect, #mesSelect, button{
+        background-color: var(--cor04);
+        padding: 6px;
+        width: 100px;
+        border-radius: 5px;
+        
+        border: none;
+        outline: none;
+    }
+}
 .tabela { 
     width: 100%;
     border-collapse: collapse;
