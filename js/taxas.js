@@ -119,8 +119,8 @@ const filtrarDados = () => {
     corpo.innerHTML += linha;
   });
   renderizarGrafico(filtrados); // Se quiser manter a antiga
-  graficoArea(filtrados);
-  graficoBarras(filtrados);
+  graficoTaxaPorMes(filtrados);
+  graficoDescontoPorMes(filtrados);
   graficoPizza(filtrados);
 
   console.log(filtrados);
@@ -175,37 +175,81 @@ function renderizarGrafico(dados) {
   });
 }
 
-// Gráfico de Área – Valores pagos por mês
-function graficoArea(dados) {
+//Gráfico: Taxa por Mês por Plano
+function graficoTaxaPorMes(dados) {
   const ctx = document.getElementById('graficoArea').getContext('2d');
 
-  const valoresPorData = {};
+  const taxasPorMesPlano = {};
 
   dados.forEach(item => {
     const data = item.due_date?.slice(0, 7); // YYYY-MM
-    const valorPago = parseFloat(item.value_paid || 0);
-    if (!valoresPorData[data]) valoresPorData[data] = 0;
-    valoresPorData[data] += valorPago;
+    const plano = getPlano(item.value);
+    const multa = parseFloat(item.multa || 0);
+    const juros = parseFloat(item.juros || 0);
+    const taxaTotal = multa + juros;
+
+    if (!taxasPorMesPlano[data]) taxasPorMesPlano[data] = { "35MB": 0, "45MB": 0, "100MB": 0 };
+    taxasPorMesPlano[data][plano] += taxaTotal;
   });
 
-  const labels = Object.keys(valoresPorData).sort();
-  const valores = labels.map(label => valoresPorData[label].toFixed(2));
+  const labels = Object.keys(taxasPorMesPlano).sort();
+  const datasets = ["35MB", "45MB", "100MB"].map((plano, i) => ({
+    label: plano,
+    data: labels.map(label => taxasPorMesPlano[label][plano].toFixed(2)),
+    borderColor: ['#4caf50', '#2196f3', '#f44336'][i],
+    backgroundColor: ['#4caf5055', '#2196f355', '#f4433655'][i],
+    fill: true,
+    tension: 0.3
+  }));
 
   if (window.areaChart) window.areaChart.destroy();
   window.areaChart = new Chart(ctx, {
     type: 'line',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Valor Pago por Mês',
-        data: valores,
-        backgroundColor: 'rgba(75,192,192,0.2)',
-        borderColor: 'rgba(75,192,192,1)',
-        fill: true,
-        tension: 0.3
-      }]
-    },
-    options: { responsive: true }
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: 'Total de Taxas por Mês (Juros + Multa)' }
+      }
+    }
+  });
+}
+
+// Gráfico: Descontos por Mês por Plano
+function graficoDescontoPorMes(dados) {
+  const ctx = document.getElementById('graficoBarras').getContext('2d');
+
+  const descontosPorMesPlano = {};
+
+  dados.forEach(item => {
+    const data = item.due_date?.slice(0, 7); // YYYY-MM
+    const plano = getPlano(item.value);
+    const valorPlano = parseFloat(item.value || 0);
+    const valorPago = parseFloat(item.value_paid || 0);
+    const desconto = valorPlano > valorPago ? (valorPlano - valorPago) : 0;
+
+    if (!descontosPorMesPlano[data]) descontosPorMesPlano[data] = { "35MB": 0, "45MB": 0, "100MB": 0 };
+    descontosPorMesPlano[data][plano] += desconto;
+  });
+
+  const labels = Object.keys(descontosPorMesPlano).sort();
+  const datasets = ["35MB", "45MB", "100MB"].map((plano, i) => ({
+    label: plano,
+    data: labels.map(label => descontosPorMesPlano[label][plano].toFixed(2)),
+    backgroundColor: ['#ff6384aa', '#36a2ebaa', '#ffce56aa'][i]
+  }));
+
+  if (window.barChart) window.barChart.destroy();
+  window.barChart = new Chart(ctx, {
+    type: 'bar',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: 'Descontos Aplicados por Mês' },
+        tooltip: { mode: 'index', intersect: false }
+      }
+    }
   });
 }
 
