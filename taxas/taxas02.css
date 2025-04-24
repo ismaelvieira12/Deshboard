@@ -199,9 +199,11 @@ input[type="number"] {
     text-align: center; 
 }
 
-#graficoValores{
+/* #graficoValores{
     position: absolute;
     background-color: #b8b08d !important;
-    top: 50px;
+    top: 100px;
     right: 0;
-}
+
+    width: 25% !important;
+} */

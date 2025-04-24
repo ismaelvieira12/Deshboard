@@ -118,60 +118,118 @@ const filtrarDados = () => {
       </tr>`;
     corpo.innerHTML += linha;
   });
-  renderizarGrafico(filtrados);
+  renderizarGrafico(filtrados); // Se quiser manter a antiga
+  graficoArea(filtrados);
+  graficoBarras(filtrados);
+  graficoPizza(filtrados);
+
+  console.log(filtrados);
   
 };
 
+// Gráfico de Área – Valores pagos por mês
+function graficoArea(dados) {
+  const ctx = document.getElementById('graficoArea').getContext('2d');
 
-
-function renderizarGrafico(dados) {
-  const ctx = document.getElementById('graficoValores').getContext('2d');
-
-  // Agrupar os dados por data e somar os valores pagos
   const valoresPorData = {};
 
   dados.forEach(item => {
     const data = item.due_date?.slice(0, 7); // YYYY-MM
     const valorPago = parseFloat(item.value_paid || 0);
-    if (!valoresPorData[data]) {
-      valoresPorData[data] = 0;
-    }
+    if (!valoresPorData[data]) valoresPorData[data] = 0;
     valoresPorData[data] += valorPago;
   });
 
   const labels = Object.keys(valoresPorData).sort();
   const valores = labels.map(label => valoresPorData[label].toFixed(2));
 
-  // Se já existir um gráfico anterior, destrói antes de criar outro
-  if (window.meuGrafico) {
-    window.meuGrafico.destroy();
-  }
-
-  window.meuGrafico = new Chart(ctx, {
-    type: 'line', // tipo área = 'line' com opção de preenchimento
+  if (window.areaChart) window.areaChart.destroy();
+  window.areaChart = new Chart(ctx, {
+    type: 'line',
     data: {
-      labels: labels,
+      labels,
       datasets: [{
         label: 'Valor Pago por Mês',
         data: valores,
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75,192,192,0.2)',
+        borderColor: 'rgba(75,192,192,1)',
         fill: true,
         tension: 0.3
+      }]
+    },
+    options: { responsive: true }
+  });
+}
+
+
+//  Gráfico de Barras – Total por plano
+function graficoBarras(dados) {
+  const ctx = document.getElementById('graficoBarras').getContext('2d');
+  const planos = { "35MB": 0, "45MB": 0, "100MB": 0 };
+
+  dados.forEach(item => {
+    const plano = getPlano(item.value);
+    planos[plano] += parseFloat(item.value_paid || 0);
+  });
+
+  const labels = Object.keys(planos);
+  const valores = labels.map(p => planos[p].toFixed(2));
+
+  if (window.barChart) window.barChart.destroy();
+  window.barChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Total Pago por Plano',
+        data: valores,
+        backgroundColor: ['#4caf50', '#2196f3', '#f44336']
       }]
     },
     options: {
       responsive: true,
       plugins: {
-        legend: { position: 'top' },
-        title: {
-          display: true,
-          text: 'Valores Pagos por Mês'
-        }
+        title: { display: true, text: 'Pagamentos por Plano' }
       }
     }
   });
 }
+
+
+
+//  Gráfico de Pizza – Distribuição de clientes por plano
+function graficoPizza(dados) {
+  const ctx = document.getElementById('graficoPizza').getContext('2d');
+  const distribuicao = { "35MB": 0, "45MB": 0, "100MB": 0 };
+
+  dados.forEach(item => {
+    const plano = getPlano(item.value);
+    distribuicao[plano]++;
+  });
+
+  const labels = Object.keys(distribuicao);
+  const valores = labels.map(p => distribuicao[p]);
+
+  if (window.pieChart) window.pieChart.destroy();
+  window.pieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Clientes por Plano',
+        data: valores,
+        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: 'Distribuição por Plano' }
+      }
+    }
+  });
+}
+
 
 
 const anos = [2022, 2023, 2024, 2025];
