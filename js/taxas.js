@@ -118,16 +118,39 @@ const filtrarDados = () => {
       </tr>`;
     corpo.innerHTML += linha;
   });
+
+  filtrados.forEach(item => {
+    const valorPlano = parseFloat(item.value);
+    const dataVenc = new Date(item.due_date);
+    const dataPag = new Date(item.date_payment);
+    const diasAtraso = Math.max(0, Math.floor((dataPag - dataVenc) / (1000 * 60 * 60 * 24)));
+    const multaPercent = 4;
+    const jurosDiaPercent = 0.25;
+
+    if (dataPag > dataVenc) {
+      item.multa = parseFloat((valorPlano * multaPercent / 100).toFixed(2));
+      item.juros = parseFloat((valorPlano * jurosDiaPercent / 100 * diasAtraso).toFixed(2));
+    } else {
+      item.multa = 0;
+      item.juros = 0;
+    }
+  });
+
+
   renderizarGrafico(filtrados); // Se quiser manter a antiga
   graficoTaxaPorMes(filtrados);
   graficoDescontoPorMes(filtrados);
   graficoPizza(filtrados);
 
-  console.log(filtrados);
+  console.log("Filtrados:", filtrados);
   
 };
+
+
 function renderizarGrafico(dados) {
-  const ctx = document.getElementById('graficoValores').getContext('2d');
+  const canvas = document.getElementById('graficoValores');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
 
   // Agrupar os dados por data e somar os valores pagos
   const valoresPorData = {};
@@ -177,8 +200,9 @@ function renderizarGrafico(dados) {
 
 //Gráfico: Taxa por Mês por Plano
 function graficoTaxaPorMes(dados) {
-  const ctx = document.getElementById('graficoArea').getContext('2d');
-
+  const canvas = document.getElementById('graficoArea');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
   const taxasPorMesPlano = {};
 
   dados.forEach(item => {
@@ -217,8 +241,9 @@ function graficoTaxaPorMes(dados) {
 
 // Gráfico: Descontos por Mês por Plano
 function graficoDescontoPorMes(dados) {
-  const ctx = document.getElementById('graficoBarras').getContext('2d');
-
+  const canvas = document.getElementById('graficoBarras');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
   const descontosPorMesPlano = {};
 
   dados.forEach(item => {
@@ -256,7 +281,9 @@ function graficoDescontoPorMes(dados) {
 
 //  Gráfico de Barras – Total por plano
 function graficoBarras(dados) {
-  const ctx = document.getElementById('graficoBarras').getContext('2d');
+  const canvas = document.getElementById('graficoBarras');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
   const planos = { "35MB": 0, "45MB": 0, "100MB": 0 };
 
   dados.forEach(item => {
@@ -409,5 +436,13 @@ function atualizarValores(input, id) {
   if (multaReaisCell) multaReaisCell.innerText = `R$ ${multa.toFixed(2)}`;
   if (jurosReaisCell) jurosReaisCell.innerText = `R$ ${juros.toFixed(2)}`;
 }
+
+window.onload = async () => {
+  await carregarDados();
+  document.getElementById("anoSelect").value = "2025";
+  document.getElementById("mesSelect").value = "04";
+  filtrarDados();
+};
+
 
 carregarDados();
