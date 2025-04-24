@@ -64,50 +64,62 @@ const getPlano = (valor) => {
 
 let dadosMock = [];
 
-filtrados.forEach(item => {
-  const nome = item.customer?.name || "N/A";
-  let valorPlano = parseFloat(item.value).toFixed(2);
-  let valorPago = parseFloat(item.value_paid || 0).toFixed(2);
+const filtrarDados = () => {
+  const ano = document.getElementById("anoSelect").value;
+  const mes = document.getElementById("mesSelect").value;
+  const corpo = document.getElementById("corpoTabela");
+  corpo.innerHTML = ""; // Limpa a tabela antes de preencher
 
-  const diasAtraso = Math.max(
-    0,
-    Math.floor(
-      (new Date(item.date_payment) - new Date(item.due_date)) / (1000 * 60 * 60 * 24)
-    )
+  // Filtra os dados para o ano e mês selecionados
+  const filtrados = dadosMock.filter(item =>
+    item.situation === 3 && item.due_date?.startsWith(`${ano}-${mes}`)
   );
 
-  const desconto = 3;
-  const multaPercent = 4;
-  const jurosDiaPercent = 0.25;
-  let multa = 0;
-  let juros = 0;
-  let total = parseFloat(valorPlano);
-
-  if (new Date(item.date_payment) < new Date(item.due_date)) {
-    total = total - desconto;
-    multa = 0;
-    juros = 0;
-  } else if (diasAtraso > 0) {
-    multa = (valorPlano * multaPercent / 100).toFixed(2);
-    juros = (valorPlano * (jurosDiaPercent / 100) * diasAtraso).toFixed(2);
-    total = (parseFloat(valorPlano) + parseFloat(multa) + parseFloat(juros)).toFixed(2);
-  }
-
-  const linha = `
-    <tr data-id="${item.id}">
-      <td>${nome}</td>
-      <td>${getPlano(valorPlano)}</td>
-      <td><input type="number" value="${valorPlano}" onchange="atualizarValores(this, ${item.id})" data-type="valorPlano" /></td>
-      <td><input type="number" value="${diasAtraso}" onchange="atualizarValores(this, ${item.id})" data-type="diasAtraso" /></td>
-      <td>R$ ${multa}</td>
-      <td>R$ ${juros}</td>
-      <td><input type="number" value="${multaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="multaPercent" /></td>
-      <td><input type="number" value="${jurosDiaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="jurosDiaPercent" /></td>
-      <td><input type="number" value="${valorPago}" onchange="atualizarValores(this, ${item.id})" data-type="valorPago" /></td>
-    </tr>`;
-  corpo.innerHTML += linha;
-});
-
+  filtrados.forEach(item => {
+    const nome = item.customer?.name || "N/A";
+    let valorPlano = parseFloat(item.value).toFixed(2);
+    let valorPago = parseFloat(item.value_paid || 0).toFixed(2);
+  
+    const diasAtraso = Math.max(
+      0,
+      Math.floor(
+        (new Date(item.date_payment) - new Date(item.due_date)) / (1000 * 60 * 60 * 24)
+      )
+    );
+  
+    const desconto = 3;
+    const multaPercent = 4;
+    const jurosDiaPercent = 0.25;
+    let multa = 0;
+    let juros = 0;
+    let total = parseFloat(valorPlano);
+  
+    if (new Date(item.date_payment) < new Date(item.due_date)) {
+      total = total - desconto;
+      multa = 0;
+      juros = 0;
+    } else if (diasAtraso > 0) {
+      multa = (valorPlano * multaPercent / 100).toFixed(2);
+      juros = (valorPlano * (jurosDiaPercent / 100) * diasAtraso).toFixed(2);
+      total = (parseFloat(valorPlano) + parseFloat(multa) + parseFloat(juros)).toFixed(2);
+    }
+  
+    const linha = `
+      <tr data-id="${item.id}">
+        <td>${nome}</td>
+        <td>${getPlano(valorPlano)}</td>
+        <td><input type="number" value="${valorPlano}" onchange="atualizarValores(this, ${item.id})" data-type="valorPlano" /></td>
+        <td><input type="number" value="${diasAtraso}" onchange="atualizarValores(this, ${item.id})" data-type="diasAtraso" /></td>
+        <td><input type="number" value="${multaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="multaPercent" /></td>
+        <td>R$ ${multa}</td>
+        <td><input type="number" value="${jurosDiaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="jurosDiaPercent" /></td>
+        <td>R$ ${juros}</td>
+        <td><input type="number" value="${valorPago}" onchange="atualizarValores(this, ${item.id})" data-type="valorPago" /></td>
+      </tr>`;
+    corpo.innerHTML += linha;
+  });
+  
+};
 
 const anos = [2022, 2023, 2024, 2025];
 const anoSelect = document.getElementById("anoSelect");
@@ -165,33 +177,34 @@ function atualizarValores(input, id) {
   const diasAtrasoInput = linha.querySelector('[data-type="diasAtraso"]');
   const multaPercentInput = linha.querySelector('[data-type="multaPercent"]');
   const jurosDiaPercentInput = linha.querySelector('[data-type="jurosDiaPercent"]');
-  const jurosInput = linha.querySelector('[data-type="juros"]');
   const valorPagoInput = linha.querySelector('[data-type="valorPago"]');
+  const multaReaisCell = linha.querySelector('[data-type="multaReais"]');
+  const jurosReaisCell = linha.querySelector('[data-type="jurosReais"]');
 
-  let valorPlano = parseFloat(valorPlanoInput.value).toFixed(2);
+  let valorPlano = parseFloat(valorPlanoInput.value);
   let diasAtraso = parseInt(diasAtrasoInput.value);
-  let multaPercent = parseFloat(multaPercentInput.value).toFixed(2);
-  let jurosDiaPercent = parseFloat(jurosDiaPercentInput.value).toFixed(2);
-  let juros = parseFloat(jurosInput.value).toFixed(2);
-  let valorPago = parseFloat(valorPagoInput.value).toFixed(2);
+  let multaPercent = parseFloat(multaPercentInput.value);
+  let jurosDiaPercent = parseFloat(jurosDiaPercentInput.value);
 
   const desconto = 3;
   let multa = 0;
-  let total = parseFloat(valorPlano);
+  let juros = 0;
+  let total = valorPlano;
 
-  // Se o pagamento for antes do vencimento, aplica o desconto e não cobra multa nem juros
   if (diasAtraso < 0) {
-    total = total - desconto; // Aplica o desconto de R$3,00
-    multa = 0;  // Não há multa
-    juros = 0;  // Não há juros
+    total = valorPlano - desconto;
+    multa = 0;
+    juros = 0;
   } else {
-    // Aplica multa e juros apenas se houver atraso
-    multa = (valorPlano * multaPercent / 100).toFixed(2);
-    total = (parseFloat(valorPlano) + parseFloat(multa) + parseFloat(juros)).toFixed(2);
+    multa = parseFloat((valorPlano * multaPercent / 100).toFixed(2));
+    juros = parseFloat((valorPlano * (jurosDiaPercent / 100) * diasAtraso).toFixed(2));
+    total = parseFloat((valorPlano + multa + juros).toFixed(2));
   }
 
-  // Atualiza o campo Valor/Pago
-  valorPagoInput.value = total;
+  // Atualiza os valores visuais na tabela
+  valorPagoInput.value = total.toFixed(2);
+  if (multaReaisCell) multaReaisCell.innerText = `R$ ${multa.toFixed(2)}`;
+  if (jurosReaisCell) jurosReaisCell.innerText = `R$ ${juros.toFixed(2)}`;
 }
 
 carregarDados();
