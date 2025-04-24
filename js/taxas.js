@@ -126,6 +126,54 @@ const filtrarDados = () => {
   console.log(filtrados);
   
 };
+function renderizarGrafico(dados) {
+  const ctx = document.getElementById('graficoValores').getContext('2d');
+
+  // Agrupar os dados por data e somar os valores pagos
+  const valoresPorData = {};
+
+  dados.forEach(item => {
+    const data = item.due_date?.slice(0, 7); // YYYY-MM
+    const valorPago = parseFloat(item.value_paid || 0);
+    if (!valoresPorData[data]) {
+      valoresPorData[data] = 0;
+    }
+    valoresPorData[data] += valorPago;
+  });
+
+  const labels = Object.keys(valoresPorData).sort();
+  const valores = labels.map(label => valoresPorData[label].toFixed(2));
+
+  // Se já existir um gráfico anterior, destrói antes de criar outro
+  if (window.meuGrafico) {
+    window.meuGrafico.destroy();
+  }
+
+  window.meuGrafico = new Chart(ctx, {
+    type: 'line', // tipo área = 'line' com opção de preenchimento
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Valor Pago por Mês',
+        data: valores,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        title: {
+          display: true,
+          text: 'Valores Pagos por Mês'
+        }
+      }
+    }
+  });
+}
 
 // Gráfico de Área – Valores pagos por mês
 function graficoArea(dados) {
