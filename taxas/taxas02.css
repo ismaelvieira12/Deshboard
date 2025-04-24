@@ -143,7 +143,7 @@ body {
     position: fixed;
     top: 60px;
     left: 7%;
-    width: 93%;
+    width: 70%;
     height: 100%;
     overflow-y: auto;
     /* background-color: #b8b08d; */
@@ -160,11 +160,13 @@ body {
 }
 .controls{
     & #anoSelect, #mesSelect, button{
-        background-color: var(--cor04);
+        background-color: var(--cor05);
+        color: #ffffff;
+        font-weight: bold;
         padding: 6px;
         width: 100px;
         border-radius: 5px;
-        
+        margin: 10px 0px;
         border: none;
         outline: none;
     }
@@ -175,9 +177,16 @@ body {
     margin-top: 10px;
 }
 .tabela th, .tabela td { 
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc46;
     padding: 8px;
     text-align: center;
+}
+
+input[type="number"]{
+    background-color: var(--cor01);
+    border: none;
+    color: #ffffff;
+    padding: 15px;
 }
 .controls { 
     display: flex; 
