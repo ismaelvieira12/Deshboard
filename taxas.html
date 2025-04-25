@@ -157,46 +157,20 @@
       </table>
     </div>
 </main>
+<div id="loader" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  z-index: 9999;
+">
+  Carregando dados...
+</div>
 
-    <!-- <main>
-        <div class="filter-anos-id">
-         
-            <input type="date" id="dataInput">
-            <button onclick="buscarDados()">Buscar</button>
-          
-            <div id="resultados">
-              <table>
-                <thead>
-                  <tr>
-                    <th class="nome">Nome</th>
-                    <th class="plano">Plano</th>
-                    <th class="valor-plano">Valor do Plano</th>
-                    <th class="dias-atraso">Dias em atraso</th>
-                    <th class="valor-pago">Valor/Pago</th>
-                    <th class="valor-multa">Multa (%)</th>
-                    <th class="valor-juros">Valor/Juros</th>
-                    <th class="juros-dia">Juros/Dia (%)</th>
-                    <th class="valor-total">Total/Pagar</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="taxa-line">
-                    <td><input type="text" value="Ismael Nascimento Vieira"></td>
-                    <td><input type="text" class="plano" value="50MB"></td>
-                    <td><input type="number" class="valor-plano" value="55"></td>
-                    <td><input type="number" class="dias-atraso" value="55"></td>
-                    <td><input type="number" class="valor-pago" value="57.20"></td>
-                    <td><input type="number" class="valor-multa" value="4"></td>
-                    <td><input type="number" class="valor-juros" value="0.00"></td>
-                    <td><input type="number" class="juros-dia" value="2"></td>
-                    <td><input type="text" class="valor-total" readonly></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          
-    </main> -->
 
     <script src="js/taxas.js"></script>
 </body>
