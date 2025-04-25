@@ -64,13 +64,22 @@ const getPlano = (valor) => {
 
 let dadosMock = [];
 
+const mostrarCarregando = () => {
+  const corpo = document.getElementById("corpoTabela");
+  corpo.innerHTML = '<tr><td colspan="9" style="text-align:center">Carregando dados...</td></tr>';
+};
+
+const esconderCarregando = () => {
+  const corpo = document.getElementById("corpoTabela");
+  corpo.innerHTML = "";
+};
+
 const filtrarDados = () => {
   const ano = document.getElementById("anoSelect").value;
   const mes = document.getElementById("mesSelect").value;
   const corpo = document.getElementById("corpoTabela");
-  corpo.innerHTML = ""; // Limpa a tabela antes de preencher
+  corpo.innerHTML = "";
 
-  // Filtra os dados para o ano e mês selecionados
   const filtrados = dadosMock.filter(item =>
     item.situation === 3 && item.due_date?.startsWith(`${ano}-${mes}`)
   );
@@ -79,21 +88,21 @@ const filtrarDados = () => {
     const nome = item.customer?.name || "N/A";
     let valorPlano = parseFloat(item.value).toFixed(2);
     let valorPago = parseFloat(item.value_paid || 0).toFixed(2);
-  
+
     const diasAtraso = Math.max(
       0,
       Math.floor(
         (new Date(item.date_payment) - new Date(item.due_date)) / (1000 * 60 * 60 * 24)
       )
     );
-  
+
     const desconto = 3;
     const multaPercent = 4;
     const jurosDiaPercent = 0.25;
     let multa = 0;
     let juros = 0;
     let total = parseFloat(valorPlano);
-  
+
     if (new Date(item.date_payment) < new Date(item.due_date)) {
       total = total - desconto;
       multa = 0;
@@ -103,7 +112,7 @@ const filtrarDados = () => {
       juros = (valorPlano * (jurosDiaPercent / 100) * diasAtraso).toFixed(2);
       total = (parseFloat(valorPlano) + parseFloat(multa) + parseFloat(juros)).toFixed(2);
     }
-  
+
     const linha = `
       <tr data-id="${item.id}">
         <td>${nome}</td>
@@ -111,9 +120,9 @@ const filtrarDados = () => {
         <td><input type="number" value="${valorPlano}" onchange="atualizarValores(this, ${item.id})" data-type="valorPlano" /></td>
         <td><input type="number" value="${diasAtraso}" onchange="atualizarValores(this, ${item.id})" data-type="diasAtraso" /></td>
         <td><input type="number" value="${multaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="multaPercent" /></td>
-        <td>R$ ${multa}</td>
+        <td data-type="multaReais">R$ ${multa}</td>
         <td><input type="number" value="${jurosDiaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="jurosDiaPercent" /></td>
-        <td>R$ ${juros}</td>
+        <td data-type="jurosReais">R$ ${juros}</td>
         <td><input type="number" value="${valorPago}" onchange="atualizarValores(this, ${item.id})" data-type="valorPago" /></td>
       </tr>`;
     corpo.innerHTML += linha;
@@ -136,14 +145,12 @@ const filtrarDados = () => {
     }
   });
 
-
-  renderizarGrafico(filtrados); // Se quiser manter a antiga
+  renderizarGrafico(filtrados);
   graficoTaxaPorMes(filtrados);
   graficoDescontoPorMes(filtrados);
   graficoPizza(filtrados);
 
   console.log("Filtrados:", filtrados);
-  
 };
 
 
@@ -389,6 +396,7 @@ async function fetchPage(token, page) {
 
 async function carregarDados() {
   try {
+    mostrarCarregando();
     const token = await getAuthToken();
     const primeiraPagina = await fetchPage(token, 1);
     const totalPages = Math.ceil(primeiraPagina.statistics.all.quantity / primeiraPagina.per_page);
@@ -396,53 +404,16 @@ async function carregarDados() {
       Array.from({ length: totalPages }, (_, i) => fetchPage(token, i + 1))
     );
     dadosMock = todasPaginas.flatMap(p => p.data);
+    esconderCarregando();
   } catch (err) {
     console.error("Erro ao carregar dados:", err.message);
   }
 }
 
-function atualizarValores(input, id) {
-  const linha = input.closest('tr');
-  const valorPlanoInput = linha.querySelector('[data-type="valorPlano"]');
-  const diasAtrasoInput = linha.querySelector('[data-type="diasAtraso"]');
-  const multaPercentInput = linha.querySelector('[data-type="multaPercent"]');
-  const jurosDiaPercentInput = linha.querySelector('[data-type="jurosDiaPercent"]');
-  const valorPagoInput = linha.querySelector('[data-type="valorPago"]');
-  const multaReaisCell = linha.querySelector('[data-type="multaReais"]');
-  const jurosReaisCell = linha.querySelector('[data-type="jurosReais"]');
-
-  let valorPlano = parseFloat(valorPlanoInput.value);
-  let diasAtraso = parseInt(diasAtrasoInput.value);
-  let multaPercent = parseFloat(multaPercentInput.value);
-  let jurosDiaPercent = parseFloat(jurosDiaPercentInput.value);
-
-  const desconto = 3;
-  let multa = 0;
-  let juros = 0;
-  let total = valorPlano;
-
-  if (diasAtraso < 0) {
-    total = valorPlano - desconto;
-    multa = 0;
-    juros = 0;
-  } else {
-    multa = parseFloat((valorPlano * multaPercent / 100).toFixed(2));
-    juros = parseFloat((valorPlano * (jurosDiaPercent / 100) * diasAtraso).toFixed(2));
-    total = parseFloat((valorPlano + multa + juros).toFixed(2));
-  }
-
-  // Atualiza os valores visuais na tabela
-  valorPagoInput.value = total.toFixed(2);
-  if (multaReaisCell) multaReaisCell.innerText = `R$ ${multa.toFixed(2)}`;
-  if (jurosReaisCell) jurosReaisCell.innerText = `R$ ${juros.toFixed(2)}`;
-}
-
 window.onload = async () => {
+  mostrarCarregando();
   await carregarDados();
   document.getElementById("anoSelect").value = "2025";
   document.getElementById("mesSelect").value = "04";
   filtrarDados();
 };
-
-
-carregarDados();
