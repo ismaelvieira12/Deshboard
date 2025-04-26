@@ -79,30 +79,30 @@ const filtrarDados = () => {
   const mes = document.getElementById("mesSelect").value;
   const corpo = document.getElementById("corpoTabela");
   corpo.innerHTML = "";
-
+  
   const filtrados = dadosMock.filter(item =>
     item.situation === 3 && item.due_date?.startsWith(`${ano}-${mes}`)
   );
-  consol.log(dadosMock);
+  console.log(dadosMock);
   filtrados.forEach(item => {
     const nome = item.customer?.name || "N/A";
     let valorPlano = parseFloat(item.value).toFixed(2);
     let valorPago = parseFloat(item.value_paid || 0).toFixed(2);
-
+    
     const diasAtraso = Math.max(
       0,
       Math.floor(
         (new Date(item.date_payment) - new Date(item.due_date)) / (1000 * 60 * 60 * 24)
       )
     );
-
+    
     const desconto = 3;
     const multaPercent = 4;
     const jurosDiaPercent = 0.25;
     let multa = 0;
     let juros = 0;
     let total = parseFloat(valorPlano);
-
+    
     if (new Date(item.date_payment) < new Date(item.due_date)) {
       total = total - desconto;
       multa = 0;
@@ -112,22 +112,22 @@ const filtrarDados = () => {
       juros = (valorPlano * (jurosDiaPercent / 100) * diasAtraso).toFixed(2);
       total = (parseFloat(valorPlano) + parseFloat(multa) + parseFloat(juros)).toFixed(2);
     }
-
+    
     const linha = `
-      <tr data-id="${item.id}">
-        <td>${nome}</td>
-        <td>${getPlano(valorPlano)}</td>
-        <td><input type="number" value="${valorPlano}" onchange="atualizarValores(this, ${item.id})" data-type="valorPlano" /></td>
-        <td><input type="number" value="${diasAtraso}" onchange="atualizarValores(this, ${item.id})" data-type="diasAtraso" /></td>
-        <td><input type="number" value="${multaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="multaPercent" /></td>
-        <td data-type="multaReais">R$ ${multa}</td>
-        <td><input type="number" value="${jurosDiaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="jurosDiaPercent" /></td>
-        <td data-type="jurosReais">R$ ${juros}</td>
-        <td><input type="number" value="${valorPago}" onchange="atualizarValores(this, ${item.id})" data-type="valorPago" /></td>
-      </tr>`;
+    <tr data-id="${item.id}">
+    <td>${nome}</td>
+    <td>${getPlano(valorPlano)}</td>
+    <td><input type="number" value="${valorPlano}" onchange="atualizarValores(this, ${item.id})" data-type="valorPlano" /></td>
+    <td><input type="number" value="${diasAtraso}" onchange="atualizarValores(this, ${item.id})" data-type="diasAtraso" /></td>
+    <td><input type="number" value="${multaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="multaPercent" /></td>
+    <td data-type="multaReais">R$ ${multa}</td>
+    <td><input type="number" value="${jurosDiaPercent}" onchange="atualizarValores(this, ${item.id})" data-type="jurosDiaPercent" /></td>
+    <td data-type="jurosReais">R$ ${juros}</td>
+    <td><input type="number" value="${valorPago}" onchange="atualizarValores(this, ${item.id})" data-type="valorPago" /></td>
+    </tr>`;
     corpo.innerHTML += linha;
   });
-
+  
   filtrados.forEach(item => {
     const valorPlano = parseFloat(item.value);
     const dataVenc = new Date(item.due_date);
