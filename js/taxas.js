@@ -83,7 +83,7 @@ const filtrarDados = () => {
   const filtrados = dadosMock.filter(item =>
     item.situation === 3 && item.due_date?.startsWith(`${ano}-${mes}`)
   );
-
+  consol
   filtrados.forEach(item => {
     const nome = item.customer?.name || "N/A";
     let valorPlano = parseFloat(item.value).toFixed(2);
@@ -415,5 +415,6 @@ window.onload = async () => {
   await carregarDados();
   document.getElementById("anoSelect").value = "2025";
   document.getElementById("mesSelect").value = "04";
+  document.getElementById('loader').style.display = 'none';
   filtrarDados();
 };
