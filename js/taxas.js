@@ -83,7 +83,7 @@ const filtrarDados = () => {
   const filtrados = dadosMock.filter(item =>
     item.situation === 3 && item.due_date?.startsWith(`${ano}-${mes}`)
   );
-  consol
+  consol.log(dadosMock);
   filtrados.forEach(item => {
     const nome = item.customer?.name || "N/A";
     let valorPlano = parseFloat(item.value).toFixed(2);
