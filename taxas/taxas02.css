@@ -140,7 +140,7 @@ body {
 }
     
 .container { 
-    position: fixed;
+    /* position: fixed; */
     top: 60px;
     left: 7%;
     width: 70%;
