@@ -444,7 +444,7 @@ body{
 
 
 /* Responsividade para dispositivos moveis*/ 
-@media (max-width: 1180px){
+@media (max-width: 1410px){
     body{
         & .fixed-top {
             left: 0%;
