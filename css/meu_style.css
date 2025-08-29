@@ -137,7 +137,6 @@ body{
             & .login{
                 position: fixed;
                 bottom: 20px;
-                
                 width: 100%;
                 &  a{
                     text-decoration: none;
