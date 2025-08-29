@@ -442,16 +442,29 @@ body{
     }
 }
 
+
 /* Responsividade para dispositivos moveis*/ 
-@media (max-width: 1682px){
+@media (max-width: 1180px){
+    body{
+        & .fixed-top {
+            left: 0%;
+        } 
+    }
     .container-graphic{
         height: 40%;
     }
     .infor-metas{
         height: 40%;
     }
+      
+    .cabeca{
+        display: none;
+    }
+    .container-text {
+        width: 97%;
+        left: 2%;
+    }
 }
-
 
 
 
