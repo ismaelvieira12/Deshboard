@@ -56,7 +56,8 @@ async function mensal(totals){
         2022: 2022,
         2023: 2023,
         2024: 2024,
-        2025: 2025
+        2025: 2025,
+        2026: 2026
     };
     
     // Obtém o índice do ano no array
@@ -213,4 +214,4 @@ async function mensal(totals){
     });
 }
 
-mensal()
+mensal(totals)
