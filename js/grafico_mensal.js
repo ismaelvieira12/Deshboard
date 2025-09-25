@@ -3,14 +3,15 @@
 
 
 async function mensal(totals){
-    console.log('testando mensal', totals)
+    
     // Exibe os totais
     const month = []; // Armazena apenas os valores dos meses de todos os anos
-    totals.forEach(item => {
-        let teste = item.monthlyTotals;
-        parseFloat(month.push(teste));
+    Object.keys(totals).forEach(year => {
+        let teste = totals[year].monthlyTotals;
+        month.push(teste);
     });
-    console.log(month);// mostra na tela um array com todos os valores dos meses do ano
+
+    console.log("Qual é essa função?",month);// mostra na tela um array com todos os valores dos meses do ano
     
     const meses2022 = []
     for (let i = 1; i <= 12 ; i++) {
@@ -35,9 +36,10 @@ async function mensal(totals){
     for(let i = 1; i <= 12; i++){
         meses2025.push(month[3][i]);
     }
-    const a2025 = meses2025.map(valor => 
-        (valor !== null && valor !== undefined) ? parseFloat(valor.toFixed(2)) : valor
+    const a2025 = meses2025.map(valor =>
+        (valor !== null && valor !== undefined) ? parseFloat(valor.toFixed(2)) : null
     );
+
     console.log('2025', a2025);
     mesesText = ['jan', 'fer', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
     
@@ -86,7 +88,7 @@ async function mensal(totals){
     document.getElementById('text-mensal').innerText = `Total do mês ${mesAtual}/${anoAtual}`
     document.getElementById('valor-mensal').innerText = `R$ ${totalMesAtual.toLocaleString('pt-BR')}`;
     
-    
+    console.log('testando mensal', totals)
     // discionario(a2025);
 
     Highcharts.chart('mensal', {
@@ -213,5 +215,3 @@ async function mensal(totals){
         }],
     });
 }
-
-mensal(totals)
