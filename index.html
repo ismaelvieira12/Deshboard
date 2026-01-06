@@ -1,166 +1,211 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- ============= links favicon ============== -->
-    <link rel="shortcut icon" href="imgs/activity.svg" type="image/x-icon">
-        <!-- ============ links HIGCHART ============== -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/pareto.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    
-        <!-- ============ links de CDN ================= -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" integrity="sha512-QKC1UZ/ZHNgFzVKSAhV5v5j73eeL9EEN289eKAEFaAjgAiobVAnVv/AGuPbXsKl1dNoel3kNr6PYnSiTzVVBCw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- ============ links de CSS ================= -->
-      <link rel="stylesheet" href="css/meu_style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ============= links favicon ============== -->
+  <link rel="shortcut icon" href="imgs/activity.svg" type="image/x-icon">
+  <!-- ============ links HIGCHART ============== -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/pareto.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-      <!-- ================== CDN PARA ALERTAS ======================== -->
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Dashboard</title>
+  <!-- ============ links de CDN ================= -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+    integrity="sha512-QKC1UZ/ZHNgFzVKSAhV5v5j73eeL9EEN289eKAEFaAjgAiobVAnVv/AGuPbXsKl1dNoel3kNr6PYnSiTzVVBCw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- ============ links de CSS ================= -->
+  <link rel="stylesheet" href="css/meu_style.css">
+
+  <!-- ================== CDN PARA ALERTAS ======================== -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <title>Dashboard</title>
 </head>
-<body>
-    <header>
-        <nav class="navbar-expand-lg navbar bg-body-tertiary fixed-top">
-          <div class="container-fluid">
-            <h2>Dashboard</h2>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"> StarLink Provedor</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <div class="form-check form-switch chk" style="padding-left: 0;">
-                        <i class="bi bi-moon-stars-fill smol" style="margin-right: -20px;"></i>
-                        <!-- <i class="bi bi-brightness-high-fill"></i> -->
-                        <input type="checkbox" name="checkbox" id="modo-noturno">
-                        <label class="box" for="modo-noturno">
-                          <i class="bi sun icons"></i>
-                          <i class="bi bi-moon-stars-fill icons" style="margin-left: 12px;"></i>
-                          <div class="ball"></div>
-                        </label>
-                      </div>
-                    </a>
-                  </li>
-              </div>
-            </div>
-          </div>
-        </nav>
-<!-- =============== Menu do lado esquerdo onde tem o icone filtrar ======================= -->
-    </header>
-    <section class="cabeca">
-        <div class="nav-left">
-          <!-- Moneu -->
-          <label class="caixa-top">
-              <h2><img src="imgs/logo_starLink.jpg" class="logo-img top" alt="Logo da cafeteria"></h2>
-          </label>
-          <div class="menu d-flex flex-column">
-            <label>
-              <a href="#">
-                <i class="icon-home"></i>
-                <p>Home</p>
-              </a>
-            </label>
-            <label>   
-              <a href="filter.html">
-                <i class="icon-graph"></i>
-                <p> Filtrar</p>
-              </a>
-            </label> 
-            <label>   
-              <a href="taxas.html">
-                <i class="fa-solid fa-circle-dollar-to-slot"></i>
-                <p> Taxas</p>
-              </a>
-            </label> 
-          </div>
-            <div class="login d-flex justify-content-center">
-              <label>
-                  <a href="#">
-                      <i class="icon-login"></i>
-                  </a>
-              </label>
-            </div>
-        </div>
-<!-- ============== Section da direita onde fica grafico de metas ================= -->
-        <div class="nav-rigth">
-          <div class="infor-metas">
-            <canvas id="metas"width="100%" height="300"></canvas>
-            <div class="total-infor-cliente">
-              <p>Total de Clientes</p>
-              <span id="all">90</span>
-            </div>
-            <div  id="controle-taxas" class="infor-metas-list"></div>
-          </div>
-        </div>
-    </section>
-    <!-- Aqui começa a parte de graficos  -->
-    <section class="container-text container-main">
-        <div class="d-flex feed">
-            <div class="teste">
-                <label>
-                    <p>Valor Anual </p>
-                    <h2 id="totalAnual">~</h2>
-                </label>
-                <label><i class="fa-solid fa-sack-dollar"></i></label>
-            </div>
-            <div class="teste">
-                <label>
-                    <p id="text-mensal">Valor Mensal</p>
-                    <h2 id="valor-mensal">~</h2>
-                </label>
-                <label><i class="fa-solid fa-chart-line"></i></label>
-            </div>
-            <div class="teste">
-                <label>
-                    <p>Meta Anual</p>
-                    <h2 id="meta"></h2>
-                </label>
-                <label><i class="fa-solid fa-chart-pie"></i></label>
-            </div>
-        </div>
-            
-            <!-- Grafico de metas -->
-        <div class="container-graphic">
-            <div class="graphic" id="container"></div>
-            <div class="graphic graphic-second">
-              <div class="clientes">
-                <h4>Clientes</h4>
-                <div class="box-coluns-name">
-                  <p>Nome</p>
-                  <div>
-                    <p>VL/Plano</p>
-                    <p>VL/Pago</p>
-                  </div>
-                </div>
-              </div>
-              <div class="box-list"></div>
-            </div>
-        </div>
-        <!-- Grafico mensal -->
-        <div class="mensal" id="mensal"></div>
-    </section>
 
-<!-- ========= scripts ============ -->
-    <script src="js/testeApi.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/grafico_mensal.js"></script>
-    <script src="js/grafico_metas.js"></script>
-    <!-- <script src="js/cliente.js"></script> -->
+<body>
+  <header>
+    <nav class="navbar-expand-lg navbar bg-body-tertiary fixed-top">
+      <div class="container-fluid">
+        <h2>Dashboard</h2>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"> StarLink Provedor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <div class="form-check form-switch chk" style="padding-left: 0;">
+                    <i class="bi bi-moon-stars-fill smol" style="margin-right: -20px;"></i>
+                    <!-- <i class="bi bi-brightness-high-fill"></i> -->
+                    <input type="checkbox" name="checkbox" id="modo-noturno">
+                    <label class="box" for="modo-noturno">
+                      <i class="bi sun icons"></i>
+                      <i class="bi bi-moon-stars-fill icons" style="margin-left: 12px;"></i>
+                      <div class="ball"></div>
+                    </label>
+                  </div>
+                </a>
+              </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- =============== Menu do lado esquerdo onde tem o icone filtrar ======================= -->
+  </header>
+  <section class="cabeca">
+    <div class="nav-left">
+      <!-- Moneu -->
+      <label class="caixa-top">
+        <h2><img src="imgs/logo_starLink.jpg" class="logo-img top" alt="Logo da cafeteria"></h2>
+      </label>
+      <div class="menu d-flex flex-column">
+        <label>
+          <a href="#">
+            <i class="icon-home"></i>
+            <p>Home</p>
+          </a>
+        </label>
+        <label>
+          <a href="filter.html">
+            <i class="icon-graph"></i>
+            <p> Filtrar</p>
+          </a>
+        </label>
+        <label>
+          <a href="taxas.html">
+            <i class="fa-solid fa-circle-dollar-to-slot"></i>
+            <p> Taxas</p>
+          </a>
+        </label>
+      </div>
+      <div class="login d-flex justify-content-center">
+        <label>
+          <a href="#">
+            <i class="icon-login"></i>
+          </a>
+        </label>
+      </div>
+    </div>
+    <!-- ============== Section da direita onde fica grafico de metas ================= -->
+    <div class="nav-rigth">
+      <div class="infor-metas">
+        <canvas id="metas" width="100%" height="300"></canvas>
+        <div class="total-infor-cliente">
+          <p>Total de Clientes</p>
+          <span id="all">90</span>
+        </div>
+
+        <div class="infor-metas-list"
+          style="display: flex; flex-direction: column; justify-content: space-between;">
+
+          <!-- Totais de Taxas (Dentro do Container) -->
+          <div style="display: flex; justify-content: space-between;">
+            <div
+              style="background-color: #b8b08d; color: white; width: 50%; text-align: center; padding: 2px; border-top-left-radius: 10px;">
+              <span style="font-size: 0.8rem;">Ganho</span><br>
+              <span id="total-ganho" style="font-weight: bold;">R$ 0,00</span>
+            </div>
+            <div
+              style="background-color: #283845; color: white; width: 50%; text-align: center; padding: 2px; border-top-right-radius: 10px;">
+              <span style="font-size: 0.8rem;">Perda</span><br>
+              <span id="total-perda" style="font-weight: bold;">R$ 0,00</span>
+            </div>
+          </div>
+
+          <h4 style="text-align: center; color: #202c39; margin: 5px 0 0 0; font-size: 1rem; font-weight: bold;">TAXAS
+          </h4>
+
+          <div id="controle-taxas" style="flex-grow: 1; min-height: 0;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Aqui começa a parte de graficos  -->
+  <section class="container-text container-main">
+    <div class="d-flex feed">
+      <div class="teste">
+        <label>
+          <p>Valor Anual </p>
+          <h2 id="totalAnual">~</h2>
+        </label>
+        <label><i class="fa-solid fa-sack-dollar"></i></label>
+      </div>
+      <div class="teste">
+        <label>
+          <p id="text-mensal">Valor Mensal</p>
+          <h2 id="valor-mensal">~</h2>
+        </label>
+        <label><i class="fa-solid fa-chart-line"></i></label>
+      </div>
+      <div class="teste">
+        <label>
+          <p>Meta Anual</p>
+          <h2 id="meta"></h2>
+        </label>
+        <label><i class="fa-solid fa-chart-pie"></i></label>
+      </div>
+    </div>
+
+    <!-- Grafico de metas -->
+    <div class="container-graphic">
+      <div class="graphic" id="container"></div>
+      <div class="graphic graphic-second">
+        <div class="clientes">
+          <h4>Clientes</h4>
+          <div class="box-coluns-name">
+            <p>Nome</p>
+            <div>
+              <p>VL/Plano</p>
+              <p>VL/Pago</p>
+            </div>
+          </div>
+        </div>
+        <div class="box-list"></div>
+      </div>
+    </div>
+    <!-- Grafico mensal -->
+    <div style="position: relative;">
+      <div class="mensal" id="mensal"></div>
+      <div
+        style="position: absolute; bottom: 10px; right: 20px; z-index: 10; background: rgba(0,0,0,0.5); padding: 5px; border-radius: 5px;">
+        <label for="selectAnoBase" style="font-size: 0.8rem; color: #ccc; margin-right: 5px;">Base:</label>
+        <select id="selectAnoBase"
+          style="background: transparent; color: #fff; border: 1px solid #555; border-radius: 4px; padding: 2px;">
+          <!-- Anos serão populados via JS -->
+        </select>
+      </div>
+    </div>
+  </section>
+  </section>
+
+  <!-- ========= scripts ============ -->
+  <script src="js/testeApi.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/grafico_mensal.js"></script>
+  <script src="js/grafico_metas.js"></script>
+  <!-- <script src="js/cliente.js"></script> -->
 </body>
+
 </html>

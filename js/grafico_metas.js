@@ -1,68 +1,107 @@
 
-Highcharts.chart('controle-taxas', {
-    
-    chart: {
-        type: 'area'
-    },
-    accessibility: {
-        description: ''
-    },
-    title: {
-        text: 'Relação de taxas'
-    },
-    subtitle: {
-        text: 'Planilha: <a href="https://docs.google.com/spreadsheets/d/10pWYp5zYH9KTFRKtPQAxlubIpvKPyH8C5sossrJZ_I0/edit?gid=1461853183#gid=1461853183" ' +
-        'target="_blank">StarLink</a>'
-    },
-    xAxis: {
-        allowDecimals: false,
-        accessibility: {
-            rangeDescription: 'Range: 1940 to 2024.'
-        }
-    },
-    yAxis: {
-        borderRadius: 100,
-        title: {
-            text: 'Nuclear weapon states'
-        }
-    },
-    tooltip: {
-        backgroundColor: '#3a3a3b', // Cor de fundo do tooltip (claro)
-        borderColor: '#ddd', // Cor da borda do tooltip
-        style: {
-            color: '#d6d6d6', // Cor do texto no tooltip (escuro)
-        },
-        pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>' +
-        'warheads in {point.x}'
-    },
-    plotOptions: {
-        area: {
-            pointStart: 1940,
-            marker: {
-                enabled: false,
-                symbol: 'circle',
-                radius: 2,
-                states: {
-                    hover: {
-                        enabled: true
-                    }
-                }
+// Função para renderizar o gráfico de Relação de Taxas
+function renderFeesChart(payments) {
+    if (!payments || payments.length === 0) {
+        console.log("Sem dados para o gráfico de taxas.");
+        return;
+    }
+
+    // Prepara os dados
+    const categories = [];
+    const seriesData = [];
+
+    // Variáveis para somatórios
+    let totalGanho = 0;
+    let totalPerda = 0;
+
+    payments.forEach(item => {
+        // item.value = Valor do Plano (String "100.00")
+        // item.value_paid = Valor Pago (String "105.00")
+
+        const valorPlano = parseFloat(item.value) || 0;
+        const valorPago = parseFloat(item.value_paid) || 0;
+        const diferenca = valorPago - valorPlano;
+
+        // Soma nos totais
+        if (diferenca > 0) totalGanho += diferenca;
+        if (diferenca < 0) totalPerda += diferenca; // Diferença já é negativa, somar vai diminuir
+
+        // Adiciona apenas se houver diferença relevante (opcional, aqui mostra tudo)
+        categories.push(item.name.split(' ')[0]); // Pega só o primeiro nome para não poluir
+
+        // Define a cor: Dourado se > 0 (Lucro), Azul Escuro se < 0 (Perda/Desconto)
+        // Se for 0, fica cinza neutro
+        let color = '#666';
+        if (diferenca > 0) color = '#b8b08d'; // Dourado
+        if (diferenca < 0) color = '#283845'; // Azul Escuro
+
+        seriesData.push({
+            y: parseFloat(diferenca.toFixed(2)),
+            color: color,
+            // Dados extras para o tooltip
+            custom: {
+                plano: valorPlano,
+                pago: valorPago
             }
-        }
-    },
-    series: [{
-        name: 'USA',
-        color: "#202c39",
-        data: [
-            null, null, null, null, null, 2, 9, 13, 50, 170, 299, 438, 841,
-            1169, 1703, 2422, 3692, 5543, 7345, 12298, 18638, 22229, 25540,
-            28133, 29463, 31139, 31175, 31255, 29561, 27552, 26008, 25830,
-            26516, 27835, 28537, 27519, 25914, 25542, 24418, 24138, 24104,
-            23208, 22886, 23305, 23459, 23368, 23317, 23575, 23205, 22217,
-            21392, 19008, 13708, 11511, 10979, 10904, 11011, 10903, 10732,
-            10685, 10577, 10526, 10457, 10027, 8570, 8360, 7853, 5709, 5273,
-            5113, 5066, 4897, 4881, 4804, 4717, 4571, 4018, 3822, 3785, 3805,
-            3750, 3708, 3708, 3708, 3708
-        ]
-    }, ]
-});
+        });
+    });
+
+    // Atualiza os elementos HTML com os totais (Restaurado)
+    const elTotalGanho = document.getElementById('total-ganho');
+    const elTotalPerda = document.getElementById('total-perda');
+
+    if (elTotalGanho) elTotalGanho.innerText = `R$ ${totalGanho.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+    if (elTotalPerda) elTotalPerda.innerText = `R$ ${Math.abs(totalPerda).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+
+    Highcharts.chart('controle-taxas', {
+        chart: {
+            type: 'column', // Gráfico de Colunas para mostrar positivo/negativo
+            backgroundColor: 'transparent'
+        },
+        title: {
+            text: '' // Título removido conforme solicitado
+        },
+        credits: { enabled: false }, // Remove crédito do Highcharts
+        xAxis: {
+            categories: categories,
+            labels: {
+                style: { color: '#ccc' }
+            },
+            lineColor: '#555'
+        },
+        yAxis: {
+            title: { text: '' },
+            labels: {
+                style: { color: '#ccc' },
+                format: 'R$ {value}'
+            },
+            gridLineColor: '#444'
+        },
+        legend: { enabled: false }, // Legenda desnecessária pois as cores explicam
+        tooltip: {
+            shared: false,
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            style: { color: '#fff' },
+            formatter: function () {
+                const p = this.point;
+                const diff = p.y;
+                const labelStatus = diff >= 0 ? "Ganho" : "Perda";
+                return `<b>${this.x}</b><br/>` +
+                    `Plano: R$ ${p.custom.plano.toFixed(2)}<br/>` +
+                    `Pago: R$ ${p.custom.pago.toFixed(2)}<br/>` +
+                    `<hr/>` +
+                    `<b>Taxa(${labelStatus}): R$ ${diff.toFixed(2)}</b>`;
+            }
+        },
+        plotOptions: {
+            column: {
+                borderRadius: 4,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Taxa',
+            data: seriesData
+        }]
+    });
+}

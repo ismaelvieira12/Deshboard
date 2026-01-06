@@ -15,7 +15,7 @@ async function getAuthToken() {
     });
 
     const data = await response.json();
-    
+
     if (response.ok) {
         const token = data.api_token
         getTotalClients(token)
@@ -87,27 +87,40 @@ function separateDataByYearAndSituation(dataList) {
 
     return dataByYear;
 }
-    
+
 async function main() {
     try {
         const allData = await fetchAllPages(); // Busca todos os dados
         const filteredData = separateDataByYearAndSituation(allData); // Separa por ano e filtra por situation: 3
-        // Exibe os dados de cada ano
-        console.log("Dados de 2022 com situation 3:", filteredData["2022"]);
-        console.log("Dados de 2023 com situation 3:", filteredData["2023"]);
-        console.log("Dados de 2024 com situation 3:", filteredData["2024"]);
-        console.log("Dados de 2025 com situation 3:", filteredData["2025"]);
-        
-        
-        // Filtra os dados do ano 2025 mantendo apenas os campos desejados
-        const dadosFiltrados2025 = filtrarDados(filteredData["2025"] || []);
+
+        // Obtém o ano atual dinamicamente
+        const currentYear = new Date().getFullYear().toString();
+
+        // Define os anos a serem exibidos (todos os anos que retornaram da API)
+        // filteredData é um objeto onde as chaves são os strings dos anos (ex: "2023", "2024")
+        const yearsToDisplay = Object.keys(filteredData).sort((a, b) => parseInt(a) - parseInt(b));
+
+        // Se o ano atual não estiver nos dados (ainda não começou?), adiciona manualmente para garantir
+        if (!yearsToDisplay.includes(currentYear)) {
+            yearsToDisplay.push(currentYear);
+        }
+
+        // Exibe os dados de cada ano para debug
+        yearsToDisplay.forEach(year => {
+            if (filteredData[year]) {
+                console.log(`Dados de ${year} com situation 3:`, filteredData[year]);
+            }
+        });
+
+        // Filtra os dados do ano ATUAL mantendo apenas os campos desejados
+        const dadosFiltradosAnoAtual = filtrarDados(filteredData[currentYear] || []);
 
         // Exibe o resultado no console
-        console.log("Dados filtrados para 2025:", dadosFiltrados2025);
-        
+        console.log(`Dados filtrados para ${currentYear}:`, dadosFiltradosAnoAtual);
+
         // Popula os dados no HTML
-        popularDados(dadosFiltrados2025);
-        
+        popularDados(dadosFiltradosAnoAtual);
+
         // Função para calcular totais mensais
         const calculateMonthlyTotals = (data) => {
             const monthlyTotals = {};
@@ -121,35 +134,39 @@ async function main() {
             });
             return monthlyTotals;
         };
-        
+
         // Função para calcular total anual
         const calculateAnnualTotal = (data) => {
             return data.reduce((accumulator, item) => {
                 return accumulator + parseFloat(item.value_paid);
             }, 0).toFixed(2);
         };
-        
+
         // Calcula totais por ano e mês
-        const totals = [];
-        for (const year of ["2022", "2023", "2024", "2025"]) {
+        const totals = {};
+        for (const year of yearsToDisplay) {
             const data = filteredData[year] || [];
             totals[year] = {
                 annualTotal: calculateAnnualTotal(data),
                 monthlyTotals: calculateMonthlyTotals(data),
             };
         }
-        rest(totals)
-       
+        rest(totals, yearsToDisplay)
+
     } catch (error) {
         console.error('Erro no processo principal:', error.message);
         const container = document.querySelector('#container');
         const mensal = document.querySelector('#mensal');
-        mensal.style.backgroundColor="#cf5959b7";
-        mensal.classList.add('container-anual');
-        mensal.innerHTML="<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
-        container.style.backgroundColor="#cf5959b7";
-        container.classList.add('container-anual');
-        container.innerHTML="<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
+        if (mensal) {
+            mensal.style.backgroundColor = "#cf5959b7";
+            mensal.classList.add('container-anual');
+            mensal.innerHTML = "<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
+        }
+        if (container) {
+            container.style.backgroundColor = "#cf5959b7";
+            container.classList.add('container-anual');
+            container.innerHTML = "<h3>Usuário bloqueado temporariamente, aguarde alguns segundos</h3>";
+        }
     }
 }
 
@@ -158,22 +175,23 @@ main();
 
 
 
-function rest(totals){
+function rest(totals, yearsToDisplay) {
     const anual = document.querySelector('#totalAnual');
-    anos =[
-        'Ano2022',
-        'Ano2023',
-        'Ano2024',
-        'Ano2025',
-    ],
-    valorano = [
-        parseFloat(totals['2022'].annualTotal),
-        parseFloat(totals['2023'].annualTotal),
-        parseFloat(totals['2024'].annualTotal),
-        parseFloat(totals['2025'].annualTotal),
-    ];
-    
-    colors = ['#f29559','#202c39', '#b8b08d', '#283845']; // Defina as cores para cada ano
+
+    // Configura os anos para o gráfico dinamicamente
+    const anos = yearsToDisplay.map(year => `Ano${year}`);
+
+    // Mapeia valores garantindo que todos os anos na lista yearsToDisplay tenham valor (ou 0)
+    const valorano = yearsToDisplay.map(year => {
+        if (totals[year]) {
+            return parseFloat(totals[year].annualTotal) || 0;
+        }
+        return 0;
+    });
+
+    const baseColors = ['#f29559', '#202c39', '#b8b08d', '#283845']; // Defina as cores para cada ano
+    const colors = yearsToDisplay.map((_, index) => baseColors[index % baseColors.length]);
+
     Highcharts.chart('container', {
         legend: {
             itemStyle: {
@@ -201,7 +219,7 @@ function rest(totals){
         },
         xAxis: [{
             crosshair: true,
-            categories: anos.map(item => item),
+            categories: anos,
         }],
         yAxis: [{
             title: {
@@ -214,7 +232,7 @@ function rest(totals){
             minPadding: 10,
             maxPadding: 0,
             max: 100,
-            
+
             opposite: true,
         }],
         series: [{
@@ -224,7 +242,7 @@ function rest(totals){
             zIndex: 10,
             baseSeries: 1,
             color: '#202c39',
-            tooltip:{
+            tooltip: {
                 valueDecimals: 2,
                 valueSuffix: '%',
             },
@@ -238,11 +256,11 @@ function rest(totals){
                 y: item,
                 color: colors[index] // Define cores diferentes para cada barra
             })),
-           
+
         }],
     });
-   
-    
+
+
     // Somando os valores de forma dinâmica
     const totalAnual = valorano.reduce((acc, value) => acc + value, 0);
 
@@ -251,9 +269,11 @@ function rest(totals){
 
 
     // Exibindo o resultado no elemento anual
-    anual.innerText = totalAnualFormatado;
+    if (anual) anual.innerText = totalAnualFormatado;
 
-   mensal(totals);
+    if (typeof mensal === 'function') {
+        mensal(totals);
+    }
 }
 
 
@@ -297,33 +317,38 @@ const container = document.querySelector(".box-list");
 function popularDados(dados) {
     console.log('Pagamentos do mês:', dados);
     container.innerHTML = ""; // Limpa antes de adicionar novos elementos
-    
+
     if (dados.length === 0) {
         container.innerHTML = "<p>Nenhum pagamento registrado para este mês.</p>";
         return;
     }
-    
+
     dados.forEach(item => {
         const div = document.createElement("div");
         div.classList.add("list");
-        
+
         const nameSpan = document.createElement("span");
         nameSpan.classList.add("name");
         nameSpan.textContent = item.name;
-        
+
         const valueSpan = document.createElement("span");
         valueSpan.classList.add("value");
         valueSpan.textContent = `R$ ${item.value}`;
-        
+
         const valuePaidSpan = document.createElement("span");
         valuePaidSpan.classList.add("value_paid");
         valuePaidSpan.textContent = `R$ ${item.value_paid}`;
-        
+
         div.appendChild(nameSpan);
         div.appendChild(valueSpan);
         div.appendChild(valuePaidSpan);
         container.appendChild(div);
     });
+
+    // ATUALIZAÇÃO: Chama a função para renderizar o gráfico de taxas com esses mesmos dados
+    if (typeof renderFeesChart === 'function') {
+        renderFeesChart(dados);
+    }
 }
 
 
@@ -365,52 +390,52 @@ async function getTotalClients(token) {
 
 }
 
-function graficMetas(totalCliente){
+function graficMetas(totalCliente) {
     const faltaMeta = 100 - totalCliente.active;
     document.getElementById('meta').innerText = `${faltaMeta}`
     const metas = document.querySelector('#metas');
     document.getElementById('all').innerText = `${totalCliente.all}`;
-    
+
     new Chart(metas, {
         type: 'pie',
         data: {
             labels: ['Ativados', 'Desativados'],
             datasets: [{
-            label: 'Clientes',
-            data:[totalCliente.active, totalCliente.disable],
-            backgroundColor: [
-                '#283845', 
-                '#b8b08d',
-            ],
+                label: 'Clientes',
+                data: [totalCliente.active, totalCliente.disable],
+                backgroundColor: [
+                    '#283845',
+                    '#b8b08d',
+                ],
             }],
         },
         options: {
             responsive: true,
             plugins: {
-            legend: {
-                position: 'top',
-                align:'center',
-                labels:{
-                usePointStyle: true,
-                textAlign: 'center',
-                useBorderRadius: true
-                }
-            },
-            title: {
-                display: true,
-                text: 'Metas',
-                font: {
-                size:20,
+                legend: {
+                    position: 'top',
+                    align: 'center',
+                    labels: {
+                        usePointStyle: true,
+                        textAlign: 'center',
+                        useBorderRadius: true
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Metas',
+                    font: {
+                        size: 20,
+                    },
                 },
             },
-            },
             layout: {
-            padding: {
-                left: 30
-            },
+                padding: {
+                    left: 30
+                },
             },
         },
-    
+
     });
 }
 
